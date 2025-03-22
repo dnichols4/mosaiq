@@ -5,6 +5,7 @@ import { registerIpcHandlers } from './ipc';
 let mainWindow: BrowserWindow | null = null;
 
 function createWindow() {
+  console.log('Creating window...');
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,

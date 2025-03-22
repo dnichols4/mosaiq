@@ -2,7 +2,7 @@
   "name": "mosaiq",
   "version": "0.1.0",
   "description": "Personal Knowledge Management Application",
-  "main": "dist/main/main.js",
+  "main": "./dist/main/main.js",
   "scripts": {
     "clean": "node clean.js",
     "start": "electron .",
