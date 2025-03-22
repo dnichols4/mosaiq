@@ -1,0 +1,77 @@
+import React, { useState } from 'react';
+import ContentViewer from './ContentViewer';
+import { UrlMetadata } from '../store/urlStore';
+
+interface UrlListProps {
+  urls: UrlMetadata[];
+}
+
+const UrlList: React.FC<UrlListProps> = ({ urls }) => {
+  if (urls.length === 0) {
+    return (
+      <div style={{ 
+        backgroundColor: '#fff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        textAlign: 'center'
+      }}>
+        <p>No saved URLs yet. Add your first one above!</p>
+      </div>
+    );
+  }
+
+  const [selectedUrlId, setSelectedUrlId] = useState<string | null>(null);
+  
+  const handleViewContent = (id: string) => {
+    setSelectedUrlId(id);
+  };
+  
+  const handleCloseViewer = () => {
+    setSelectedUrlId(null);
+  };
+  
+  return (
+    <div>
+      <h2>Saved Resources</h2>
+      <div style={{ display: 'grid', gap: '20px' }}>
+        {urls.map((url) => (
+          <div
+            key={url.id}
+            style={{
+              backgroundColor: '#fff',
+              padding: '20px',
+              borderRadius: '8px',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              cursor: 'pointer'
+            }}
+            onClick={() => handleViewContent(url.id)}
+          >
+            <h3 style={{ margin: '0 0 10px 0' }}>{url.title}</h3>
+            <p style={{ color: '#666', margin: '0 0 10px 0' }}>{url.excerpt}</p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <a
+                href={url.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#4a6cf7', textDecoration: 'none' }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {url.url}
+              </a>
+              <span style={{ color: '#999', fontSize: '0.9em' }}>
+                {new Date(url.dateAdded).toLocaleDateString()}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {selectedUrlId && (
+        <ContentViewer urlId={selectedUrlId} onClose={handleCloseViewer} />
+      )}
+    </div>
+  );
+};
+
+export default UrlList;
