@@ -1,5 +1,14 @@
 # Mosaiq Project Status
 
+## Document Version History
+
+| Version | Date       | Author | Changes                           |
+|---------|------------|--------|-----------------------------------|
+| 0.1     | 2025-03-21 | Claude | Initial project status document   |
+| 0.2     | 2025-03-21 | Claude | Added reader mode improvement plan |
+
+
+
 ## Current Implementation
 
 ### Project Overview
