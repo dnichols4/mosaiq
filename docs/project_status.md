@@ -171,23 +171,26 @@ We implemented significant improvements to content extraction and presentation:
 ## Next Steps
 
 Now that the reader mode has been successfully implemented, the following features can be pursued:
-
-1. **Annotation System**
-   - Implement text highlighting
-   - Add margin notes capability
-   - Create annotation storage and retrieval
+1. **Fix Article Display**
+   - The article view currently looks like a modal that only takes up a small portion of the screen.  This needs to be update so that it is full width and adaptive to the users' app width
 
 2. **Content Organization**
+   - Implement the ability for users to remove saved articles from the list
    - Implement tagging functionality
    - Add folders/collections for organization
    - Create a search system
 
-3. **Knowledge Graph**
+3. **Annotation System**
+   - Implement text highlighting
+   - Add margin notes capability
+   - Create annotation storage and retrieval
+
+4. **Knowledge Graph**
    - Implement concept extraction
    - Build relationship discovery between content
    - Create visualization of knowledge connections
 
-4. **UI/UX Improvements**
+5. **UI/UX Improvements**
    - Add keyboard shortcuts
    - Implement drag & drop for content
    - Enhance overall application design
