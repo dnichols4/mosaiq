@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// No need to import electron anymore
+import { ReadingSettings } from '../../data/urlStorage';
+import ArticleViewer from './ArticleViewer';
+import '../styles/readerMode.css';
+import '../types/api';
 
 interface ContentViewerProps {
   urlId: string | null;
@@ -10,14 +13,44 @@ interface UrlContent {
   id: string;
   url: string;
   title: string;
+  author?: string;
+  publishDate?: string;
+  featuredImage?: string;
+  excerpt: string;
   content: string;
   dateAdded: string;
+  tags?: string[];
 }
 
 const ContentViewer: React.FC<ContentViewerProps> = ({ urlId, onClose }) => {
   const [content, setContent] = useState<UrlContent | null>(null);
+  
+  // Initialize settings state using local defaults
+  // We'll fetch the actual settings via IPC
+  const [settings, setSettings] = useState<ReadingSettings>({
+    fontSize: '18px',
+    lineHeight: '1.6',
+    theme: 'light',
+    width: '680px'
+  });
+  
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Load settings from main process when component mounts
+  useEffect(() => {
+    const loadSettings = async () => {
+      try {
+        const storedSettings = await window.api.getReadingSettings();
+        setSettings(storedSettings);
+      } catch (err) {
+        console.error('Error loading reading settings:', err);
+        // Continue with defaults if there's an error
+      }
+    };
+    
+    loadSettings();
+  }, []);
 
   useEffect(() => {
     if (!urlId) return;
@@ -77,52 +110,31 @@ const ContentViewer: React.FC<ContentViewerProps> = ({ urlId, onClose }) => {
     );
   }
 
+  const handleSettingsChange = async (newSettings: Partial<ReadingSettings>) => {
+    try {
+      // Update settings through IPC
+      const updatedSettings = await window.api.updateReadingSettings(newSettings);
+      setSettings(updatedSettings);
+    } catch (err) {
+      console.error('Error updating settings:', err);
+      // Apply changes locally even if save fails
+      setSettings({...settings, ...newSettings});
+    }
+  };
+  
   return (
-    <div className="content-viewer" style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'white',
-      zIndex: 1000,
-      display: 'flex',
-      flexDirection: 'column',
-      overflow: 'hidden'
-    }}>
-      <div className="content-viewer-header" style={{
-        padding: '15px 20px',
-        borderBottom: '1px solid #eaeaea',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}>
-        <div>
-          <h2 style={{ margin: 0 }}>{content.title}</h2>
-          <a href={content.url} target="_blank" rel="noopener noreferrer" style={{
-            color: '#4a6cf7',
-            textDecoration: 'none'
-          }}>
-            {content.url}
-          </a>
-        </div>
-        <button onClick={onClose} style={{
-          padding: '8px 16px',
-          backgroundColor: '#f0f0f0',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}>
-          Close
+    <div className={`content-viewer-container ${settings.theme === 'dark' ? 'dark' : ''}`}>
+      <div className="content-viewer-header">
+        <button onClick={onClose} className="back-button">
+          ← Close
         </button>
       </div>
-      <div className="content-viewer-body" style={{
-        flex: 1,
-        padding: '20px',
-        overflowY: 'auto',
-        lineHeight: 1.6
-      }}>
-        <div dangerouslySetInnerHTML={{ __html: content.content }} />
+      <div className="content-viewer-body">
+        <ArticleViewer 
+          article={content} 
+          settings={settings}
+          onSettingsChange={handleSettingsChange}
+        />
       </div>
     </div>
   );

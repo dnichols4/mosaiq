@@ -1,23 +1,8 @@
 import { create } from 'zustand';
-// Define API types for TypeScript
-declare global {
-  interface Window {
-    api: {
-      saveUrl: (url: string) => Promise<UrlMetadata>;
-      getAllUrls: () => Promise<UrlMetadata[]>;
-      getUrlContent: (id: string) => Promise<any>;
-    };
-  }
-}
+import { UrlMetadata } from '../types/api';
 
-// Define the URL metadata structure (without content)
-export interface UrlMetadata {
-  id: string;
-  url: string;
-  title: string;
-  excerpt: string;
-  dateAdded: string;
-}
+// Import shared types
+import '../types/api';
 
 interface UrlState {
   urls: UrlMetadata[];

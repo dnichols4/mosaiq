@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import { saveUrl, getAllUrls, getUrlWithContent } from '../data/urlStorage';
+import { saveUrl, getAllUrls, getUrlWithContent, getReadingSettings, updateReadingSettings, ReadingSettings } from '../data/urlStorage';
 import { fetchAndProcessUrl } from '../content/contentProcessor';
 
 export function registerIpcHandlers() {
@@ -46,6 +46,26 @@ export function registerIpcHandlers() {
       return urlWithContent;
     } catch (error) {
       console.error(`Error getting URL content for ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
+  // Handle getting reading settings
+  ipcMain.handle('get-reading-settings', () => {
+    try {
+      return getReadingSettings();
+    } catch (error) {
+      console.error('Error getting reading settings:', error);
+      throw error;
+    }
+  });
+  
+  // Handle updating reading settings
+  ipcMain.handle('update-reading-settings', (_, settings: Partial<ReadingSettings>) => {
+    try {
+      return updateReadingSettings(settings);
+    } catch (error) {
+      console.error('Error updating reading settings:', error);
       throw error;
     }
   });

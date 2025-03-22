@@ -6,8 +6,7 @@
 |---------|------------|--------|-----------------------------------|
 | 0.1     | 2025-03-21 | Claude | Initial project status document   |
 | 0.2     | 2025-03-21 | Claude | Added reader mode improvement plan |
-
-
+| 0.3     | 2025-03-22 | Claude | Updated with reader mode implementation |
 
 ## Current Implementation
 
@@ -17,21 +16,23 @@ Mosaiq is a personal knowledge management application with a local-first archite
 ### Technology Stack
 - **Frontend**: Electron + React
 - **State Management**: Zustand
-- **Content Processing**: Cheerio
+- **Content Processing**: Cheerio, Mozilla's Readability
 - **Storage**: Electron-store + filesystem
 
 ### Architecture
 The project follows a layered architecture:
 - **UI Layer**: React components
 - **Application Logic Layer**: State management with Zustand
-- **Content Processing Layer**: HTML parsing and cleanup
+- **Content Processing Layer**: HTML parsing and cleanup with Readability
 - **Data Management Layer**: Local storage using Electron-store and filesystem
 
 ### Current Features
-- URL saving with basic content extraction
+- URL saving with enhanced content extraction
 - Simple list view of saved resources
-- Content viewing capability
+- Reader mode content viewing with customization
 - Local-first storage of content and metadata
+- Dark/light mode support
+- Typography controls (font size, line spacing, width)
 
 ### Project Structure
 ```
@@ -46,11 +47,21 @@ mosaiq/
 │   ├── renderer/       # React UI components
 │   │   ├── components/ # UI components
 │   │   │   ├── AddUrlForm.tsx
+│   │   │   ├── ArticleHeader.tsx
+│   │   │   ├── ArticleViewer.tsx
 │   │   │   ├── ContentViewer.tsx
+│   │   │   ├── ReadingControls.tsx
 │   │   │   └── UrlList.tsx
 │   │   │
 │   │   ├── store/      # State management
+│   │   │   ├── settingsStore.ts
 │   │   │   └── urlStore.ts
+│   │   │
+│   │   ├── types/      # TypeScript types
+│   │   │   └── api.ts
+│   │   │
+│   │   ├── styles/     # CSS styles
+│   │   │   └── readerMode.css
 │   │   │
 │   │   ├── App.tsx     # Main React component
 │   │   ├── index.html  # HTML template
@@ -80,251 +91,103 @@ mosaiq/
 - Production build process
 
 ### Current Limitations
-- Basic content extraction with poor readability
-- Minimal styling of saved content
-- No annotation capabilities
+- No annotation capabilities yet
 - No tagging or search functionality
+- No content relationship discovery
 
-## Planned Improvements
+## Implemented Reader Mode Improvements
 
 ### Content Parsing Enhancements
 
-#### Better Content Extraction
-- Replace simple DOM selection with readability algorithm
-- Implement proper heuristics for main content identification
-- Filter out navigation, sidebars, comments, ads, and other non-content elements
-- Add specific handling for common site formats
+We implemented significant improvements to content extraction and presentation:
 
-#### Content Cleanup
-- Remove extraneous divs, spans with no semantic value
-- Preserve important semantic HTML (headings, lists, blockquotes)
-- Handle image elements properly (preserve but make responsive)
-- Sanitize HTML to prevent XSS issues
-- Normalize Unicode characters
+1. **Mozilla Readability Integration**
+   - Added Mozilla's Readability library to extract main content
+   - Implemented JSDOM for DOM manipulation in Node.js environment
+   - Added heuristics for better identification of article content
 
-#### Metadata Extraction
-- Better title extraction (article title vs. page title)
-- Extract author information when available
-- Extract published date when available
-- Grab featured image if present
-- Extract categories/tags when available
+2. **Metadata Extraction**
+   - Added extraction of author information
+   - Added extraction of publication date
+   - Implemented featured image detection
+   - Normalized metadata across different page structures
 
-### Reader Mode Display Improvements
+3. **Content Processing Pipeline**
+   - Implemented link absolutization to fix relative URLs
+   - Added target="_blank" for external links
+   - Created image processing to ensure proper display
+   - Enhanced excerpt generation
 
-#### Typography Enhancements
-- Readable font size and line height (18px/1.6)
-- Optimal line length (65-75 characters per line)
-- Proper paragraph spacing
-- Hierarchical heading styles
-- Font family selection for better readability
+### Reader Mode Display
 
-#### Layout & UI Improvements
-- Clean, distraction-free reading container
-- Proper image handling (responsive, centered)
-- Article metadata display (author, date, source)
-- Reading progress indicator
-- Proper code block formatting
-- Better handling of tables
+1. **Typography Enhancements**
+   - Implemented clean, readable typography system
+   - Created proper heading hierarchy styles
+   - Added responsive layout with optimal line length
+   - Enhanced paragraph and block element spacing
 
-#### Reading Experience Features
-- Light/dark mode toggle
-- Font size adjustment controls
-- Text justification options
-- Line spacing adjustment
-- Margin width adjustment
+2. **Reader UI Components**
+   - Created ArticleViewer component for content display
+   - Implemented ArticleHeader for metadata presentation
+   - Built ReadingControls panel for customization
+   - Added comprehensive dark/light mode support
 
-### Implementation Details
+3. **Reading Settings**
+   - Implemented font size adjustment
+   - Added line height controls
+   - Created content width adjustment
+   - Built theme switching (dark/light modes)
+   - Added persistent settings storage
 
-#### Content Processing Updates
-1. Integrate readability library:
-   - Mozilla's Readability.js (used in Firefox)
-   - Or Postlight's Parser
-   - Remove current simplistic DOM selection
+### Architecture Improvements
 
-2. Enhanced HTML processing:
-   - Normalize heading structure
-   - Process images for local caching
-   - Handle relative URL conversion to absolute
-   - Add proper sanitization step
+1. **Data Model Updates**
+   - Enhanced UrlData interface with metadata fields
+   - Added Reading Settings model for preferences
+   - Created TypeScript type definitions
 
-#### UI Component Updates
-1. Create a dedicated article view component:
-   ```tsx
-   // ArticleViewer.tsx
-   import React from 'react';
-   
-   interface ArticleViewerProps {
-     content: {
-       title: string;
-       author?: string;
-       date?: string;
-       featuredImage?: string;
-       content: string;
-     };
-     settings: {
-       fontSize: string;
-       lineHeight: string;
-       theme: 'light' | 'dark';
-       width: string;
-     };
-     onSettingsChange: (settings: any) => void;
-   }
-   
-   const ArticleViewer: React.FC<ArticleViewerProps> = ({
-     content,
-     settings,
-     onSettingsChange,
-   }) => {
-     // Component implementation
-   };
-   ```
+2. **IPC Communication**
+   - Updated IPC handlers for reading settings
+   - Implemented secure communication through preload bridge
+   - Added proper error handling
 
-2. Create article header component:
-   ```tsx
-   // ArticleHeader.tsx
-   import React from 'react';
-   
-   interface ArticleHeaderProps {
-     title: string;
-     url: string;
-     author?: string;
-     date?: string;
-     featuredImage?: string;
-   }
-   
-   const ArticleHeader: React.FC<ArticleHeaderProps> = ({
-     title,
-     url,
-     author,
-     date,
-     featuredImage,
-   }) => {
-     // Component implementation
-   };
-   ```
+3. **State Management**
+   - Created settingsStore for reading preferences
+   - Updated urlStore with enhanced metadata
+   - Implemented context isolation compliance for Electron
 
-3. Create reading control panel:
-   ```tsx
-   // ReadingControls.tsx
-   import React from 'react';
-   
-   interface ReadingControlsProps {
-     settings: {
-       fontSize: string;
-       lineHeight: string;
-       theme: 'light' | 'dark';
-       width: string;
-     };
-     onSettingsChange: (settings: any) => void;
-   }
-   
-   const ReadingControls: React.FC<ReadingControlsProps> = ({
-     settings,
-     onSettingsChange,
-   }) => {
-     // Component implementation
-   };
-   ```
+### Security Considerations
 
-#### CSS Styling Updates
-Create dedicated reader mode CSS with variables for customization:
+1. **Electron Context Isolation**
+   - Replaced direct fs access with IPC communications
+   - Implemented proper preload bridge pattern
+   - Added fallback mechanisms for graceful error handling
 
-```css
-.reader-view {
-  --reader-bg: #ffffff;
-  --reader-text: #333333;
-  --reader-font: 'Merriweather', Georgia, serif;
-  --reader-font-size: 18px;
-  --reader-line-height: 1.6;
-  --reader-width: 680px;
-  
-  background-color: var(--reader-bg);
-  color: var(--reader-text);
-  font-family: var(--reader-font);
-  font-size: var(--reader-font-size);
-  line-height: var(--reader-line-height);
-  margin: 0 auto;
-  max-width: var(--reader-width);
-  padding: 24px;
-}
+2. **Data Handling**
+   - Enhanced content sanitization
+   - Added secure storage for user preferences
+   - Implemented proper error boundaries
 
-.reader-view.dark {
-  --reader-bg: #121212;
-  --reader-text: #e0e0e0;
-}
+## Next Steps
 
-/* Article typography */
-.reader-view h1, 
-.reader-view h2, 
-.reader-view h3, 
-.reader-view h4, 
-.reader-view h5, 
-.reader-view h6 {
-  line-height: 1.3;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
+Now that the reader mode has been successfully implemented, the following features can be pursued:
 
-.reader-view p {
-  margin-bottom: 1em;
-}
+1. **Annotation System**
+   - Implement text highlighting
+   - Add margin notes capability
+   - Create annotation storage and retrieval
 
-.reader-view img {
-  max-width: 100%;
-  height: auto;
-  margin: 1.5em auto;
-  display: block;
-}
+2. **Content Organization**
+   - Implement tagging functionality
+   - Add folders/collections for organization
+   - Create a search system
 
-/* Article metadata */
-.article-metadata {
-  margin-bottom: 2em;
-  font-size: 0.9em;
-  color: #666;
-}
+3. **Knowledge Graph**
+   - Implement concept extraction
+   - Build relationship discovery between content
+   - Create visualization of knowledge connections
 
-/* Reading controls */
-.reading-controls {
-  position: fixed;
-  top: 1em;
-  right: 1em;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  padding: 0.5em;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-```
-
-#### Data Model Updates
-Enhanced URL data structure:
-
-```typescript
-export interface UrlData {
-  id?: string;
-  url: string;
-  title: string;
-  author?: string;
-  publishDate?: string;
-  featuredImage?: string;
-  excerpt: string;
-  content: string;
-  dateAdded: string;
-  tags?: string[];
-}
-```
-
-### Implementation Plan
-1. Integrate Mozilla's Readability or Postlight's Parser
-2. Update content processor to extract enhanced metadata
-3. Create reader mode CSS file
-4. Build article header component for metadata display
-5. Implement reading control UI
-6. Update content viewer component with new functionality
-7. Add settings persistence for reading preferences
-
-## Next Steps After Reader Mode
-1. Implement annotation capabilities
-2. Add tagging functionality
-3. Build search features
-4. Implement content relationships
+4. **UI/UX Improvements**
+   - Add keyboard shortcuts
+   - Implement drag & drop for content
+   - Enhance overall application design

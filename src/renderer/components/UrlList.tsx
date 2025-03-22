@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import ContentViewer from './ContentViewer';
-import { UrlMetadata } from '../store/urlStore';
+import React from 'react';
+import { UrlMetadata } from '../types/api';
+
+// Import shared types
+import '../types/api';
 
 interface UrlListProps {
   urls: UrlMetadata[];
+  onSelectUrl: (id: string) => void;
 }
 
-const UrlList: React.FC<UrlListProps> = ({ urls }) => {
+const UrlList: React.FC<UrlListProps> = ({ urls, onSelectUrl }) => {
   if (urls.length === 0) {
     return (
       <div style={{ 
@@ -21,14 +24,8 @@ const UrlList: React.FC<UrlListProps> = ({ urls }) => {
     );
   }
 
-  const [selectedUrlId, setSelectedUrlId] = useState<string | null>(null);
-  
   const handleViewContent = (id: string) => {
-    setSelectedUrlId(id);
-  };
-  
-  const handleCloseViewer = () => {
-    setSelectedUrlId(null);
+    onSelectUrl(id);
   };
   
   return (
@@ -66,10 +63,6 @@ const UrlList: React.FC<UrlListProps> = ({ urls }) => {
           </div>
         ))}
       </div>
-      
-      {selectedUrlId && (
-        <ContentViewer urlId={selectedUrlId} onClose={handleCloseViewer} />
-      )}
     </div>
   );
 };

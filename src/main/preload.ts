@@ -5,5 +5,7 @@ import { contextBridge, ipcRenderer } from 'electron';
 contextBridge.exposeInMainWorld('api', {
   saveUrl: (url: string) => ipcRenderer.invoke('save-url', url),
   getAllUrls: () => ipcRenderer.invoke('get-all-urls'),
-  getUrlContent: (id: string) => ipcRenderer.invoke('get-url-content', id)
+  getUrlContent: (id: string) => ipcRenderer.invoke('get-url-content', id),
+  getReadingSettings: () => ipcRenderer.invoke('get-reading-settings'),
+  updateReadingSettings: (settings: any) => ipcRenderer.invoke('update-reading-settings', settings)
 });

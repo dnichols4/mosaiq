@@ -2,21 +2,50 @@ import * as fs from 'fs';
 import * as path from 'path';
 import ElectronStore from 'electron-store';
 
-// Define the URL data structure
+// Define the URL data structure with enhanced fields
 export interface UrlData {
   id?: string;
   url: string;
   title: string;
+  author?: string;
+  publishDate?: string;
+  featuredImage?: string;
   excerpt: string;
   content: string;
   dateAdded: string;
+  tags?: string[];
 }
 
-// Create a store for URL metadata
+// Define reading settings
+export interface ReadingSettings {
+  fontSize: string;
+  lineHeight: string;
+  theme: 'light' | 'dark';
+  width: string;
+}
+
+// Define default reading settings
+const defaultSettings: ReadingSettings = {
+  fontSize: '18px',
+  lineHeight: '1.6',
+  theme: 'light',
+  width: '680px'
+};
+
+// Create stores for URL metadata and reading settings
 const metadataStore = new ElectronStore<{
   urls: Record<string, Omit<UrlData, 'content'>>
 }>({
   name: 'url-metadata'
+});
+
+const settingsStore = new ElectronStore<{
+  readingSettings: ReadingSettings
+}>({
+  name: 'reading-settings',
+  defaults: {
+    readingSettings: defaultSettings
+  }
 });
 
 // Storage paths
@@ -76,13 +105,17 @@ export async function saveUrl(urlData: UrlData): Promise<UrlData> {
   // Save the content to file
   await saveContentToFile(id, urlData.content);
   
-  // Save metadata to store
+  // Save metadata to store (omitting content which is stored in the file)
   const metadata = {
     id,
     url: urlData.url,
     title: urlData.title,
+    author: urlData.author,
+    publishDate: urlData.publishDate,
+    featuredImage: urlData.featuredImage,
     excerpt: urlData.excerpt,
-    dateAdded: urlData.dateAdded
+    dateAdded: urlData.dateAdded,
+    tags: urlData.tags || []
   };
   
   const existingUrls = metadataStore.get('urls', {});
@@ -122,4 +155,18 @@ export async function getUrlWithContent(id: string): Promise<UrlData | null> {
     console.error(`Error reading content for URL ${id}:`, error);
     return null;
   }
+}
+
+// Get reading settings
+export function getReadingSettings(): ReadingSettings {
+  return settingsStore.get('readingSettings', defaultSettings);
+}
+
+// Update reading settings
+export function updateReadingSettings(settings: Partial<ReadingSettings>): ReadingSettings {
+  const currentSettings = getReadingSettings();
+  const updatedSettings = { ...currentSettings, ...settings };
+  
+  settingsStore.set('readingSettings', updatedSettings);
+  return updatedSettings;
 }
