@@ -7,6 +7,7 @@
 | 0.1     | 2025-03-21 | Claude | Initial project status document   |
 | 0.2     | 2025-03-21 | Claude | Added reader mode improvement plan |
 | 0.3     | 2025-03-22 | Claude | Updated with reader mode implementation |
+| 0.4     | 2025-03-22 | Claude | Implemented article display fix and content deletion |
 
 ## Current Implementation
 
@@ -168,29 +169,43 @@ We implemented significant improvements to content extraction and presentation:
    - Added secure storage for user preferences
    - Implemented proper error boundaries
 
+## Implemented Article View and Content Organization
+
+### Article Display Improvements
+1. **Full-Width Reading Experience**
+   - Updated ContentViewer component to utilize the full screen width
+   - Modified ArticleViewer component to be responsive and centered
+   - Improved CSS styles for better reading experience on various screen sizes
+   - Enhanced the content-viewer-body to properly center article content
+   - Changed "Close" button to more descriptive "Back to List" text
+
+### Content Organization Features
+1. **Article Removal Capability**
+   - Implemented deleteUrl function in urlStorage module to remove articles and their content files
+   - Added IPC handler for URL deletion
+   - Updated URL store with delete functionality
+   - Added delete button UI with confirmation dialog to each article in the list
+   - Implemented proper state updates after deletion
+
 ## Next Steps
 
-Now that the reader mode has been successfully implemented, the following features can be pursued:
-1. **Fix Article Display**
-   - The article view currently looks like a modal that only takes up a small portion of the screen.  This needs to be update so that it is full width and adaptive to the users' app width
-
-2. **Content Organization**
-   - Implement the ability for users to remove saved articles from the list
+Now that the article display and content organization features have been implemented, the following features can be pursued:
+1. **Content Organization Enhancements**
    - Implement tagging functionality
    - Add folders/collections for organization
    - Create a search system
 
-3. **Annotation System**
+2. **Annotation System**
    - Implement text highlighting
    - Add margin notes capability
    - Create annotation storage and retrieval
 
-4. **Knowledge Graph**
+3. **Knowledge Graph**
    - Implement concept extraction
    - Build relationship discovery between content
    - Create visualization of knowledge connections
 
-5. **UI/UX Improvements**
+4. **UI/UX Improvements**
    - Add keyboard shortcuts
    - Implement drag & drop for content
    - Enhance overall application design
