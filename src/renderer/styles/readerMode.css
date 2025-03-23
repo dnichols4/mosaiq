@@ -267,6 +267,7 @@
   background-color: var(--reader-bg);
   z-index: 1000;
   overflow: hidden;
+  width: 100%;
 }
 
 .content-viewer-header {
@@ -300,4 +301,7 @@
   flex: 1;
   overflow-y: auto;
   padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

@@ -126,7 +126,7 @@ const ContentViewer: React.FC<ContentViewerProps> = ({ urlId, onClose }) => {
     <div className={`content-viewer-container ${settings.theme === 'dark' ? 'dark' : ''}`}>
       <div className="content-viewer-header">
         <button onClick={onClose} className="back-button">
-          ← Close
+          ← Back to List
         </button>
       </div>
       <div className="content-viewer-body">

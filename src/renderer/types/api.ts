@@ -18,6 +18,7 @@ declare global {
       getUrlContent: (id: string) => Promise<any>;
       getReadingSettings: () => Promise<ReadingSettings>;
       updateReadingSettings: (settings: Partial<ReadingSettings>) => Promise<ReadingSettings>;
+      deleteUrl: (id: string) => Promise<void>;
     };
   }
 }

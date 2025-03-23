@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import { saveUrl, getAllUrls, getUrlWithContent, getReadingSettings, updateReadingSettings, ReadingSettings } from '../data/urlStorage';
+import { saveUrl, getAllUrls, getUrlWithContent, getReadingSettings, updateReadingSettings, deleteUrl, ReadingSettings } from '../data/urlStorage';
 import { fetchAndProcessUrl } from '../content/contentProcessor';
 
 export function registerIpcHandlers() {
@@ -66,6 +66,16 @@ export function registerIpcHandlers() {
       return updateReadingSettings(settings);
     } catch (error) {
       console.error('Error updating reading settings:', error);
+      throw error;
+    }
+  });
+  
+  // Handle URL deletion
+  ipcMain.handle('delete-url', async (_, id: string) => {
+    try {
+      await deleteUrl(id);
+    } catch (error) {
+      console.error(`Error deleting URL with ID ${id}:`, error);
       throw error;
     }
   });

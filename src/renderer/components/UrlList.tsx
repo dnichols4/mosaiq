@@ -1,5 +1,6 @@
 import React from 'react';
 import { UrlMetadata } from '../types/api';
+import { useUrlStore } from '../store/urlStore';
 
 // Import shared types
 import '../types/api';
@@ -10,6 +11,8 @@ interface UrlListProps {
 }
 
 const UrlList: React.FC<UrlListProps> = ({ urls, onSelectUrl }) => {
+  const { deleteUrl } = useUrlStore();
+  
   if (urls.length === 0) {
     return (
       <div style={{ 
@@ -28,6 +31,13 @@ const UrlList: React.FC<UrlListProps> = ({ urls, onSelectUrl }) => {
     onSelectUrl(id);
   };
   
+  const handleDelete = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation(); // Prevent triggering onClick of the parent div
+    if (window.confirm('Are you sure you want to delete this resource?')) {
+      deleteUrl(id);
+    }
+  };
+  
   return (
     <div>
       <h2>Saved Resources</h2>
@@ -40,7 +50,8 @@ const UrlList: React.FC<UrlListProps> = ({ urls, onSelectUrl }) => {
               padding: '20px',
               borderRadius: '8px',
               boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              position: 'relative'
             }}
             onClick={() => handleViewContent(url.id)}
           >
@@ -60,6 +71,23 @@ const UrlList: React.FC<UrlListProps> = ({ urls, onSelectUrl }) => {
                 {new Date(url.dateAdded).toLocaleDateString()}
               </span>
             </div>
+            <button 
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                background: 'none',
+                border: 'none',
+                color: '#f44336',
+                cursor: 'pointer',
+                padding: '5px',
+                fontSize: '14px',
+                borderRadius: '4px'
+              }}
+              onClick={(e) => handleDelete(e, url.id)}
+            >
+              ✕
+            </button>
           </div>
         ))}
       </div>

@@ -157,6 +157,27 @@ export async function getUrlWithContent(id: string): Promise<UrlData | null> {
   }
 }
 
+// Delete a URL and its content
+export async function deleteUrl(id: string): Promise<void> {
+  // Remove from metadata store
+  const urlsRecord = metadataStore.get('urls', {});
+  if (urlsRecord[id]) {
+    const { [id]: _, ...remainingUrls } = urlsRecord;
+    metadataStore.set('urls', remainingUrls);
+  }
+  
+  // Delete content file
+  const filePath = path.join(CONTENT_DIR, `${id}.md`);
+  try {
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
+  } catch (error) {
+    console.error(`Error deleting content file for URL ${id}:`, error);
+    // Continue even if file deletion fails
+  }
+}
+
 // Get reading settings
 export function getReadingSettings(): ReadingSettings {
   return settingsStore.get('readingSettings', defaultSettings);

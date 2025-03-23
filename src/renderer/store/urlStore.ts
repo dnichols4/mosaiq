@@ -10,6 +10,7 @@ interface UrlState {
   error: string | null;
   fetchUrls: () => Promise<void>;
   addUrl: (url: string) => Promise<void>;
+  deleteUrl: (id: string) => Promise<void>;
 }
 
 export const useUrlStore = create<UrlState>((set) => ({
@@ -45,6 +46,25 @@ export const useUrlStore = create<UrlState>((set) => ({
       set({ 
         loading: false, 
         error: error instanceof Error ? error.message : 'Failed to save URL' 
+      });
+    }
+  },
+  
+  deleteUrl: async (id: string) => {
+    try {
+      set({ loading: true, error: null });
+      await window.api.deleteUrl(id);
+      
+      // Update the list by filtering out the deleted URL
+      set((state) => ({
+        urls: state.urls.filter(url => url.id !== id),
+        loading: false
+      }));
+    } catch (error) {
+      console.error('Error deleting URL:', error);
+      set({ 
+        loading: false, 
+        error: error instanceof Error ? error.message : 'Failed to delete URL' 
       });
     }
   }

@@ -7,5 +7,6 @@ contextBridge.exposeInMainWorld('api', {
   getAllUrls: () => ipcRenderer.invoke('get-all-urls'),
   getUrlContent: (id: string) => ipcRenderer.invoke('get-url-content', id),
   getReadingSettings: () => ipcRenderer.invoke('get-reading-settings'),
-  updateReadingSettings: (settings: any) => ipcRenderer.invoke('update-reading-settings', settings)
+  updateReadingSettings: (settings: any) => ipcRenderer.invoke('update-reading-settings', settings),
+  deleteUrl: (id: string) => ipcRenderer.invoke('delete-url', id)
 });
