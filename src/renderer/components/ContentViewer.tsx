@@ -31,7 +31,7 @@ const ContentViewer: React.FC<ContentViewerProps> = ({ urlId, onClose }) => {
     fontSize: '18px',
     lineHeight: '1.6',
     theme: 'light',
-    width: '680px'
+    width: '800px'
   });
   
   const [loading, setLoading] = useState(false);
@@ -129,7 +129,7 @@ const ContentViewer: React.FC<ContentViewerProps> = ({ urlId, onClose }) => {
           ← Back to List
         </button>
       </div>
-      <div className="content-viewer-body">
+      <div className="content-viewer-body full-width">
         <ArticleViewer 
           article={content} 
           settings={settings}

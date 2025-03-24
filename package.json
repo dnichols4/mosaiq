@@ -1,7 +1,7 @@
 {
   "name": "mosaiq",
   "version": "0.1.0",
-  "description": "Personal Knowledge Management Application",
+  "description": "Knowledge & Learning Management",
   "main": "./dist/main/main.js",
   "scripts": {
     "clean": "node clean.js",

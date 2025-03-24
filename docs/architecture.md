@@ -1,4 +1,4 @@
-# Personal Knowledge Management Application
+# Knowledge & Learning Management Application
 ## Architecture Document v1.0
 
 ### Revision History
@@ -9,7 +9,7 @@
 
 ### 1. System Overview
 
-A cross-platform desktop application for personal knowledge management focused on content consumption, annotation, and concept relationship discovery. The architecture follows a modular, local-first approach prioritizing user privacy and offline functionality.
+A cross-platform desktop application for Knowledge & Learning Management focused on content consumption, annotation, and concept relationship discovery. The architecture follows a modular, local-first approach prioritizing user privacy and offline functionality.
 
 ### 2. Architectural Approach
 

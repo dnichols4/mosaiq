@@ -28,8 +28,7 @@ const ArticleViewer: React.FC<ArticleViewerProps> = ({
       style={{
         fontSize: settings.fontSize,
         lineHeight: settings.lineHeight,
-        maxWidth: settings.width,
-        width: '100%',
+        width: settings.width,
         margin: '0 auto',
       }}
     >

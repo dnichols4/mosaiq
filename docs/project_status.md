@@ -8,11 +8,12 @@
 | 0.2     | 2025-03-21 | Claude | Added reader mode improvement plan |
 | 0.3     | 2025-03-22 | Claude | Updated with reader mode implementation |
 | 0.4     | 2025-03-22 | Claude | Implemented article display fix and content deletion |
+| 0.5     | 2025-03-22 | Claude | Fixed article view layout for full-width display |
 
 ## Current Implementation
 
 ### Project Overview
-Mosaiq is a personal knowledge management application with a local-first architecture that focuses on content consumption, annotation, and concept relationship discovery.
+Mosaiq is a Knowledge & Learning Management application with a local-first architecture that focuses on content consumption, annotation, and concept relationship discovery.
 
 ### Technology Stack
 - **Frontend**: Electron + React
@@ -178,6 +179,10 @@ We implemented significant improvements to content extraction and presentation:
    - Improved CSS styles for better reading experience on various screen sizes
    - Enhanced the content-viewer-body to properly center article content
    - Changed "Close" button to more descriptive "Back to List" text
+   - Fixed modal-like appearance by replacing fixed positioning with responsive layout
+   - Made article content truly full-width and responsive to screen size
+   - Increased default reading width from 680px to 800px for better readability
+   - Added larger width adjustment increments in reading controls
 
 ### Content Organization Features
 1. **Article Removal Capability**

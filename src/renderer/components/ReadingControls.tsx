@@ -30,7 +30,7 @@ const ReadingControls: React.FC<ReadingControlsProps> = ({
   
   const handleWidthChange = (change: number) => {
     const currentWidth = parseInt(settings.width);
-    const newWidth = Math.max(400, Math.min(1000, currentWidth + change));
+    const newWidth = Math.max(600, Math.min(1400, currentWidth + change));
     onSettingsChange({ width: `${newWidth}px` });
   };
   
@@ -101,7 +101,7 @@ const ReadingControls: React.FC<ReadingControlsProps> = ({
             <div className="width-controls">
               <button 
                 className="control-button" 
-                onClick={() => handleWidthChange(-40)}
+                onClick={() => handleWidthChange(-100)}
                 aria-label="Decrease width"
               >
                 -
@@ -111,7 +111,7 @@ const ReadingControls: React.FC<ReadingControlsProps> = ({
               </span>
               <button 
                 className="control-button" 
-                onClick={() => handleWidthChange(40)}
+                onClick={() => handleWidthChange(100)}
                 aria-label="Increase width"
               >
                 +

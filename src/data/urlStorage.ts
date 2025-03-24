@@ -29,7 +29,7 @@ const defaultSettings: ReadingSettings = {
   fontSize: '18px',
   lineHeight: '1.6',
   theme: 'light',
-  width: '680px'
+  width: '800px'
 };
 
 // Create stores for URL metadata and reading settings

@@ -1,6 +1,6 @@
-# Mosaiq - Personal Knowledge Management
+# Mosaiq - Knowledge & Learning Management
 
-A cross-platform desktop application for personal knowledge management focused on content consumption, annotation, and concept relationship discovery.
+A cross-platform desktop application for Knowledge & Learning Management focused on content consumption, annotation, and concept relationship discovery.
 
 ## Proof of Concept
 

@@ -25,24 +25,30 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
-      <h1>Mosaiq</h1>
-      <p>Personal Knowledge Management</p>
-      
-      <div style={{ marginBottom: '30px' }}>
-        <AddUrlForm />
-      </div>
-      
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p style={{ color: 'red' }}>Error: {error}</p>
-      ) : (
-        <UrlList urls={urls} onSelectUrl={handleSelectUrl} />
+    <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
+      {!selectedUrlId && (
+        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
+          <h1>Mosaiq</h1>
+          <p>Knowledge & Learning Management</p>
+          
+          <div style={{ marginBottom: '30px' }}>
+            <AddUrlForm />
+          </div>
+          
+          {loading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p style={{ color: 'red' }}>Error: {error}</p>
+          ) : (
+            <UrlList urls={urls} onSelectUrl={handleSelectUrl} />
+          )}
+        </div>
       )}
       
       {selectedUrlId && (
-        <ContentViewer urlId={selectedUrlId} onClose={handleCloseContent} />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 100 }}>
+          <ContentViewer urlId={selectedUrlId} onClose={handleCloseContent} />
+        </div>
       )}
     </div>
   );
