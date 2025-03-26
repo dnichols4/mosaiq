@@ -29,9 +29,6 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
     onSettingsChange({ lineHeight: e.target.value });
   };
   
-  const handleThemeChange = (theme: ReadingSettings['theme']) => {
-    onSettingsChange({ theme });
-  };
   
   const handleWidthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     onSettingsChange({ width: e.target.value });
@@ -78,31 +75,6 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
         </select>
       </div>
       
-      <div className="setting-group">
-        <label>
-          Theme
-        </label>
-        <div className="button-group">
-          <button
-            onClick={() => handleThemeChange('light')}
-            className={settings.theme === 'light' ? 'active' : ''}
-          >
-            Light
-          </button>
-          <button
-            onClick={() => handleThemeChange('sepia')}
-            className={settings.theme === 'sepia' ? 'active' : ''}
-          >
-            Sepia
-          </button>
-          <button
-            onClick={() => handleThemeChange('dark')}
-            className={settings.theme === 'dark' ? 'active' : ''}
-          >
-            Dark
-          </button>
-        </div>
-      </div>
       
       <div className="setting-group">
         <label htmlFor="width">

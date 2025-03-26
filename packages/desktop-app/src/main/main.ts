@@ -2,6 +2,10 @@ import { app, BrowserWindow, ipcMain, protocol, session } from 'electron';
 import * as path from 'path';
 import { registerIpcHandlers } from './ipc';
 
+// Configure cache settings to prevent disk cache errors
+app.commandLine.appendSwitch('disable-gpu-shader-disk-cache');
+app.commandLine.appendSwitch('disk-cache-dir', path.join(app.getPath('userData'), 'Cache'));
+
 let mainWindow: BrowserWindow | null = null;
 
 /**

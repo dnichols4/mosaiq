@@ -149,6 +149,33 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
           <h2>General Settings</h2>
           
           <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'block', marginBottom: '8px' }}>Theme</label>
+            <div className="view-selector" style={{ display: 'flex', gap: '8px' }}>
+              <button
+                onClick={() => handleReadingSettingsChange({ theme: 'light' })}
+                className={readingSettings.theme === 'light' ? 'active' : ''}
+                style={{ flex: 1, padding: '8px', borderRadius: '4px', cursor: 'pointer' }}
+              >
+                Light
+              </button>
+              <button
+                onClick={() => handleReadingSettingsChange({ theme: 'sepia' })}
+                className={readingSettings.theme === 'sepia' ? 'active' : ''}
+                style={{ flex: 1, padding: '8px', borderRadius: '4px', cursor: 'pointer' }}
+              >
+                Sepia
+              </button>
+              <button
+                onClick={() => handleReadingSettingsChange({ theme: 'dark' })}
+                className={readingSettings.theme === 'dark' ? 'active' : ''}
+                style={{ flex: 1, padding: '8px', borderRadius: '4px', cursor: 'pointer' }}
+              >
+                Dark
+              </button>
+            </div>
+          </div>
+          
+          <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'block', marginBottom: '8px' }}>Default View</label>
             <div className="view-selector" style={{ display: 'flex', gap: '8px' }}>
               <button
