@@ -1,17 +1,24 @@
 # Knowledge & Learning Management Application
-## Architecture Document v1.0
+## Architecture Document v1.2
 
 ### Revision History
 | Version | Date | Changes | 
 |---------|------|---------|
 | 1.0 | 2025-03-21 | Initial document creation |
 | 1.1 | 2025-03-21 | Added Content Processing section |
+| 1.2 | 2025-03-26 | Updated to reflect current implementation |
 
 ### 1. System Overview
 
 A cross-platform desktop application for Knowledge & Learning Management focused on content consumption, annotation, and concept relationship discovery. The architecture follows a modular, local-first approach prioritizing user privacy and offline functionality.
 
 ### 2. Architectural Approach
+
+The project is organized as a monorepo using npm workspaces with the following packages:
+- common-ui: Shared UI components
+- core: Core business logic
+- desktop-app: Electron desktop application
+- platform-abstractions: Platform abstraction layer
 
 #### 2.1 Core Architecture Pattern
 - Layered architecture with clear separation of concerns
@@ -42,6 +49,7 @@ A cross-platform desktop application for Knowledge & Learning Management focused
 - Local embedding generation
 - Hybrid AI processing (local and optional cloud)
 - Learning path generation
+- Phase 2 implementation planned
 
 ##### 2.2.5 Data Management Layer
 - Local content storage
@@ -58,6 +66,12 @@ A cross-platform desktop application for Knowledge & Learning Management focused
 
 ### 3. Technology Stack
 
+#### 3.0 Package Structure
+- Monorepo with npm workspaces
+- TypeScript configuration with separate tsconfig files per package
+- Webpack for bundling the renderer process
+- Concurrently for running parallel build processes
+
 #### 3.1 Frontend
 - Electron framework for cross-platform desktop app
 - React for UI components
@@ -68,25 +82,27 @@ A cross-platform desktop application for Knowledge & Learning Management focused
 - TypeScript for type safety
 - State management with Zustand
 - Event bus for component communication
+- Electron IPC for main-renderer process communication
 
 #### 3.3 Content Processing
-- HTML/DOM manipulation libraries (e.g., Cheerio, JSDOM)
-- Readability algorithms (similar to Mozilla's Readability)
+- HTML/DOM manipulation libraries (Cheerio, JSDOM)
+- Mozilla's Readability for content extraction
 - Custom text cleaning and formatting pipeline
-- EPUB and PDF parsing libraries
+- EPUB and PDF parsing libraries (in development)
 - Image handling and optimization
 
 #### 3.4 AI Processing
-- Local LLM integration (e.g., Ollama)
-- Optional cloud LLM APIs
-- Transformer.js for local embedding generation
-- Vector operations library for similarity search
+- Local LLM integration (planned)
+- Optional cloud LLM APIs (planned)
+- Vector embeddings for concept relationships (planned)
+- Vector operations library for similarity search (planned)
 
 #### 3.5 Storage
 - Filesystem-based content storage (.md files)
-- SQLite for metadata and relationships
-- Vector storage for embeddings
-- Encrypted storage utilities
+- Electron Store for application settings
+- Local database for metadata (in development)
+- Vector storage for embeddings (planned)
+- Encrypted storage utilities (planned)
 
 ### 4. Key Architectural Decisions
 
@@ -111,6 +127,7 @@ A cross-platform desktop application for Knowledge & Learning Management focused
 - Layered AI approach (local for basic features, cloud for advanced)
 - Progressive enhancement with AI capabilities
 - User-controlled AI feature activation
+- Implementation planned for Phase 2
 
 #### 4.5 Data Graph Representation
 - Concept nodes with relationship edges
@@ -157,10 +174,21 @@ A cross-platform desktop application for Knowledge & Learning Management focused
 
 ### 8. Extensibility Framework
 
+#### 8.0 Current Implementation Status
+The application is currently in active development with the following implementation status:
+- Basic Electron application structure implemented
+- React UI framework with component architecture in place
+- Content reading view partially implemented
+- Local storage mechanism using Electron Store and filesystem
+- Platform abstraction interfaces defined
+- Core services partially implemented
+- AI features and advanced data relationships planned for Phase 2
+
 #### 8.1 Component Extensibility
 - Interface-based component system
 - Plugin architecture (Phase 2)
 - Custom view system
+- Current implementation uses React components with props for customization
 
 #### 8.2 AI Extensibility
 - Modular AI model integration
