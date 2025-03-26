@@ -1,0 +1,18 @@
+{
+  "name": "@mosaiq/platform-abstractions",
+  "version": "0.1.0",
+  "description": "Platform abstraction interfaces for Mosaiq",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.3"
+  }
+}

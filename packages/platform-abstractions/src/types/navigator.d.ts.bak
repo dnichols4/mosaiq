@@ -1,0 +1,7 @@
+interface Navigator {
+  /**
+   * The deviceMemory read-only property returns the approximate amount of device memory in gigabytes.
+   * The value is rounded to the nearest power of 2 and then divided by 1024.
+   */
+  deviceMemory?: number;
+}
