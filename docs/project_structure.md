@@ -1,5 +1,10 @@
 # Mosaiq Project Structure
 
+## Revision History
+| Version | Date | Changes | 
+|---------|------|---------|
+| 1.0 | 2025-03-26 | Initial document creation |
+
 ## Overview
 
 Mosaiq is a cross-platform desktop application for Knowledge & Learning Management focused on content consumption, annotation, and concept relationship discovery. The architecture follows a modular, local-first approach prioritizing user privacy and offline functionality.
