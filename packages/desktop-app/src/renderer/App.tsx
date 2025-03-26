@@ -5,6 +5,8 @@ import { ReaderPage } from './pages/ReaderPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { ReadingSettings } from '@mosaiq/common-ui';
 import { IPlatformCapabilities } from '@mosaiq/platform-abstractions';
+import { ThemeProvider } from './providers/ThemeProvider';
+import './styles/main.css';
 
 // Declare the electron API type
 declare global {
@@ -29,28 +31,38 @@ declare global {
 
 export const App: React.FC = () => {
   const [platformCapabilities, setPlatformCapabilities] = useState<IPlatformCapabilities | null>(null);
+  const [initialTheme, setInitialTheme] = useState<string | null>(null);
   
   useEffect(() => {
-    // Get platform capabilities
-    const fetchPlatformCapabilities = async () => {
+    // Get platform capabilities and theme settings
+    const fetchInitialData = async () => {
       try {
+        // Load platform capabilities
         const capabilities = await window.electronAPI.getPlatformCapabilities();
         setPlatformCapabilities(capabilities);
+        
+        // Load theme settings
+        const settings = await window.electronAPI.getReadingSettings();
+        if (settings && settings.theme) {
+          setInitialTheme(settings.theme);
+        }
       } catch (error) {
-        console.error('Error fetching platform capabilities:', error);
+        console.error('Error fetching initial data:', error);
       }
     };
-    
-    fetchPlatformCapabilities();
+
+    fetchInitialData();
   }, []);
   
   return (
-    <Router>
-      <Routes>
+    <ThemeProvider initialTheme={initialTheme}>
+      <Router>
+        <Routes>
         <Route path="/" element={<HomePage platformCapabilities={platformCapabilities} />} />
         <Route path="/reader/:id" element={<ReaderPage />} />
         <Route path="/settings" element={<SettingsPage platformCapabilities={platformCapabilities} />} />
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };

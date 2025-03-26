@@ -7,6 +7,22 @@
   <title>Mosaiq - Knowledge Management</title>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <div id="initial-loading" style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f5f5f5; color: #333;">
+      <div style="text-align: center;">
+        <h2>Loading Mosaiq...</h2>
+        <p>Please wait while the application initializes</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Try to apply theme from localStorage immediately to avoid flash of white
+    try {
+      const savedTheme = localStorage.getItem('mosaiq-theme') || 'light';
+      document.documentElement.classList.add(`${savedTheme}-theme`);
+    } catch (e) {
+      console.error('Error applying initial theme:', e);
+    }
+  </script>
 </body>
 </html>

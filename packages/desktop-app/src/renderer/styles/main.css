@@ -1,0 +1,70 @@
+/* Import global theme variables */
+@import './theme.css';
+
+/* Force html and body to full dimensions */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Apply theme to basic elements */
+body {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Main app container */
+#root {
+  min-height: 100vh;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+}
+
+/* Basic element styling */
+a {
+  color: var(--link-color);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+input, select, textarea {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--app-text);
+  border-radius: 4px;
+}
+
+/* Card styling */
+.card {
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 8px;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--app-text);
+}
+
+/* Misc UI elements */
+hr {
+  border-color: var(--border-color);
+}
+
+code, pre {
+  background-color: var(--code-bg);
+  color: var(--app-text);
+}

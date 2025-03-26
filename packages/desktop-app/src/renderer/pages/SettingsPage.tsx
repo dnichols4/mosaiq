@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../providers/ThemeProvider';
 import { ReadingSettingsPanel, ReadingSettings } from '@mosaiq/common-ui';
 import { IPlatformCapabilities } from '@mosaiq/platform-abstractions';
+import '../styles/settings.css';
 
 interface SettingsPageProps {
   platformCapabilities: IPlatformCapabilities | null;
@@ -9,6 +11,7 @@ interface SettingsPageProps {
 
 export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities }) => {
   const navigate = useNavigate();
+  const { setTheme } = useTheme();
   
   const [readingSettings, setReadingSettings] = useState<ReadingSettings>({
     fontSize: '18px',
@@ -50,6 +53,11 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
     try {
       const updatedSettings = await window.electronAPI.updateReadingSettings(settings);
       setReadingSettings(updatedSettings);
+      
+      // Update global theme if theme setting changed
+      if (settings.theme) {
+        setTheme(settings.theme);
+      }
     } catch (error) {
       console.error('Error updating reading settings:', error);
     }
@@ -116,8 +124,11 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
     navigate('/');
   };
   
+  // Set class for settings page
+  const settingsPageClass = 'settings-page';
+
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+    <div className={settingsPageClass} style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <h1>Settings</h1>
         <button onClick={goBack} style={{ padding: '8px 16px' }}>
@@ -125,8 +136,8 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
         </button>
       </header>
       
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '32px' }}>
-        <section>
+      <div className="settings-sections" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '32px' }}>
+        <section className="settings-section">
           <h2>Reading Settings</h2>
           <ReadingSettingsPanel
             settings={readingSettings}
@@ -134,48 +145,30 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
           />
         </section>
         
-        <section>
+        <section className="settings-section">
           <h2>General Settings</h2>
           
           <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'block', marginBottom: '8px' }}>Default View</label>
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div className="view-selector" style={{ display: 'flex', gap: '8px' }}>
               <button
                 onClick={() => handleDefaultViewChange('list')}
-                style={{
-                  flex: 1,
-                  padding: '8px',
-                  background: generalSettings.defaultView === 'list' ? '#e0e0e0' : '#fff',
-                  border: '1px solid #ccc',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
+                className={generalSettings.defaultView === 'list' ? 'active' : ''}
+                style={{ flex: 1, padding: '8px', borderRadius: '4px', cursor: 'pointer' }}
               >
                 List
               </button>
               <button
                 onClick={() => handleDefaultViewChange('grid')}
-                style={{
-                  flex: 1,
-                  padding: '8px',
-                  background: generalSettings.defaultView === 'grid' ? '#e0e0e0' : '#fff',
-                  border: '1px solid #ccc',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
+                className={generalSettings.defaultView === 'grid' ? 'active' : ''}
+                style={{ flex: 1, padding: '8px', borderRadius: '4px', cursor: 'pointer' }}
               >
                 Grid
               </button>
               <button
                 onClick={() => handleDefaultViewChange('graph')}
-                style={{
-                  flex: 1,
-                  padding: '8px',
-                  background: generalSettings.defaultView === 'graph' ? '#e0e0e0' : '#fff',
-                  border: '1px solid #ccc',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
+                className={generalSettings.defaultView === 'graph' ? 'active' : ''}
+                style={{ flex: 1, padding: '8px', borderRadius: '4px', cursor: 'pointer' }}
               >
                 Graph
               </button>
@@ -192,7 +185,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
               />
               <span>Enable AI features</span>
               {platformCapabilities && !platformCapabilities.hasLocalAIProcessing && (
-                <span style={{ fontSize: '14px', color: '#666' }}>(Requires cloud processing)</span>
+                <span style={{ fontSize: '14px', color: 'var(--muted-text)' }}>(Requires cloud processing)</span>
               )}
             </label>
           </div>
@@ -206,16 +199,15 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
                 style={{ width: '18px', height: '18px' }}
               />
               <span>Enable sync across devices</span>
-              <span style={{ fontSize: '14px', color: '#666' }}>(Coming soon)</span>
+              <span style={{ fontSize: '14px', color: 'var(--muted-text)' }}>(Coming soon)</span>
             </label>
           </div>
         </section>
         
         {platformCapabilities && (
-          <section>
+          <section className="settings-section">
             <h2>System Information</h2>
-            <div style={{ 
-              background: '#f5f5f5', 
+            <div className="system-info" style={{ 
               padding: '12px', 
               borderRadius: '4px',
               fontSize: '14px',
@@ -229,14 +221,13 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
           </section>
         )}
         
-        <section>
+        <section className="settings-section">
           <h2>Reset</h2>
           <button
             onClick={handleResetSettings}
+            className="reset-button"
             style={{
               padding: '8px 16px',
-              background: '#f44336',
-              color: 'white',
               border: 'none',
               borderRadius: '4px',
               cursor: 'pointer'

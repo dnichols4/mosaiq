@@ -4,6 +4,7 @@ import AddUrlForm from './components/AddUrlForm';
 import ContentViewer from './components/ContentViewer';
 import { useUrlStore } from './store/urlStore';
 import { useSettingsStore } from './store/settingsStore';
+import { ThemeProvider } from './providers/ThemeProvider';
 import './styles/readerMode.css';
 
 const App: React.FC = () => {
@@ -25,7 +26,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
+    <ThemeProvider>
+      <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
       {!selectedUrlId && (
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
           <h1>Mosaiq</h1>
@@ -51,6 +53,7 @@ const App: React.FC = () => {
         </div>
       )}
     </div>
+    </ThemeProvider>
   );
 };
 

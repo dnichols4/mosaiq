@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ContentViewer, ReadingSettingsPanel, ReadingSettings } from '@mosaiq/common-ui';
+import { useTheme } from '../providers/ThemeProvider';
+import '../styles/reader.css';
 
 export const ReaderPage: React.FC = () => {
+  const { theme, setTheme } = useTheme();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   
@@ -57,6 +60,11 @@ export const ReaderPage: React.FC = () => {
     try {
       const updatedSettings = await window.electronAPI.updateReadingSettings(settings);
       setReadingSettings(updatedSettings);
+      
+      // Update global theme if theme setting changed
+      if (settings.theme && settings.theme !== theme) {
+        setTheme(settings.theme);
+      }
     } catch (error) {
       console.error('Error updating reading settings:', error);
     }
@@ -89,12 +97,13 @@ export const ReaderPage: React.FC = () => {
     );
   }
   
+  // Apply reader page class
+  const readerPageClass = 'reader-page';
+
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <header style={{ 
+    <div className={readerPageClass} style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <header className="reader-header" style={{ 
         padding: '8px 16px', 
-        background: '#f5f5f5', 
-        borderBottom: '1px solid #ddd',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -109,13 +118,13 @@ export const ReaderPage: React.FC = () => {
         </div>
       </header>
       
-      <div style={{ 
+      <div className="reader-body" style={{ 
         display: 'flex', 
         flexGrow: 1,
         position: 'relative',
         overflow: 'hidden',
       }}>
-        <div style={{
+        <div className="reader-content" style={{
           flexGrow: 1,
           overflow: 'auto',
         }}>
@@ -129,11 +138,8 @@ export const ReaderPage: React.FC = () => {
         </div>
         
         {showSettings && (
-          <div style={{
-            width: '300px',
-            borderLeft: '1px solid #ddd',
+          <div className="settings-sidebar" style={{
             overflow: 'auto',
-            background: '#f9f9f9',
           }}>
             <ReadingSettingsPanel
               settings={readingSettings}

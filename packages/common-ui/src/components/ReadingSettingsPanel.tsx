@@ -1,4 +1,5 @@
 import React from 'react';
+import './ReadingSettingsPanel.styles.css';
 
 export interface ReadingSettings {
   fontSize: string;
@@ -41,23 +42,17 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
   };
   
   return (
-    <div className="reading-settings-panel" style={{ padding: '16px' }}>
-      <h3 style={{ marginTop: 0 }}>Reading Settings</h3>
+    <div className="reading-settings-panel">
+      <h3>Reading Settings</h3>
       
-      <div style={{ marginBottom: '16px' }}>
-        <label htmlFor="font-size" style={{ display: 'block', marginBottom: '4px' }}>
+      <div className="setting-group">
+        <label htmlFor="font-size">
           Font Size
         </label>
         <select
           id="font-size"
           value={settings.fontSize}
           onChange={handleFontSizeChange}
-          style={{
-            width: '100%',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc'
-          }}
         >
           <option value="14px">Small</option>
           <option value="16px">Medium</option>
@@ -67,20 +62,14 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
         </select>
       </div>
       
-      <div style={{ marginBottom: '16px' }}>
-        <label htmlFor="line-height" style={{ display: 'block', marginBottom: '4px' }}>
+      <div className="setting-group">
+        <label htmlFor="line-height">
           Line Height
         </label>
         <select
           id="line-height"
           value={settings.lineHeight}
           onChange={handleLineHeightChange}
-          style={{
-            width: '100%',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc'
-          }}
         >
           <option value="1.4">Compact</option>
           <option value="1.6">Comfortable</option>
@@ -89,67 +78,40 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
         </select>
       </div>
       
-      <div style={{ marginBottom: '16px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }}>
+      <div className="setting-group">
+        <label>
           Theme
         </label>
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div className="button-group">
           <button
             onClick={() => handleThemeChange('light')}
-            style={{
-              flex: 1,
-              padding: '8px',
-              background: settings.theme === 'light' ? '#e0e0e0' : '#fff',
-              border: '1px solid #ccc',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
+            className={settings.theme === 'light' ? 'active' : ''}
           >
             Light
           </button>
           <button
             onClick={() => handleThemeChange('sepia')}
-            style={{
-              flex: 1,
-              padding: '8px',
-              background: settings.theme === 'sepia' ? '#e0e0e0' : '#fff',
-              border: '1px solid #ccc',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
+            className={settings.theme === 'sepia' ? 'active' : ''}
           >
             Sepia
           </button>
           <button
             onClick={() => handleThemeChange('dark')}
-            style={{
-              flex: 1,
-              padding: '8px',
-              background: settings.theme === 'dark' ? '#e0e0e0' : '#fff',
-              border: '1px solid #ccc',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
+            className={settings.theme === 'dark' ? 'active' : ''}
           >
             Dark
           </button>
         </div>
       </div>
       
-      <div style={{ marginBottom: '16px' }}>
-        <label htmlFor="width" style={{ display: 'block', marginBottom: '4px' }}>
+      <div className="setting-group">
+        <label htmlFor="width">
           Content Width
         </label>
         <select
           id="width"
           value={settings.width}
           onChange={handleWidthChange}
-          style={{
-            width: '100%',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc'
-          }}
         >
           <option value="600px">Narrow</option>
           <option value="800px">Medium</option>
@@ -158,20 +120,14 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
         </select>
       </div>
       
-      <div style={{ marginBottom: '16px' }}>
-        <label htmlFor="font-family" style={{ display: 'block', marginBottom: '4px' }}>
+      <div className="setting-group">
+        <label htmlFor="font-family">
           Font
         </label>
         <select
           id="font-family"
           value={settings.fontFamily}
           onChange={handleFontFamilyChange}
-          style={{
-            width: '100%',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc'
-          }}
         >
           <option value="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
             System

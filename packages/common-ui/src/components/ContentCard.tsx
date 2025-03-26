@@ -41,7 +41,8 @@ export const ContentCard: React.FC<ContentCardProps> = ({
         padding: '16px',
         margin: '8px',
         borderRadius: '8px',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+        backgroundColor: 'var(--card-bg)',
+        boxShadow: 'var(--card-shadow)',
         cursor: onClick ? 'pointer' : 'default'
       }}
     >
@@ -72,7 +73,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
         <p style={{
           margin: '0 0 12px 0',
           fontSize: '14px',
-          color: '#666',
+          color: 'var(--muted-text)',
           lineHeight: 1.4
         }}>
           {excerpt}
@@ -82,7 +83,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
           display: 'flex',
           justifyContent: 'space-between',
           fontSize: '12px',
-          color: '#888'
+          color: 'var(--muted-text)'
         }}>
           {author && <span>{author}</span>}
           <span>{formattedDate}</span>

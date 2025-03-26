@@ -1,0 +1,61 @@
+/* Content viewer styles */
+.content-viewer {
+  background-color: var(--app-bg, #ffffff);
+  color: var(--app-text, #333333);
+}
+
+/* Theme-specific styles are now handled globally in theme.css */
+
+.content-viewer a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.content-viewer a:hover {
+  text-decoration: underline;
+}
+
+.content-viewer blockquote {
+  border-left: 4px solid var(--blockquote-border);
+  margin-left: 0;
+  padding-left: 1em;
+  color: var(--muted-text, #666);
+}
+
+.content-viewer pre, .content-viewer code {
+  background-color: var(--code-bg);
+  border-radius: 3px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+.content-viewer pre {
+  padding: 16px;
+  overflow: auto;
+  line-height: 1.45;
+}
+
+.content-viewer pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.content-viewer table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.content-viewer table th, .content-viewer table td {
+  border: 1px solid var(--table-border);
+  padding: 8px 12px;
+}
+
+.content-viewer table th {
+  background-color: var(--table-header-bg);
+  text-align: left;
+}
+
+/* Article metadata styling */
+.content-viewer .article-metadata {
+  color: var(--muted-text, #666);
+}

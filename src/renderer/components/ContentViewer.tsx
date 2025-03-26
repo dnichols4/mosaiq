@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ReadingSettings } from '../../data/urlStorage';
 import ArticleViewer from './ArticleViewer';
+import { useTheme } from '../providers/ThemeProvider';
 import '../styles/readerMode.css';
 import '../types/api';
 
@@ -23,6 +24,7 @@ interface UrlContent {
 }
 
 const ContentViewer: React.FC<ContentViewerProps> = ({ urlId, onClose }) => {
+  const { theme } = useTheme();
   const [content, setContent] = useState<UrlContent | null>(null);
   
   // Initialize settings state using local defaults
@@ -123,7 +125,7 @@ const ContentViewer: React.FC<ContentViewerProps> = ({ urlId, onClose }) => {
   };
   
   return (
-    <div className={`content-viewer-container ${settings.theme === 'dark' ? 'dark' : ''}`}>
+    <div className={`content-viewer-container ${theme === 'dark' ? 'dark' : ''}`}>
       <div className="content-viewer-header">
         <button onClick={onClose} className="back-button">
           ← Back to List

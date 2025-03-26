@@ -1,0 +1,75 @@
+/* Settings page styles */
+:root {
+  --reset-button-bg: #f44336;
+  --reset-button-hover: #d32f2f;
+}
+
+:root.dark-theme {
+  --reset-button-bg: #f44336;
+  --reset-button-hover: #d32f2f;
+}
+.settings-page {
+  background-color: var(--app-bg, #f5f5f5);
+  color: var(--app-text, #333333);
+}
+
+.settings-page h1, 
+.settings-page h2, 
+.settings-page h3 {
+  color: var(--app-text, #333333);
+}
+
+.settings-page .settings-section {
+  background-color: var(--card-bg, #ffffff);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow, 0 2px 4px rgba(0, 0, 0, 0.1));
+  padding: 20px;
+}
+
+/* System info styles */
+.settings-page .system-info {
+  background-color: var(--input-bg);
+  color: var(--app-text);
+}
+
+.settings-page input[type="checkbox"] {
+  background-color: var(--input-bg, #ffffff);
+  border-color: var(--input-border, #dddddd);
+}
+
+.settings-page label {
+  color: var(--app-text, #333333);
+}
+
+/* Button styles */
+.settings-page button {
+  background-color: var(--button-bg, #4a6cf7);
+  color: var(--button-text, white);
+  border: none;
+}
+
+.settings-page button:hover {
+  background-color: var(--button-hover, #3a5be7);
+}
+
+.settings-page .view-selector button {
+  background-color: var(--control-bg, #f5f5f5);
+  border: 1px solid var(--border-color, #ccc);
+  color: var(--app-text, #333333);
+}
+
+.settings-page .view-selector button.active {
+  background-color: var(--button-bg, #4a6cf7);
+  color: var(--button-text, white);
+  border-color: var(--button-bg, #4a6cf7);
+}
+
+/* Reset button */
+.settings-page .reset-button {
+  background-color: var(--reset-button-bg);
+  color: white;
+}
+
+.settings-page .reset-button:hover {
+  background-color: var(--reset-button-hover);
+}

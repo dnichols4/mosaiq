@@ -1,4 +1,5 @@
 import React from 'react';
+import './ContentViewer.styles.css';
 
 export interface ContentViewerProps {
   title: string;
@@ -24,32 +25,7 @@ export const ContentViewer: React.FC<ContentViewerProps> = ({
   publishDate,
   settings
 }) => {
-  // Get theme-specific styles
-  const getThemeStyles = () => {
-    switch (settings.theme) {
-      case 'dark':
-        return {
-          background: '#222',
-          color: '#eee',
-          linkColor: '#9bf'
-        };
-      case 'sepia':
-        return {
-          background: '#f8f2e3',
-          color: '#5b4636',
-          linkColor: '#1a0dab'
-        };
-      case 'light':
-      default:
-        return {
-          background: '#fff',
-          color: '#333',
-          linkColor: '#0366d6'
-        };
-    }
-  };
-  
-  const themeStyles = getThemeStyles();
+  // No need for local theme class as global theme is used
   
   // Format date if available
   const formattedDate = publishDate ? new Date(publishDate).toLocaleDateString() : undefined;
@@ -58,8 +34,6 @@ export const ContentViewer: React.FC<ContentViewerProps> = ({
     <div
       className="content-viewer"
       style={{
-        background: themeStyles.background,
-        color: themeStyles.color,
         padding: '40px 20px',
         display: 'flex',
         justifyContent: 'center',

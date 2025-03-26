@@ -89,13 +89,13 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="Enter URL to save"
-            style={{ flex: 1, padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+            style={{ flex: 1, padding: '8px', borderRadius: '4px', border: '1px solid var(--input-border)', backgroundColor: 'var(--input-bg)', color: 'var(--app-text)' }}
             required
           />
           <button
             type="submit"
             disabled={isLoading}
-            style={{ padding: '8px 16px', borderRadius: '4px', background: '#0366d6', color: 'white', border: 'none' }}
+            style={{ padding: '8px 16px', borderRadius: '4px', background: 'var(--button-bg)', color: 'var(--button-text)', border: 'none' }}
           >
             {isLoading ? 'Saving...' : 'Save'}
           </button>
@@ -103,7 +103,7 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
       </form>
       
       {platformCapabilities && (
-        <div style={{ marginBottom: '20px', fontSize: '14px', color: '#666' }}>
+        <div style={{ marginBottom: '20px', fontSize: '14px', color: 'var(--muted-text)' }}>
           Platform: {platformCapabilities.type}
           {isOnline && ' • Online'}
         </div>
@@ -125,7 +125,7 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
       </div>
       
       {items.length === 0 && (
-        <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
+        <div style={{ textAlign: 'center', padding: '40px', color: 'var(--muted-text)' }}>
           <p>No content saved yet. Enter a URL above to get started.</p>
         </div>
       )}
