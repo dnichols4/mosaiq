@@ -24,17 +24,7 @@ function createWindow() {
     },
   });
 
-  // Comment out CSP temporarily for debugging
-  /*
-  mainWindow.webContents.session.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        ...details.responseHeaders,
-        'Content-Security-Policy': ["default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'"]
-      }
-    });
-  });
-  */
+  // CSP is set in app.whenReady() to avoid conflicts
 
   // Load the renderer
   const rendererPath = path.join(__dirname, '../renderer/index.html');
@@ -63,12 +53,12 @@ function createWindow() {
  * Initialize the application
  */
 app.whenReady().then(() => {
-  // Set CSP to allow external images
+  // Set comprehensive CSP that allows inline scripts and external images
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
     callback({
       responseHeaders: {
         ...details.responseHeaders,
-        'Content-Security-Policy': ["default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;"]
+        'Content-Security-Policy': ["default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:;"]
       }
     });
   });
