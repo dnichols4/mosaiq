@@ -9,24 +9,27 @@
 | 0.3     | 2025-03-22 | Claude | Updated with reader mode implementation |
 | 0.4     | 2025-03-22 | Claude | Implemented article display fix and content deletion |
 | 0.5     | 2025-03-22 | Claude | Fixed article view layout for full-width display |
+| 0.6     | 2025-03-26 | Claude | Updated to reflect monorepo structure and current implementation |
 
 ## Current Implementation
 
 ### Project Overview
-Mosaiq is a Knowledge & Learning Management application with a local-first architecture that focuses on content consumption, annotation, and concept relationship discovery.
+Mosaiq is a Knowledge & Learning Management application with a local-first architecture focused on content consumption, annotation, and concept relationship discovery. The project has been restructured as a monorepo using npm workspaces.
 
 ### Technology Stack
 - **Frontend**: Electron + React
 - **State Management**: Zustand
-- **Content Processing**: Cheerio, Mozilla's Readability
+- **Content Processing**: Cheerio, Mozilla's Readability, JSDOM
 - **Storage**: Electron-store + filesystem
+- **Build Tools**: TypeScript, Webpack, Concurrently
 
 ### Architecture
-The project follows a layered architecture:
-- **UI Layer**: React components
+The project follows a layered architecture with clear separation of concerns:
+- **UI Layer**: React components in common-ui package
 - **Application Logic Layer**: State management with Zustand
 - **Content Processing Layer**: HTML parsing and cleanup with Readability
 - **Data Management Layer**: Local storage using Electron-store and filesystem
+- **Platform Abstraction Layer**: Interfaces for platform-specific functionality
 
 ### Current Features
 - URL saving with enhanced content extraction
@@ -39,56 +42,34 @@ The project follows a layered architecture:
 ### Project Structure
 ```
 mosaiq/
-│
-├── src/
-│   ├── main/           # Electron main process
-│   │   ├── main.ts     # Main entry point
-│   │   ├── ipc.ts      # IPC handlers
-│   │   └── preload.ts  # Preload script
-│   │
-│   ├── renderer/       # React UI components
-│   │   ├── components/ # UI components
-│   │   │   ├── AddUrlForm.tsx
-│   │   │   ├── ArticleHeader.tsx
-│   │   │   ├── ArticleViewer.tsx
-│   │   │   ├── ContentViewer.tsx
-│   │   │   ├── ReadingControls.tsx
-│   │   │   └── UrlList.tsx
-│   │   │
-│   │   ├── store/      # State management
-│   │   │   ├── settingsStore.ts
-│   │   │   └── urlStore.ts
-│   │   │
-│   │   ├── types/      # TypeScript types
-│   │   │   └── api.ts
-│   │   │
-│   │   ├── styles/     # CSS styles
-│   │   │   └── readerMode.css
-│   │   │
-│   │   ├── App.tsx     # Main React component
-│   │   ├── index.html  # HTML template
-│   │   ├── renderer.tsx # React entry point
-│   │   └── styles.css  # Global styles
-│   │
-│   ├── content/        # Content processing
-│   │   └── contentProcessor.ts
-│   │
-│   └── data/           # Data storage
-│       └── urlStorage.ts
-│
-├── storage/            # Local content storage
-│
-├── docs/               # Documentation
-│
-├── package.json        # Project dependencies
-├── tsconfig.json       # TypeScript config
-├── tsconfig.main.json  # Main process TS config
-└── webpack.config.js   # Webpack configuration
+├── docs/              # Project documentation
+├── packages/          # Core packages (npm workspaces)
+│   ├── common-ui/     # Shared UI components
+│   ├── core/          # Core business logic
+│   │   └── services/  # Core services
+│   ├── desktop-app/   # Electron desktop application
+│   │   ├── main/      # Electron main process
+│   │   └── renderer/  # React application
+│   └── platform-abstractions/ # Platform abstraction layer
+├── scripts/           # Build and utility scripts
+├── src/               # Shared source code
+│   ├── content/       # Content processing
+│   ├── data/          # Data management
+│   ├── logic/         # Shared business logic
+│   ├── main/          # Main process code
+│   ├── renderer/      # Renderer components
+│   └── ui/            # UI-related code
+├── storage/           # Local storage directory
+├── package.json       # Root package with workspace config
+├── tsconfig.json      # Base TypeScript configuration
+└── webpack.config.js  # Webpack build configuration
 ```
 
 ### Build Setup
-- TypeScript compilation for main process
+- TypeScript compilation for main process and core packages
 - Webpack bundling for renderer process
+- npm workspaces for package management
+- Concurrently for parallel build processes
 - Development setup with hot reloading
 - Production build process
 
@@ -96,6 +77,7 @@ mosaiq/
 - No annotation capabilities yet
 - No tagging or search functionality
 - No content relationship discovery
+- AI features planned for Phase 2
 
 ## Implemented Reader Mode Improvements
 
