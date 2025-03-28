@@ -178,6 +178,7 @@ We implemented significant improvements to content extraction and presentation:
 
 Now that the article display and content organization features have been implemented, the following features can be pursued:
 1. **Content Organization Enhancements**
+   - Fix the ability to remove articles that disappeared from the UI after the rearchitecture
    - Implement tagging functionality
    - Add folders/collections for organization
    - Create a search system
