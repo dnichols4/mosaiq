@@ -2,6 +2,7 @@
 :root {
   --reset-button-bg: #f44336;
   --reset-button-hover: #d32f2f;
+  --control-hover: #e5e5e5;
 }
 
 :root.dark-theme {
@@ -56,6 +57,11 @@
   background-color: var(--control-bg, #f5f5f5);
   border: 1px solid var(--border-color, #ccc);
   color: var(--app-text, #333333);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.settings-page .view-selector button:hover {
+  background-color: var(--control-hover, #e5e5e5);
 }
 
 .settings-page .view-selector button.active {

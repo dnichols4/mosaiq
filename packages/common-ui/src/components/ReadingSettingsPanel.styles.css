@@ -16,36 +16,34 @@
 
 .reading-settings-panel label {
   display: block;
-  margin-bottom: 4px;
-  color: var(--app-text, #333333);
-}
-
-.reading-settings-panel select {
-  width: 100%;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid var(--input-border, #ccc);
-  background-color: var(--input-bg, #ffffff);
+  margin-bottom: 8px;
   color: var(--app-text, #333333);
 }
 
 .reading-settings-panel .button-group {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 8px;
+  margin-top: 8px;
 }
 
 .reading-settings-panel button {
   flex: 1;
   padding: 8px;
-  background: var(--control-bg, #f5f5f5);
+  background-color: var(--control-bg, #f5f5f5);
   border: 1px solid var(--border-color, #ccc);
   border-radius: 4px;
   cursor: pointer;
   color: var(--app-text, #333333);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.reading-settings-panel button:hover {
+  background-color: var(--control-hover, #e5e5e5);
 }
 
 .reading-settings-panel button.active {
-  background: var(--button-bg, #4a6cf7);
+  background-color: var(--button-bg, #4a6cf7);
   color: var(--button-text, white);
   border-color: var(--button-bg, #4a6cf7);
 }

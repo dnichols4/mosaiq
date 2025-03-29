@@ -14,6 +14,39 @@ export interface ReadingSettingsPanelProps {
   onSettingsChange: (settings: Partial<ReadingSettings>) => void;
 }
 
+// Font size options
+const FONT_SIZES = [
+  { value: '14px', label: 'Small' },
+  { value: '16px', label: 'Medium' },
+  { value: '18px', label: 'Large' },
+  { value: '20px', label: 'Extra Large' },
+  { value: '24px', label: 'Huge' }
+];
+
+// Line height options
+const LINE_HEIGHTS = [
+  { value: '1.4', label: 'Compact' },
+  { value: '1.6', label: 'Comfortable' },
+  { value: '1.8', label: 'Spacious' },
+  { value: '2.0', label: 'Very Spacious' }
+];
+
+// Content width options
+const CONTENT_WIDTHS = [
+  { value: '600px', label: 'Narrow' },
+  { value: '800px', label: 'Medium' },
+  { value: '1000px', label: 'Wide' },
+  { value: '100%', label: 'Full' }
+];
+
+// Font family options
+const FONT_FAMILIES = [
+  { value: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", label: 'System' },
+  { value: "'Merriweather', serif", label: 'Serif' },
+  { value: "'Open Sans', sans-serif", label: 'Sans-serif' },
+  { value: "'JetBrains Mono', monospace", label: 'Monospace' }
+];
+
 /**
  * Component for adjusting reading view settings
  */
@@ -21,21 +54,20 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
   settings,
   onSettingsChange
 }) => {
-  const handleFontSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSettingsChange({ fontSize: e.target.value });
+  const handleFontSizeChange = (value: string) => {
+    onSettingsChange({ fontSize: value });
   };
   
-  const handleLineHeightChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSettingsChange({ lineHeight: e.target.value });
+  const handleLineHeightChange = (value: string) => {
+    onSettingsChange({ lineHeight: value });
   };
   
-  
-  const handleWidthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSettingsChange({ width: e.target.value });
+  const handleWidthChange = (value: string) => {
+    onSettingsChange({ width: value });
   };
   
-  const handleFontFamilyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSettingsChange({ fontFamily: e.target.value });
+  const handleFontFamilyChange = (value: string) => {
+    onSettingsChange({ fontFamily: value });
   };
   
   return (
@@ -43,71 +75,63 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
       <h3>Reading Settings</h3>
       
       <div className="setting-group">
-        <label htmlFor="font-size">
-          Font Size
-        </label>
-        <select
-          id="font-size"
-          value={settings.fontSize}
-          onChange={handleFontSizeChange}
-        >
-          <option value="14px">Small</option>
-          <option value="16px">Medium</option>
-          <option value="18px">Large</option>
-          <option value="20px">Extra Large</option>
-          <option value="24px">Huge</option>
-        </select>
+        <label>Font Size</label>
+        <div className="button-group">
+          {FONT_SIZES.map((option) => (
+            <button
+              key={option.value}
+              className={settings.fontSize === option.value ? 'active' : ''}
+              onClick={() => handleFontSizeChange(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
       
       <div className="setting-group">
-        <label htmlFor="line-height">
-          Line Height
-        </label>
-        <select
-          id="line-height"
-          value={settings.lineHeight}
-          onChange={handleLineHeightChange}
-        >
-          <option value="1.4">Compact</option>
-          <option value="1.6">Comfortable</option>
-          <option value="1.8">Spacious</option>
-          <option value="2.0">Very Spacious</option>
-        </select>
-      </div>
-      
-      
-      <div className="setting-group">
-        <label htmlFor="width">
-          Content Width
-        </label>
-        <select
-          id="width"
-          value={settings.width}
-          onChange={handleWidthChange}
-        >
-          <option value="600px">Narrow</option>
-          <option value="800px">Medium</option>
-          <option value="1000px">Wide</option>
-          <option value="100%">Full</option>
-        </select>
+        <label>Line Height</label>
+        <div className="button-group">
+          {LINE_HEIGHTS.map((option) => (
+            <button
+              key={option.value}
+              className={settings.lineHeight === option.value ? 'active' : ''}
+              onClick={() => handleLineHeightChange(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
       
       <div className="setting-group">
-        <label htmlFor="font-family">
-          Font
-        </label>
-        <select
-          id="font-family"
-          value={settings.fontFamily}
-          onChange={handleFontFamilyChange}
-        >
-          <option value="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
-            System
-          </option>
-          <option value="'Merriweather', serif">Serif</option>
-          <option value="'Open Sans', sans-serif">Sans-serif</option>
-          <option value="'JetBrains Mono', monospace">Monospace</option>
-        </select>
+        <label>Content Width</label>
+        <div className="button-group">
+          {CONTENT_WIDTHS.map((option) => (
+            <button
+              key={option.value}
+              className={settings.width === option.value ? 'active' : ''}
+              onClick={() => handleWidthChange(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <div className="setting-group">
+        <label>Font</label>
+        <div className="button-group">
+          {FONT_FAMILIES.map((option) => (
+            <button
+              key={option.value}
+              className={settings.fontFamily === option.value ? 'active' : ''}
+              onClick={() => handleFontFamilyChange(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
