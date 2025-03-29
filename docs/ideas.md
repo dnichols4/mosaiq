@@ -12,3 +12,9 @@
 *   Allow a user to modify these values per content item and/or in batch
 *   Somehow visually expose these data points to the user (like Obisdian graphs?) with the purpose of highlighting "connections" between content items and the user's "interest" in each tag/classification
 *   Also possible allow the user to set preferences or "dials" for each tag/classification. These preferences could then be used to possibly rate/grade/rank each content item based on the user's potential "liking" of the content item - i.e., if I "dial" my "physics" dial to "10" (on a scale of 10), then content items with a high "physics score" should show up more frequently / get a higher rating/ranking
+
+## Content Types
+
+*   YouTube videos / transcripts
+*   "Hand written" notes via markdown editor or "friendly" copy/paste
+    *   Possibly branch off the "add content" button 1) Add URL, 2) Create Content?  Maybe better as two different options?
