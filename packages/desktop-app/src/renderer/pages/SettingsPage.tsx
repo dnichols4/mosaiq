@@ -131,7 +131,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
     <div className={settingsPageClass} style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <h1>Settings</h1>
-        <button onClick={goBack} style={{ padding: '8px 16px' }}>
+        <button onClick={goBack} className="primary-action" style={{ padding: '8px 16px' }}>
           ← Back
         </button>
       </header>
@@ -252,7 +252,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ platformCapabilities
           <h2>Reset</h2>
           <button
             onClick={handleResetSettings}
-            className="reset-button"
+            className="reset-button primary-action"
             style={{
               padding: '8px 16px',
               border: 'none',

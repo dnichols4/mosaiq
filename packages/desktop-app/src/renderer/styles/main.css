@@ -29,15 +29,15 @@ a {
 }
 
 button {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
+  background-color: var(--control-bg, #f5f5f5);
+  color: var(--app-text, #333333);
+  border: 1px solid var(--border-color, #ddd);
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: var(--button-hover);
+  background-color: var(--control-hover, #e5e5e5);
 }
 
 input, select, textarea {

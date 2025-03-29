@@ -60,13 +60,15 @@
 }
 
 /* Button styles */
-.settings-page button {
+.settings-page button[type="submit"],
+.settings-page button.primary-action {
   background-color: var(--button-bg, #4a6cf7);
   color: var(--button-text, white);
   border: none;
 }
 
-.settings-page button:hover {
+.settings-page button[type="submit"]:hover,
+.settings-page button.primary-action:hover {
   background-color: var(--button-hover, #3a5be7);
 }
 
