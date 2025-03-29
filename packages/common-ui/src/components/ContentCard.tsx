@@ -8,6 +8,7 @@ export interface ContentCardProps {
   dateAdded: string;
   author?: string;
   onClick?: (id: string) => void;
+  onDelete?: (id: string, event: React.MouseEvent) => void;
 }
 
 /**
@@ -20,7 +21,8 @@ export const ContentCard: React.FC<ContentCardProps> = ({
   featuredImage,
   dateAdded,
   author,
-  onClick
+  onClick,
+  onDelete
 }) => {
   const handleClick = () => {
     if (onClick) {
@@ -31,10 +33,17 @@ export const ContentCard: React.FC<ContentCardProps> = ({
   // Format date using platform-agnostic approach
   const formattedDate = new Date(dateAdded).toLocaleDateString();
   
+  // Handle delete button click
+  const handleDelete = (event: React.MouseEvent) => {
+    if (onDelete) {
+      event.stopPropagation();
+      onDelete(id, event);
+    }
+  };
+
   return (
     <div 
       className="content-card"
-      onClick={handleClick}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -43,7 +52,8 @@ export const ContentCard: React.FC<ContentCardProps> = ({
         borderRadius: '8px',
         backgroundColor: 'var(--card-bg)',
         boxShadow: 'var(--card-shadow)',
-        cursor: onClick ? 'pointer' : 'default'
+        cursor: onClick ? 'pointer' : 'default',
+        position: 'relative'
       }}
     >
       {featuredImage && (
@@ -61,7 +71,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
         </div>
       )}
       
-      <div className="content-card-content">
+      <div className="content-card-content" onClick={handleClick}>
         <h3 style={{
           margin: '0 0 8px 0',
           fontSize: '18px',
@@ -89,6 +99,34 @@ export const ContentCard: React.FC<ContentCardProps> = ({
           <span>{formattedDate}</span>
         </div>
       </div>
+      
+      {onDelete && (
+        <button
+          onClick={handleDelete}
+          title="Delete"
+          aria-label="Delete article"
+          style={{
+            position: 'absolute',
+            top: '8px',
+            right: '8px',
+            background: 'var(--destructive-bg, #cccccc)',
+            color: 'var(--destructive-text, #d32f2f)',
+            border: 'none',
+            borderRadius: '50%',
+            width: '24px',
+            height: '24px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'pointer',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            zIndex: 1
+          }}
+        >
+          ×
+        </button>
+      )}
     </div>
   );
 };

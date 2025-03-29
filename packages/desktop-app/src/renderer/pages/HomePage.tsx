@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ContentCard } from '@mosaiq/common-ui';
 import { IPlatformCapabilities } from '@mosaiq/platform-abstractions';
@@ -70,6 +70,20 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
     navigate(`/reader/${id}`);
   };
   
+  // Handle item deletion
+  const handleItemDelete = async (id: string, event: React.MouseEvent) => {
+    event.stopPropagation();
+    if (window.confirm('Are you sure you want to delete this article?')) {
+      try {
+        await window.electronAPI.deleteItem(id);
+        // Reload items after deletion
+        loadItems();
+      } catch (error) {
+        console.error('Error deleting item:', error);
+      }
+    }
+  };
+  
   // Navigate to settings
   const goToSettings = () => {
     navigate('/settings');
@@ -120,6 +134,7 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
             dateAdded={item.dateAdded}
             author={item.author}
             onClick={handleItemClick}
+            onDelete={handleItemDelete}
           />
         ))}
       </div>

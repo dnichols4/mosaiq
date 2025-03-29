@@ -75,6 +75,20 @@ export const ReaderPage: React.FC = () => {
     navigate('/');
   };
   
+  // Delete current article
+  const handleDelete = async () => {
+    if (!id) return;
+    
+    if (window.confirm('Are you sure you want to delete this article?')) {
+      try {
+        await window.electronAPI.deleteItem(id);
+        goBack();
+      } catch (error) {
+        console.error('Error deleting article:', error);
+      }
+    }
+  };
+  
   // Toggle settings panel
   const toggleSettings = () => {
     setShowSettings(!showSettings);
@@ -114,6 +128,18 @@ export const ReaderPage: React.FC = () => {
         <div style={{ display: 'flex', gap: '8px' }}>
           <button onClick={toggleSettings} style={{ padding: '4px 8px' }}>
             {showSettings ? 'Hide Settings' : 'Settings'}
+          </button>
+          <button 
+            onClick={handleDelete} 
+            style={{ 
+              padding: '4px 8px',
+              backgroundColor: 'var(--destructive-bg, rgba(255, 0, 0, 0.1))',
+              color: 'var(--destructive-text, #d32f2f)',
+              border: 'none',
+              borderRadius: '4px',
+            }}
+          >
+            Delete
           </button>
         </div>
       </header>
