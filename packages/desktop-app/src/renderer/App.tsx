@@ -3,7 +3,6 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { ReaderPage } from './pages/ReaderPage';
 import { SettingsPage } from './pages/SettingsPage';
-import { ContentLibraryPage } from './pages/ContentLibraryPage';
 import { ReadingSettings } from '@mosaiq/common-ui';
 import { IPlatformCapabilities } from '@mosaiq/platform-abstractions';
 import { ThemeProvider } from './providers/ThemeProvider';
@@ -63,7 +62,6 @@ export const App: React.FC = () => {
         <Route path="/" element={<HomePage platformCapabilities={platformCapabilities} />} />
         <Route path="/reader/:id" element={<ReaderPage />} />
         <Route path="/settings" element={<SettingsPage platformCapabilities={platformCapabilities} />} />
-        <Route path="/library" element={<ContentLibraryPage />} />
         </Routes>
       </Router>
     </ThemeProvider>
