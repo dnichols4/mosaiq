@@ -189,16 +189,23 @@
   display: flex;
   align-items: center;
   margin-left: auto;
-  padding-right: 1rem;
-  opacity: 0;
   transition: opacity 0.2s ease;
   position: relative;
   z-index: 10;
 }
 
-.list-item:hover .list-item-actions,
-.grid-item:hover .grid-item-actions {
-  opacity: 1;
+.list-item-actions {
+  padding-right: 0;
+  margin-right: 8px;
+}
+
+.grid-item-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 4px;
 }
 
 .action-button {
@@ -214,18 +221,19 @@
   justify-content: center;
   margin-left: 0.5rem;
   transition: all 0.2s ease;
+  opacity: 0; /* Hidden by default */
 }
 
 .delete-button {
-  background-color: rgba(255, 0, 0, 0.1) !important;
+  background-color: rgba(255, 0, 0, 0.2) !important;
   color: #ff6b6b !important;
-  border-color: rgba(255, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
 }
 
 .delete-button:hover {
-  background-color: rgba(255, 0, 0, 0.2) !important;
+  background-color: rgba(255, 0, 0, 0.3) !important;
   color: #ff4040 !important;
-  border-color: rgba(255, 0, 0, 0.3) !important;
+  border-color: rgba(255, 0, 0, 0.4) !important;
 }
 
 .action-button:hover {
@@ -233,12 +241,24 @@
   color: var(--app-text, #e3e3e3);
 }
 
+/* Show action buttons on hover */
+.list-item:hover .action-button,
+.grid-item:hover .action-button {
+  opacity: 1;
+}
+
+/* Ensure SVG icons display properly */
+.action-button svg {
+  color: inherit;
+  display: block;
+}
+
 .timestamp {
-  margin-left: auto;
   font-size: 0.8rem;
   color: var(--muted-text, #a0a0a0);
   min-width: 80px;
   text-align: right;
+  margin-right: 16px;
 }
 
 .loading-indicator {
@@ -448,20 +468,7 @@
   gap: 4px;
 }
 
-.grid-item-actions {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.grid-item:hover .grid-item-actions {
-  opacity: 1;
-}
+/* Grid item actions are now managed by the shared styles above */
 
 /* Icon styling */
 .mosaiq-icon-button {
@@ -507,32 +514,4 @@
   }
 }
 
-/* Specific styling for delete buttons */
-.delete-action-button {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background-color: rgba(255, 0, 0, 0.2);
-  color: #ff6b6b;
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  border-radius: 4px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.2s ease, background-color 0.2s ease;
-  z-index: 20;
-}
-
-.delete-action-button:hover {
-  background-color: rgba(255, 0, 0, 0.3);
-  color: #ff4040;
-}
-
-.list-item:hover .delete-action-button,
-.grid-item:hover .delete-action-button {
-  opacity: 1; /* Show on hover */
-}
+/* Delete button styles are now managed by .action-button and .delete-button above */
