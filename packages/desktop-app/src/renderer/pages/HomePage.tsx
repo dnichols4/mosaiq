@@ -13,7 +13,7 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
   const [filteredItems, setFilteredItems] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOnline, setIsOnline] = useState(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
   const [searchTerm, setSearchTerm] = useState('');
   const [spotlightMode, setSpotlightMode] = useState<'search' | 'url' | null>(null);
   const navigate = useNavigate();
@@ -38,6 +38,7 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
         return (
           item.title.toLowerCase().includes(normalizedSearchTerm) ||
           (item.author && item.author.toLowerCase().includes(normalizedSearchTerm)) ||
+          (item.excerpt && item.excerpt.toLowerCase().includes(normalizedSearchTerm)) ||
           (item.tags && item.tags.some((tag: string) => tag.toLowerCase().includes(normalizedSearchTerm)))
         );
       });
@@ -121,6 +122,29 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
       return 'Unknown';
     }
   };
+  
+  // Format time for list view
+  const formatTime = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    } catch (error) {
+      return '';
+    }
+  };
+  
+  // Get source icon based on URL
+  const getSourceIcon = (item: any) => {
+    if (item.source?.includes('medium.com')) {
+      return "📝";
+    } else if (item.source?.includes('github.com')) {
+      return "🧑‍💻";
+    } else if (item.source?.includes('youtube.com')) {
+      return "🎬";
+    } else {
+      return "📄";
+    }
+  };
 
   return (
     <div className="home-container">
@@ -197,68 +221,63 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
           ))}
         </div>
       ) : (
-        <div className="list-container">
-          <table className="content-table">
-            <thead>
-              <tr>
-                <th className="thumbnail-column">Thumbnail</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Date Added</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredItems.map(item => (
-                <tr key={item.id}>
-                  <td className="thumbnail-column">
-                    {item.featuredImage ? (
-                      <img 
-                        src={item.featuredImage} 
-                        alt={item.title} 
-                        className="article-thumbnail" 
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%23f0f0f0"/><text x="50%" y="50%" font-family="Arial" font-size="14" fill="%23999" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>';
-                        }}
-                      />
-                    ) : (
-                      <div className="placeholder-thumbnail">
-                        <span>No Image</span>
-                      </div>
-                    )}
-                  </td>
-                  <td>
-                    <button 
-                      onClick={() => handleItemClick(item.id)}
-                      className="title-link"
-                    >
-                      {item.title}
-                    </button>
-                  </td>
-                  <td>{item.author || 'Unknown'}</td>
-                  <td>{formatDate(item.dateAdded)}</td>
-                  <td>
-                    <div className="action-buttons">
-                      <button
-                        onClick={() => handleItemClick(item.id)}
-                        className="action-button read-button"
-                        title="Read"
-                      >
-                        📖
-                      </button>
-                      <button
-                        onClick={(e) => handleItemDelete(item.id, e)}
-                        className="action-button delete-button"
-                        title="Delete"
-                      >
-                        🗑️
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="content-list">
+          {filteredItems.map(item => (
+            <div 
+              key={item.id} 
+              className="list-item"
+              onClick={() => handleItemClick(item.id)}
+            >
+              <div className="list-item-icon">
+                {item.featuredImage ? (
+                  <img 
+                    src={item.featuredImage} 
+                    alt={item.title}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="100%" height="100%" fill="%232c2c2c"/><text x="50%" y="50%" font-family="Arial" font-size="10" fill="%23999" text-anchor="middle" dominant-baseline="middle">📄</text></svg>';
+                    }}
+                  />
+                ) : (
+                  <div>{getSourceIcon(item)}</div>
+                )}
+              </div>
+              <div className="list-item-content">
+                <div className="item-title">{item.title}</div>
+                {item.excerpt && (
+                  <div className="item-excerpt">{item.excerpt}</div>
+                )}
+                <div className="item-metadata">
+                  {item.author && (
+                    <>
+                      {item.author} 
+                      <span className="metadata-divider">•</span>
+                    </>
+                  )}
+                  {formatDate(item.dateAdded)}
+                  {item.tags && item.tags.length > 0 && (
+                    <>
+                      <span className="metadata-divider">•</span>
+                      {item.tags.map((tag: string, index: number) => (
+                        <span key={index} className="tag">{tag}</span>
+                      ))}
+                    </>
+                  )}
+                </div>
+              </div>
+              <div className="timestamp">
+                {formatTime(item.dateAdded)}
+              </div>
+              <div className="list-item-actions">
+                <button
+                  onClick={(e) => handleItemDelete(item.id, e)}
+                  className="action-button delete-button"
+                  title="Delete"
+                >
+                  🗑️
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       )}
       
