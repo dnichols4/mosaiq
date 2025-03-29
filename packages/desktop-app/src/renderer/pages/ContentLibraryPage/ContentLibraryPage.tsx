@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ContentItem } from '@mosaiq/core';
 import './ContentLibraryPage.css';
@@ -14,6 +14,9 @@ export const ContentLibraryPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'dateAdded', direction: 'descending' });
+  const [activeThumbnailMenu, setActiveThumbnailMenu] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchContentItems = async () => {
@@ -124,9 +127,114 @@ export const ContentLibraryPage: React.FC = () => {
       alert('Failed to delete item.');
     }
   };
+  
+  const toggleThumbnailMenu = (id: string) => {
+    if (activeThumbnailMenu === id) {
+      setActiveThumbnailMenu(null);
+    } else {
+      setActiveThumbnailMenu(id);
+    }
+  };
+  
+  const handleThumbnailClick = (e: React.MouseEvent, id: string) => {
+    // Prevent navigation when clicking the thumbnail itself
+    e.preventDefault();
+    e.stopPropagation();
+    toggleThumbnailMenu(id);
+  };
+  
+  const handleCustomThumbnailClick = (id: string) => {
+    setSelectedItemId(id);
+    setActiveThumbnailMenu(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+  
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || !e.target.files.length || !selectedItemId) {
+      return;
+    }
+    
+    const file = e.target.files[0];
+    
+    try {
+      // Create a local file URL
+      const objectUrl = URL.createObjectURL(file);
+      
+      // Update the thumbnail in the database
+      const updatedItem = await window.electronAPI.updateThumbnail(selectedItemId, objectUrl);
+      
+      // Update the item in the state
+      setContentItems(prevItems => 
+        prevItems.map(item => 
+          item.id === selectedItemId ? { ...item, featuredImage: objectUrl } : item
+        )
+      );
+      
+      // Reset the file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    } catch (error) {
+      console.error('Error updating thumbnail:', error);
+      alert('Failed to update thumbnail.');
+    } finally {
+      setSelectedItemId(null);
+    }
+  };
+  
+  const handleRemoveThumbnail = async (id: string) => {
+    try {
+      // Update the thumbnail to null/empty in the database
+      await window.electronAPI.updateThumbnail(id, '');
+      
+      // Update the item in the state
+      setContentItems(prevItems => 
+        prevItems.map(item => 
+          item.id === id ? { ...item, featuredImage: '' } : item
+        )
+      );
+      
+      setActiveThumbnailMenu(null);
+    } catch (error) {
+      console.error('Error removing thumbnail:', error);
+      alert('Failed to remove thumbnail.');
+    }
+  };
+  
+  const handleProvideUrlThumbnail = async (id: string) => {
+    const url = prompt('Enter the URL for the thumbnail image:');
+    if (!url) return;
+    
+    try {
+      // Update the thumbnail with the provided URL
+      await window.electronAPI.updateThumbnail(id, url);
+      
+      // Update the item in the state
+      setContentItems(prevItems => 
+        prevItems.map(item => 
+          item.id === id ? { ...item, featuredImage: url } : item
+        )
+      );
+      
+      setActiveThumbnailMenu(null);
+    } catch (error) {
+      console.error('Error updating thumbnail with URL:', error);
+      alert('Failed to update thumbnail.');
+    }
+  };
 
   return (
     <div className="content-library-container">
+      {/* Hidden file input for thumbnail upload */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileSelect}
+        accept="image/*"
+        style={{ display: 'none' }}
+      />
       <header className="library-header">
         <h1>Content Library</h1>
         <div className="search-container">
@@ -159,6 +267,7 @@ export const ContentLibraryPage: React.FC = () => {
           <table className="content-table">
             <thead>
               <tr>
+                <th className="image-column">Thumbnail</th>
                 <th onClick={() => requestSort('title')}>
                   Title {getSortIndicator('title')}
                 </th>
@@ -178,6 +287,43 @@ export const ContentLibraryPage: React.FC = () => {
             <tbody>
               {filteredItems.map(item => (
                 <tr key={item.id}>
+                  <td className="image-column">
+                    <div className="thumbnail-container">
+                      <div 
+                        onClick={(e) => handleThumbnailClick(e, item.id)}
+                        className="thumbnail-wrapper"
+                      >
+                        {item.featuredImage ? (
+                          <img 
+                            src={item.featuredImage} 
+                            alt={item.title} 
+                            className="article-thumbnail" 
+                            onError={(e) => {
+                              // Fallback to placeholder on image load error
+                              (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%23f0f0f0"/><text x="50%" y="50%" font-family="Arial" font-size="14" fill="%23999" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>';
+                            }}
+                          />
+                        ) : (
+                          <div className="placeholder-thumbnail">
+                            <span>No Image</span>
+                          </div>
+                        )}
+                        <div className="thumbnail-overlay">
+                          <span className="edit-icon">✏️</span>
+                        </div>
+                      </div>
+                      {activeThumbnailMenu === item.id && (
+                        <div className="thumbnail-menu">
+                          <button onClick={() => handleCustomThumbnailClick(item.id)}>Upload image</button>
+                          <button onClick={() => handleProvideUrlThumbnail(item.id)}>Use image URL</button>
+                          {item.featuredImage && (
+                            <button onClick={() => handleRemoveThumbnail(item.id)}>Remove image</button>
+                          )}
+                          <button onClick={() => setActiveThumbnailMenu(null)}>Cancel</button>
+                        </div>
+                      )}
+                    </div>
+                  </td>
                   <td>
                     <Link to={`/reader/${item.id}`} className="title-link">
                       {item.title}

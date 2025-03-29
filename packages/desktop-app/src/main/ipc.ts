@@ -63,6 +63,15 @@ export function registerIpcHandlers() {
     }
   });
   
+  ipcMain.handle('update-thumbnail', async (_, id: string, imageUrl: string) => {
+    try {
+      return await contentService.updateThumbnail(id, imageUrl);
+    } catch (error) {
+      console.error(`Error updating thumbnail for item with ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
   // Settings-related handlers
   ipcMain.handle('get-reading-settings', async () => {
     try {

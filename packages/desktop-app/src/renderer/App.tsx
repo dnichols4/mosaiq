@@ -18,6 +18,7 @@ declare global {
       getItemWithContent: (id: string) => Promise<any>;
       deleteItem: (id: string) => Promise<void>;
       updateTags: (id: string, tags: string[]) => Promise<any>;
+      updateThumbnail: (id: string, imageUrl: string) => Promise<any>;
       
       getReadingSettings: () => Promise<ReadingSettings>;
       updateReadingSettings: (settings: Partial<ReadingSettings>) => Promise<ReadingSettings>;

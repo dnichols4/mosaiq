@@ -1,0 +1,22 @@
+
+interface Window {
+  electronAPI: {
+    // Content-related methods
+    saveUrl: (url: string) => Promise<any>;
+    getAllItems: () => Promise<any[]>;
+    getItemWithContent: (id: string) => Promise<any>;
+    deleteItem: (id: string) => Promise<void>;
+    updateTags: (id: string, tags: string[]) => Promise<any>;
+    updateThumbnail: (id: string, imageUrl: string) => Promise<any>;
+    
+    // Settings-related methods
+    getReadingSettings: () => Promise<any>;
+    updateReadingSettings: (settings: any) => Promise<any>;
+    getAllSettings: () => Promise<any>;
+    updateGeneralSettings: (settings: any) => Promise<any>;
+    resetSettings: () => Promise<any>;
+    
+    // Platform capabilities
+    getPlatformCapabilities: () => Promise<any>;
+  };
+}

@@ -11,6 +11,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getItemWithContent: (id: string) => ipcRenderer.invoke('get-item-with-content', id),
   deleteItem: (id: string) => ipcRenderer.invoke('delete-item', id),
   updateTags: (id: string, tags: string[]) => ipcRenderer.invoke('update-tags', id, tags),
+  updateThumbnail: (id: string, imageUrl: string) => ipcRenderer.invoke('update-thumbnail', id, imageUrl),
   
   // Settings-related methods
   getReadingSettings: () => ipcRenderer.invoke('get-reading-settings'),

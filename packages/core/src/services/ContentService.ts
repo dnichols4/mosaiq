@@ -179,6 +179,35 @@ export class ContentService {
   }
   
   /**
+   * Update the thumbnail image for a content item
+   * @param id The ID of the content item
+   * @param imageUrl The new featured image URL
+   * @returns The updated content item
+   */
+  async updateThumbnail(id: string, imageUrl: string): Promise<ContentItem> {
+    try {
+      // Get existing items
+      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
+      
+      // Check if item exists
+      if (!items[id]) {
+        throw new Error(`Content item with ID ${id} not found`);
+      }
+      
+      // Update featured image
+      items[id].featuredImage = imageUrl;
+      
+      // Save updated metadata
+      await this.metadataStorage.set('contentItems', items);
+      
+      return items[id];
+    } catch (error) {
+      console.error(`Error updating thumbnail for content item with ID ${id}:`, error);
+      throw error;
+    }
+  }
+  
+  /**
    * Generate a unique ID
    * @returns A unique ID
    */
