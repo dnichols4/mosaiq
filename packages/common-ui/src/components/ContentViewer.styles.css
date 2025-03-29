@@ -4,6 +4,14 @@
   color: var(--app-text, #333333);
 }
 
+/* Style for content body to constrain images */
+.content-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em 0;
+}
+
 /* Theme-specific styles are now handled globally in theme.css */
 
 .content-viewer a {

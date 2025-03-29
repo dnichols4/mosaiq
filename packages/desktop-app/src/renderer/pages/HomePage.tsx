@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ContentCard } from '@mosaiq/common-ui';
 import { IPlatformCapabilities } from '@mosaiq/platform-abstractions';
 
@@ -93,7 +93,10 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
     <div style={{ padding: '20px' }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <h1>Mosaiq</h1>
-        <button onClick={goToSettings}>Settings</button>
+        <div style={{ display: 'flex', gap: '12px' }}>
+          <Link to="/library" style={{ padding: '8px 16px', borderRadius: '4px', background: 'var(--button-bg)', color: 'var(--button-text)', textDecoration: 'none' }}>Content Library</Link>
+          <button onClick={goToSettings}>Settings</button>
+        </div>
       </header>
       
       <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
