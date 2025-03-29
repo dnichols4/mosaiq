@@ -192,6 +192,8 @@
   padding-right: 1rem;
   opacity: 0;
   transition: opacity 0.2s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .list-item:hover .list-item-actions,
@@ -215,13 +217,15 @@
 }
 
 .delete-button {
-  background-color: rgba(255, 0, 0, 0.1);
-  color: #ff6b6b;
+  background-color: rgba(255, 0, 0, 0.1) !important;
+  color: #ff6b6b !important;
+  border-color: rgba(255, 0, 0, 0.2) !important;
 }
 
 .delete-button:hover {
-  background-color: rgba(255, 0, 0, 0.2);
-  color: #ff4040;
+  background-color: rgba(255, 0, 0, 0.2) !important;
+  color: #ff4040 !important;
+  border-color: rgba(255, 0, 0, 0.3) !important;
 }
 
 .action-button:hover {
@@ -450,8 +454,85 @@
   right: 0.5rem;
   opacity: 0;
   transition: opacity 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px;
+  border-radius: 4px;
 }
 
 .grid-item:hover .grid-item-actions {
   opacity: 1;
+}
+
+/* Icon styling */
+.mosaiq-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--control-bg, transparent);
+  border: 1px solid var(--border-color, #1e1f23);
+  border-radius: 6px;
+  color: var(--app-text, #e3e3e3);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.mosaiq-icon-button:hover {
+  background-color: var(--control-hover, rgba(255, 255, 255, 0.1));
+  color: var(--link-color, #4a90e2);
+}
+
+.mosaiq-icon-button.active {
+  background-color: var(--button-bg, #4a90e2);
+  color: var(--button-text, #ffffff);
+  border-color: var(--button-bg, #4a90e2);
+}
+
+.mosaiq-icon-svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .mosaiq-icon-button {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .mosaiq-icon-svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Specific styling for delete buttons */
+.delete-action-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  z-index: 20;
+}
+
+.delete-action-button:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+  color: #ff4040;
+}
+
+.list-item:hover .delete-action-button,
+.grid-item:hover .delete-action-button {
+  opacity: 1; /* Show on hover */
 }

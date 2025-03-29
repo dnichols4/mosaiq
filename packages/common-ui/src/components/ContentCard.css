@@ -1,0 +1,24 @@
+.content-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.content-card:hover .delete-button {
+  opacity: 1 !important;
+}
+
+.delete-button:hover {
+  background-color: var(--destructive-bg-hover, rgba(255, 255, 255, 0.7)) !important;
+  color: var(--destructive-text-hover, #ff0000) !important;
+}
+
+.delete-button svg {
+  color: inherit;
+}
