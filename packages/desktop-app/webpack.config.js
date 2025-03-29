@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: './src/renderer/index.tsx',
   target: 'electron-renderer',
+  devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist/renderer'),
     filename: 'renderer.js'
