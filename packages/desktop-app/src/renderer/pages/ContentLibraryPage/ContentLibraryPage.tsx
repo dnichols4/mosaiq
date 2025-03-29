@@ -324,7 +324,7 @@ export const ContentLibraryPage: React.FC = () => {
                   className="action-button delete-button"
                   title="Delete"
                 >
-                  🗑️
+                  🚮
                 </button>
               </div>
             </div>

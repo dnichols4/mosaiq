@@ -92,6 +92,28 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Dark theme hover effect */
+:root[data-theme="dark"] .list-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-left-color: var(--link-color, #4a90e2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme hover effect */
+:root[data-theme="light"] .list-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-left-color: var(--link-color, #4a90e2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sepia theme hover effect */
+:root[data-theme="sepia"] .list-item:hover {
+  background-color: rgba(122, 81, 19, 0.08);
+  border-left-color: var(--link-color, #4a90e2);
+  box-shadow: 0 2px 8px rgba(122, 81, 19, 0.15);
+}
+
+/* Default hover effect (fallback) */
 .list-item:hover {
   background-color: rgba(255, 255, 255, 0.08);
   border-left-color: var(--link-color, #4a90e2);
@@ -163,7 +185,7 @@
   object-fit: cover;
 }
 
-.list-item-actions {
+.list-item-actions, .grid-item-actions {
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -172,7 +194,8 @@
   transition: opacity 0.2s ease;
 }
 
-.list-item:hover .list-item-actions {
+.list-item:hover .list-item-actions,
+.grid-item:hover .grid-item-actions {
   opacity: 1;
 }
 
@@ -334,6 +357,30 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Dark theme grid hover effect */
+:root[data-theme="dark"] .grid-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme grid hover effect */
+:root[data-theme="light"] .grid-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Sepia theme grid hover effect */
+:root[data-theme="sepia"] .grid-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 81, 19, 0.15);
+  border-color: rgba(122, 81, 19, 0.1);
+  background-color: rgba(122, 81, 19, 0.05);
+}
+
+/* Default grid hover effect (fallback) */
 .grid-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
