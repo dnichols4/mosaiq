@@ -514,4 +514,11 @@
   }
 }
 
-/* Delete button styles are now managed by .action-button and .delete-button above */
+/* List view specific styles */
+.list-item .action-button.delete-button {
+  opacity: 0;
+}
+
+.list-item:hover .action-button.delete-button {
+  opacity: 1;
+}

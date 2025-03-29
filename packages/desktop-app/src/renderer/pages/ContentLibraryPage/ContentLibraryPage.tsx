@@ -275,16 +275,6 @@ export const ContentLibraryPage: React.FC = () => {
               key={item.id} 
               className="list-item"
               onClick={() => handleItemClick(item.id)}
-              onMouseEnter={(e) => {
-                // Find the delete button and make it visible
-                const button = e.currentTarget.querySelector('.delete-button') as HTMLElement;
-                if (button) button.style.opacity = '1';
-              }}
-              onMouseLeave={(e) => {
-                // Find the delete button and hide it
-                const button = e.currentTarget.querySelector('.delete-button') as HTMLElement;
-                if (button) button.style.opacity = '0';
-              }}
             >
               <div className="list-item-icon">
                 {item.featuredImage ? (
@@ -329,29 +319,6 @@ export const ContentLibraryPage: React.FC = () => {
                 <div className="list-item-actions">
                   <button 
                     className="action-button delete-button"
-                    style={{ 
-                      opacity: 0, 
-                      transition: 'opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease',
-                      backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                      color: '#ff6b6b',
-                      border: '1px solid rgba(255, 0, 0, 0.3)',
-                      width: '30px',
-                      height: '30px',
-                      borderRadius: '4px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      cursor: 'pointer',
-                      zIndex: 20
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
-                      e.currentTarget.style.color = '#ff4040';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
-                      e.currentTarget.style.color = '#ff6b6b';
-                    }}
                     onClick={(e) => {
                       e.stopPropagation();
                       handleDeleteItem(item.id, e);
