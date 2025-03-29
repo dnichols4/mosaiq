@@ -227,6 +227,22 @@ export const ContentLibraryPage: React.FC = () => {
               </span>
             )}
           </div>
+          <div className="view-mode-toggle">
+            <button 
+              className={`view-mode-button ${viewMode === 'list' ? 'active' : ''}`}
+              onClick={() => setViewMode('list')}
+              title="List View"
+            >
+              ☰
+            </button>
+            <button 
+              className={`view-mode-button ${viewMode === 'grid' ? 'active' : ''}`}
+              onClick={() => setViewMode('grid')}
+              title="Grid View"
+            >
+              ▤
+            </button>
+          </div>
           <Link to="/" className="back-link">Back to Home</Link>
         </div>
       </header>
@@ -252,7 +268,7 @@ export const ContentLibraryPage: React.FC = () => {
           <p>No articles found.</p>
           {searchTerm ? <p>Try adjusting your search term.</p> : null}
         </div>
-      ) : (
+      ) : viewMode === 'list' ? (
         <div className="content-list">
           {filteredItems.map(item => (
             <div 
@@ -310,6 +326,66 @@ export const ContentLibraryPage: React.FC = () => {
                 >
                   🗑️
                 </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="content-grid">
+          {filteredItems.map(item => (
+            <div 
+              key={item.id} 
+              className="grid-item"
+              onClick={() => handleItemClick(item.id)}
+            >
+              <div className="grid-item-image">
+                {item.featuredImage ? (
+                  <img 
+                    src={item.featuredImage} 
+                    alt={item.title}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><rect width="100%" height="100%" fill="%232c2c2c"/><text x="50%" y="50%" font-family="Arial" font-size="48" fill="%23999" text-anchor="middle" dominant-baseline="middle">📄</text></svg>';
+                    }}
+                  />
+                ) : (
+                  <div>{getSourceIcon(item)}</div>
+                )}
+                <div className="grid-item-actions">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteItem(item.id);
+                    }}
+                    className="action-button delete-button"
+                    title="Delete"
+                  >
+                    🚮
+                  </button>
+                </div>
+              </div>
+              <div className="grid-item-content">
+                <div className="grid-item-title">{item.title}</div>
+                {item.excerpt && (
+                  <div className="grid-item-excerpt">{item.excerpt}</div>
+                )}
+                <div className="grid-item-footer">
+                  <div className="grid-item-metadata">
+                    {item.author && (
+                      <span>{item.author}</span>
+                    )}
+                    <span>{formatDate(item.dateAdded)}</span>
+                  </div>
+                  {item.tags && item.tags.length > 0 && (
+                    <div className="tags-container">
+                      {item.tags.slice(0, 2).map((tag, index) => (
+                        <span key={index} className="tag">{tag}</span>
+                      ))}
+                      {item.tags.length > 2 && (
+                        <span className="tag">+{item.tags.length - 2}</span>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}
