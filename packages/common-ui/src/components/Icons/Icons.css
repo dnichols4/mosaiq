@@ -1,0 +1,42 @@
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--control-bg, transparent);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  color: var(--app-text, #1f2937);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background: var(--control-hover, #f3f4f6);
+  color: var(--link-color, #2563eb);
+}
+
+.icon-button.active {
+  background: var(--button-bg, #2563eb);
+  color: var(--button-text, #ffffff);
+  border-color: var(--button-bg, #2563eb);
+}
+
+.icon-svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .icon-button {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .icon-svg {
+    width: 16px;
+    height: 16px;
+  }
+}

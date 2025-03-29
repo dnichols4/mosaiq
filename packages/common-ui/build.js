@@ -1,11 +1,22 @@
-const fs = require('fs');
-const path = require('path');
+const { execSync } = require('node:child_process');
+const path = require('node:path');
+const fs = require('node:fs');
 
-// Create dist/components directory if it doesn't exist
-const componentsDir = path.join(__dirname, 'dist', 'components');
-if (!fs.existsSync(componentsDir)) {
-  fs.mkdirSync(componentsDir, { recursive: true });
+// Build TypeScript
+console.log('Building TypeScript...');
+try {
+  execSync('npx tsc', { 
+    cwd: __dirname,
+    stdio: 'inherit'
+  });
+  console.log('TypeScript build completed');
+} catch (error) {
+  console.error('TypeScript build failed');
+  process.exit(1);
 }
+
+// Copy CSS files recursively
+console.log('Copying CSS files...');
 
 // Function to copy CSS files recursively
 function copyStylesRecursive(sourceDir, targetDir) {
@@ -40,3 +51,4 @@ copyStylesRecursive(
 );
 
 console.log('CSS files copied successfully');
+console.log('Build completed successfully');

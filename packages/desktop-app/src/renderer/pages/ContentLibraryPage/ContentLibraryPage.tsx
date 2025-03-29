@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ContentItem } from '@mosaiq/core';
+import { SearchIcon, SpotlightInput } from '@mosaiq/common-ui';
 import './ContentLibraryPage.css';
 
 interface SortConfig {
@@ -17,6 +18,7 @@ export const ContentLibraryPage: React.FC = () => {
   const [activeThumbnailMenu, setActiveThumbnailMenu] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [showSpotlight, setShowSpotlight] = useState(false);
 
   useEffect(() => {
     const fetchContentItems = async () => {
@@ -61,8 +63,8 @@ export const ContentLibraryPage: React.FC = () => {
     }
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+  const handleSearchSubmit = (value: string) => {
+    setSearchTerm(value);
   };
 
   const requestSort = (key: keyof ContentItem) => {
@@ -225,6 +227,10 @@ export const ContentLibraryPage: React.FC = () => {
     }
   };
 
+  const clearSearch = () => {
+    setSearchTerm('');
+  };
+
   return (
     <div className="content-library-container">
       {/* Hidden file input for thumbnail upload */}
@@ -237,22 +243,35 @@ export const ContentLibraryPage: React.FC = () => {
       />
       <header className="library-header">
         <h1>Content Library</h1>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search articles..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="search-input"
-          />
+        <div className="library-controls">
+          <div className="search-button-container">
+            <SearchIcon 
+              onClick={() => setShowSpotlight(true)} 
+              className={searchTerm ? 'active' : ''}
+            />
+            {searchTerm && (
+              <span className="search-indicator">
+                Filtered by: {searchTerm}
+                <button className="clear-search-button" onClick={clearSearch}>✕</button>
+              </span>
+            )}
+          </div>
+          <Link to="/" className="back-link">Back to Home</Link>
         </div>
       </header>
 
-      <div className="library-controls">
-        <div className="stats">
-          Showing {filteredItems.length} of {contentItems.length} articles
-        </div>
-        <Link to="/" className="back-link">Back to Home</Link>
+      {/* Spotlight Search Input */}
+      <SpotlightInput
+        isOpen={showSpotlight}
+        onClose={() => setShowSpotlight(false)}
+        mode="search"
+        onSubmit={handleSearchSubmit}
+        placeholder="Search articles by title, author, or tags..."
+        initialValue={searchTerm}
+      />
+
+      <div className="library-stats">
+        Showing {filteredItems.length} of {contentItems.length} articles
       </div>
 
       {isLoading ? (
