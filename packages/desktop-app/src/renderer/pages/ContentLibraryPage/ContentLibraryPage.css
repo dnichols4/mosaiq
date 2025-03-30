@@ -194,11 +194,6 @@
   z-index: 10;
 }
 
-.list-item-actions {
-  padding-right: 0;
-  margin-right: 8px;
-}
-
 .grid-item-actions {
   position: absolute;
   top: 8px;
@@ -515,10 +510,6 @@
 }
 
 /* List view specific styles */
-.list-item .action-button.delete-button {
-  opacity: 0;
-}
-
-.list-item:hover .action-button.delete-button {
-  opacity: 1;
+.list-item:hover .list-delete-container {
+  opacity: 1 !important;
 }

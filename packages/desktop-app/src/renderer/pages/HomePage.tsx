@@ -267,15 +267,6 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
               <div className="timestamp">
                 {formatTime(item.dateAdded)}
               </div>
-              <div className="list-item-actions">
-                <button
-                  onClick={(e) => handleItemDelete(item.id, e)}
-                  className="action-button delete-button"
-                  title="Delete"
-                >
-                  🗑️
-                </button>
-              </div>
             </div>
           ))}
         </div>

@@ -167,13 +167,6 @@
   object-fit: cover;
 }
 
-.list-item-actions {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  padding-right: 1rem;
-}
-
 .timestamp {
   margin-left: auto;
   font-size: 0.8rem;

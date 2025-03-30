@@ -275,6 +275,7 @@ export const ContentLibraryPage: React.FC = () => {
               key={item.id} 
               className="list-item"
               onClick={() => handleItemClick(item.id)}
+              style={{ position: 'relative' }} // Ensure proper stacking context
             >
               <div className="list-item-icon">
                 {item.featuredImage ? (
@@ -312,37 +313,69 @@ export const ContentLibraryPage: React.FC = () => {
                   )}
                 </div>
               </div>
-              <div className="list-right-container" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
+              <div className="list-right-container" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: '50px' /* Added margin to make room for the delete button */ }}>
                 <div className="timestamp">
                   {formatTime(item.dateAdded)}
                 </div>
-                <div className="list-item-actions">
-                  <button 
-                    className="action-button delete-button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDeleteItem(item.id, e);
-                    }}
-                    title="Delete"
+              </div>
+              <div className="list-delete-container" style={{
+                position: 'absolute',
+                right: '20px',  // Increased to make sure it's not overlapping with other elements
+                top: '50%',
+                transform: 'translateY(-50%)',
+                opacity: 0,
+                transition: 'opacity 0.2s ease',
+                zIndex: 100,
+                marginLeft: '15px',  // Added to create some space
+                pointerEvents: 'auto'  // Ensure it receives mouse events
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.opacity = '1'; }}
+              >
+                <button 
+                  style={{ 
+                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                    color: '#ff6b6b',
+                    border: '1px solid rgba(255, 0, 0, 0.3)',
+                    width: '30px',
+                    height: '30px',
+                    borderRadius: '4px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s ease, color 0.2s ease',
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+                    e.currentTarget.style.color = '#ff4040';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+                    e.currentTarget.style.color = '#ff6b6b';
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDeleteItem(item.id, e);
+                  }}
+                  title="Delete"
+                >
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    width="18" 
+                    height="18" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
                   >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      viewBox="0 0 24 24" 
-                      width="18" 
-                      height="18" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="3 6 5 6 21 6" />
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                      <line x1="10" y1="11" x2="10" y2="17" />
-                      <line x1="14" y1="11" x2="14" y2="17" />
-                    </svg>
-                  </button>
-                </div>
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                    <line x1="10" y1="11" x2="10" y2="17" />
+                    <line x1="14" y1="11" x2="14" y2="17" />
+                  </svg>
+                </button>
               </div>
             </div>
           ))}
