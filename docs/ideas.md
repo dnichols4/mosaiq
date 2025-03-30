@@ -13,18 +13,6 @@
 *   Somehow visually expose these data points to the user (like Obisdian graphs?) with the purpose of highlighting "connections" between content items and the user's "interest" in each tag/classification
 *   Also possible allow the user to set preferences or "dials" for each tag/classification. These preferences could then be used to possibly rate/grade/rank each content item based on the user's potential "liking" of the content item - i.e., if I "dial" my "physics" dial to "10" (on a scale of 10), then content items with a high "physics score" should show up more frequently / get a higher rating/ranking
 
-## Content Types
-
-*   YouTube videos / transcripts
-*   "Hand written" notes via markdown editor or "friendly" copy/paste
-    *   Possibly branch off the "add content" button 1) Add URL, 2) Create Content?  Maybe better as two different options?
-
-# Wikipedia Category Graph for Taxonomy
-
-Based on your specific criteria—**broad coverage**, **ease of automated tagging by small models**, and suitability for virtually **any topic an individual might want to explore further**—I strongly recommend using the **Wikipedia Category Graph (DBpedia/Wikipedia Categories)** as your foundational taxonomy.
-
----
-
 ## 🌟 **Why Wikipedia Category Graph?**
 
 ### 1\. **Broad, Comprehensive Coverage**
@@ -81,7 +69,7 @@ Convert this to a simplified SKOS (Simple Knowledge Organization System) format:
 
 Example SKOS concept structure:
 
-```
+```javascript
 {
   "id": "https://dbpedia.org/resource/Category:Machine_learning",
   "prefLabel": "Machine Learning",
@@ -105,3 +93,13 @@ Use prompts with your SLM or LLM like:
 The Wikipedia Category Graph via DBpedia is **the most practical, accessible, and versatile taxonomy** for your scenario, offering the **optimal balance between breadth of coverage** and ease of **automated categorization by smaller language models**.
 
 Would you like help with setting up an initial SKOS-formatted Wikipedia category subset or guidance on creating prompts optimized for your model?
+
+---
+
+---
+
+## Content Types
+
+*   YouTube videos / transcripts
+*   "Hand written" notes via markdown editor or "friendly" copy/paste
+    *   Possibly branch off the "add content" button 1) Add URL, 2) Create Content?  Maybe better as two different options?
