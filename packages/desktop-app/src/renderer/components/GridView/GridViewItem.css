@@ -1,0 +1,168 @@
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--card-bg, #1e1f23);
+  transition: all 0.25s ease;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.grid-item-image {
+  height: 160px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover .grid-item-image img {
+  transform: scale(1.05);
+}
+
+.default-image {
+  font-size: 3rem;
+  color: var(--muted-text, #a0a0a0);
+}
+
+.grid-item-content {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-item-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem 0;
+  color: var(--app-text, #e3e3e3);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grid-item-excerpt {
+  font-size: 0.9rem;
+  color: var(--muted-text, #a0a0a0);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grid-item-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grid-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted-text, #a0a0a0);
+}
+
+.grid-item-author {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.grid-item-author:after {
+  content: '•';
+  margin-left: 8px;
+  opacity: 0.5;
+}
+
+.grid-item-date {
+  white-space: nowrap;
+}
+
+.grid-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.grid-tag, .grid-tag-more {
+  background-color: rgba(74, 144, 226, 0.15);
+  color: var(--link-color, #4a90e2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.grid-tag-more {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--muted-text, #a0a0a0);
+}
+
+.grid-item-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+}
+
+.delete-button {
+  background-color: rgba(255, 0, 0, 0.15);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 0, 0, 0.25);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  margin: 0;
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 0, 0, 0.25);
+  color: #ff4040;
+  border-color: rgba(255, 0, 0, 0.35);
+  transform: scale(1.05);
+}
+
+/* Animation for the delete button */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.grid-item-actions .delete-button {
+  animation: fadeIn 0.2s ease forwards;
+}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ContentItem } from '@mosaiq/core';
 import { SearchIcon, SpotlightInput } from '@mosaiq/common-ui';
 import './ContentLibraryPage.css';
+import './ListViewStyles.css';
 
 interface SortConfig {
   key: keyof ContentItem;
@@ -269,114 +270,82 @@ export const ContentLibraryPage: React.FC = () => {
           {searchTerm ? <p>Try adjusting your search term.</p> : null}
         </div>
       ) : viewMode === 'list' ? (
-        <div className="content-list">
+        <div className="content-list-container">
           {filteredItems.map(item => (
-            <div 
-              key={item.id} 
-              className="list-item"
-              onClick={() => handleItemClick(item.id)}
-              style={{ position: 'relative' }} // Ensure proper stacking context
-            >
-              <div className="list-item-icon">
-                {item.featuredImage ? (
-                  <img 
-                    src={item.featuredImage} 
-                    alt={item.title}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="100%" height="100%" fill="%232c2c2c"/><text x="50%" y="50%" font-family="Arial" font-size="10" fill="%23999" text-anchor="middle" dominant-baseline="middle">📄</text></svg>';
-                    }}
-                  />
-                ) : (
-                  <div>{getSourceIcon(item)}</div>
-                )}
-              </div>
-              <div className="list-item-content">
-                <div className="item-title">{item.title}</div>
-                {item.excerpt && (
-                  <div className="item-excerpt">{item.excerpt}</div>
-                )}
-                <div className="item-metadata">
-                  {item.author && (
-                    <>
-                      {item.author} 
-                      <span className="metadata-divider">•</span>
-                    </>
-                  )}
-                  {formatDate(item.dateAdded)}
-                  {item.tags && item.tags.length > 0 && (
-                    <>
-                      <span className="metadata-divider">•</span>
-                      {item.tags.map((tag, index) => (
-                        <span key={index} className="tag">{tag}</span>
-                      ))}
-                    </>
-                  )}
-                </div>
-              </div>
-              <div className="list-right-container" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: '50px' /* Added margin to make room for the delete button */ }}>
-                <div className="timestamp">
-                  {formatTime(item.dateAdded)}
-                </div>
-              </div>
-              <div className="list-delete-container" style={{
-                position: 'absolute',
-                right: '20px',  // Increased to make sure it's not overlapping with other elements
-                top: '50%',
-                transform: 'translateY(-50%)',
-                opacity: 0,
-                transition: 'opacity 0.2s ease',
-                zIndex: 100,
-                marginLeft: '15px',  // Added to create some space
-                pointerEvents: 'auto'  // Ensure it receives mouse events
-              }}
-              onMouseOver={(e) => { e.currentTarget.style.opacity = '1'; }}
+            <div key={item.id} className="list-item-wrapper">
+              <div 
+                className="list-item-content-container"
+                onClick={() => handleItemClick(item.id)}
               >
-                <button 
-                  style={{ 
-                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                    color: '#ff6b6b',
-                    border: '1px solid rgba(255, 0, 0, 0.3)',
-                    width: '30px',
-                    height: '30px',
-                    borderRadius: '4px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.2s ease, color 0.2s ease',
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
-                    e.currentTarget.style.color = '#ff4040';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
-                    e.currentTarget.style.color = '#ff6b6b';
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDeleteItem(item.id, e);
-                  }}
-                  title="Delete"
-                >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    width="18" 
-                    height="18" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="3 6 5 6 21 6" />
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                    <line x1="10" y1="11" x2="10" y2="17" />
-                    <line x1="14" y1="11" x2="14" y2="17" />
-                  </svg>
-                </button>
+                <div className="list-item-icon-container">
+                  {item.featuredImage ? (
+                    <img 
+                      src={item.featuredImage} 
+                      alt={item.title}
+                      className="list-item-icon-image"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="100%" height="100%" fill="%232c2c2c"/><text x="50%" y="50%" font-family="Arial" font-size="10" fill="%23999" text-anchor="middle" dominant-baseline="middle">📄</text></svg>';
+                      }}
+                    />
+                  ) : (
+                    <div className="list-item-icon-fallback">{getSourceIcon(item)}</div>
+                  )}
+                </div>
+                
+                <div className="list-item-details">
+                  <h3 className="list-item-title">{item.title}</h3>
+                  {item.excerpt && (
+                    <p className="list-item-excerpt">{item.excerpt}</p>
+                  )}
+                  <div className="list-item-metadata">
+                    {item.author && (
+                      <span className="list-item-author">{item.author}</span>
+                    )}
+                    {item.author && <span className="metadata-separator">•</span>}
+                    <span className="list-item-date">{formatDate(item.dateAdded)}</span>
+                    {item.tags && item.tags.length > 0 && (
+                      <div className="list-item-tags">
+                        <span className="metadata-separator">•</span>
+                        {item.tags.map((tag, index) => (
+                          <span key={index} className="list-item-tag">{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="list-item-right">
+                  <span className="list-item-time">{formatTime(item.dateAdded)}</span>
+                </div>
               </div>
+              
+              <button 
+                className="list-item-delete-button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDeleteItem(item.id, e);
+                }}
+                title="Delete"
+                aria-label="Delete item"
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  width="18" 
+                  height="18" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                  className="delete-icon"
+                >
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                  <line x1="10" y1="11" x2="10" y2="17" />
+                  <line x1="14" y1="11" x2="14" y2="17" />
+                </svg>
+              </button>
             </div>
           ))}
         </div>

@@ -1,0 +1,90 @@
+.list-view {
+  width: 100%;
+  background-color: var(--card-bg, #1e1f23);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--muted-text, #a0a0a0);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.list-header-item {
+  padding: 4px 8px;
+}
+
+.list-header-icon {
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.list-header-title {
+  flex: 3;
+}
+
+.list-header-author {
+  flex: 1;
+  display: flex;
+}
+
+.list-header-date {
+  flex: 1;
+  display: flex;
+}
+
+.list-header-time {
+  width: 80px;
+  text-align: center;
+}
+
+.list-header-actions {
+  width: 60px;
+  text-align: right;
+}
+
+.list-items {
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.list-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-items::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.list-items::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.list-items::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .list-header-author,
+  .list-header-date {
+    display: none;
+  }
+
+  .list-view {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

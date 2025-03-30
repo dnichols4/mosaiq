@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ContentCard, SpotlightInput, SearchIcon, AddIcon, SettingsIcon, GridIcon, ListIcon } from '@mosaiq/common-ui';
 import { IPlatformCapabilities } from '@mosaiq/platform-abstractions';
+import { ListView } from '../components/ListView/ListView';
+import { GridView } from '../components/GridView/GridView';
 import './HomePage.css';
 
 interface HomePageProps {
@@ -205,71 +207,22 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
       )}
       
       {viewMode === 'grid' ? (
-        <div className="grid-container">
-          {filteredItems.map((item) => (
-            <ContentCard
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              excerpt={item.excerpt}
-              featuredImage={item.featuredImage}
-              dateAdded={item.dateAdded}
-              author={item.author}
-              onClick={handleItemClick}
-              onDelete={handleItemDelete}
-            />
-          ))}
-        </div>
+        <GridView 
+          items={filteredItems}
+          onItemClick={handleItemClick}
+          onDeleteItem={(id, e) => handleItemDelete(id, e)}
+          formatDate={formatDate}
+          getSourceIcon={getSourceIcon}
+        />
       ) : (
-        <div className="content-list">
-          {filteredItems.map(item => (
-            <div 
-              key={item.id} 
-              className="list-item"
-              onClick={() => handleItemClick(item.id)}
-            >
-              <div className="list-item-icon">
-                {item.featuredImage ? (
-                  <img 
-                    src={item.featuredImage} 
-                    alt={item.title}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="100%" height="100%" fill="%232c2c2c"/><text x="50%" y="50%" font-family="Arial" font-size="10" fill="%23999" text-anchor="middle" dominant-baseline="middle">📄</text></svg>';
-                    }}
-                  />
-                ) : (
-                  <div>{getSourceIcon(item)}</div>
-                )}
-              </div>
-              <div className="list-item-content">
-                <div className="item-title">{item.title}</div>
-                {item.excerpt && (
-                  <div className="item-excerpt">{item.excerpt}</div>
-                )}
-                <div className="item-metadata">
-                  {item.author && (
-                    <>
-                      {item.author} 
-                      <span className="metadata-divider">•</span>
-                    </>
-                  )}
-                  {formatDate(item.dateAdded)}
-                  {item.tags && item.tags.length > 0 && (
-                    <>
-                      <span className="metadata-divider">•</span>
-                      {item.tags.map((tag: string, index: number) => (
-                        <span key={index} className="tag">{tag}</span>
-                      ))}
-                    </>
-                  )}
-                </div>
-              </div>
-              <div className="timestamp">
-                {formatTime(item.dateAdded)}
-              </div>
-            </div>
-          ))}
-        </div>
+        <ListView 
+          items={filteredItems}
+          onItemClick={handleItemClick}
+          onDeleteItem={(id, e) => handleItemDelete(id, e)}
+          formatDate={formatDate}
+          formatTime={formatTime}
+          getSourceIcon={getSourceIcon}
+        />
       )}
       
       {filteredItems.length === 0 && (
