@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced UNESCO Thesaurus Explorer</title>
+    <link rel="stylesheet" href="enhanced-explorer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="enhanced-explorer.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>UNESCO Thesaurus Explorer</h1>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="classFilter">Filter by Class:</label>
+                    <select id="classFilter">
+                        <option value="all">All Classes</option>
+                        <option value="domain">Domains</option>
+                        <option value="conceptGroup">Microthesauri</option>
+                        <option value="concept">Concepts</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="searchInput">Search:</label>
+                    <input type="text" id="searchInput" placeholder="Search by label...">
+                </div>
+                <button id="resetFilters">Reset Filters</button>
+            </div>
+            <div id="status" class="status">Initializing...</div>
+        </header>
+        <div class="container">
+            <div id="hierarchyPanel">
+                <div id="tree"></div>
+            </div>
+            <div id="detailsPanel">
+                <div class="details-content">
+                    <h2>Concept Details</h2>
+                    <div id="conceptDetails">
+                        <p>Select a concept to view details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
