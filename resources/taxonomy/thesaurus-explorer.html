@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNESCO Thesaurus Robust Explorer</title>
+    <title>UNESCO Thesaurus SKOS Explorer</title>
     <link rel="stylesheet" href="thesaurus-explorer.css">
+    <!-- Required libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/rdflib@2.2.33/dist/rdflib.min.js"></script>
+    <!-- Make sure $rdf is properly initialized before loading our scripts -->
+    <script>
+        // Check if rdflib is properly loaded before proceeding
+        window.addEventListener('load', function() {
+            if (typeof $rdf === 'undefined') {
+                console.error("rdflib.js failed to load properly");
+                document.getElementById('status').textContent = "Error: RDF library failed to load. Please check your internet connection.";
+            } else {
+                console.log("rdflib.js loaded successfully");
+            }
+        });
+    </script>
+    <!-- Custom scripts -->
+    <script src="dependency-check.js"></script>
+    <script src="skos-parser.js"></script>
     <script src="thesaurus-explorer.js"></script>
 </head>
 <body>
     <div id="app">
         <header>
-            <h1>UNESCO Thesaurus Explorer</h1>
+            <h1>UNESCO Thesaurus SKOS Explorer</h1>
             <div id="status" class="status">Initializing...</div>
         </header>
         <div class="container">

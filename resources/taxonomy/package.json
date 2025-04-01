@@ -1,0 +1,23 @@
+{
+  "name": "unesco-thesaurus-explorer",
+  "version": "1.0.0",
+  "description": "A robust SKOS parser and explorer for the UNESCO Thesaurus",
+  "main": "thesaurus-explorer.html",
+  "scripts": {
+    "package": "node package.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "skos",
+    "thesaurus",
+    "rdf",
+    "unesco",
+    "knowledge-management"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "archiver": "^5.3.1"
+  },
+  "devDependencies": {}
+}
