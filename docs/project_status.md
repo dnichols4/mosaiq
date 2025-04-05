@@ -177,21 +177,20 @@ We implemented significant improvements to content extraction and presentation:
 ## Next Steps
 
 Now that the article display and content organization features have been implemented, the following features can be pursued:
-1. **Content Organization Enhancements**
-   - Fix the ability to remove articles that disappeared from the UI after the rearchitecture
+1. **Knowledge Graph**
+   - Implement concept extraction
+   - Build relationship discovery between content
+   - Create visualization of knowledge connections
+
+2. **Content Organization Enhancements**
    - Implement tagging functionality
    - Add folders/collections for organization
    - Create a search system
 
-2. **Annotation System**
+3. **Annotation System**
    - Implement text highlighting
    - Add margin notes capability
    - Create annotation storage and retrieval
-
-3. **Knowledge Graph**
-   - Implement concept extraction
-   - Build relationship discovery between content
-   - Create visualization of knowledge connections
 
 4. **UI/UX Improvements**
    - Add keyboard shortcuts

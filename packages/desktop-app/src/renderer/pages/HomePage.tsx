@@ -151,7 +151,7 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>Mosaiq</h1>
+        <h1>mosaiq</h1>
         <div className="header-controls">
           <SearchIcon 
             onClick={() => setSpotlightMode('search')} 

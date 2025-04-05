@@ -30,7 +30,7 @@ const App: React.FC = () => {
       <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
       {!selectedUrlId && (
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
-          <h1>Mosaiq</h1>
+          <h1>mosaiq</h1>
           <p>Knowledge & Learning Management</p>
           
           <div style={{ marginBottom: '30px' }}>
