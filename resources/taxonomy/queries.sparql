@@ -1,0 +1,29 @@
+// Get the below top-level categories
+SELECT ?category ?label
+WHERE {
+  VALUES ?category {
+    dbc:Technology
+    dbc:Science
+    dbc:History
+    dbc:Entertainment
+    dbc:Lifestyle
+    dbc:Education
+    dbc:Health
+    dbc:Business
+    dbc:Politics
+    dbc:Arts
+  }
+  ?category rdfs:label ?label .
+  FILTER(lang(?label) = "en")
+}
+
+
+//Get all subcategories for the below top-level categories
+SELECT ?parentCategory ?subcategory ?subcategoryLabel
+WHERE {
+  VALUES ?parentCategory { dbc:Arts dbc:Politics dbc:Education dbc:Health dbc:Science dbc:Business dbc:Entertainment dbc:Lifestyle dbc:Technology dbc:History }
+  ?subcategory skos:broader ?parentCategory ;
+               rdfs:label ?subcategoryLabel .
+  FILTER(lang(?subcategoryLabel) = "en")
+}
+LIMIT 500

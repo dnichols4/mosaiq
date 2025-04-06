@@ -1,0 +1,4906 @@
+{
+    "head": {
+        "link": [],
+        "vars": [
+            "parentCategory",
+            "subcategory",
+            "subcategoryLabel"
+        ]
+    },
+    "results": {
+        "distinct": false,
+        "ordered": true,
+        "bindings": [
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Amusement_parks"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Amusement parks"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Cheerleading"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Cheerleading"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Comparative_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Comparative politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Election_campaigning"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Election campaigning"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_of_business"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History of business"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Infotainment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Infotainment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_organizations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific organizations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Philosophy_of_history"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Philosophy of history"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyle"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyle_websites"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Lifestyle websites"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Media_law"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Media law"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_by_continent"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business by continent"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_by_country"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business by country"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_districts"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business districts"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainers"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainers"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_by_continent"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment by continent"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_by_country"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment by country"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_by_demographic"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment by demographic"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_by_dependent_territory"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment by dependent territory"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_by_region"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment by region"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_robotics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment robotics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Works_about_entertainment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Works about entertainment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Nightlife"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Nightlife"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Fringe_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Fringe science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Sociology_of_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Sociology of technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_organizations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History organizations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Information_by_telephone"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Information by telephone"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Metascience"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Metascience"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Quotations_from_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Quotations from science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_method"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific method"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Animals_in_entertainment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Animals in entertainment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Artificial_objects"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Artificial objects"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Death"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Death"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_disasters"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health disasters"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_sciences"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health sciences"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technological_comparisons"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technological comparisons"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_events"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment events"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Branches_of_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Branches of science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_documents"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business documents"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History-related_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History-related lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Numbering_in_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Numbering in politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics-related_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics-related lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Gaming"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Gaming"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_comparisons"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific comparisons"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Real-time_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Real-time technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_studies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education studies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_and_military"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health and military"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_theories"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific theories"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_evangelism"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology evangelism"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education-related_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education-related lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_events"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education events"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_in_culture"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education in culture"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_research"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health research"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Mass_media_franchises"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Mass media franchises"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Measurement"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Measurement"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Nutrition"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Nutrition"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Occupational_safety_and_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Occupational safety and health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_controversies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political controversies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Theatre"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Theatre"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Animal_rights_and_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Animal rights and politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_culture"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political culture"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology-related_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology-related lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_terminology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education terminology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_by_city"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment by city"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_and_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health and politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_and_video_gaming"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health and video gaming"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_by_demographic"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health by demographic"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_by_location"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health by location"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_by_period"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health by period"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Outlines_of_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Outlines of education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Outlines_of_technology_and_applied_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Outlines of technology and applied science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:People_associated_with_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "People associated with technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:People_in_health_professions"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "People in health professions"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:People_in_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "People in technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:People_involved_in_business"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "People involved in business"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Historic_preservation"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Historic preservation"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_disciplines"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific disciplines"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_history"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political history"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Dance"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Dance"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Gender_and_entertainment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Gender and entertainment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_and_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science and technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_and_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science and technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_pioneers"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science pioneers"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_phenomena"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific phenomena"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_psychology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political psychology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_and_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education and health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_and_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education and health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_instruments"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific instruments"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_theory"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education theory"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:People_in_history_occupations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "People in history occupations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_law"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment law"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Social_issues"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Social issues"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Animal_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Animal health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Companies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Companies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Computing"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Computing"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_ministries"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education ministries"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Healing"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Healing"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Software"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Software"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Sports_business"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Sports business"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Historicity"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Historicity"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_by_sector"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education by sector"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_by_war"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education by war"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_by_location"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History by location"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_by_mountain_range"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History by mountain range"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_by_period"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History by period"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_by_topic"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History by topic"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_in_culture"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History in culture"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Jewish_political_status"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Jewish political status"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Music"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Music"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_organizations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political organizations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_people"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political people"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_power"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political power"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics_by_location"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics by location"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics_by_period"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics by period"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics_in_culture"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics in culture"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_buildings"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific buildings"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_exploration"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific exploration"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Shoes_in_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Shoes in politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_activism"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health activism"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_schisms"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political schisms"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Balloons_(entertainment)"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Balloons (entertainment)"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_materials"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational materials"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_of_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History of technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Sexual_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Sexual health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_organizations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology organizations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Variety_shows"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Variety shows"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Action_(genre)"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Action (genre)"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Adaptation_(arts)"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Adaptation (arts)"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_law"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business law"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_activism"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education activism"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_occupations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment occupations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Fields_of_history"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Fields of history"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_and_transport"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health and transport"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_effects_by_subject"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health effects by subject"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_informatics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health informatics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyle"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyle_YouTubers"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Lifestyle YouTubers"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Philosophy_of_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Philosophy of technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_titles"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political titles"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics_in_popular_culture"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics in popular culture"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Public_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Public health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_terminology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific terminology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Training"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Training"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Works_about_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Works about politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Disability"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Disability"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Sports"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Sports"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_planning"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business planning"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Diseases_and_disorders"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Diseases and disorders"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Employment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Employment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Physical_fitness"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Physical fitness"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_philosophy"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political philosophy"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Reform"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Reform"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_timelines"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political timelines"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Special_(entertainment)"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Special (entertainment)"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health-related_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health-related lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_terms"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business terms"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Curricula"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Curricula"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_awards"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education awards"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_projects"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational projects"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Film"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Film"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Learning"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Learning"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Mobile_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Mobile technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Obsolete_technologies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Obsolete technologies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technological_change"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technological change"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Workplace"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Workplace"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Comedy"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Comedy"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_halls_of_fame"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment halls of fame"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Environment_and_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Environment and health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Humour"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Humour"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Sports_entertainment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Sports entertainment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Types_of_business_entity"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Types of business entity"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Historical_controversies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Historical controversies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Immersive_entertainment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Immersive entertainment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyle"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyles"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Lifestyles"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_assessment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology assessment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_by_type"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology by type"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Women_and_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Women and science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Global_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Global health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Event_management"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Event management"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_industry"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment industry"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_software"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political software"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_economics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education economics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Historical_geography"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Historical geography"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics_awards"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics awards"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Tickling"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Tickling"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Outlines_of_history_and_events"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Outlines of history and events"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Intellectual_competitions"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Intellectual competitions"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Religion_and_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Religion and health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Students"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Students"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Time_in_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Time in science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_by_location"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education by location"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_systems"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education systems"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business-related_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business-related lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_culture"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business culture"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_groups"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business groups"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_programs"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational programs"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Pseudohistory"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Pseudohistory"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_by_individual"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health by individual"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Quality_of_life"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Quality of life"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science-related_lists"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science-related lists"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_occupations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science occupations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_events"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political events"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Small_and_medium-sized_enterprises"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Small and medium-sized enterprises"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Open_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Open education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_conferences"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business conferences"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_economics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business economics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_intelligence"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business intelligence"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_process"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business process"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_software"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business software"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Chronology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Chronology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_administration"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational administration"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Historical_objects"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Historical objects"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_of_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History of education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_of_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History of science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_theories"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political theories"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_books"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science books"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_in_society"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science in society"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Special_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Special education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technical_communication"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technical communication"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technical_specifications"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technical specifications"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_in_society"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology in society"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_systems"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology systems"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Clothing_in_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Clothing in politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_research"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational research"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_communication"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political communication"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Academia"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Academia"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_and_industry_awards"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business and industry awards"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_ethics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business ethics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_laptops"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business laptops"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_occupations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business occupations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_ownership"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business ownership"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Drama"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Drama"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_by_method"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education by method"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_issues"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education issues"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_policy"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education policy"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_rights"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education rights"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_assessment_and_evaluation"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational assessment and evaluation"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_care"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health care"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_law"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health law"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Historiography"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Historiography"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_awards"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History awards"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Management"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Management"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Mental_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Mental health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Open_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Open science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Origins"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Origins"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Professional_ethics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Professional ethics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Religion_and_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Religion and education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_experiments"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science experiments"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Teaching"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Teaching"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Therapeutic_boarding_schools_in_the_United_States"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Therapeutic boarding schools in the United States"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Alternative_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Alternative education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Determinants_of_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Determinants of health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_environment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational environment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_organizations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational organizations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_stages"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational stages"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Governance"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Governance"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_economics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health economics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_by_ethnic_group"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History by ethnic group"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Legacies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Legacies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyle"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Lifestyle_magazines"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Lifestyle magazines"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Magic_(illusion)"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Magic (illusion)"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Mass_media"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Mass media"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Natural_history"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Natural history"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_activism"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political activism"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics_by_issue"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics by issue"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Alcohol_and_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Alcohol and health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Hypothetical_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Hypothetical technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Race_and_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Race and health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Cultural_politics"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Cultural politics"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education_by_subject"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Education by subject"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_law"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political law"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_risk"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health risk"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:High-technology_business_districts"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "High-technology business districts"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Pejorative_terms_related_to_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Pejorative terms related to technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_problems"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific problems"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_hazards"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology hazards"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Works_about_health"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Works about health"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Works_about_technology"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Works about technology"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_travel"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business travel"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_classification_systems"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational classification systems"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Engineering"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Engineering"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_and_sports"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health and sports"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_symbols"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political symbols"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Trivia"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Trivia"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Zawiyas"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Zawiyas"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Mass_media_and_entertainment_controversies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Mass media and entertainment controversies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_speculation"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific speculation"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:International_education_industry"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "International education industry"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Policy"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Policy"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Health_paradoxes"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Health paradoxes"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_strategy"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology strategy"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Tragedies_(dramas)"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Tragedies (dramas)"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment_organizations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Entertainment organizations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:International_business"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "International business"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Nicknames_in_entertainment"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Nicknames in entertainment"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Satire"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Satire"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology_development"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technology development"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_indices"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business indices"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Veto"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Veto"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_architecture"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business architecture"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_journalism"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business journalism"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business_organizations"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Business organizations"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science_and_technology_ministries"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Science and technology ministries"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Scientific_classification"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Scientific classification"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Statistics_of_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Statistics of education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Theories_of_history"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Theories of history"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Wikipedia_categories_named_after_science_projects"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Wikipedia categories named after science projects"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Works_about_business"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Works about business"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Works_about_education"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Works about education"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Works_about_science"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Works about science"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Education"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Educational_personnel"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Educational personnel"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Historical_works"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Historical works"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:History_images"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "History images"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Science"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Images_by_scientific_discipline"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Images by scientific discipline"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Regulation_of_technologies"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Regulation of technologies"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Business"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Nicknames_in_business"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Nicknames in business"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technology"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Technological_management"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Technological management"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Entertainment"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Television"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Television"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:People_murdered_in_an_embassy"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "People murdered in an embassy"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Political_consulting"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Political consulting"
+                }
+            },
+            {
+                "parentCategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics"
+                },
+                "subcategory": {
+                    "type": "uri",
+                    "value": "http://dbpedia.org/resource/Category:Politics_by_ethnicity"
+                },
+                "subcategoryLabel": {
+                    "type": "literal",
+                    "xml:lang": "en",
+                    "value": "Politics by ethnicity"
+                }
+            }
+        ]
+    }
+}

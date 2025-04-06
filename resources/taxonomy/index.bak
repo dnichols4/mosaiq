@@ -204,12 +204,4 @@
                 
                 reader.readAsText(file);
             }
-            
-            function useDemoFile() {
-                showStatus('Loading demo file...', '');
-                
-                // Fetch the demo TTL file
-                fetch('demo-thesaurus.ttl')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Demo file not found. Please check if
+        })

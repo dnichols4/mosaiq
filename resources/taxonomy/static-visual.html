@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UNESCO Thesaurus Collapsible Tree</title>
+  <style>
+    .node circle {
+      fill: #999;
+      stroke: steelblue;
+      stroke-width: 3px;
+    }
+    .node text {
+      font: 12px sans-serif;
+    }
+    .link {
+      fill: none;
+      stroke: #555;
+      stroke-opacity: 0.4;
+      stroke-width: 1.5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Load D3 version 6 -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    // Hierarchical JSON data: root = "UNESCO Thesaurus" with Domains and their Concept Groups.
+    const treeData = {
+      "name": "UNESCO Thesaurus",
+      "children": [
+        {
+          "name": "Countries and country groupings",
+          "children": [
+            { "name": "Africa" },
+            { "name": "Americas and the Caribbean" },
+            { "name": "Asia and the Pacific" },
+            { "name": "Economic groupings" },
+            { "name": "Ethnic and religious groupings" },
+            { "name": "Europe" },
+            { "name": "Geographic groupings" },
+            { "name": "Linguistic groupings" },
+            { "name": "Political groupings" }
+          ]
+        },
+        {
+          "name": "Culture",
+          "children": [
+            { "name": "Art" },
+            { "name": "Cultural policy and planning" },
+            { "name": "Culture" },
+            { "name": "History" },
+            { "name": "Languages" },
+            { "name": "Leisure" },
+            { "name": "Linguistics" },
+            { "name": "Literature" },
+            { "name": "Museums" },
+            { "name": "Performing arts" },
+            { "name": "Philosophy and ethics" },
+            { "name": "Religion" },
+            { "name": "Visual arts" }
+          ]
+        },
+        {
+          "name": "Education",
+          "children": [
+            { "name": "Basic and general study subjects" },
+            { "name": "Curriculum" },
+            { "name": "Educational administration" },
+            { "name": "Educational evaluation" },
+            { "name": "Educational facilities" },
+            { "name": "Educational institutions" },
+            { "name": "Educational management" },
+            { "name": "Educational planning" },
+            { "name": "Educational policy" },
+            { "name": "Educational population" },
+            { "name": "Educational sciences and environment" },
+            { "name": "Educational systems and levels" },
+            { "name": "Teaching and training" },
+            { "name": "Technical and vocational study subjects" }
+          ]
+        },
+        {
+          "name": "Information and communication",
+          "children": [
+            { "name": "Communication research and policy" },
+            { "name": "Documentary information processing" },
+            { "name": "Documentary information systems" },
+            { "name": "Information industry" },
+            { "name": "Information management" },
+            { "name": "Information sciences" },
+            { "name": "Information sources" },
+            { "name": "Information technology (hardware)" },
+            { "name": "Information technology (software)" }
+          ]
+        },
+        {
+          "name": "Politics, law and economics",
+          "children": [
+            { "name": "Agriculture" },
+            { "name": "Civil, military and mining engineering" },
+            { "name": "Economic and social development" },
+            { "name": "Economics" },
+            { "name": "Equipment and facilities" },
+            { "name": "Finance and trade" },
+            { "name": "Human rights" },
+            { "name": "Industry" },
+            { "name": "International relations" },
+            { "name": "Labour" },
+            { "name": "Legal systems" },
+            { "name": "Manufacturing and transport engineering" },
+            { "name": "Materials and products" },
+            { "name": "Organization and management" },
+            { "name": "Personnel management" },
+            { "name": "Politics and government" },
+            { "name": "Services" }
+          ]
+        },
+        {
+          "name": "Science",
+          "children": [
+            { "name": "Biology" },
+            { "name": "Chemical sciences" },
+            { "name": "Earth sciences" },
+            { "name": "Environmental sciences and engineering" },
+            { "name": "Geography and oceanography" },
+            { "name": "Hydrology" },
+            { "name": "Mathematics and statistics" },
+            { "name": "Medical sciences" },
+            { "name": "Meteorology" },
+            { "name": "Natural resources" },
+            { "name": "Natural sciences" },
+            { "name": "Pathology" },
+            { "name": "Physical sciences" },
+            { "name": "Pollution, disasters and safety" },
+            { "name": "Science and research management" },
+            { "name": "Scientific approach" },
+            { "name": "Space sciences" }
+          ]
+        },
+        {
+          "name": "Social and human sciences",
+          "children": [
+            { "name": "Ethnic questions" },
+            { "name": "Family" },
+            { "name": "Human settlements and land use" },
+            { "name": "Population" },
+            { "name": "Psychology" },
+            { "name": "Social policy and welfare" },
+            { "name": "Social problems" },
+            { "name": "Social sciences" },
+            { "name": "Social systems" }
+          ]
+        }
+      ]
+    };
+
+    const margin = {top: 20, right: 90, bottom: 30, left: 90},
+          width = 960 - margin.left - margin.right,
+          height = 600 - margin.top - margin.bottom;
+
+    const svg = d3.select("body").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    let i = 0, duration = 750, root;
+
+    // Create a tree layout with specified dimensions.
+    const treemap = d3.tree().size([height, width]);
+
+    // Convert the data into a hierarchy.
+    root = d3.hierarchy(treeData, d => d.children);
+    root.x0 = height / 2;
+    root.y0 = 0;
+
+    // Collapse only the immediate children (Domains' children) so that each Domain is initially collapsed.
+    if(root.children) {
+      root.children.forEach(function(domain) {
+        domain._children = domain.children;
+        domain.children = null;
+      });
+    }
+
+    // Click event: logs the node's name and toggles its children.
+    function click(event, d) {
+      console.log("Clicked node:", d.data.name);
+      if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+      update(d);
+    }
+
+    // Update the tree layout.
+    function update(source) {
+      const treeData = treemap(root);
+      const nodes = treeData.descendants();
+      const links = treeData.descendants().slice(1);
+
+      // Normalize for fixed-depth.
+      nodes.forEach(d => { d.y = d.depth * 180; });
+
+      // Nodes section.
+      const node = svg.selectAll('g.node')
+          .data(nodes, d => d.id || (d.id = ++i));
+
+      const nodeEnter = node.enter().append('g')
+          .attr('class', 'node')
+          .attr("transform", d => "translate(" + source.y0 + "," + source.x0 + ")")
+          .on('click', click);
+
+      nodeEnter.append('circle')
+          .attr('class', 'node')
+          .attr('r', 1e-6)
+          .style("fill", d => d._children ? "lightsteelblue" : "#fff");
+
+      nodeEnter.append('text')
+          .attr("dy", ".35em")
+          .attr("x", d => d.children || d._children ? -13 : 13)
+          .attr("text-anchor", d => d.children || d._children ? "end" : "start")
+          .text(d => d.data.name);
+
+      const nodeUpdate = nodeEnter.merge(node);
+
+      nodeUpdate.transition()
+          .duration(duration)
+          .attr("transform", d => "translate(" + d.y + "," + d.x + ")");
+
+      nodeUpdate.select('circle.node')
+          .attr('r', 10)
+          .style("fill", d => d._children ? "lightsteelblue" : "#fff")
+          .attr('cursor', 'pointer');
+
+      const nodeExit = node.exit().transition()
+          .duration(duration)
+          .attr("transform", d => "translate(" + source.y + "," + source.x + ")")
+          .remove();
+
+      nodeExit.select('circle')
+          .attr('r', 1e-6);
+      nodeExit.select('text')
+          .style('fill-opacity', 1e-6);
+
+      // Links section.
+      const link = svg.selectAll('path.link')
+          .data(links, d => d.id);
+
+      const linkEnter = link.enter().insert('path', "g")
+          .attr("class", "link")
+          .attr('d', d => {
+            const o = {x: source.x0, y: source.y0};
+            return diagonal(o, o);
+          });
+
+      const linkUpdate = linkEnter.merge(link);
+
+      linkUpdate.transition()
+          .duration(duration)
+          .attr('d', d => diagonal(d, d.parent));
+
+      const linkExit = link.exit().transition()
+          .duration(duration)
+          .attr('d', d => {
+            const o = {x: source.x, y: source.y};
+            return diagonal(o, o);
+          })
+          .remove();
+
+      // Store the old positions for transition.
+      nodes.forEach(d => {
+        d.x0 = d.x;
+        d.y0 = d.y;
+      });
+
+      // Create a curved (diagonal) path from parent to child nodes.
+      function diagonal(s, d) {
+          return `M ${s.y} ${s.x}
+                  C ${(s.y + d.y) / 2} ${s.x},
+                    ${(s.y + d.y) / 2} ${d.x},
+                    ${d.y} ${d.x}`;
+      }
+    }
+
+    // Initialize display.
+    update(root);
+  </script>
+</body>
+</html>
