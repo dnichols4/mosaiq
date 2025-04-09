@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Knowledge Taxonomy Visualizer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+    }
+    .node circle {
+      fill: #999;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+      cursor: pointer;
+    }
+    .node text {
+      font-size: 12px;
+    }
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 1.5px;
+    }
+    svg {
+      width: 100vw;
+      height: 100vh;
+    }
+    select {
+      position: absolute;
+      top: 10px;
+      left: 200px;
+    }
+    label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <label for="topConceptSelect">Select Top-Level Concept:</label>
+  <select id="topConceptSelect"></select>
+  <svg></svg>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const svg = d3.select("svg"),
+          width = window.innerWidth,
+          height = window.innerHeight,
+          g = svg.append("g").attr("transform", "translate(200,50)");
+
+    const tree = d3.tree().size([height - 100, width - 300]);
+    const stratify = d3.stratify().id(d => d.id).parentId(d => d.parent);
+    const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    let concepts = {}, topConcepts = [], expanded = new Set();
+
+    fetch("custom_knowledge_taxonomy.json")
+      .then(response => response.json())
+      .then(data => {
+        const graph = data["@graph"];
+        concepts = Object.fromEntries(graph.map(c => [c["@id"], c]));
+        topConcepts = data["@graph"].find(n => n["@type"] === "skos:ConceptScheme")["skos:hasTopConcept"].map(n => n["@id"]);
+
+        const select = d3.select("#topConceptSelect");
+        topConcepts.forEach(id => {
+          select.append("option").attr("value", id).text(concepts[id]["skos:prefLabel"]);
+        });
+
+        select.on("change", function () {
+          expanded.clear();
+          drawTree(this.value);
+        });
+
+        drawTree(topConcepts[0]);
+      });
+
+    function drawTree(rootId) {
+      g.selectAll("*").remove();
+
+      const nodes = [];
+      function buildHierarchy(id, parent = null) {
+        const node = concepts[id];
+        if (!node) return;
+        nodes.push({ id, name: node["skos:prefLabel"], parent });
+        if (expanded.has(id)) {
+          (node["skos:narrower"] || []).forEach(child => buildHierarchy(child["@id"], id));
+        }
+      }
+
+      expanded.add(rootId);
+      buildHierarchy(rootId);
+
+      const root = stratify(nodes);
+      tree(root);
+
+      const link = g.selectAll(".link")
+        .data(root.links())
+        .join("path")
+        .attr("class", "link")
+        .attr("d", d3.linkHorizontal()
+          .x(d => d.y)
+          .y(d => d.x));
+
+      const node = g.selectAll(".node")
+        .data(root.descendants())
+        .join("g")
+        .attr("class", "node")
+        .attr("transform", d => `translate(${d.y},${d.x})`)
+        .on("click", function(event, d) {
+          if (!concepts[d.id] || !(concepts[d.id]["skos:narrower"] || []).length) return;
+          if (expanded.has(d.id)) {
+            expanded.delete(d.id);
+          } else {
+            expanded.add(d.id);
+          }
+          drawTree(rootId);
+        });
+
+      node.append("circle").attr("r", 4).attr("fill", d => color(d.depth));
+
+      node.append("text")
+        .attr("dy", 3)
+        .attr("x", d => d.children ? -10 : 10)
+        .style("text-anchor", d => d.children ? "end" : "start")
+        .text(d => d.data.name);
+    }
+  </script>
+</body>
+</html>
