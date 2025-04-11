@@ -19,3 +19,7 @@
 *   YouTube videos / transcripts
 *   "Hand written" notes via markdown editor or "friendly" copy/paste
     *   Possibly branch off the "add content" button 1) Add URL, 2) Create Content?  Maybe better as two different options?
+
+## Versioning?
+
+*   Implement git or something similar for the graphs? that are created over time.  The application should commit any changes made with relevant comments to help the user 1) be able to revert if needed, and 2) visualize changes across items and see how that relates to the graph?

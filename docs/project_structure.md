@@ -2,8 +2,9 @@
 
 ## Revision History
 | Version | Date | Changes | 
-|---------|------|---------|
+|---------|------|---------|  
 | 1.0 | 2025-03-26 | Initial document creation |
+| 1.1 | 2025-04-10 | Updated to reflect current codebase |
 
 ## Overview
 
@@ -47,11 +48,12 @@ The platform abstractions package provides interfaces and types for platform-spe
 ```
 platform-abstractions/
 ├── src/
-│   ├── content/       # Content processing abstractions
-│   ├── platform/      # OS and platform APIs
-│   ├── storage/       # Storage abstractions
+│   ├── content/       # Content processing interfaces (IContentProcessor)
+│   ├── platform/      # Platform capability interfaces (IPlatformCapabilities)
+│   ├── storage/       # Storage abstractions (IStorageProvider)
 │   ├── types/         # Common type definitions
-│   └── utils/         # Shared utilities
+│   ├── utils/         # Platform detection utilities
+│   └── index.ts       # Package exports
 └── package.json
 ```
 
@@ -95,14 +97,20 @@ desktop-app/
 ├── src/
 │   ├── main/          # Electron main process code
 │   │   ├── adapters/  # Platform-specific adapters
-│   │   ├── ipc.ts     # IPC handler setup
-│   │   ├── main.ts    # Main process entry
-│   │   └── preload.ts # Preload script for renderer process
+│   │   │   ├── AdapterFactory.ts             # Factory for creating platform adapters
+│   │   │   ├── ElectronContentProcessor.ts   # Content processing implementation
+│   │   │   ├── ElectronPlatformCapabilities.ts # Platform capabilities implementation
+│   │   │   ├── ElectronStorageAdapter.ts     # Storage adapter using Electron Store
+│   │   │   └── FileSystemContentAdapter.ts   # Storage adapter using filesystem
+│   │   ├── ipc.ts     # IPC handler registration and routing
+│   │   ├── main.ts    # Main process entry point and window management
+│   │   └── preload.ts # Preload script for exposing APIs to renderer
 │   └── renderer/      # Frontend React application
-│       ├── pages/     # Application pages
-│       ├── providers/ # Context providers
+│       ├── components/ # Reusable UI components
+│       ├── pages/     # Application pages (HomePage, ReaderPage, SettingsPage)
+│       ├── providers/ # Context providers (ThemeProvider)
 │       ├── styles/    # CSS styles
-│       ├── App.tsx    # Main React component
+│       ├── App.tsx    # Main React component and routing
 │       ├── index.html # HTML template
 │       └── index.tsx  # Renderer entry point
 └── package.json
@@ -110,19 +118,9 @@ desktop-app/
 
 The desktop app package uses Electron to create a desktop application, with a main process for Node.js operations and a renderer process for the UI.
 
-## Main Source Code Structure
+## Source Code Structure
 
-The main source code directory contains shared components and code that might be used across packages:
-
-```
-src/
-├── content/           # Content processing logic
-├── data/              # Data management components
-├── logic/             # Shared business logic
-├── main/              # Main process-related code
-├── renderer/          # Renderer process components
-└── ui/                # UI-related code
-```
+The source code is primarily organized within the packages directory. The current implementation does not heavily use the root src/ directory, as most code is contained within the packages according to their role in the architecture.
 
 ## Build System
 
@@ -138,9 +136,15 @@ The project uses TypeScript for type safety and is built with a combination of T
 
 The main process (`main.ts`) is responsible for:
 - Creating and managing application windows
-- Registering IPC handlers for renderer-to-main communication
+- Setting Content Security Policy (CSP)
+- Registering custom protocols
 - Managing application lifecycle
-- Handling platform-specific functionality
+- Supporting development tools
+
+The IPC handlers (`ipc.ts`) manage communication between renderer and main processes:
+- Exposing ContentService methods to the renderer
+- Exposing SettingsService methods to the renderer
+- Providing platform capabilities information
 
 ### Renderer Process (React)
 
@@ -159,9 +163,15 @@ Core services in the `@mosaiq/core` package implement the main application logic
 ### Platform Abstraction
 
 The platform abstraction layer in `@mosaiq/platform-abstractions` ensures that the core business logic can run on any platform by providing:
-- File system abstractions
-- Platform-specific API abstractions
-- Storage abstractions
+- Storage provider interface (IStorageProvider)
+- Content processor interface (IContentProcessor)
+- Platform capabilities interface (IPlatformCapabilities)
+
+These interfaces are implemented in the desktop-app package with Electron-specific adapters:
+- ElectronStorageAdapter: implements IStorageProvider using Electron Store
+- FileSystemContentAdapter: implements IStorageProvider using file system access
+- ElectronContentProcessor: implements IContentProcessor using JSDOM, Readability, and Cheerio
+- ElectronPlatformCapabilities: implements IPlatformCapabilities for desktop environment
 
 ## Development Workflow
 
@@ -178,8 +188,11 @@ Key dependencies include:
 - React: For the UI
 - TypeScript: For type safety
 - Zustand: For state management
+- Mozilla's Readability: For content extraction
 - Cheerio and JSDOM: For HTML parsing and content processing
 - React Router: For navigation
+- Electron Store: For persistent settings storage
+- RDF libraries: For future knowledge graph implementation (N3, rdf-parse, @rdfjs/data-model)
 
 ## Adding New Features
 
@@ -190,6 +203,22 @@ When adding new features:
 4. Create UI components in the common-ui package if they're reusable
 5. Integrate with the desktop app if necessary
 
+## Current Implementation Status
+
+The current implementation includes:
+- Basic Electron application architecture with main and renderer processes
+- Content processing pipeline using Mozilla's Readability and HTML parsing
+- Local storage mechanisms for content and settings
+- UI framework with React and basic page structure
+- Platform abstraction interfaces and implementations for desktop
+
+Planned but not yet implemented features:
+- PDF and EPUB document support
+- AI processing capabilities
+- Data relationship visualization
+- Knowledge graph management
+- RDF-based semantic storage
+
 ## Conclusion
 
-The Mosaiq project follows a modular, layered architecture with clear separation of concerns. By dividing functionality into separate packages, the application maintains high cohesion within modules and loose coupling between them, making it easier to maintain and extend.
+The Mosaiq project follows a modular, layered architecture with clear separation of concerns. By dividing functionality into separate packages, the application maintains high cohesion within modules and loose coupling between them, making it easier to maintain and extend. The current implementation provides a solid foundation for the planned features while already offering core content management capabilities.
