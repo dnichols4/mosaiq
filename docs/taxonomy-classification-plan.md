@@ -1,5 +1,3 @@
-# Knowledge Taxonomy Classification Implementation Plan
-
 ## Overview
 
 This document outlines a step-by-step approach to implementing automatic content classification using the SKOS taxonomy in the Mosaiq application. The implementation will follow a local-first approach with optional cloud integration, aligning with the existing architecture.
@@ -9,7 +7,7 @@ This document outlines a step-by-step approach to implementing automatic content
 ### Phase 1: Foundation Setup
 
 1. **Create Taxonomy Service**
-   - Develop a service to parse and query the SKOS taxonomy
+   - Develop a service to parse and query the SKOS taxonomy located at resources/taxonomy/custom_knowledge_taxonomy.json
    - Implement methods to navigate and search the taxonomy hierarchy
    - Add utilities to convert between different taxonomy formats
 
