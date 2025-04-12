@@ -1,1 +1,0 @@
-Review the documents auto-classification-requirements.md, auto-classification-implementation.md and auto-classification-phased-implementation-plan.md in the D:\\Workspace\\mosaiq\\docs\\plans folder and implement the items in the "Phase 1: Foundation" section and that section ONLY. If anything is unclear, please stop and ask for clarification.
