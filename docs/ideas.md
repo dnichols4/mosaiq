@@ -2,13 +2,11 @@
 
 *   This document captures possible future feature implementations. It is simply a "brainstorming" type document to capture thoughts. Do not make edits to this document unless asking first and if approved, only append to the existing doc and update a revision table at the top of the document.
 
+## UI Improvements
+* Make the Reading Settings for Font Size, Line Height and Content Width use a slider UI element that goes from left to right and has indicators along the way for the various options (i.e., Small, Medium, Large for Font Size)
+
 ## Content Taxonomy
 
-*   Use something like one of the below systems to define a finite list of "tags" or documentation classifications 
-    *   [Simple Knowledge Organization System](https://en.wikipedia.org/wiki/Simple_Knowledge_Organization_System) 
-    *   [Information Coding Classification](https://en.wikipedia.org/wiki/Information_Coding_Classification) 
-    *   [Universal Decimal Classification (UDC)](https://en.wikipedia.org/wiki/Universal_Decimal_Classification)
-    *   [UNESCO Thesaurus](https://vocabularies.unesco.org/browser/thesaurus/en/)
 *   Have a LLM automatically tag (or score? --> instead of a simple yes/no, possibly have the LLM give the content item a "score" for each tag/classification) the values for a given article using a well pre-defined prompt template and/or system prompt.
 *   Allow a user to modify these values per content item and/or in batch
 *   Somehow visually expose these data points to the user (like Obisdian graphs?) with the purpose of highlighting "connections" between content items and the user's "interest" in each tag/classification

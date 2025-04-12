@@ -21,5 +21,16 @@ contextBridge.exposeInMainWorld('electronAPI', {
   resetSettings: () => ipcRenderer.invoke('reset-settings'),
   
   // Platform capabilities
-  getPlatformCapabilities: () => ipcRenderer.invoke('get-platform-capabilities')
+  getPlatformCapabilities: () => ipcRenderer.invoke('get-platform-capabilities'),
+  
+  // Dialog-related methods
+  showMessageDialog: (options: any) => ipcRenderer.invoke('show-message-dialog', options),
+  showConfirmDialog: (options: any) => ipcRenderer.invoke('show-confirm-dialog', options),
+  showPromptDialog: (options: any) => ipcRenderer.invoke('show-prompt-dialog', options),
+  
+  // File picker methods
+  openFilePicker: (options: any) => ipcRenderer.invoke('open-file-picker', options),
+  openMultipleFilePicker: (options: any) => ipcRenderer.invoke('open-multiple-file-picker', options),
+  openDirectoryPicker: (options: any) => ipcRenderer.invoke('open-directory-picker', options),
+  saveFilePicker: (options: any) => ipcRenderer.invoke('save-file-picker', options)
 });

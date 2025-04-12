@@ -5,6 +5,7 @@
 |---------|------|---------|  
 | 1.0 | 2025-03-26 | Initial document creation |
 | 1.1 | 2025-04-10 | Updated to reflect current codebase |
+| 1.2 | 2025-04-11 | Updated to include platform dialog and file picker components |
 
 ## Overview
 
@@ -49,7 +50,10 @@ The platform abstractions package provides interfaces and types for platform-spe
 platform-abstractions/
 ├── src/
 │   ├── content/       # Content processing interfaces (IContentProcessor)
-│   ├── platform/      # Platform capability interfaces (IPlatformCapabilities)
+│   ├── platform/      # Platform capability interfaces
+│   │   ├── IPlatformCapabilities.ts  # Platform capability detection
+│   │   ├── dialog/    # Dialog service interfaces (IDialogService)
+│   │   └── file/      # File picker interfaces (IFilePickerService)
 │   ├── storage/       # Storage abstractions (IStorageProvider)
 │   ├── types/         # Common type definitions
 │   ├── utils/         # Platform detection utilities
@@ -82,6 +86,15 @@ This package contains shared UI components that can be used across different int
 ```
 common-ui/
 ├── src/               # UI component source code
+│   ├── components/      # React components
+│   │   ├── dialog/        # Platform dialog components
+│   │   │   ├── DialogContext.tsx   # Context for dialog services
+│   │   │   └── PlatformDialog.tsx   # Platform-independent dialog components
+│   │   ├── file/          # File picker components
+│   │   │   ├── FilePickerContext.tsx   # Context for file picker services
+│   │   │   └── FilePickerButton.tsx    # Buttons for selecting files
+│   │   └── [other components]
+│   └── index.ts         # Package exports
 ├── copyStyles.js      # Helper for copying CSS files
 └── package.json
 ```
@@ -101,7 +114,11 @@ desktop-app/
 │   │   │   ├── ElectronContentProcessor.ts   # Content processing implementation
 │   │   │   ├── ElectronPlatformCapabilities.ts # Platform capabilities implementation
 │   │   │   ├── ElectronStorageAdapter.ts     # Storage adapter using Electron Store
-│   │   │   └── FileSystemContentAdapter.ts   # Storage adapter using filesystem
+│   │   │   ├── FileSystemContentAdapter.ts   # Storage adapter using filesystem
+│   │   │   ├── dialog/                       # Dialog implementation
+│   │   │   │   └── ElectronDialogService.ts    # Electron-specific dialog service
+│   │   │   └── file/                         # File picker implementation
+│   │   │       └── ElectronFilePickerService.ts # Electron-specific file picker service
 │   │   ├── ipc.ts     # IPC handler registration and routing
 │   │   ├── main.ts    # Main process entry point and window management
 │   │   └── preload.ts # Preload script for exposing APIs to renderer
@@ -109,6 +126,9 @@ desktop-app/
 │       ├── components/ # Reusable UI components
 │       ├── pages/     # Application pages (HomePage, ReaderPage, SettingsPage)
 │       ├── providers/ # Context providers (ThemeProvider)
+│       ├── services/  # Renderer-side service implementations
+│       │   ├── ElectronDialogService.ts    # Dialog service implementation for renderer
+│       │   └── ElectronFilePickerService.ts # File picker service for renderer
 │       ├── styles/    # CSS styles
 │       ├── App.tsx    # Main React component and routing
 │       ├── index.html # HTML template
@@ -166,12 +186,16 @@ The platform abstraction layer in `@mosaiq/platform-abstractions` ensures that t
 - Storage provider interface (IStorageProvider)
 - Content processor interface (IContentProcessor)
 - Platform capabilities interface (IPlatformCapabilities)
+- Dialog service interface (IDialogService)
+- File picker service interface (IFilePickerService)
 
 These interfaces are implemented in the desktop-app package with Electron-specific adapters:
 - ElectronStorageAdapter: implements IStorageProvider using Electron Store
 - FileSystemContentAdapter: implements IStorageProvider using file system access
 - ElectronContentProcessor: implements IContentProcessor using JSDOM, Readability, and Cheerio
 - ElectronPlatformCapabilities: implements IPlatformCapabilities for desktop environment
+- ElectronDialogService: implements IDialogService using Electron's dialog API
+- ElectronFilePickerService: implements IFilePickerService using Electron's file dialog API
 
 ## Development Workflow
 
@@ -186,6 +210,7 @@ The development mode uses watchers to automatically rebuild when files change, a
 Key dependencies include:
 - Electron: For the desktop application shell
 - React: For the UI
+- React Context API: For dependency injection and platform service abstraction
 - TypeScript: For type safety
 - Zustand: For state management
 - Mozilla's Readability: For content extraction
@@ -211,6 +236,8 @@ The current implementation includes:
 - Local storage mechanisms for content and settings
 - UI framework with React and basic page structure
 - Platform abstraction interfaces and implementations for desktop
+- Platform-independent dialog components with Electron implementation
+- Platform-independent file picker components with Electron implementation
 
 Planned but not yet implemented features:
 - PDF and EPUB document support

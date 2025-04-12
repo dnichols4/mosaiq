@@ -3,6 +3,8 @@ import { ElectronStorageAdapter } from './ElectronStorageAdapter';
 import { FileSystemContentAdapter } from './FileSystemContentAdapter';
 import { ElectronContentProcessor } from './ElectronContentProcessor';
 import { ElectronPlatformCapabilities } from './ElectronPlatformCapabilities';
+import { ElectronDialogService } from './dialog/ElectronDialogService';
+import { ElectronFilePickerService } from './file/ElectronFilePickerService';
 
 /**
  * Factory for creating adapters in the Electron environment
@@ -41,5 +43,19 @@ export class AdapterFactory {
    */
   static createPlatformCapabilities(): IPlatformCapabilities {
     return new ElectronPlatformCapabilities();
+  }
+  
+  /**
+   * Create dialog service
+   */
+  static createDialogService() {
+    return new ElectronDialogService();
+  }
+  
+  /**
+   * Create file picker service
+   */
+  static createFilePickerService() {
+    return new ElectronFilePickerService();
   }
 }

@@ -4,6 +4,7 @@ import { ContentCard, SpotlightInput, SearchIcon, AddIcon, SettingsIcon, GridIco
 import { IPlatformCapabilities } from '@mosaiq/platform-abstractions';
 import { ListView } from '../components/ListView/ListView';
 import { GridView } from '../components/GridView/GridView';
+import { PlatformDialogExample } from '../components/examples/PlatformDialogExample';
 import './HomePage.css';
 
 interface HomePageProps {
@@ -233,6 +234,21 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
           )}
         </div>
       )}
+      
+      {/* Example section for platform dialogs */}
+      <div className="platform-examples-section">
+        <h2>Platform UI Examples</h2>
+        <p>This section demonstrates the platform dialog and file picker abstractions.</p>
+        <PlatformDialogExample />
+      </div>
+      
+      <style>{`
+        .platform-examples-section {
+          margin-top: 40px;
+          padding: 20px;
+          border-top: 1px solid #ccc;
+        }
+      `}</style>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 # Knowledge & Learning Management Application
 
-## Architecture Document v1.2
+## Architecture Document v1.4
 
 ### Revision History
 
@@ -10,6 +10,7 @@
 | 1.1 | 2025-03-21 | Added Content Processing section |
 | 1.2 | 2025-03-26 | Updated to reflect current implementation |
 | 1.3 | 2025-04-10 | Updated based on review of code base |
+| 1.4 | 2025-04-11 | Updated to include platform dialog and file picker abstractions |
 
 ### 1\. System Overview
 
@@ -171,6 +172,9 @@ The project is organized as a monorepo using npm workspaces with the following p
 *   Application to AI processing calls
 *   Storage read/write operations
 *   Relationship graph queries
+*   Platform dialog and file picker interfaces:
+    * `IDialogService` - Platform-independent dialog operations
+    * `IFilePickerService` - Platform-independent file selection operations
 
 ### 6\. Performance Considerations
 
@@ -214,6 +218,10 @@ The application is currently in active development with the following implementa
 *   Platform abstraction interfaces defined and implemented for the desktop environment
 *   Core services implemented for content and settings management
 *   IPC communication between main and renderer processes established
+*   Platform-independent dialog and file picker abstractions implemented:
+    * `PlatformDialog` components for message, confirmation, and prompt dialogs
+    * File picker components for selecting files, directories, and save locations
+    * Electron-specific implementations with IPC communication
 *   PDF and EPUB support planned but not yet implemented
 *   AI features and advanced data relationships planned for Phase 2
 *   Data graph visualization and relationship management planned but not yet implemented
@@ -223,7 +231,11 @@ The application is currently in active development with the following implementa
 *   Interface-based component system
 *   Plugin architecture (Phase 2)
 *   Custom view system
+*   React Context API used for platform service dependencies:
+    * DialogProvider for platform dialog services
+    * FilePickerProvider for file selection services 
 *   Current implementation uses React components with props for customization
+*   Component abstraction via adapter pattern for platform-specific services
 
 #### 8.2 AI Extensibility
 

@@ -127,4 +127,73 @@ export function registerIpcHandlers() {
       throw error;
     }
   });
+  
+  // Dialog service handlers
+  const dialogService = AdapterFactory.createDialogService();
+  
+  ipcMain.handle('show-message-dialog', async (_, options) => {
+    try {
+      return await dialogService.showMessageDialog(options);
+    } catch (error) {
+      console.error('Error showing message dialog:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('show-confirm-dialog', async (_, options) => {
+    try {
+      return await dialogService.showConfirmDialog(options);
+    } catch (error) {
+      console.error('Error showing confirm dialog:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('show-prompt-dialog', async (_, options) => {
+    try {
+      return await dialogService.showPromptDialog(options);
+    } catch (error) {
+      console.error('Error showing prompt dialog:', error);
+      throw error;
+    }
+  });
+  
+  // File picker service handlers
+  const filePickerService = AdapterFactory.createFilePickerService();
+  
+  ipcMain.handle('open-file-picker', async (_, options) => {
+    try {
+      return await filePickerService.openFilePicker(options);
+    } catch (error) {
+      console.error('Error opening file picker:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('open-multiple-file-picker', async (_, options) => {
+    try {
+      return await filePickerService.openMultipleFilePicker(options);
+    } catch (error) {
+      console.error('Error opening multiple file picker:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('open-directory-picker', async (_, options) => {
+    try {
+      return await filePickerService.openDirectoryPicker(options);
+    } catch (error) {
+      console.error('Error opening directory picker:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('save-file-picker', async (_, options) => {
+    try {
+      return await filePickerService.saveFilePicker(options);
+    } catch (error) {
+      console.error('Error opening save file picker:', error);
+      throw error;
+    }
+  });
 }
