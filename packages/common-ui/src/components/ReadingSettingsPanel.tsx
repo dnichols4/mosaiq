@@ -1,5 +1,6 @@
 import React from 'react';
 import './ReadingSettingsPanel.styles.css';
+import { SettingsSlider } from './SettingsSlider';
 
 export interface ReadingSettings {
   fontSize: string;
@@ -16,27 +17,27 @@ export interface ReadingSettingsPanelProps {
 
 // Font size options
 const FONT_SIZES = [
-  { value: '14px', label: 'Small' },
-  { value: '16px', label: 'Medium' },
-  { value: '18px', label: 'Large' },
-  { value: '20px', label: 'Extra Large' },
-  { value: '24px', label: 'Huge' }
+  { value: '14px', label: '1' },
+  { value: '16px', label: '2' },
+  { value: '18px', label: '3' },
+  { value: '20px', label: '4' },
+  { value: '24px', label: '5' }
 ];
 
 // Line height options
 const LINE_HEIGHTS = [
-  { value: '1.4', label: 'Compact' },
-  { value: '1.6', label: 'Comfortable' },
-  { value: '1.8', label: 'Spacious' },
-  { value: '2.0', label: 'Very Spacious' }
+  { value: '1.4', label: '1' },
+  { value: '1.6', label: '2' },
+  { value: '1.8', label: '3' },
+  { value: '2.0', label: '4' }
 ];
 
 // Content width options
 const CONTENT_WIDTHS = [
-  { value: '600px', label: 'Narrow' },
-  { value: '800px', label: 'Medium' },
-  { value: '1000px', label: 'Wide' },
-  { value: '100%', label: 'Full' }
+  { value: '600px', label: '1' },
+  { value: '800px', label: '2' },
+  { value: '1000px', label: '3' },
+  { value: '100%', label: '4' }
 ];
 
 // Font family options
@@ -74,49 +75,31 @@ export const ReadingSettingsPanel: React.FC<ReadingSettingsPanelProps> = ({
     <div className="reading-settings-panel">
       <h3>Reading Settings</h3>
       
-      <div className="setting-group">
-        <label>Font Size</label>
-        <div className="button-group">
-          {FONT_SIZES.map((option) => (
-            <button
-              key={option.value}
-              className={settings.fontSize === option.value ? 'active' : ''}
-              onClick={() => handleFontSizeChange(option.value)}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
+      <div className="setting-group" style={{ marginBottom: '32px' }}>
+        <SettingsSlider
+          label="Font Size"
+          options={FONT_SIZES}
+          value={settings.fontSize}
+          onChange={handleFontSizeChange}
+        />
       </div>
       
-      <div className="setting-group">
-        <label>Line Height</label>
-        <div className="button-group">
-          {LINE_HEIGHTS.map((option) => (
-            <button
-              key={option.value}
-              className={settings.lineHeight === option.value ? 'active' : ''}
-              onClick={() => handleLineHeightChange(option.value)}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
+      <div className="setting-group" style={{ marginBottom: '32px' }}>
+        <SettingsSlider
+          label="Line Height"
+          options={LINE_HEIGHTS}
+          value={settings.lineHeight}
+          onChange={handleLineHeightChange}
+        />
       </div>
       
-      <div className="setting-group">
-        <label>Content Width</label>
-        <div className="button-group">
-          {CONTENT_WIDTHS.map((option) => (
-            <button
-              key={option.value}
-              className={settings.width === option.value ? 'active' : ''}
-              onClick={() => handleWidthChange(option.value)}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
+      <div className="setting-group" style={{ marginBottom: '32px' }}>
+        <SettingsSlider
+          label="Content Width"
+          options={CONTENT_WIDTHS}
+          value={settings.width}
+          onChange={handleWidthChange}
+        />
       </div>
       
       <div className="setting-group">

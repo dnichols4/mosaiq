@@ -1,0 +1,122 @@
+/* Settings slider styles */
+.settings-slider-container {
+  margin-bottom: 24px;
+  padding: 0 8px; /* Add padding to the container to prevent cut-off */
+  position: relative;
+}
+
+.settings-slider-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--app-text, #333333);
+  font-weight: 500;
+}
+
+/* Slider track */
+.settings-slider {
+  position: relative;
+  height: 36px;
+  padding: 0; /* Remove horizontal padding */
+  cursor: pointer;
+  margin: 0 8px; /* Add margin on both sides */
+  width: calc(100% - 16px); /* Account for margins */
+}
+
+.settings-slider-track {
+  position: relative;
+  height: 4px;
+  background-color: var(--control-bg, #f0f0f0);
+  border-radius: 2px;
+  top: 16px;
+  width: calc(100% - 4px); /* Ensure track doesn't extend too far */
+  margin: 0 2px; /* Add a slight margin to keep track within bounds */
+}
+
+.settings-slider-track-fill {
+  position: absolute;
+  height: 100%;
+  background-color: var(--button-bg, #4a6cf7);
+  border-radius: 2px;
+  left: 0;
+}
+
+/* Hide the marker dots when the slider is active - only show the bar */
+.settings-slider-marker {
+  display: none; /* Hide the circular markers completely */
+}
+
+/* Slider thumb - changed from circle to vertical bar */
+.settings-slider-thumb {
+  position: absolute;
+  width: 4px; /* Narrow width for vertical bar */
+  height: 24px; /* Taller height for vertical bar */
+  background-color: var(--button-bg, #4a6cf7);
+  border-radius: 2px; /* Slightly rounded corners */
+  top: 4px; /* Position it higher */
+  transform: translateX(-50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease;
+  /* Prevent thumb from going beyond track boundaries */
+  max-left: calc(100% - 2px);
+  min-left: 2px;
+}
+
+.settings-slider-thumb:hover {
+  transform: translateX(-50%) scaleY(1.1); /* Scale vertically on hover */
+}
+
+/* Option labels */
+.settings-slider-labels {
+  position: relative;
+  margin-top: 22px; /* Increased top margin for more spacing */
+  height: 28px; /* Increased height to prevent overlap */
+  padding: 0; /* No padding */
+  margin: 22px 8px 0; /* Top and side margins */
+  display: flex; /* Use flexbox for better label distribution */
+  justify-content: space-between; /* Evenly distribute labels */
+  width: calc(100% - 16px); /* Match the slider width */
+}
+
+.settings-slider-option-label {
+  position: relative; /* Changed from absolute to work with flexbox */
+  transform: none; /* Remove transform as we're using flexbox */
+  font-size: 0.9rem; /* Slightly larger font for numbers */
+  color: var(--muted-text, #666666);
+  cursor: pointer;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+  white-space: nowrap;
+  /* Fix for labels */
+  width: 20px; /* Fixed width for numeric labels */
+  text-align: center;
+  /* Make sure they don't overlap */
+  margin: 0 5px; /* Add margin around labels */
+}
+
+/* Adjust positioning of the first and last labels with specific classes */
+.settings-slider-option-label.first-option {
+  text-align: left;
+}
+
+.settings-slider-option-label.last-option {
+  text-align: right;
+}
+
+.settings-slider-option-label.active {
+  color: var(--button-bg, #4a6cf7);
+  font-weight: 500;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 480px) {
+  .settings-slider-option-label {
+    font-size: 0.75rem;
+  }
+  
+  .settings-slider {
+    padding: 0 12px;
+  }
+  
+  .settings-slider-labels {
+    padding: 0 12px;
+  }
+}

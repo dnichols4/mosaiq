@@ -6,6 +6,7 @@
 | 1.0 | 2025-03-26 | Initial document creation |
 | 1.1 | 2025-04-10 | Updated to reflect current codebase |
 | 1.2 | 2025-04-11 | Updated to include platform dialog and file picker components |
+| 1.3 | 2025-04-11 | Updated to include vector storage and serialization components |
 
 ## Overview
 
@@ -54,7 +55,9 @@ platform-abstractions/
 │   │   ├── IPlatformCapabilities.ts  # Platform capability detection
 │   │   ├── dialog/    # Dialog service interfaces (IDialogService)
 │   │   └── file/      # File picker interfaces (IFilePickerService)
-│   ├── storage/       # Storage abstractions (IStorageProvider)
+│   ├── storage/       # Storage abstractions
+│   │   ├── IStorageProvider.ts   # Generic storage interface
+│   │   └── IVectorStorage.ts     # Vector embeddings storage interface
 │   ├── types/         # Common type definitions
 │   ├── utils/         # Platform detection utilities
 │   └── index.ts       # Package exports
@@ -73,6 +76,8 @@ core/
 │   ├── services/      # Core services
 │   │   ├── ContentService.ts    # Service for managing content processing
 │   │   └── SettingsService.ts   # Service for application settings
+│   ├── utils/         # Utility functions
+│   │   └── serialization.ts     # Data serialization utilities
 │   └── index.ts       # Package entry point
 └── package.json
 ```
@@ -115,6 +120,7 @@ desktop-app/
 │   │   │   ├── ElectronPlatformCapabilities.ts # Platform capabilities implementation
 │   │   │   ├── ElectronStorageAdapter.ts     # Storage adapter using Electron Store
 │   │   │   ├── FileSystemContentAdapter.ts   # Storage adapter using filesystem
+│   │   │   ├── LocalVectorAdapter.ts         # Vector storage adapter implementation
 │   │   │   ├── dialog/                       # Dialog implementation
 │   │   │   │   └── ElectronDialogService.ts    # Electron-specific dialog service
 │   │   │   └── file/                         # File picker implementation
@@ -192,6 +198,7 @@ The platform abstraction layer in `@mosaiq/platform-abstractions` ensures that t
 These interfaces are implemented in the desktop-app package with Electron-specific adapters:
 - ElectronStorageAdapter: implements IStorageProvider using Electron Store
 - FileSystemContentAdapter: implements IStorageProvider using file system access
+- LocalVectorAdapter: implements IVectorStorage for managing vector embeddings
 - ElectronContentProcessor: implements IContentProcessor using JSDOM, Readability, and Cheerio
 - ElectronPlatformCapabilities: implements IPlatformCapabilities for desktop environment
 - ElectronDialogService: implements IDialogService using Electron's dialog API
@@ -234,6 +241,8 @@ The current implementation includes:
 - Basic Electron application architecture with main and renderer processes
 - Content processing pipeline using Mozilla's Readability and HTML parsing
 - Local storage mechanisms for content and settings
+- Vector storage for AI embeddings with similarity search capabilities
+- Data serialization utilities for complex data types and binary vector data
 - UI framework with React and basic page structure
 - Platform abstraction interfaces and implementations for desktop
 - Platform-independent dialog components with Electron implementation

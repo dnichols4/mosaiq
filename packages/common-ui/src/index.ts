@@ -1,8 +1,10 @@
 // Export components
 export * from './components/ContentCard';
 export * from './components/ReadingSettingsPanel';
+export * from './components/SettingsSlider';
 export * from './components/ContentViewer';
 export * from './components/SpotlightInput';
+export * from './components/SliderUIDemo';
 export * from './components/Icons';
 
 // Export dialog components

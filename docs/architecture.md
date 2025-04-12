@@ -11,6 +11,7 @@
 | 1.2 | 2025-03-26 | Updated to reflect current implementation |
 | 1.3 | 2025-04-10 | Updated based on review of code base |
 | 1.4 | 2025-04-11 | Updated to include platform dialog and file picker abstractions |
+| 1.5 | 2025-04-11 | Updated to include vector storage and serialization implementations |
 
 ### 1\. System Overview
 
@@ -66,7 +67,8 @@ The project is organized as a monorepo using npm workspaces with the following p
 *   Local content storage
 *   Metadata management
 *   Relationship graph storage
-*   Vector database for semantic search
+*   Vector database for semantic search - Implemented via IVectorStorage and LocalVectorAdapter
+*   Data serialization utilities - Implemented with complex object serialization
 *   Sync mechanism (optional)
 
 #### 2.3 Integration Points
@@ -111,15 +113,16 @@ The project is organized as a monorepo using npm workspaces with the following p
 
 *   Local LLM integration (planned)
 *   Optional cloud LLM APIs (planned)
-*   Vector embeddings for concept relationships (planned)
-*   Vector operations library for similarity search (planned)
+*   Vector embeddings for concept relationships (implemented via IVectorStorage)
+*   Vector operations library for similarity search (implemented with cosine similarity)
 
 #### 3.5 Storage
 
 *   Filesystem-based content storage (.md files) - Implemented via FileSystemContentAdapter
 *   Electron Store for application settings and metadata - Implemented via ElectronStorageAdapter
 *   Local database for metadata and relationships (planned)
-*   Vector storage for embeddings (planned)
+*   Vector storage for embeddings - Implemented via LocalVectorAdapter
+*   Data serialization with type preservation - Implemented
 *   Encrypted storage utilities (planned)
 
 ### 4\. Key Architectural Decisions
@@ -215,6 +218,8 @@ The application is currently in active development with the following implementa
 *   Content reading view implemented with Mozilla's Readability for content extraction
 *   Content processing pipeline implemented with HTML cleaning and extraction
 *   Local storage mechanism using Electron Store for metadata and filesystem for content
+*   Vector storage mechanism implemented for AI embeddings with similarity search
+*   Data serialization utilities for complex types and binary vector data
 *   Platform abstraction interfaces defined and implemented for the desktop environment
 *   Core services implemented for content and settings management
 *   IPC communication between main and renderer processes established
@@ -223,7 +228,7 @@ The application is currently in active development with the following implementa
     * File picker components for selecting files, directories, and save locations
     * Electron-specific implementations with IPC communication
 *   PDF and EPUB support planned but not yet implemented
-*   AI features and advanced data relationships planned for Phase 2
+*   Advanced AI features planned but vector storage foundation implemented
 *   Data graph visualization and relationship management planned but not yet implemented
 
 #### 8.1 Component Extensibility

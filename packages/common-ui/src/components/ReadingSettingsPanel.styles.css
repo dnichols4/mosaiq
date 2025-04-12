@@ -7,11 +7,12 @@
 
 .reading-settings-panel h3 {
   margin-top: 0;
+  margin-bottom: 24px;
   color: var(--app-text, #333333);
 }
 
 .reading-settings-panel .setting-group {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .reading-settings-panel label {
@@ -20,6 +21,7 @@
   color: var(--app-text, #333333);
 }
 
+/* Styles for the font family buttons (which remain as buttons) */
 .reading-settings-panel .button-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -46,4 +48,9 @@
   background-color: var(--button-bg, #4a6cf7);
   color: var(--button-text, white);
   border-color: var(--button-bg, #4a6cf7);
+}
+
+/* Adjustments for the slider components */
+.reading-settings-panel .setting-group .settings-slider-container {
+  margin-bottom: 0; /* Remove extra margin as the setting-group already has margin */
 }
