@@ -1,5 +1,6 @@
 // Export storage interfaces
 export * from './storage/IStorageProvider';
+export * from './storage/IVectorStorage';
 
 // Export platform interfaces
 export * from './platform/IPlatformCapabilities';

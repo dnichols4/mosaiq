@@ -1,10 +1,11 @@
-import { IStorageProvider, IContentProcessor, IPlatformCapabilities } from '@mosaiq/platform-abstractions';
+import { IStorageProvider, IContentProcessor, IPlatformCapabilities, IVectorStorage } from '@mosaiq/platform-abstractions';
 import { ElectronStorageAdapter } from './ElectronStorageAdapter';
 import { FileSystemContentAdapter } from './FileSystemContentAdapter';
 import { ElectronContentProcessor } from './ElectronContentProcessor';
 import { ElectronPlatformCapabilities } from './ElectronPlatformCapabilities';
 import { ElectronDialogService } from './dialog/ElectronDialogService';
 import { ElectronFilePickerService } from './file/ElectronFilePickerService';
+import { LocalVectorAdapter } from './LocalVectorAdapter';
 
 /**
  * Factory for creating adapters in the Electron environment
@@ -57,5 +58,12 @@ export class AdapterFactory {
    */
   static createFilePickerService() {
     return new ElectronFilePickerService();
+  }
+  
+  /**
+   * Create vector storage adapter
+   */
+  static createVectorStorage(): IVectorStorage {
+    return new LocalVectorAdapter({ storageDirName: 'vectors' });
   }
 }
