@@ -14,13 +14,13 @@ Now that the article display and content organization features have been impleme
 
 **Knowledge Graph**
 
-*   Implement concept extraction
+*   Implement concept extraction (should be tied/related to the taxonomy classification item below)
 *   Build relationship discovery between content
 *   Create visualization of knowledge connections
 
 **Content Organization Enhancements**
 
-*   Implement tagging functionality
+*   Implement taxonomy classification functionality
 *   Add folders/collections for organization
 *   Create a search system
 
