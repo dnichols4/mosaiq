@@ -1,4 +1,5 @@
 import { IContentProcessor, ProcessedContent, IStorageProvider } from '@mosaiq/platform-abstractions';
+import { ConceptClassification } from './TaxonomyService';
 
 export interface ContentItem {
   id: string;
@@ -10,6 +11,7 @@ export interface ContentItem {
   excerpt: string;
   dateAdded: string;
   tags?: string[];
+  concepts?: ConceptClassification[];
 }
 
 /**
@@ -56,7 +58,8 @@ export class ContentService {
         featuredImage: processedContent.featuredImage,
         excerpt: processedContent.excerpt,
         dateAdded: new Date().toISOString(),
-        tags: []
+        tags: [],
+        concepts: []
       };
       
       // Get existing items or initialize empty object
@@ -207,6 +210,35 @@ export class ContentService {
     }
   }
   
+  /**
+   * Update concept classifications for a content item
+   * @param id The ID of the content item
+   * @param concepts The new concept classifications
+   * @returns The updated content item
+   */
+  async updateConcepts(id: string, concepts: ConceptClassification[]): Promise<ContentItem> {
+    try {
+      // Get existing items
+      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
+      
+      // Check if item exists
+      if (!items[id]) {
+        throw new Error(`Content item with ID ${id} not found`);
+      }
+      
+      // Update concepts
+      items[id].concepts = concepts;
+      
+      // Save updated metadata
+      await this.metadataStorage.set('contentItems', items);
+      
+      return items[id];
+    } catch (error) {
+      console.error(`Error updating concepts for content item with ID ${id}:`, error);
+      throw error;
+    }
+  }
+
   /**
    * Generate a unique ID
    * @returns A unique ID
