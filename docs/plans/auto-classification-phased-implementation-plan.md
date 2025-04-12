@@ -74,7 +74,7 @@ The implementation is divided into four major phases:
 
 #### 2.2 Embedding Service 
 
-*   Create `EmbeddingService` with MiniLM implementation
+*   Create `EmbeddingService` with MiniLM implementation using 
 *   Implement model loading and initialization
 *   Add vector generation for text content
 *   Create caching mechanisms for embeddings
@@ -99,7 +99,7 @@ The implementation is divided into four major phases:
 ### Technical Milestones
 
 *   Complete text analysis and term matching engine
-*   Implement embedding service with MiniLM model
+*   Implement embedding service with a MiniLM model (e.g.,all-MiniLM-L6-v2)
 *   Create hybrid classification service
 *   Develop configuration system for classification parameters
 *   Establish performance benchmarks
