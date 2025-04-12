@@ -4,7 +4,7 @@
   "description": "Desktop application for Mosaiq",
   "main": "dist/main/main.js",
   "scripts": {
-    "build": "concurrently \"npm run build-main\" \"npm run build-renderer\"",
+    "build": "concurrently \"npm run build-main\" \"npm run build-renderer\" \"npm run download-models\"",
     "build-main": "tsc -p tsconfig.main.json",
     "build-renderer": "webpack --mode production",
     "dev": "concurrently \"npm run watch-main\" \"npm run watch-renderer\" \"npm run electron\"",
@@ -12,7 +12,8 @@
     "watch-renderer": "webpack --watch --mode development",
     "electron": "wait-on dist/main/main.js && wait-on dist/renderer/renderer.js && electron .",
     "start": "electron .",
-    "test": "jest"
+    "test": "jest",
+    "download-models": "node scripts/download-models.js"
   },
   "dependencies": {
     "@mosaiq/common-ui": "^0.1.0",
@@ -23,6 +24,7 @@
     "cheerio": "^1.0.0-rc.12",
     "electron-store": "^8.1.0",
     "jsdom": "^21.1.1",
+    "onnxruntime-node": "^1.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
@@ -36,6 +38,7 @@
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
+    "axios": "^1.3.5",
     "concurrently": "^8.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",

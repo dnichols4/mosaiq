@@ -1,0 +1,362 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "ex": "http://example.org/taxonomy/"
+  },
+  "@graph": [
+    {
+      "@id": "ex:knowledge_taxonomy",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "Mosaiq Knowledge Taxonomy v1.0",
+      "skos:definition": "A taxonomy of knowledge domains for content classification in the Mosaiq application"
+    },
+    {
+      "@id": "ex:technology",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Technology",
+      "skos:definition": "Information and knowledge related to computer systems, software, hardware, and digital tools.",
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      },
+      "skos:topConceptOf": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:programming",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Programming",
+      "skos:definition": "The process of designing and building executable computer programs to accomplish specific computing tasks.",
+      "skos:broader": {
+        "@id": "ex:technology"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:javascript",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "JavaScript",
+      "skos:definition": "A high-level, interpreted programming language that conforms to the ECMAScript specification and enables interactive web pages.",
+      "skos:broader": {
+        "@id": "ex:programming"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:typescript",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "TypeScript",
+      "skos:definition": "A strict syntactical superset of JavaScript that adds optional static typing and is designed for the development of large applications.",
+      "skos:broader": {
+        "@id": "ex:programming"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:python",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Python",
+      "skos:definition": "An interpreted, high-level programming language known for its readability and versatility in web development, data analysis, AI, and scientific computing.",
+      "skos:broader": {
+        "@id": "ex:programming"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:web_development",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Web Development",
+      "skos:definition": "The work involved in developing websites or web applications for the Internet or an intranet.",
+      "skos:broader": {
+        "@id": "ex:technology"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:frontend",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Frontend Development",
+      "skos:definition": "The development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website.",
+      "skos:broader": {
+        "@id": "ex:web_development"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:backend",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Backend Development",
+      "skos:definition": "The server-side development focusing on databases, scripting, and website architecture, involving business logic, server configuration, APIs, and database interactions.",
+      "skos:broader": {
+        "@id": "ex:web_development"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:database",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Databases",
+      "skos:definition": "Organized collections of data stored and accessed electronically from a computer system, designed to efficiently store, retrieve, and manage data.",
+      "skos:broader": {
+        "@id": "ex:technology"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:sql",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "SQL",
+      "skos:definition": "Structured Query Language, a domain-specific language used for managing and querying relational databases.",
+      "skos:broader": {
+        "@id": "ex:database"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:nosql",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "NoSQL",
+      "skos:definition": "Non-relational database systems that store data in formats other than relational tables, offering flexible schemas and horizontal scaling.",
+      "skos:broader": {
+        "@id": "ex:database"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:ai",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Artificial Intelligence",
+      "skos:definition": "The simulation of human intelligence in machines programmed to think and learn like humans, including problem-solving, recognition, learning, planning, and language processing.",
+      "skos:broader": {
+        "@id": "ex:technology"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:machine_learning",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Machine Learning",
+      "skos:definition": "A subset of AI focused on building systems that learn from data, identify patterns, and make decisions with minimal human intervention.",
+      "skos:broader": {
+        "@id": "ex:ai"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:deep_learning",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Deep Learning",
+      "skos:definition": "A subset of machine learning based on artificial neural networks with multiple layers, capable of learning from large amounts of unstructured data.",
+      "skos:broader": {
+        "@id": "ex:machine_learning"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:nlp",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Natural Language Processing",
+      "skos:definition": "A branch of AI that enables computers to understand, interpret, and manipulate human language in useful ways.",
+      "skos:broader": {
+        "@id": "ex:ai"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:science",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Science",
+      "skos:definition": "The systematic study of the structure and behavior of the physical and natural world through observation and experiment.",
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      },
+      "skos:topConceptOf": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:physics",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Physics",
+      "skos:definition": "The branch of science concerned with the nature and properties of matter and energy, including mechanics, heat, light, electricity, magnetism, and atomic structure.",
+      "skos:broader": {
+        "@id": "ex:science"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:quantum_physics",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Quantum Physics",
+      "skos:definition": "The branch of physics that deals with the behavior of matter and energy at the atomic and subatomic levels, including quantum mechanics and quantum field theory.",
+      "skos:broader": {
+        "@id": "ex:physics"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:biology",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Biology",
+      "skos:definition": "The scientific study of life and living organisms, including their physical structure, chemical processes, molecular interactions, physiological mechanisms, development, and evolution.",
+      "skos:broader": {
+        "@id": "ex:science"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:genetics",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Genetics",
+      "skos:definition": "The branch of biology that studies genes, genetic variation, and heredity in organisms.",
+      "skos:broader": {
+        "@id": "ex:biology"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:ecology",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Ecology",
+      "skos:definition": "The branch of biology that studies the relationships between living organisms and their physical environment.",
+      "skos:broader": {
+        "@id": "ex:biology"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:business",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Business",
+      "skos:definition": "The activity of making, buying, selling, or supplying goods or services for money, including organizational operations, management, and economics.",
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      },
+      "skos:topConceptOf": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:finance",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Finance",
+      "skos:definition": "The management of money, including activities such as investing, borrowing, lending, budgeting, saving, and forecasting.",
+      "skos:broader": {
+        "@id": "ex:business"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:marketing",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Marketing",
+      "skos:definition": "The business process of creating relationships with and satisfying customers through identifying, anticipating and satisfying customer requirements profitably.",
+      "skos:broader": {
+        "@id": "ex:business"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:entrepreneurship",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Entrepreneurship",
+      "skos:definition": "The activity of setting up a business or businesses, taking on financial risks in the hope of profit, and creating new products, services, or processes.",
+      "skos:broader": {
+        "@id": "ex:business"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:humanities",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Humanities",
+      "skos:definition": "Academic disciplines that study human culture and experience, including philosophy, literature, religion, art, music, history, and language.",
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      },
+      "skos:topConceptOf": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:philosophy",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Philosophy",
+      "skos:definition": "The study of fundamental questions about existence, knowledge, values, reason, mind, and language, often through critical, systematic approaches.",
+      "skos:broader": {
+        "@id": "ex:humanities"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:literature",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Literature",
+      "skos:definition": "Written works, especially those considered of superior or lasting artistic merit, including fiction, poetry, drama, and various forms of prose.",
+      "skos:broader": {
+        "@id": "ex:humanities"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    },
+    {
+      "@id": "ex:history",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "History",
+      "skos:definition": "The study of past events, particularly in human affairs, including social, political, economic, and cultural developments over time.",
+      "skos:broader": {
+        "@id": "ex:humanities"
+      },
+      "skos:inScheme": {
+        "@id": "ex:knowledge_taxonomy"
+      }
+    }
+  ]
+}

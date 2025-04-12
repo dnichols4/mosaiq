@@ -4,11 +4,46 @@ import { JSDOM } from 'jsdom';
 import { Readability } from '@mozilla/readability';
 import * as cheerio from 'cheerio';
 import { IContentProcessor, ProcessedContent, ContentMetadata } from '@mosaiq/platform-abstractions';
+import { ClassificationService, ConceptClassification, TaxonomyService } from '@mosaiq/core';
+import { IVectorStorage } from '@mosaiq/platform-abstractions';
 
 /**
  * Implementation of content processor for Electron
  */
 export class ElectronContentProcessor implements IContentProcessor {
+  private classificationService: ClassificationService | null = null;
+  
+  /**
+   * Create a new ElectronContentProcessor
+   * @param taxonomyService Optional TaxonomyService for automatic classification
+   * @param vectorStorage Optional VectorStorage for classification
+   */
+  constructor(
+    private taxonomyService?: TaxonomyService,
+    private vectorStorage?: IVectorStorage
+  ) {}
+  
+  /**
+   * Initialize the classification service if taxonomy and vector storage are available
+   */
+  async initializeClassification(): Promise<boolean> {
+    if (this.taxonomyService && this.vectorStorage && !this.classificationService) {
+      try {
+        this.classificationService = new ClassificationService(
+          this.taxonomyService,
+          this.vectorStorage
+        );
+        await this.classificationService.initialize();
+        console.log('Classification service initialized successfully for content processor');
+        return true;
+      } catch (error) {
+        console.error('Failed to initialize classification service:', error);
+        return false;
+      }
+    }
+    return false;
+  }
+  
   /**
    * Process content from a URL
    */
@@ -290,6 +325,22 @@ export class ElectronContentProcessor implements IContentProcessor {
     
     keywords.push(...sortedWords);
     
+    // Automatic concept classification if available
+    let concepts: ConceptClassification[] = [];
+    if (this.classificationService && this.classificationService.isReady()) {
+      try {
+        // Perform classification in background
+        concepts = await this.classificationService.classifyContent(
+          content.title,
+          textContent
+        );
+        
+        console.log(`Classified content with ${concepts.length} concepts`);
+      } catch (error) {
+        console.error('Error during content classification:', error);
+      }
+    }
+    
     return {
       title: content.title,
       author: content.author,
@@ -299,7 +350,41 @@ export class ElectronContentProcessor implements IContentProcessor {
       readingTime,
       wordCount,
       language,
-      keywords
+      keywords,
+      concepts
     };
+  }
+  
+  /**
+   * Manually classify content
+   * @param title Content title
+   * @param text Content text
+   * @returns Concept classifications or empty array if classification is not available
+   */
+  async classifyContent(title: string, text: string): Promise<ConceptClassification[]> {
+    if (!this.classificationService || !this.classificationService.isReady()) {
+      await this.initializeClassification();
+    }
+    
+    if (this.classificationService && this.classificationService.isReady()) {
+      try {
+        return await this.classificationService.classifyContent(title, text);
+      } catch (error) {
+        console.error('Error during manual content classification:', error);
+        return [];
+      }
+    }
+    
+    return [];
+  }
+  
+  /**
+   * Release resources used by the processor
+   */
+  async dispose(): Promise<void> {
+    if (this.classificationService) {
+      await this.classificationService.dispose();
+      this.classificationService = null;
+    }
   }
 }

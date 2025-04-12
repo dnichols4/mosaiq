@@ -1,14 +1,17 @@
 import { ipcMain } from 'electron';
-import { ContentService, SettingsService } from '@mosaiq/core';
+import { ContentService, SettingsService, TaxonomyService } from '@mosaiq/core';
 import { AdapterFactory } from './adapters/AdapterFactory';
+import { ElectronContentProcessor } from './adapters/ElectronContentProcessor';
 
 /**
  * Register IPC handlers for communication between main and renderer processes
  */
-export function registerIpcHandlers() {
+export async function registerIpcHandlers() {
   // Create services with adapters
+  const contentProcessor = await AdapterFactory.createContentProcessor(true) as ElectronContentProcessor;
+  
   const contentService = new ContentService(
-    AdapterFactory.createContentProcessor(),
+    contentProcessor,
     AdapterFactory.createMetadataStorage(),
     AdapterFactory.createContentStorage()
   );
@@ -16,6 +19,9 @@ export function registerIpcHandlers() {
   const settingsService = new SettingsService(
     AdapterFactory.createSettingsStorage()
   );
+  
+  // Initialize taxonomy service
+  const taxonomyService = await AdapterFactory.createTaxonomyService();
   
   // Content-related handlers
   ipcMain.handle('save-url', async (_, url: string) => {
@@ -68,6 +74,62 @@ export function registerIpcHandlers() {
       return await contentService.updateThumbnail(id, imageUrl);
     } catch (error) {
       console.error(`Error updating thumbnail for item with ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
+  // Classification-related handlers
+  ipcMain.handle('update-concepts', async (_, id: string, concepts: any[]) => {
+    try {
+      return await contentService.updateConcepts(id, concepts);
+    } catch (error) {
+      console.error(`Error updating concepts for item with ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('classify-content', async (_, title: string, text: string) => {
+    try {
+      return await contentProcessor.classifyContent(title, text);
+    } catch (error) {
+      console.error('Error classifying content:', error);
+      throw error;
+    }
+  });
+  
+  // Taxonomy-related handlers
+  ipcMain.handle('get-taxonomy-concepts', async () => {
+    try {
+      return taxonomyService.getAllConcepts();
+    } catch (error) {
+      console.error('Error getting taxonomy concepts:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('get-taxonomy-concept', async (_, conceptId: string) => {
+    try {
+      return taxonomyService.getConcept(conceptId);
+    } catch (error) {
+      console.error(`Error getting concept with ID ${conceptId}:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('search-taxonomy-concepts', async (_, query: string) => {
+    try {
+      return taxonomyService.searchConcepts(query);
+    } catch (error) {
+      console.error(`Error searching taxonomy concepts for "${query}":`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('get-child-concepts', async (_, conceptId: string) => {
+    try {
+      return taxonomyService.getChildConcepts(conceptId);
+    } catch (error) {
+      console.error(`Error getting child concepts for "${conceptId}":`, error);
       throw error;
     }
   });

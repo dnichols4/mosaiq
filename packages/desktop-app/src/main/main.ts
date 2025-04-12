@@ -1,6 +1,8 @@
 import { app, BrowserWindow, ipcMain, protocol, session } from 'electron';
 import * as path from 'path';
+import * as fs from 'fs';
 import { registerIpcHandlers } from './ipc';
+import { AdapterFactory } from './adapters/AdapterFactory';
 
 // Configure cache settings to prevent disk cache errors
 app.commandLine.appendSwitch('disable-gpu-shader-disk-cache');
@@ -50,9 +52,41 @@ function createWindow() {
 }
 
 /**
+ * Ensure required resources are available
+ * Checks if model resources are available
+ */
+async function ensureResources() {
+  // Ensure models directory exists
+  const modelsDir = path.join(app.getAppPath(), 'resources', 'models');
+  if (!fs.existsSync(modelsDir)) {
+    fs.mkdirSync(modelsDir, { recursive: true });
+  }
+  
+  // Ensure MiniLM model directory exists
+  const miniLMDir = path.join(modelsDir, 'minilm');
+  if (!fs.existsSync(miniLMDir)) {
+    fs.mkdirSync(miniLMDir, { recursive: true });
+  }
+  
+  // Check if model files are available
+  const modelFiles = ['model.onnx', 'vocab.txt', 'config.json'];
+  let missingFiles = false;
+  
+  for (const file of modelFiles) {
+    const modelFile = path.join(miniLMDir, file);
+    if (!fs.existsSync(modelFile)) {
+      missingFiles = true;
+      console.warn(`Model file ${file} not found. Classification will not work until models are installed.`);
+    }
+  }
+  
+  return !missingFiles;
+}
+
+/**
  * Initialize the application
  */
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   // Set comprehensive CSP that allows inline scripts and external images
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
     callback({
@@ -69,8 +103,15 @@ app.whenReady().then(() => {
     callback({ path: url });
   });
   
+  // Ensure required resources are available
+  await ensureResources();
+  
   createWindow();
-  registerIpcHandlers();
+  
+  // Register IPC handlers (which will initialize classification)
+  await registerIpcHandlers();
+  
+  console.log('Application initialized');
 });
 
 app.on('window-all-closed', () => {
@@ -83,4 +124,9 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow();
   }
+});
+
+app.on('quit', async () => {
+  // Clean up resources
+  await AdapterFactory.releaseResources();
 });

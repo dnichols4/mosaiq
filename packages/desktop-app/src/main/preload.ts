@@ -13,6 +13,16 @@ contextBridge.exposeInMainWorld('electronAPI', {
   updateTags: (id: string, tags: string[]) => ipcRenderer.invoke('update-tags', id, tags),
   updateThumbnail: (id: string, imageUrl: string) => ipcRenderer.invoke('update-thumbnail', id, imageUrl),
   
+  // Classification-related methods
+  updateConcepts: (id: string, concepts: any[]) => ipcRenderer.invoke('update-concepts', id, concepts),
+  classifyContent: (title: string, text: string) => ipcRenderer.invoke('classify-content', title, text),
+  
+  // Taxonomy-related methods
+  getTaxonomyConcepts: () => ipcRenderer.invoke('get-taxonomy-concepts'),
+  getTaxonomyConcept: (conceptId: string) => ipcRenderer.invoke('get-taxonomy-concept', conceptId),
+  searchTaxonomyConcepts: (query: string) => ipcRenderer.invoke('search-taxonomy-concepts', query),
+  getChildConcepts: (conceptId: string) => ipcRenderer.invoke('get-child-concepts', conceptId),
+  
   // Settings-related methods
   getReadingSettings: () => ipcRenderer.invoke('get-reading-settings'),
   updateReadingSettings: (settings: any) => ipcRenderer.invoke('update-reading-settings', settings),

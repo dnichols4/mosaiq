@@ -69,6 +69,31 @@ export interface ProcessedContent {
 }
 
 /**
+ * Interface for concept classification with confidence scoring
+ */
+export interface ConceptClassification {
+  /**
+   * SKOS concept identifier from taxonomy
+   */
+  conceptId: string;
+  
+  /**
+   * Value between 0-1 indicating confidence
+   */
+  confidence: number;
+  
+  /**
+   * ISO timestamp of when the classification was made
+   */
+  classifiedAt: string;
+  
+  /**
+   * Whether a user has verified this classification
+   */
+  userVerified: boolean;
+}
+
+/**
  * Interface representing content metadata
  */
 export interface ContentMetadata {
@@ -116,4 +141,9 @@ export interface ContentMetadata {
    * Language of the content
    */
   language?: string;
+  
+  /**
+   * Automatically assigned taxonomy concepts
+   */
+  concepts?: ConceptClassification[];
 }

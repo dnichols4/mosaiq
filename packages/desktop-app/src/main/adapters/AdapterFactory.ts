@@ -1,4 +1,12 @@
-import { IStorageProvider, IContentProcessor, IPlatformCapabilities, IVectorStorage } from '@mosaiq/platform-abstractions';
+import { 
+  IStorageProvider, 
+  IContentProcessor, 
+  IPlatformCapabilities, 
+  IVectorStorage, 
+  IDialogService,
+  IFilePickerService
+} from '@mosaiq/platform-abstractions';
+import { TaxonomyService } from '@mosaiq/core';
 import { ElectronStorageAdapter } from './ElectronStorageAdapter';
 import { FileSystemContentAdapter } from './FileSystemContentAdapter';
 import { ElectronContentProcessor } from './ElectronContentProcessor';
@@ -6,11 +14,16 @@ import { ElectronPlatformCapabilities } from './ElectronPlatformCapabilities';
 import { ElectronDialogService } from './dialog/ElectronDialogService';
 import { ElectronFilePickerService } from './file/ElectronFilePickerService';
 import { LocalVectorAdapter } from './LocalVectorAdapter';
+import * as path from 'path';
+import { app } from 'electron';
 
 /**
  * Factory for creating adapters in the Electron environment
  */
 export class AdapterFactory {
+  private static taxonomyService: TaxonomyService | null = null;
+  private static vectorStorage: IVectorStorage | null = null;
+  
   /**
    * Create a metadata storage adapter
    */
@@ -33,10 +46,63 @@ export class AdapterFactory {
   }
   
   /**
-   * Create a content processor
+   * Create a taxonomy service
    */
-  static createContentProcessor(): IContentProcessor {
-    return new ElectronContentProcessor();
+  static async createTaxonomyService(): Promise<TaxonomyService> {
+    if (!this.taxonomyService) {
+      // Use the existing taxonomy file from the resources directory
+      const taxonomyPath = path.join(app.getAppPath(), 'resources', 'taxonomy', 'custom_knowledge_taxonomy.json');
+      this.taxonomyService = new TaxonomyService(taxonomyPath);
+      
+      try {
+        await this.taxonomyService.loadTaxonomy();
+        console.log(`Taxonomy loaded with ${this.taxonomyService.getAllConcepts().length} concepts`);
+      } catch (error) {
+        console.error('Error loading taxonomy:', error);
+        throw error;
+      }
+    }
+    return this.taxonomyService;
+  }
+  
+  /**
+   * Create vector storage adapter
+   */
+  static createVectorStorage(): IVectorStorage {
+    if (!this.vectorStorage) {
+      this.vectorStorage = new LocalVectorAdapter({ storageDirName: 'vectors' });
+    }
+    return this.vectorStorage;
+  }
+  
+  /**
+   * Create a content processor
+   * @param withClassification Whether to enable automatic classification
+   */
+  static async createContentProcessor(withClassification: boolean = true): Promise<IContentProcessor> {
+    // Basic processor without classification
+    if (!withClassification) {
+      return new ElectronContentProcessor();
+    }
+    
+    // Enhanced processor with classification capabilities
+    try {
+      const taxonomyService = await this.createTaxonomyService();
+      const vectorStorage = this.createVectorStorage();
+      const processor = new ElectronContentProcessor(taxonomyService, vectorStorage);
+      
+      // Initialize classification in background
+      processor.initializeClassification().catch(error => {
+        console.error('Failed to initialize classification in background:', error);
+      });
+      
+      return processor;
+    } catch (error) {
+      console.error('Error creating content processor with classification:', error);
+      
+      // Fall back to basic processor if classification setup fails
+      return new ElectronContentProcessor();
+    }
   }
   
   /**
@@ -49,21 +115,28 @@ export class AdapterFactory {
   /**
    * Create dialog service
    */
-  static createDialogService() {
+  static createDialogService(): IDialogService {
     return new ElectronDialogService();
   }
   
   /**
    * Create file picker service
    */
-  static createFilePickerService() {
+  static createFilePickerService(): IFilePickerService {
     return new ElectronFilePickerService();
   }
   
   /**
-   * Create vector storage adapter
+   * Release resources used by adapters
    */
-  static createVectorStorage(): IVectorStorage {
-    return new LocalVectorAdapter({ storageDirName: 'vectors' });
+  static async releaseResources(): Promise<void> {
+    if (this.taxonomyService) {
+      this.taxonomyService = null;
+    }
+    
+    if (this.vectorStorage) {
+      await this.vectorStorage.clearAll();
+      this.vectorStorage = null;
+    }
   }
 }

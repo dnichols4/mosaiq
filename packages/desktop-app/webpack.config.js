@@ -32,7 +32,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/renderer/assets', to: 'assets', noErrorOnMissing: true }
+        { from: 'src/renderer/assets', to: 'assets', noErrorOnMissing: true },
+        { from: 'resources', to: '../resources', noErrorOnMissing: true }
       ]
     })
   ]
