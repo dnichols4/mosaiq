@@ -10,21 +10,11 @@
       "@type": "skos:ConceptScheme",
       "skos:prefLabel": "Custom Knowledge Classification Scheme",
       "skos:hasTopConcept": [
-        {
-          "@id": "ex:science_technology"
-        },
-        {
-          "@id": "ex:arts_entertainment"
-        },
-        {
-          "@id": "ex:business_finance"
-        },
-        {
-          "@id": "ex:society_culture"
-        },
-        {
-          "@id": "ex:health_wellness"
-        }
+        {"@id": "ex:science_technology"},
+        {"@id": "ex:arts_entertainment"},
+        {"@id": "ex:business_finance"},
+        {"@id": "ex:society_culture"},
+        {"@id": "ex:health_wellness"}
       ]
     },
     {
@@ -32,28 +22,15 @@
       "@type": "skos:Concept",
       "skos:prefLabel": "Science & Technology",
       "skos:definition": "Concepts related to the systematic study of the structure and behavior of the physical and natural world through observation and experiment, and the application of scientific knowledge for practical purposes.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
+      "skos:altLabel": ["SciTech", "Science and Technology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
       "skos:narrower": [
-        {
-          "@id": "ex:physical_sciences"
-        },
-        {
-          "@id": "ex:life_sciences"
-        },
-        {
-          "@id": "ex:computer_science"
-        },
-        {
-          "@id": "ex:engineering"
-        },
-        {
-          "@id": "ex:mathematics_statistics"
-        },
-        {
-          "@id": "ex:technology_applications"
-        }
+        {"@id": "ex:physical_sciences"},
+        {"@id": "ex:life_sciences"},
+        {"@id": "ex:computer_science"},
+        {"@id": "ex:engineering"},
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:technology_applications"}
       ]
     },
     {
@@ -61,28 +38,15 @@
       "@type": "skos:Concept",
       "skos:prefLabel": "Arts & Entertainment",
       "skos:definition": "Concepts related to the expression or application of human creative skill and imagination, and activities providing amusement or enjoyment.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
+      "skos:altLabel": ["Arts & Ent", "Creative Arts", "Entertainment"],
+      "skos:inScheme": {"@id": "ex:scheme"},
       "skos:narrower": [
-        {
-          "@id": "ex:visual_arts"
-        },
-        {
-          "@id": "ex:performing_arts"
-        },
-        {
-          "@id": "ex:literature"
-        },
-        {
-          "@id": "ex:music"
-        },
-        {
-          "@id": "ex:film_television"
-        },
-        {
-          "@id": "ex:games"
-        }
+        {"@id": "ex:visual_arts"},
+        {"@id": "ex:performing_arts"},
+        {"@id": "ex:literature"},
+        {"@id": "ex:music"},
+        {"@id": "ex:film_television"},
+        {"@id": "ex:games"}
       ]
     },
     {
@@ -90,25 +54,14 @@
       "@type": "skos:Concept",
       "skos:prefLabel": "Business & Finance",
       "skos:definition": "Concepts related to commercial, industrial, or professional activities, and the management of money, investments, and other financial instruments.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
+      "skos:altLabel": ["BizFin", "Commerce", "Finance"],
+      "skos:inScheme": {"@id": "ex:scheme"},
       "skos:narrower": [
-        {
-          "@id": "ex:management"
-        },
-        {
-          "@id": "ex:marketing_sales"
-        },
-        {
-          "@id": "ex:economics"
-        },
-        {
-          "@id": "ex:personal_finance"
-        },
-        {
-          "@id": "ex:industries"
-        }
+        {"@id": "ex:management"},
+        {"@id": "ex:marketing_sales"},
+        {"@id": "ex:economics"},
+        {"@id": "ex:personal_finance"},
+        {"@id": "ex:industries"}
       ]
     },
     {
@@ -116,28 +69,15 @@
       "@type": "skos:Concept",
       "skos:prefLabel": "Society & Culture",
       "skos:definition": "Concepts related to people, their communities, and their cultural practices and institutions.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
+      "skos:altLabel": ["SocCult", "Social Studies", "Culture"],
+      "skos:inScheme": {"@id": "ex:scheme"},
       "skos:narrower": [
-        {
-          "@id": "ex:politics_government"
-        },
-        {
-          "@id": "ex:history"
-        },
-        {
-          "@id": "ex:philosophy_religion"
-        },
-        {
-          "@id": "ex:education"
-        },
-        {
-          "@id": "ex:social_issues"
-        },
-        {
-          "@id": "ex:language_communication"
-        }
+        {"@id": "ex:politics_government"},
+        {"@id": "ex:history"},
+        {"@id": "ex:philosophy_religion"},
+        {"@id": "ex:education"},
+        {"@id": "ex:social_issues"},
+        {"@id": "ex:language_communication"}
       ]
     },
     {
@@ -145,25 +85,14 @@
       "@type": "skos:Concept",
       "skos:prefLabel": "Health & Wellness",
       "skos:definition": "Concepts related to physical, mental, and social well-being, and the pursuit of a healthy lifestyle.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
+      "skos:altLabel": ["Health & Wellbeing", "Wellness", "Medical"],
+      "skos:inScheme": {"@id": "ex:scheme"},
       "skos:narrower": [
-        {
-          "@id": "ex:medicine"
-        },
-        {
-          "@id": "ex:nutrition_diet"
-        },
-        {
-          "@id": "ex:fitness_exercise"
-        },
-        {
-          "@id": "ex:mental_health"
-        },
-        {
-          "@id": "ex:public_health"
-        }
+        {"@id": "ex:medicine"},
+        {"@id": "ex:nutrition_diet"},
+        {"@id": "ex:fitness_exercise"},
+        {"@id": "ex:mental_health"},
+        {"@id": "ex:public_health"}
       ]
     },
     {
@@ -171,1944 +100,1476 @@
       "@type": "skos:Concept",
       "skos:prefLabel": "Physics",
       "skos:definition": "The study of matter, energy, and the fundamental forces of nature.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:physical_sciences"
-      }
+      "skos:altLabel": ["Physical Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:physical_sciences"}
     },
     {
       "@id": "ex:chemistry",
       "@type": "skos:Concept",
       "skos:prefLabel": "Chemistry",
       "skos:definition": "The science of substances, their properties, and how they interact.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:physical_sciences"
-      }
+      "skos:altLabel": ["Chemical Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:physical_sciences"}
     },
     {
       "@id": "ex:astronomy",
       "@type": "skos:Concept",
       "skos:prefLabel": "Astronomy",
       "skos:definition": "The study of celestial objects and phenomena beyond Earth.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:physical_sciences"
-      }
+      "skos:altLabel": ["Space Science", "Cosmology", "Celestial Study"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:physical_sciences"}
     },
     {
       "@id": "ex:earth_science",
       "@type": "skos:Concept",
       "skos:prefLabel": "Earth Science",
       "skos:definition": "Study of Earth's structure, properties, processes, and history.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:physical_sciences"
-      }
+      "skos:altLabel": ["Geoscience"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:physical_sciences"}
     },
-    {
+     {
       "@id": "ex:geology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Geology",
       "skos:definition": "The study of the solid Earth, rocks, and the processes by which they change.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:physical_sciences"
-      }
+      "skos:altLabel": ["Earth Study", "Rock Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:earth_science"} 
     },
     {
       "@id": "ex:meteorology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Meteorology",
       "skos:definition": "The study of weather, climate, and atmospheric phenomena.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:physical_sciences"
-      }
+      "skos:altLabel": ["Weather Science", "Atmospheric Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:earth_science"} 
     },
     {
       "@id": "ex:oceanography",
       "@type": "skos:Concept",
       "skos:prefLabel": "Oceanography",
       "skos:definition": "The exploration and scientific study of the ocean and its phenomena.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:physical_sciences"
-      }
+      "skos:altLabel": ["Marine Science", "Ocean Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:earth_science"} 
     },
     {
       "@id": "ex:biology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Biology",
       "skos:definition": "The study of living organisms and life processes.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["Life Science Study"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:life_sciences"}
     },
     {
       "@id": "ex:genetics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Genetics",
       "skos:definition": "The study of genes, genetic variation, and heredity.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["Heredity Science", "Gene Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:biology"} 
     },
     {
       "@id": "ex:ecology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Ecology",
       "skos:definition": "The study of interactions between organisms and their environments.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["Environmental Biology", "Ecosystem Study"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:biology"} 
     },
     {
       "@id": "ex:biotechnology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Biotechnology",
       "skos:definition": "Application of biology in technology and industry.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["BioTech", "Applied Biology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:life_sciences"}
     },
     {
       "@id": "ex:botany",
       "@type": "skos:Concept",
       "skos:prefLabel": "Botany",
       "skos:definition": "The scientific study of plants.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["Plant Science", "Plant Biology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:biology"} 
     },
     {
       "@id": "ex:zoology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Zoology",
       "skos:definition": "The study of animals and their biological processes.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["Animal Science", "Animal Biology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:biology"} 
     },
     {
       "@id": "ex:microbiology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Microbiology",
       "skos:definition": "The study of microscopic organisms.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["Microbe Study", "Microorganism Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:biology"} 
     },
     {
       "@id": "ex:neuroscience",
       "@type": "skos:Concept",
       "skos:prefLabel": "Neuroscience",
       "skos:definition": "The study of the nervous system, including the brain.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:life_sciences"
-      }
+      "skos:altLabel": ["Brain Science", "Nervous System Study"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:life_sciences"}
     },
     {
       "@id": "ex:algorithms_theory",
       "@type": "skos:Concept",
       "skos:prefLabel": "Algorithms Theory",
       "skos:definition": "Theoretical foundations of computer science and computation.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["Computation Theory", "Algo Theory", "Theoretical CS"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:programming_languages",
       "@type": "skos:Concept",
       "skos:prefLabel": "Programming Languages",
       "skos:definition": "Design and implementation of programming languages.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["Coding Languages", "PL", "Computer Languages"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:artificial_intelligence",
       "@type": "skos:Concept",
       "skos:prefLabel": "Artificial Intelligence",
       "skos:definition": "Simulation of human intelligence by machines.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["AI", "Machine Learning", "Intelligent Systems"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:computer_networks",
       "@type": "skos:Concept",
       "skos:prefLabel": "Computer Networks",
       "skos:definition": "Interconnected systems for data communication.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["Networking", "Data Communications"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:software_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Software Engineering",
       "skos:definition": "Methodologies for software design and development.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["Software Dev", "SE", "Software Development"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:databases",
       "@type": "skos:Concept",
       "skos:prefLabel": "Databases",
       "skos:definition": "Structured systems for storing, retrieving, and managing data.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["Data Systems", "DBs", "Data Management"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:cybersecurity",
       "@type": "skos:Concept",
       "skos:prefLabel": "Cybersecurity",
       "skos:definition": "Protection of systems and networks from digital attacks.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["InfoSec", "Information Security", "Computer Security"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:human_computer_interaction",
       "@type": "skos:Concept",
       "skos:prefLabel": "Human Computer Interaction",
       "skos:definition": "Design of user-centered computer systems.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:computer_science"
-      }
+      "skos:altLabel": ["HCI", "User Experience", "UX", "UI Design"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:computer_science"}
     },
     {
       "@id": "ex:mechanical_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Mechanical Engineering",
       "skos:definition": "Design and analysis of machines and mechanical systems.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:engineering"
-      }
+      "skos:altLabel": ["MechEng", "Mechanical Systems"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:engineering"}
     },
     {
       "@id": "ex:electrical_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Electrical Engineering",
       "skos:definition": "Study and application of electricity and electronics.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:engineering"
-      }
+      "skos:altLabel": ["ElecEng", "EE", "Electronics Engineering"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:engineering"}
     },
     {
       "@id": "ex:civil_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Civil Engineering",
       "skos:definition": "Design and construction of infrastructure like roads and bridges.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:engineering"
-      }
+      "skos:altLabel": ["CivilEng", "Infrastructure Engineering", "Construction Engineering"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:engineering"}
     },
     {
       "@id": "ex:chemical_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Chemical Engineering",
       "skos:definition": "Application of chemistry in industrial processes.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:engineering"
-      }
+      "skos:altLabel": ["ChemEng", "Process Engineering"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:engineering"}
     },
     {
       "@id": "ex:aerospace_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Aerospace Engineering",
       "skos:definition": "Development of aircraft and spacecraft.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:engineering"
-      }
+      "skos:altLabel": ["AeroEng", "Aeronautical Engineering", "Astronautical Engineering"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:engineering"}
     },
     {
       "@id": "ex:environmental_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Environmental Engineering",
       "skos:definition": "Engineering solutions for environmental protection.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:engineering"
-      }
+      "skos:altLabel": ["EnviroEng", "Green Engineering", "Ecological Engineering"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:engineering"}
     },
     {
       "@id": "ex:biomedical_engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Biomedical Engineering",
       "skos:definition": "Application of engineering principles to medicine.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:engineering"
-      }
+      "skos:altLabel": ["BioMedEng", "BME", "Medical Engineering"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:engineering"}
     },
     {
       "@id": "ex:pure_mathematics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Pure Mathematics",
       "skos:definition": "Abstract study of numbers, structures, and space.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mathematics_statistics"
-      }
+      "skos:altLabel": ["Abstract Math", "Theoretical Math"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mathematics_statistics"}
     },
     {
       "@id": "ex:applied_mathematics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Applied Mathematics",
       "skos:definition": "Mathematics used in practical fields like physics and engineering.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mathematics_statistics"
-      }
+      "skos:altLabel": ["Practical Math", "Math Applications", "Industrial Math"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mathematics_statistics"}
     },
     {
       "@id": "ex:statistics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Statistics",
       "skos:definition": "Collection, analysis, interpretation, and presentation of data.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mathematics_statistics"
-      }
+      "skos:altLabel": ["Stats", "Data Analysis", "Statistical Analysis"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mathematics_statistics"}
     },
     {
       "@id": "ex:probability_theory",
       "@type": "skos:Concept",
       "skos:prefLabel": "Probability Theory",
       "skos:definition": "Mathematical analysis of random phenomena.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mathematics_statistics"
-      }
+      "skos:altLabel": ["Probability", "Randomness Study", "Stochastics"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mathematics_statistics"}
     },
     {
       "@id": "ex:data_science",
       "@type": "skos:Concept",
       "skos:prefLabel": "Data Science",
       "skos:definition": "Extraction of knowledge from structured and unstructured data.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mathematics_statistics"
-      }
+      "skos:altLabel": ["Data Analysis", "Big Data", "Data Mining"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mathematics_statistics"}
     },
     {
       "@id": "ex:information_technology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Information Technology",
       "skos:definition": "Use of computers and telecommunications for data processing.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:technology_applications"
-      }
+      "skos:altLabel": ["IT", "InfoTech", "Computer Systems"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:technology_applications"}
     },
     {
       "@id": "ex:robotics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Robotics",
       "skos:definition": "Design and construction of robots.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:technology_applications"
-      }
+      "skos:altLabel": ["Robot Engineering", "Automation"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:technology_applications"}
     },
     {
       "@id": "ex:blockchain",
       "@type": "skos:Concept",
       "skos:prefLabel": "Blockchain",
       "skos:definition": "Decentralized digital ledger technologies.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:technology_applications"
-      }
+      "skos:altLabel": ["Distributed Ledger Technology", "DLT", "Cryptocurrency Tech"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:technology_applications"}
     },
     {
       "@id": "ex:cloud_computing",
       "@type": "skos:Concept",
       "skos:prefLabel": "Cloud Computing",
       "skos:definition": "Delivery of computing services over the internet.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:technology_applications"
-      }
+      "skos:altLabel": ["Cloud Services", "Internet Computing", "Web Services"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:technology_applications"}
     },
     {
       "@id": "ex:internet_of_things",
       "@type": "skos:Concept",
       "skos:prefLabel": "Internet Of Things",
       "skos:definition": "Interconnection of everyday devices to the internet.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:technology_applications"
-      }
+      "skos:altLabel": ["IoT", "Connected Devices", "Smart Devices"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:technology_applications"}
     },
     {
       "@id": "ex:painting",
       "@type": "skos:Concept",
       "skos:prefLabel": "Painting",
       "skos:definition": "The practice of applying pigment to surfaces to create expressive images.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:visual_arts"
-      }
+      "skos:altLabel": ["Canvas Art", "Oil Painting", "Watercolor"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:visual_arts"}
     },
     {
       "@id": "ex:sculpture",
       "@type": "skos:Concept",
       "skos:prefLabel": "Sculpture",
       "skos:definition": "The art of creating three-dimensional forms using various materials.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:visual_arts"
-      }
+      "skos:altLabel": ["3D Art", "Statuary", "Carving"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:visual_arts"}
     },
     {
       "@id": "ex:photography",
       "@type": "skos:Concept",
       "skos:prefLabel": "Photography",
       "skos:definition": "Capturing images using a camera to create visual art.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:visual_arts"
-      }
+      "skos:altLabel": ["Photo Art", "Image Capture", "Still Imaging"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:visual_arts"}
     },
     {
       "@id": "ex:design",
       "@type": "skos:Concept",
       "skos:prefLabel": "Design",
       "skos:definition": "Creative planning and crafting of visual communication or functional objects.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:visual_arts"
-      }
+      "skos:altLabel": ["Visual Design", "Graphic Design", "Industrial Design", "Product Design"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:visual_arts"}
     },
     {
       "@id": "ex:digital_art",
       "@type": "skos:Concept",
       "skos:prefLabel": "Digital Art",
       "skos:definition": "Artistic works created or presented using digital technology.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:visual_arts"
-      }
+      "skos:altLabel": ["Computer Art", "New Media Art", "Algorithmic Art"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:visual_arts"}
     },
     {
       "@id": "ex:theater",
       "@type": "skos:Concept",
       "skos:prefLabel": "Theater",
       "skos:definition": "Dramatic performance presented live to an audience.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:performing_arts"
-      }
+      "skos:altLabel": ["Theatre", "Stage Performance", "Live Drama"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:performing_arts"}
     },
     {
       "@id": "ex:dance",
       "@type": "skos:Concept",
       "skos:prefLabel": "Dance",
       "skos:definition": "Art of movement often set to music, expressing ideas or emotions.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:performing_arts"
-      }
+      "skos:altLabel": ["Movement Art", "Choreography", "Ballet", "Modern Dance"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:performing_arts"}
     },
     {
       "@id": "ex:opera",
       "@type": "skos:Concept",
       "skos:prefLabel": "Opera",
       "skos:definition": "A dramatic work combining text and musical score, usually sung.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:performing_arts"
-      }
+      "skos:altLabel": ["Musical Drama", "Sung Theater"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:performing_arts"}
     },
     {
       "@id": "ex:circus_arts",
       "@type": "skos:Concept",
       "skos:prefLabel": "Circus Arts",
       "skos:definition": "Live performance featuring acrobatics, clowns, and trained animals.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:performing_arts"
-      }
+      "skos:altLabel": ["Circus Performance", "Acrobatics", "Clowning"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:performing_arts"}
     },
     {
       "@id": "ex:fiction",
       "@type": "skos:Concept",
       "skos:prefLabel": "Fiction",
       "skos:definition": "Narrative literary works created from imagination rather than facts.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:literature"
-      }
+      "skos:altLabel": ["Novels", "Short Stories", "Imaginative Writing", "Prose Fiction"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:literature"}
     },
     {
       "@id": "ex:poetry",
       "@type": "skos:Concept",
       "skos:prefLabel": "Poetry",
       "skos:definition": "Literary work using distinctive style and rhythm to express emotions.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:literature"
-      }
+      "skos:altLabel": ["Verse", "Poems", "Lyrical Writing"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:literature"}
     },
     {
       "@id": "ex:nonfiction",
       "@type": "skos:Concept",
       "skos:prefLabel": "Nonfiction",
       "skos:definition": "Prose writing based on facts, real events, and real people.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:literature"
-      }
+      "skos:altLabel": ["Factual Writing", "Informational Text", "Biography", "History Writing"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:literature"}
     },
     {
       "@id": "ex:drama",
       "@type": "skos:Concept",
       "skos:prefLabel": "Drama",
       "skos:definition": "Literary composition intended to be performed by actors.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:literature"
-      }
+      "skos:altLabel": ["Plays", "Theatrical Literature", "Stage Writing"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:literature"}
     },
     {
       "@id": "ex:essays",
       "@type": "skos:Concept",
       "skos:prefLabel": "Essays",
       "skos:definition": "Short pieces of writing on particular subjects.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:literature"
-      }
+      "skos:altLabel": ["Short Writings", "Compositions", "Articles"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:literature"}
     },
     {
       "@id": "ex:classical_music",
       "@type": "skos:Concept",
       "skos:prefLabel": "Classical Music",
       "skos:definition": "Formal musical tradition rooted in Western culture.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:music"
-      }
+      "skos:altLabel": ["Orchestral Music", "Symphonic Music", "Art Music"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:music"}
     },
     {
       "@id": "ex:jazz",
       "@type": "skos:Concept",
       "skos:prefLabel": "Jazz",
       "skos:definition": "Music characterized by swing and blue notes, improvisation, and syncopation.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:music"
-      }
+      "skos:altLabel": ["Improvisational Music", "Blues"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:music"}
     },
     {
       "@id": "ex:rock_music",
       "@type": "skos:Concept",
       "skos:prefLabel": "Rock Music",
       "skos:definition": "Popular music with strong rhythm and electric instruments.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:music"
-      }
+      "skos:altLabel": ["Rock & Roll", "Pop Rock", "Alternative Rock"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:music"}
     },
     {
       "@id": "ex:electronic_music",
       "@type": "skos:Concept",
       "skos:prefLabel": "Electronic Music",
       "skos:definition": "Music employing electronic instruments or digital technology.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:music"
-      }
+      "skos:altLabel": ["EDM", "Synth Music", "Techno", "House Music"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:music"}
     },
     {
       "@id": "ex:world_music",
       "@type": "skos:Concept",
       "skos:prefLabel": "World Music",
       "skos:definition": "Traditional music from cultures around the world.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:music"
-      }
+      "skos:altLabel": ["Global Music", "Folk Music", "Ethnic Music"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:music"}
     },
     {
       "@id": "ex:film_production",
       "@type": "skos:Concept",
       "skos:prefLabel": "Film Production",
       "skos:definition": "The process of creating motion pictures.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:film_television"
-      }
+      "skos:altLabel": ["Movie Making", "Cinematography", "Filmmaking"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:film_television"}
     },
     {
       "@id": "ex:screenwriting",
       "@type": "skos:Concept",
       "skos:prefLabel": "Screenwriting",
       "skos:definition": "The art and craft of writing scripts for film and television.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:film_television"
-      }
+      "skos:altLabel": ["Scriptwriting", "Film Writing", "Teleplay Writing"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:film_television"}
     },
     {
       "@id": "ex:animation",
       "@type": "skos:Concept",
       "skos:prefLabel": "Animation",
       "skos:definition": "Creating the illusion of motion through frame-by-frame imagery.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:film_television"
-      }
+      "skos:altLabel": ["Animated Films", "Cartoons", "Computer Animation"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:film_television"}
     },
     {
       "@id": "ex:documentary",
       "@type": "skos:Concept",
       "skos:prefLabel": "Documentary",
       "skos:definition": "Non-fictional motion picture intended to document reality.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:film_television"
-      }
+      "skos:altLabel": ["Docu", "Non-fiction Film", "Reality Film"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:film_television"}
     },
     {
       "@id": "ex:television_series",
       "@type": "skos:Concept",
       "skos:prefLabel": "Television Series",
       "skos:definition": "Serialized programming created for TV broadcast or streaming.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:film_television"
-      }
+      "skos:altLabel": ["TV Shows", "Episodic TV", "Streaming Series"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:film_television"}
     },
     {
       "@id": "ex:video_games",
       "@type": "skos:Concept",
       "skos:prefLabel": "Video Games",
       "skos:definition": "Electronic games played using a computer or console.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:games"
-      }
+      "skos:altLabel": ["Gaming", "Computer Games", "Console Games"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:games"}
     },
     {
       "@id": "ex:board_games",
       "@type": "skos:Concept",
       "skos:prefLabel": "Board Games",
       "skos:definition": "Games involving counters or pieces moved on a pre-marked surface.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:games"
-      }
+      "skos:altLabel": ["Tabletop Games", "Strategy Games"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:games"}
     },
     {
       "@id": "ex:role_playing_games",
       "@type": "skos:Concept",
       "skos:prefLabel": "Role Playing Games",
       "skos:definition": "Games in which players assume roles in a fictional setting.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:games"
-      }
+      "skos:altLabel": ["RPGs", "Fantasy Games", "Tabletop RPGs"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:games"}
     },
     {
       "@id": "ex:puzzle_games",
       "@type": "skos:Concept",
       "skos:prefLabel": "Puzzle Games",
       "skos:definition": "Games that emphasize problem-solving skills.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:games"
-      }
+      "skos:altLabel": ["Brain Teasers", "Logic Games", "Mind Games"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:games"}
     },
     {
       "@id": "ex:project_management",
       "@type": "skos:Concept",
       "skos:prefLabel": "Project Management",
       "skos:definition": "Planning and execution of projects to meet specific goals.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:management"
-      }
+      "skos:altLabel": ["PM", "Project Planning", "Task Management"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:management"}
     },
     {
       "@id": "ex:strategic_management",
       "@type": "skos:Concept",
       "skos:prefLabel": "Strategic Management",
       "skos:definition": "Setting objectives and managing resources to achieve long-term goals.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:management"
-      }
+      "skos:altLabel": ["Business Strategy", "Corp Strategy", "Long-term Planning"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:management"}
     },
     {
       "@id": "ex:operations_management",
       "@type": "skos:Concept",
       "skos:prefLabel": "Operations Management",
       "skos:definition": "Design and control of business operations and production.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:management"
-      }
+      "skos:altLabel": ["Ops Management", "Production Management", "Business Ops"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:management"}
     },
     {
       "@id": "ex:human_resources",
       "@type": "skos:Concept",
       "skos:prefLabel": "Human Resources",
       "skos:definition": "Management of employee relations and organizational workforce.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:management"
-      }
+      "skos:altLabel": ["HR", "Personnel Management", "Workforce Management"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:management"}
     },
     {
       "@id": "ex:supply_chain_management",
       "@type": "skos:Concept",
       "skos:prefLabel": "Supply Chain Management",
       "skos:definition": "Overseeing the flow of goods, services, and information.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:management"
-      }
+      "skos:altLabel": ["SCM", "Logistics Management", "Distribution Management"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:management"}
     },
     {
       "@id": "ex:branding",
       "@type": "skos:Concept",
       "skos:prefLabel": "Branding",
       "skos:definition": "Creating and maintaining a brand's image and identity.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:marketing_sales"
-      }
+      "skos:altLabel": ["Brand Management", "Corporate Identity", "Brand Strategy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:marketing_sales"}
     },
     {
       "@id": "ex:digital_marketing",
       "@type": "skos:Concept",
       "skos:prefLabel": "Digital Marketing",
       "skos:definition": "Use of digital channels to promote products or services.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:marketing_sales"
-      }
+      "skos:altLabel": ["Online Marketing", "Internet Marketing", "SEO", "SEM"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:marketing_sales"}
     },
     {
       "@id": "ex:market_research",
       "@type": "skos:Concept",
       "skos:prefLabel": "Market Research",
       "skos:definition": "Gathering and analyzing data about consumers and markets.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:marketing_sales"
-      }
+      "skos:altLabel": ["Consumer Research", "Market Analysis", "Marketing Research"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:marketing_sales"}
     },
     {
       "@id": "ex:sales_strategy",
       "@type": "skos:Concept",
       "skos:prefLabel": "Sales Strategy",
       "skos:definition": "Planning and execution of sales processes and tactics.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:marketing_sales"
-      }
+      "skos:altLabel": ["Selling Techniques", "Sales Planning", "Business Development"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:marketing_sales"}
     },
     {
       "@id": "ex:macroeconomics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Macroeconomics",
       "skos:definition": "Study of the economy as a whole, including inflation and GDP.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:economics"
-      }
+      "skos:altLabel": ["Macro Econ", "Aggregate Economics", "National Economy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:economics"}
     },
     {
       "@id": "ex:microeconomics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Microeconomics",
       "skos:definition": "Study of individual consumers and businesses in markets.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:economics"
-      }
+      "skos:altLabel": ["Micro Econ", "Individual Markets", "Price Theory"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:economics"}
     },
     {
       "@id": "ex:international_trade",
       "@type": "skos:Concept",
       "skos:prefLabel": "International Trade",
       "skos:definition": "Exchange of goods and services across national borders.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:economics"
-      }
+      "skos:altLabel": ["Global Trade", "Foreign Trade", "World Trade"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:economics"}
     },
     {
       "@id": "ex:behavioral_economics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Behavioral Economics",
       "skos:definition": "Analysis of psychological factors in economic decision-making.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:economics"
-      }
+      "skos:altLabel": ["Psychological Economics", "Economic Psychology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:economics"}
     },
     {
       "@id": "ex:budgeting",
       "@type": "skos:Concept",
       "skos:prefLabel": "Budgeting",
       "skos:definition": "Planning how to allocate personal income and expenses.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:personal_finance"
-      }
+      "skos:altLabel": ["Financial Planning", "Expense Management", "Money Management"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:personal_finance"}
     },
     {
       "@id": "ex:investing",
       "@type": "skos:Concept",
       "skos:prefLabel": "Investing",
       "skos:definition": "Allocating money to assets for future financial return.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:personal_finance"
-      }
+      "skos:altLabel": ["Investment Management", "Asset Allocation", "Stock Market"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:personal_finance"}
     },
     {
       "@id": "ex:retirement_planning",
       "@type": "skos:Concept",
       "skos:prefLabel": "Retirement Planning",
       "skos:definition": "Saving and investing for life after employment.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:personal_finance"
-      }
+      "skos:altLabel": ["Pension Planning", "Retirement Savings", "401k"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:personal_finance"}
     },
     {
       "@id": "ex:credit_and_loans",
       "@type": "skos:Concept",
       "skos:prefLabel": "Credit And Loans",
       "skos:definition": "Borrowing money and managing repayment responsibilities.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:personal_finance"
-      }
+      "skos:altLabel": ["Borrowing", "Debt Management", "Mortgages", "Credit Score"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:personal_finance"}
     },
     {
       "@id": "ex:retail",
       "@type": "skos:Concept",
       "skos:prefLabel": "Retail",
       "skos:definition": "Sale of goods directly to consumers.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:industries"
-      }
+      "skos:altLabel": ["Consumer Sales", "Shopping", "Merchandising"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:industries"}
     },
     {
       "@id": "ex:manufacturing",
       "@type": "skos:Concept",
       "skos:prefLabel": "Manufacturing",
       "skos:definition": "Production of goods using labor and machinery.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:industries"
-      }
+      "skos:altLabel": ["Production", "Industrial Production", "Factories"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:industries"}
     },
     {
       "@id": "ex:real_estate",
       "@type": "skos:Concept",
       "skos:prefLabel": "Real Estate",
       "skos:definition": "Buying, selling, and managing land and property.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:industries"
-      }
+      "skos:altLabel": ["Property Market", "Land Management", "Real Property"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:industries"}
     },
     {
       "@id": "ex:finance_banking",
       "@type": "skos:Concept",
       "skos:prefLabel": "Finance Banking",
       "skos:definition": "Management of money, credit, and financial services.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:industries"
-      }
+      "skos:altLabel": ["Financial Services", "Banking Industry", "Investment Banking"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:industries"}
     },
     {
       "@id": "ex:hospitality",
       "@type": "skos:Concept",
       "skos:prefLabel": "Hospitality",
       "skos:definition": "Service-based industry including lodging, food, and tourism.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:industries"
-      }
+      "skos:altLabel": ["Tourism", "Lodging", "Food Service", "Hotels", "Restaurants"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:industries"}
     },
     {
       "@id": "ex:democracy",
       "@type": "skos:Concept",
       "skos:prefLabel": "Democracy",
       "skos:definition": "A system of government where power is vested in the people.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:politics_government"
-      }
+      "skos:altLabel": ["Democratic Government", "Popular Sovereignty", "Representative Government"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:politics_government"}
     },
     {
       "@id": "ex:public_policy",
       "@type": "skos:Concept",
       "skos:prefLabel": "Public Policy",
       "skos:definition": "Principles guiding government actions and legislation.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:politics_government"
-      }
+      "skos:altLabel": ["Government Policy", "Legislation", "Policy Analysis"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:politics_government"}
     },
     {
       "@id": "ex:international_relations",
       "@type": "skos:Concept",
       "skos:prefLabel": "International Relations",
       "skos:definition": "Interactions between countries and their governments.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:politics_government"
-      }
+      "skos:altLabel": ["IR", "Foreign Affairs", "Global Politics", "Diplomacy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:politics_government"}
     },
     {
       "@id": "ex:civil_rights",
       "@type": "skos:Concept",
       "skos:prefLabel": "Civil Rights",
       "skos:definition": "Rights protecting individuals' freedom from infringement.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:politics_government"
-      }
+      "skos:altLabel": ["Human Rights", "Individual Freedoms", "Civil Liberties"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:politics_government"}
     },
     {
       "@id": "ex:ancient_history",
       "@type": "skos:Concept",
       "skos:prefLabel": "Ancient History",
       "skos:definition": "Study of early civilizations and events before the Middle Ages.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:history"
-      }
+      "skos:altLabel": ["Classical History", "Early Civilizations", "Antiquity"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:history"}
     },
     {
       "@id": "ex:modern_history",
       "@type": "skos:Concept",
       "skos:prefLabel": "Modern History",
       "skos:definition": "History from the late 15th century to the present.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:history"
-      }
+      "skos:altLabel": ["Contemporary History", "Recent Past"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:history"}
     },
     {
       "@id": "ex:military_history",
       "@type": "skos:Concept",
       "skos:prefLabel": "Military History",
       "skos:definition": "Historical study of armed conflict and warfare.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:history"
-      }
+      "skos:altLabel": ["War History", "Conflict Studies", "History of Warfare"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:history"}
     },
     {
       "@id": "ex:cultural_history",
       "@type": "skos:Concept",
       "skos:prefLabel": "Cultural History",
       "skos:definition": "Study of cultures, customs, and arts over time.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:history"
-      }
+      "skos:altLabel": ["Social History", "Arts History", "History of Ideas"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:history"}
     },
     {
       "@id": "ex:ethics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Ethics",
       "skos:definition": "The study of moral principles that govern behavior.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:philosophy_religion"
-      }
+      "skos:altLabel": ["Moral Philosophy", "Values Study", "Morality"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:philosophy_religion"}
     },
     {
       "@id": "ex:metaphysics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Metaphysics",
       "skos:definition": "Philosophical inquiry into the nature of reality.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:philosophy_religion"
-      }
+      "skos:altLabel": ["Ontology", "Reality Study", "First Philosophy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:philosophy_religion"}
     },
     {
       "@id": "ex:world_religions",
       "@type": "skos:Concept",
       "skos:prefLabel": "World Religions",
       "skos:definition": "Major global religious traditions and beliefs.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:philosophy_religion"
-      }
+      "skos:altLabel": ["Global Faiths", "Comparative Religion", "Religious Studies"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:philosophy_religion"}
     },
     {
       "@id": "ex:philosophy_of_science",
       "@type": "skos:Concept",
       "skos:prefLabel": "Philosophy Of Science",
       "skos:definition": "Study of assumptions and methods in science.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:philosophy_religion"
-      }
+      "skos:altLabel": ["Scientific Philosophy", "Epistemology of Science", "Science Theory"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:philosophy_religion"}
     },
     {
       "@id": "ex:educational_theory",
       "@type": "skos:Concept",
       "skos:prefLabel": "Educational Theory",
       "skos:definition": "Concepts and frameworks guiding teaching and learning.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:education"
-      }
+      "skos:altLabel": ["Pedagogy", "Learning Theories", "Instructional Theory"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:education"}
     },
     {
       "@id": "ex:curriculum_design",
       "@type": "skos:Concept",
       "skos:prefLabel": "Curriculum Design",
       "skos:definition": "Planning and structuring educational content.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:education"
-      }
+      "skos:altLabel": ["Instructional Design", "Course Planning", "Syllabus Development"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:education"}
     },
     {
       "@id": "ex:online_learning",
       "@type": "skos:Concept",
       "skos:prefLabel": "Online Learning",
       "skos:definition": "Education delivered via digital platforms.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:education"
-      }
+      "skos:altLabel": ["E-learning", "Distance Education", "Virtual Learning"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:education"}
     },
     {
       "@id": "ex:early_childhood_education",
       "@type": "skos:Concept",
       "skos:prefLabel": "Early Childhood Education",
       "skos:definition": "Teaching and development of young children.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:education"
-      }
+      "skos:altLabel": ["Preschool Education", "ECE", "Kindergarten"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:education"}
     },
     {
       "@id": "ex:inequality",
       "@type": "skos:Concept",
       "skos:prefLabel": "Inequality",
       "skos:definition": "Unequal distribution of resources and opportunities.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:social_issues"
-      }
+      "skos:altLabel": ["Social Disparity", "Economic Gap", "Social Stratification"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:social_issues"}
     },
     {
       "@id": "ex:gender_studies",
       "@type": "skos:Concept",
       "skos:prefLabel": "Gender Studies",
       "skos:definition": "Exploration of gender identity, roles, and relations.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:social_issues"
-      }
+      "skos:altLabel": ["Feminist Theory", "Sexuality Studies", "LGBTQ+ Studies"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:social_issues"}
     },
     {
       "@id": "ex:climate_justice",
       "@type": "skos:Concept",
       "skos:prefLabel": "Climate Justice",
       "skos:definition": "Environmental issues intersecting with social equity.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:social_issues"
-      }
+      "skos:altLabel": ["Environmental Equity", "Eco-Justice", "Climate Equity"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:social_issues"}
     },
     {
       "@id": "ex:migration",
       "@type": "skos:Concept",
       "skos:prefLabel": "Migration",
       "skos:definition": "Movement of people across borders for various reasons.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:social_issues"
-      }
+      "skos:altLabel": ["Immigration", "Emigration", "Human Movement", "Refugee Studies"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:social_issues"}
     },
     {
       "@id": "ex:linguistics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Linguistics",
       "skos:definition": "Scientific study of language structure and use.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:language_communication"
-      }
+      "skos:altLabel": ["Language Science", "Speech Study", "Phonetics", "Syntax"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:language_communication"}
     },
     {
       "@id": "ex:translation",
       "@type": "skos:Concept",
       "skos:prefLabel": "Translation",
       "skos:definition": "Rendering text or speech from one language to another.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:language_communication"
-      }
+      "skos:altLabel": ["Interpretation", "Language Conversion", "Localization"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:language_communication"}
     },
     {
       "@id": "ex:rhetoric",
       "@type": "skos:Concept",
       "skos:prefLabel": "Rhetoric",
       "skos:definition": "The art of effective speaking and writing.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:language_communication"
-      }
+      "skos:altLabel": ["Persuasion", "Public Speaking", "Argumentation"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:language_communication"}
     },
     {
       "@id": "ex:media_literacy",
       "@type": "skos:Concept",
       "skos:prefLabel": "Media Literacy",
       "skos:definition": "Ability to critically evaluate and interpret media content.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:language_communication"
-      }
+      "skos:altLabel": ["Media Analysis", "Critical Media Consumption", "Digital Literacy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:language_communication"}
     },
     {
       "@id": "ex:internal_medicine",
       "@type": "skos:Concept",
       "skos:prefLabel": "Internal Medicine",
       "skos:definition": "Medical specialty dealing with prevention, diagnosis, and treatment of adult diseases.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:medicine"
-      }
+      "skos:altLabel": ["Adult Medicine", "Internist", "General Medicine"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:medicine"}
     },
     {
       "@id": "ex:pediatrics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Pediatrics",
       "skos:definition": "Branch of medicine dealing with children and their diseases.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:medicine"
-      }
+      "skos:altLabel": ["Child Healthcare", "Pediatric Medicine", "Child Health"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:medicine"}
     },
     {
       "@id": "ex:surgery",
       "@type": "skos:Concept",
       "skos:prefLabel": "Surgery",
       "skos:definition": "Use of operative techniques to treat injuries or disorders.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:medicine"
-      }
+      "skos:altLabel": ["Surgical Procedures", "Operations", "Operative Medicine"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:medicine"}
     },
     {
       "@id": "ex:diagnostics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Diagnostics",
       "skos:definition": "Processes and tools used to determine health conditions.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:medicine"
-      }
+      "skos:altLabel": ["Medical Diagnosis", "Health Assessment", "Medical Testing"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:medicine"}
     },
     {
       "@id": "ex:balanced_diet",
       "@type": "skos:Concept",
       "skos:prefLabel": "Balanced Diet",
       "skos:definition": "Dietary plan including all essential nutrients.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:nutrition_diet"
-      }
+      "skos:altLabel": ["Healthy Eating", "Nutritional Balance", "Good Nutrition"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:nutrition_diet"}
     },
     {
       "@id": "ex:dietary_supplements",
       "@type": "skos:Concept",
       "skos:prefLabel": "Dietary Supplements",
       "skos:definition": "Products used to add nutrients to the diet.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:nutrition_diet"
-      }
+      "skos:altLabel": ["Vitamins", "Minerals", "Nutritional Supplements"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:nutrition_diet"}
     },
     {
       "@id": "ex:nutrition_science",
       "@type": "skos:Concept",
       "skos:prefLabel": "Nutrition Science",
       "skos:definition": "Study of how food affects health and body function.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:nutrition_diet"
-      }
+      "skos:altLabel": ["Dietetics", "Food Science", "Nutritional Biology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:nutrition_diet"}
     },
     {
       "@id": "ex:eating_disorders",
       "@type": "skos:Concept",
       "skos:prefLabel": "Eating Disorders",
       "skos:definition": "Mental health conditions affecting eating behaviors.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:nutrition_diet"
-      }
+      "skos:altLabel": ["Anorexia", "Bulimia", "Binge Eating", "Food Behavior Issues"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mental_health"}
     },
     {
       "@id": "ex:aerobic_exercise",
       "@type": "skos:Concept",
       "skos:prefLabel": "Aerobic Exercise",
       "skos:definition": "Physical activity that improves cardiovascular conditioning.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:fitness_exercise"
-      }
+      "skos:altLabel": ["Cardio", "Cardiovascular Exercise", "Endurance Training"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:fitness_exercise"}
     },
     {
       "@id": "ex:strength_training",
       "@type": "skos:Concept",
       "skos:prefLabel": "Strength Training",
       "skos:definition": "Exercise focused on building muscle strength and endurance.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:fitness_exercise"
-      }
+      "skos:altLabel": ["Weightlifting", "Resistance Training", "Muscle Building"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:fitness_exercise"}
     },
     {
       "@id": "ex:flexibility_training",
       "@type": "skos:Concept",
       "skos:prefLabel": "Flexibility Training",
       "skos:definition": "Activities that improve range of motion and flexibility.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:fitness_exercise"
-      }
+      "skos:altLabel": ["Stretching", "Yoga", "Pilates", "Range of Motion"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:fitness_exercise"}
     },
     {
       "@id": "ex:exercise_physiology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Exercise Physiology",
       "skos:definition": "Study of the body's response to physical activity.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:fitness_exercise"
-      }
+      "skos:altLabel": ["Sports Science", "Kinesiology", "Physical Activity Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:fitness_exercise"}
     },
     {
       "@id": "ex:anxiety_disorders",
       "@type": "skos:Concept",
       "skos:prefLabel": "Anxiety Disorders",
       "skos:definition": "Conditions characterized by excessive fear or worry.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mental_health"
-      }
+      "skos:altLabel": ["Panic Disorder", "Phobias", "GAD", "Social Anxiety"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mental_health"}
     },
     {
       "@id": "ex:depression",
       "@type": "skos:Concept",
       "skos:prefLabel": "Depression",
       "skos:definition": "Mood disorder causing persistent sadness and loss of interest.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mental_health"
-      }
+      "skos:altLabel": ["Major Depressive Disorder", "MDD", "Clinical Depression", "Mood Disorder"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mental_health"}
     },
     {
       "@id": "ex:therapy_and_counseling",
       "@type": "skos:Concept",
       "skos:prefLabel": "Therapy And Counseling",
       "skos:definition": "Professional support for mental and emotional issues.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mental_health"
-      }
+      "skos:altLabel": ["Psychotherapy", "Mental Health Counseling", "Talk Therapy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mental_health"}
     },
     {
       "@id": "ex:mindfulness",
       "@type": "skos:Concept",
       "skos:prefLabel": "Mindfulness",
       "skos:definition": "Mental state achieved by focusing on the present moment.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:mental_health"
-      }
+      "skos:altLabel": ["Meditation", "Present Moment Awareness", "Mindful Practice"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:mental_health"}
     },
     {
       "@id": "ex:epidemiology",
       "@type": "skos:Concept",
       "skos:prefLabel": "Epidemiology",
       "skos:definition": "Study of disease distribution and determinants in populations.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:public_health"
-      }
+      "skos:altLabel": ["Disease Study", "Population Health", "Public Health Research"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:public_health"}
     },
     {
       "@id": "ex:health_education",
       "@type": "skos:Concept",
       "skos:prefLabel": "Health Education",
       "skos:definition": "Efforts to inform and motivate healthy behaviors.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:public_health"
-      }
+      "skos:altLabel": ["Wellness Promotion", "Public Health Info", "Health Literacy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:public_health"}
     },
     {
       "@id": "ex:vaccination",
       "@type": "skos:Concept",
       "skos:prefLabel": "Vaccination",
       "skos:definition": "Use of vaccines to prevent infectious diseases.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:public_health"
-      }
+      "skos:altLabel": ["Immunization", "Vaccines", "Preventive Medicine"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:public_health"}
     },
     {
       "@id": "ex:health_policy",
       "@type": "skos:Concept",
       "skos:prefLabel": "Health Policy",
       "skos:definition": "Plans and decisions to achieve health care goals.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:public_health"
-      }
+      "skos:altLabel": ["Healthcare Policy", "Public Health Law", "Health Systems Policy"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:public_health"}
     },
     {
       "@id": "ex:physical_sciences",
       "@type": "skos:Concept",
       "skos:prefLabel": "Physical Sciences",
       "skos:definition": "Branches of science that study non-living systems, such as physics, chemistry, and astronomy.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:science_technology"
-      }
+      "skos:altLabel": ["Non-living Systems Science", "Fundamental Sciences"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:science_technology"}
+      ,"skos:narrower": [
+         {"@id": "ex:physics"},
+         {"@id": "ex:chemistry"},
+         {"@id": "ex:astronomy"},
+         {"@id": "ex:earth_science"}
+      ]
     },
     {
       "@id": "ex:life_sciences",
       "@type": "skos:Concept",
       "skos:prefLabel": "Life Sciences",
       "skos:definition": "Disciplines that study living organisms, including biology, genetics, and ecology.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:science_technology"
-      }
+      "skos:altLabel": ["Biological Sciences", "Biology Fields"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:science_technology"}
+       ,"skos:narrower": [
+         {"@id": "ex:biology"},
+         {"@id": "ex:biotechnology"},
+         {"@id": "ex:neuroscience"}
+       ]
     },
     {
       "@id": "ex:computer_science",
       "@type": "skos:Concept",
       "skos:prefLabel": "Computer Science",
       "skos:definition": "The study of computational systems and computers, including theory and applications.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:science_technology"
-      }
+      "skos:altLabel": ["CS", "Computing", "Information Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:science_technology"}
     },
     {
       "@id": "ex:engineering",
       "@type": "skos:Concept",
       "skos:prefLabel": "Engineering",
       "skos:definition": "Application of scientific and mathematical principles to design and build structures, machines, and processes.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:science_technology"
-      }
+      "skos:altLabel": ["Applied Science", "Tech Design", "Problem Solving"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:science_technology"}
     },
     {
       "@id": "ex:mathematics_statistics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Mathematics Statistics",
       "skos:definition": "The study of numbers, quantities, shapes, and data, including pure and applied branches.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:science_technology"
-      }
+      "skos:altLabel": ["Math & Stats", "Quantitative Analysis", "Mathematical Sciences"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:science_technology"}
     },
     {
       "@id": "ex:technology_applications",
       "@type": "skos:Concept",
       "skos:prefLabel": "Technology Applications",
       "skos:definition": "Practical use of scientific knowledge for purposes like IT, robotics, and digital innovation.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:science_technology"
-      }
+      "skos:altLabel": ["Applied Tech", "Tech Implementation", "Innovation"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:science_technology"}
     },
     {
       "@id": "ex:visual_arts",
       "@type": "skos:Concept",
       "skos:prefLabel": "Visual Arts",
       "skos:definition": "Forms of art that are primarily visual in nature, such as painting, sculpture, and photography.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:arts_entertainment"
-      }
+      "skos:altLabel": ["Fine Arts", "Graphic Arts", "Plastic Arts"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:arts_entertainment"}
     },
     {
       "@id": "ex:performing_arts",
       "@type": "skos:Concept",
       "skos:prefLabel": "Performing Arts",
       "skos:definition": "Art forms in which artists use their voices, bodies, or objects to convey artistic expression before an audience.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:arts_entertainment"
-      }
+      "skos:altLabel": ["Performance Art", "Live Arts", "Stage Arts"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:arts_entertainment"}
     },
     {
       "@id": "ex:literature",
       "@type": "skos:Concept",
       "skos:prefLabel": "Literature",
       "skos:definition": "Written and spoken works of artistic or intellectual value, including fiction, poetry, and essays.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:arts_entertainment"
-      }
+      "skos:altLabel": ["Literary Works", "Written Arts", "Belles-lettres"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:arts_entertainment"}
     },
     {
       "@id": "ex:music",
       "@type": "skos:Concept",
       "skos:prefLabel": "Music",
       "skos:definition": "The art of arranging sound to create expressive compositions and performances.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:arts_entertainment"
-      }
+      "skos:altLabel": ["Musical Arts", "Sound Art", "Audio Arts"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:arts_entertainment"}
     },
     {
       "@id": "ex:film_television",
       "@type": "skos:Concept",
       "skos:prefLabel": "Film Television",
       "skos:definition": "The medium and industry of producing visual narratives for entertainment or education.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:arts_entertainment"
-      }
+      "skos:altLabel": ["Cinema", "TV", "Moving Pictures", "Screen Media"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:arts_entertainment"}
     },
     {
       "@id": "ex:games",
       "@type": "skos:Concept",
       "skos:prefLabel": "Games",
       "skos:definition": "Structured forms of play, often for entertainment or competition, including video, board, and role-playing games.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:arts_entertainment"
-      }
+      "skos:altLabel": ["Gaming", "Play", "Recreation", "Interactive Entertainment"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:arts_entertainment"}
     },
     {
       "@id": "ex:management",
       "@type": "skos:Concept",
       "skos:prefLabel": "Management",
       "skos:definition": "Coordinating people and resources to achieve organizational goals effectively and efficiently.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:business_finance"
-      }
+      "skos:altLabel": ["Business Administration", "Organization Leadership", "Administration"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:business_finance"}
     },
     {
       "@id": "ex:marketing_sales",
       "@type": "skos:Concept",
       "skos:prefLabel": "Marketing Sales",
       "skos:definition": "Activities involved in promoting and selling products or services, including market research and advertising.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:business_finance"
-      }
+      "skos:altLabel": ["Marketing & Sales", "Promotion and Selling", "Advertising"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:business_finance"}
     },
     {
       "@id": "ex:economics",
       "@type": "skos:Concept",
       "skos:prefLabel": "Economics",
       "skos:definition": "The study of production, consumption, and transfer of wealth in societies.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:business_finance"
-      }
+      "skos:altLabel": ["Economic Science", "Wealth Study", "Financial Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:business_finance"}
     },
     {
       "@id": "ex:personal_finance",
       "@type": "skos:Concept",
       "skos:prefLabel": "Personal Finance",
       "skos:definition": "Managing individual or household finances, including budgeting, investing, and saving.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:business_finance"
-      }
+      "skos:altLabel": ["Individual Finance", "Money Management", "Household Finance"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:business_finance"}
     },
     {
       "@id": "ex:industries",
       "@type": "skos:Concept",
       "skos:prefLabel": "Industries",
       "skos:definition": "Specific sectors of the economy engaged in producing goods or services, such as manufacturing or finance.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:business_finance"
-      }
+      "skos:altLabel": ["Economic Sectors", "Business Fields", "Industry Verticals"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:business_finance"}
     },
     {
       "@id": "ex:politics_government",
       "@type": "skos:Concept",
       "skos:prefLabel": "Politics Government",
       "skos:definition": "Systems of governance and political structures, including policies and public institutions.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:society_culture"
-      }
+      "skos:altLabel": ["Gov & Politics", "Public Administration", "Political Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:society_culture"}
     },
     {
       "@id": "ex:history",
       "@type": "skos:Concept",
       "skos:prefLabel": "History",
       "skos:definition": "The study and interpretation of past events, societies, and civilizations.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:society_culture"
-      }
+      "skos:altLabel": ["Past Studies", "Historical Studies", "Chronicles"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:society_culture"}
     },
     {
       "@id": "ex:philosophy_religion",
       "@type": "skos:Concept",
       "skos:prefLabel": "Philosophy Religion",
       "skos:definition": "Study of fundamental questions and spiritual beliefs about existence, values, and meaning.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:society_culture"
-      }
+      "skos:altLabel": ["Philosophy & Religion", "Belief Systems", "Theology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:society_culture"}
     },
     {
       "@id": "ex:education",
       "@type": "skos:Concept",
       "skos:prefLabel": "Education",
       "skos:definition": "Processes and systems involved in teaching and learning across all ages.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:society_culture"
-      }
+      "skos:altLabel": ["Learning", "Teaching", "Pedagogy", "Academics"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:society_culture"}
     },
     {
       "@id": "ex:social_issues",
       "@type": "skos:Concept",
       "skos:prefLabel": "Social Issues",
       "skos:definition": "Challenges and concerns affecting society, such as inequality, justice, and human rights.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:society_culture"
-      }
+      "skos:altLabel": ["Societal Problems", "Community Concerns", "Public Concerns"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:society_culture"}
     },
     {
       "@id": "ex:language_communication",
       "@type": "skos:Concept",
       "skos:prefLabel": "Language Communication",
       "skos:definition": "The means and study of exchanging information through spoken, written, or visual symbols.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:society_culture"
-      }
+      "skos:altLabel": ["Lang & Comm", "Communication Studies", "Linguistics"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:society_culture"}
     },
     {
       "@id": "ex:medicine",
       "@type": "skos:Concept",
       "skos:prefLabel": "Medicine",
       "skos:definition": "The science and practice of diagnosing, treating, and preventing illness and injury.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:health_wellness"
-      }
+      "skos:altLabel": ["Medical Science", "Healthcare", "Clinical Practice"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:health_wellness"}
     },
     {
       "@id": "ex:nutrition_diet",
       "@type": "skos:Concept",
       "skos:prefLabel": "Nutrition Diet",
       "skos:definition": "The study and practice of nourishing the body through balanced food intake.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:health_wellness"
-      }
+      "skos:altLabel": ["Dietetics", "Food & Nutrition", "Healthy Eating"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:health_wellness"}
     },
     {
       "@id": "ex:fitness_exercise",
       "@type": "skos:Concept",
       "skos:prefLabel": "Fitness Exercise",
       "skos:definition": "Physical activities that enhance or maintain physical health and performance.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:health_wellness"
-      }
+      "skos:altLabel": ["Physical Activity", "Workout", "Exercise Science"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:health_wellness"}
     },
     {
       "@id": "ex:mental_health",
       "@type": "skos:Concept",
       "skos:prefLabel": "Mental Health",
       "skos:definition": "Psychological well-being and the treatment of mental conditions.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:health_wellness"
-      }
+      "skos:altLabel": ["Psychological Health", "Emotional Wellbeing", "Psychiatry", "Psychology"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:health_wellness"}
+      ,"skos:narrower": [
+        {"@id": "ex:eating_disorders"},
+        {"@id": "ex:anxiety_disorders"},
+        {"@id": "ex:depression"},
+        {"@id": "ex:therapy_and_counseling"},
+        {"@id": "ex:mindfulness"}
+     ]
     },
     {
       "@id": "ex:public_health",
       "@type": "skos:Concept",
       "skos:prefLabel": "Public Health",
       "skos:definition": "Efforts to protect and improve the health of populations through prevention and education.",
-      "skos:inScheme": {
-        "@id": "ex:scheme"
-      },
-      "skos:broader": {
-        "@id": "ex:health_wellness"
-      }
+      "skos:altLabel": ["Community Health", "Population Wellness", "Preventive Healthcare"],
+      "skos:inScheme": {"@id": "ex:scheme"},
+      "skos:broader": {"@id": "ex:health_wellness"}
     }
   ]
 }

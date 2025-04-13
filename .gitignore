@@ -2,6 +2,10 @@
 node_modules/
 resources/taxonomy/lib/
 
+# repomix files
+.repomix/
+*repomix-output.txt
+
 # Production build
 dist/
 
