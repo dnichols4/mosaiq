@@ -1,4 +1,5 @@
 # Phased Implementation Plan: Cross-Platform Refactoring
+This document details out a phased approach for implementing suggested refactorings to the application. Items with a ✅ have been completed in the codebase, but not necessarily reflected in other documentation.
 
 ## Revision History
 
