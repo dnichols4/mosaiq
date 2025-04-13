@@ -102,7 +102,13 @@
       "skos:definition": "The study of matter, energy, and the fundamental forces of nature.",
       "skos:altLabel": ["Physical Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:physical_sciences"}
+      "skos:broader": {"@id": "ex:physical_sciences"},
+      "skos:related": [
+        {"@id": "ex:astronomy"},
+        {"@id": "ex:chemistry"},
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:engineering"}
+      ]
     },
     {
       "@id": "ex:chemistry",
@@ -111,7 +117,14 @@
       "skos:definition": "The science of substances, their properties, and how they interact.",
       "skos:altLabel": ["Chemical Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:physical_sciences"}
+      "skos:broader": {"@id": "ex:physical_sciences"},
+      "skos:related": [
+        {"@id": "ex:physics"},
+        {"@id": "ex:biology"},
+        {"@id": "ex:chemical_engineering"},
+        {"@id": "ex:materials_science"} ,
+        {"@id": "ex:nutrition_science"}
+      ]
     },
     {
       "@id": "ex:astronomy",
@@ -120,7 +133,12 @@
       "skos:definition": "The study of celestial objects and phenomena beyond Earth.",
       "skos:altLabel": ["Space Science", "Cosmology", "Celestial Study"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:physical_sciences"}
+      "skos:broader": {"@id": "ex:physical_sciences"},
+      "skos:related": [
+        {"@id": "ex:physics"},
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:aerospace_engineering"}
+      ]
     },
     {
       "@id": "ex:earth_science",
@@ -129,7 +147,16 @@
       "skos:definition": "Study of Earth's structure, properties, processes, and history.",
       "skos:altLabel": ["Geoscience"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:physical_sciences"}
+      "skos:broader": {"@id": "ex:physical_sciences"},
+      "skos:narrower": [
+         {"@id": "ex:geology"},
+         {"@id": "ex:meteorology"},
+         {"@id": "ex:oceanography"}
+      ],
+      "skos:related": [
+        {"@id": "ex:environmental_engineering"},
+        {"@id": "ex:ecology"}
+      ]
     },
      {
       "@id": "ex:geology",
@@ -138,7 +165,12 @@
       "skos:definition": "The study of the solid Earth, rocks, and the processes by which they change.",
       "skos:altLabel": ["Earth Study", "Rock Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:earth_science"} 
+      "skos:broader": {"@id": "ex:earth_science"},
+       "skos:related": [
+        {"@id": "ex:chemistry"},
+        {"@id": "ex:physics"},
+        {"@id": "ex:civil_engineering"}
+      ]
     },
     {
       "@id": "ex:meteorology",
@@ -147,7 +179,12 @@
       "skos:definition": "The study of weather, climate, and atmospheric phenomena.",
       "skos:altLabel": ["Weather Science", "Atmospheric Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:earth_science"} 
+      "skos:broader": {"@id": "ex:earth_science"},
+      "skos:related": [
+        {"@id": "ex:physics"},
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:climate_justice"}
+      ]
     },
     {
       "@id": "ex:oceanography",
@@ -156,7 +193,13 @@
       "skos:definition": "The exploration and scientific study of the ocean and its phenomena.",
       "skos:altLabel": ["Marine Science", "Ocean Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:earth_science"} 
+      "skos:broader": {"@id": "ex:earth_science"},
+      "skos:related": [
+        {"@id": "ex:biology"},
+        {"@id": "ex:chemistry"},
+        {"@id": "ex:physics"},
+        {"@id": "ex:meteorology"}
+      ]
     },
     {
       "@id": "ex:biology",
@@ -165,7 +208,21 @@
       "skos:definition": "The study of living organisms and life processes.",
       "skos:altLabel": ["Life Science Study"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:life_sciences"}
+      "skos:broader": {"@id": "ex:life_sciences"},
+      "skos:narrower": [
+        {"@id": "ex:genetics"},
+        {"@id": "ex:ecology"},
+        {"@id": "ex:botany"},
+        {"@id": "ex:zoology"},
+        {"@id": "ex:microbiology"}
+      ],
+       "skos:related": [
+        {"@id": "ex:chemistry"},
+        {"@id": "ex:medicine"},
+        {"@id": "ex:biotechnology"},
+        {"@id": "ex:nutrition_science"},
+        {"@id": "ex:exercise_physiology"}
+      ]
     },
     {
       "@id": "ex:genetics",
@@ -174,7 +231,12 @@
       "skos:definition": "The study of genes, genetic variation, and heredity.",
       "skos:altLabel": ["Heredity Science", "Gene Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:biology"} 
+      "skos:broader": {"@id": "ex:biology"},
+      "skos:related": [
+        {"@id": "ex:biotechnology"},
+        {"@id": "ex:medicine"},
+        {"@id": "ex:statistics"}
+      ]
     },
     {
       "@id": "ex:ecology",
@@ -183,7 +245,12 @@
       "skos:definition": "The study of interactions between organisms and their environments.",
       "skos:altLabel": ["Environmental Biology", "Ecosystem Study"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:biology"} 
+      "skos:broader": {"@id": "ex:biology"},
+      "skos:related": [
+        {"@id": "ex:environmental_engineering"},
+        {"@id": "ex:earth_science"},
+        {"@id": "ex:climate_justice"}
+      ]
     },
     {
       "@id": "ex:biotechnology",
@@ -192,7 +259,15 @@
       "skos:definition": "Application of biology in technology and industry.",
       "skos:altLabel": ["BioTech", "Applied Biology"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:life_sciences"}
+      "skos:broader": {"@id": "ex:life_sciences"},
+      "skos:related": [
+        {"@id": "ex:biology"},
+        {"@id": "ex:genetics"},
+        {"@id": "ex:chemical_engineering"},
+        {"@id": "ex:biomedical_engineering"},
+        {"@id": "ex:medicine"},
+        {"@id": "ex:vaccination"}
+      ]
     },
     {
       "@id": "ex:botany",
@@ -201,7 +276,7 @@
       "skos:definition": "The scientific study of plants.",
       "skos:altLabel": ["Plant Science", "Plant Biology"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:biology"} 
+      "skos:broader": {"@id": "ex:biology"}
     },
     {
       "@id": "ex:zoology",
@@ -210,7 +285,7 @@
       "skos:definition": "The study of animals and their biological processes.",
       "skos:altLabel": ["Animal Science", "Animal Biology"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:biology"} 
+      "skos:broader": {"@id": "ex:biology"}
     },
     {
       "@id": "ex:microbiology",
@@ -219,7 +294,12 @@
       "skos:definition": "The study of microscopic organisms.",
       "skos:altLabel": ["Microbe Study", "Microorganism Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:biology"} 
+      "skos:broader": {"@id": "ex:biology"},
+      "skos:related": [
+        {"@id": "ex:medicine"},
+        {"@id": "ex:biotechnology"},
+        {"@id": "ex:vaccination"}
+      ]
     },
     {
       "@id": "ex:neuroscience",
@@ -228,7 +308,13 @@
       "skos:definition": "The study of the nervous system, including the brain.",
       "skos:altLabel": ["Brain Science", "Nervous System Study"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:life_sciences"}
+      "skos:broader": {"@id": "ex:life_sciences"},
+      "skos:related": [
+        {"@id": "ex:biology"},
+        {"@id": "ex:psychology"},
+        {"@id": "ex:medicine"},
+        {"@id": "ex:artificial_intelligence"}
+      ]
     },
     {
       "@id": "ex:algorithms_theory",
@@ -237,7 +323,11 @@
       "skos:definition": "Theoretical foundations of computer science and computation.",
       "skos:altLabel": ["Computation Theory", "Algo Theory", "Theoretical CS"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:programming_languages"}
+      ]
     },
     {
       "@id": "ex:programming_languages",
@@ -246,7 +336,11 @@
       "skos:definition": "Design and implementation of programming languages.",
       "skos:altLabel": ["Coding Languages", "PL", "Computer Languages"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:software_engineering"},
+        {"@id": "ex:algorithms_theory"}
+      ]
     },
     {
       "@id": "ex:artificial_intelligence",
@@ -255,7 +349,15 @@
       "skos:definition": "Simulation of human intelligence by machines.",
       "skos:altLabel": ["AI", "Machine Learning", "Intelligent Systems"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:data_science"},
+        {"@id": "ex:robotics"},
+        {"@id": "ex:neuroscience"},
+        {"@id": "ex:linguistics"},
+        {"@id": "ex:statistics"},
+        {"@id": "ex:video_games"}
+      ]
     },
     {
       "@id": "ex:computer_networks",
@@ -264,7 +366,13 @@
       "skos:definition": "Interconnected systems for data communication.",
       "skos:altLabel": ["Networking", "Data Communications"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:cybersecurity"},
+        {"@id": "ex:information_technology"},
+        {"@id": "ex:cloud_computing"},
+        {"@id": "ex:internet_of_things"}
+      ]
     },
     {
       "@id": "ex:software_engineering",
@@ -273,7 +381,13 @@
       "skos:definition": "Methodologies for software design and development.",
       "skos:altLabel": ["Software Dev", "SE", "Software Development"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:programming_languages"},
+        {"@id": "ex:project_management"},
+        {"@id": "ex:human_computer_interaction"},
+        {"@id": "ex:video_games"}
+      ]
     },
     {
       "@id": "ex:databases",
@@ -282,7 +396,12 @@
       "skos:definition": "Structured systems for storing, retrieving, and managing data.",
       "skos:altLabel": ["Data Systems", "DBs", "Data Management"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:data_science"},
+        {"@id": "ex:information_technology"},
+        {"@id": "ex:software_engineering"}
+      ]
     },
     {
       "@id": "ex:cybersecurity",
@@ -291,7 +410,14 @@
       "skos:definition": "Protection of systems and networks from digital attacks.",
       "skos:altLabel": ["InfoSec", "Information Security", "Computer Security"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:computer_networks"},
+        {"@id": "ex:information_technology"},
+        {"@id": "ex:blockchain"},
+        {"@id": "ex:internet_of_things"},
+        {"@id": "ex:public_policy"}
+      ]
     },
     {
       "@id": "ex:human_computer_interaction",
@@ -300,7 +426,12 @@
       "skos:definition": "Design of user-centered computer systems.",
       "skos:altLabel": ["HCI", "User Experience", "UX", "UI Design"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:computer_science"}
+      "skos:broader": {"@id": "ex:computer_science"},
+      "skos:related": [
+        {"@id": "ex:software_engineering"},
+        {"@id": "ex:design"},
+        {"@id": "ex:psychology"}
+      ]
     },
     {
       "@id": "ex:mechanical_engineering",
@@ -309,7 +440,12 @@
       "skos:definition": "Design and analysis of machines and mechanical systems.",
       "skos:altLabel": ["MechEng", "Mechanical Systems"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:engineering"}
+      "skos:broader": {"@id": "ex:engineering"},
+      "skos:related": [
+        {"@id": "ex:physics"},
+        {"@id": "ex:robotics"},
+        {"@id": "ex:materials_science"}
+      ]
     },
     {
       "@id": "ex:electrical_engineering",
@@ -318,7 +454,13 @@
       "skos:definition": "Study and application of electricity and electronics.",
       "skos:altLabel": ["ElecEng", "EE", "Electronics Engineering"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:engineering"}
+      "skos:broader": {"@id": "ex:engineering"},
+      "skos:related": [
+        {"@id": "ex:physics"},
+        {"@id": "ex:robotics"},
+        {"@id": "ex:computer_science"},
+        {"@id": "ex:information_technology"}
+      ]
     },
     {
       "@id": "ex:civil_engineering",
@@ -327,7 +469,12 @@
       "skos:definition": "Design and construction of infrastructure like roads and bridges.",
       "skos:altLabel": ["CivilEng", "Infrastructure Engineering", "Construction Engineering"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:engineering"}
+      "skos:broader": {"@id": "ex:engineering"},
+       "skos:related": [
+        {"@id": "ex:geology"},
+        {"@id": "ex:materials_science"},
+        {"@id": "ex:environmental_engineering"}
+      ]
     },
     {
       "@id": "ex:chemical_engineering",
@@ -336,7 +483,13 @@
       "skos:definition": "Application of chemistry in industrial processes.",
       "skos:altLabel": ["ChemEng", "Process Engineering"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:engineering"}
+      "skos:broader": {"@id": "ex:engineering"},
+      "skos:related": [
+        {"@id": "ex:chemistry"},
+        {"@id": "ex:biotechnology"},
+        {"@id": "ex:materials_science"},
+        {"@id": "ex:environmental_engineering"}
+      ]
     },
     {
       "@id": "ex:aerospace_engineering",
@@ -345,7 +498,13 @@
       "skos:definition": "Development of aircraft and spacecraft.",
       "skos:altLabel": ["AeroEng", "Aeronautical Engineering", "Astronautical Engineering"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:engineering"}
+      "skos:broader": {"@id": "ex:engineering"},
+       "skos:related": [
+        {"@id": "ex:mechanical_engineering"},
+        {"@id": "ex:electrical_engineering"},
+        {"@id": "ex:physics"},
+        {"@id": "ex:astronomy"}
+      ]
     },
     {
       "@id": "ex:environmental_engineering",
@@ -354,7 +513,15 @@
       "skos:definition": "Engineering solutions for environmental protection.",
       "skos:altLabel": ["EnviroEng", "Green Engineering", "Ecological Engineering"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:engineering"}
+      "skos:broader": {"@id": "ex:engineering"},
+      "skos:related": [
+        {"@id": "ex:ecology"},
+        {"@id": "ex:civil_engineering"},
+        {"@id": "ex:chemical_engineering"},
+        {"@id": "ex:earth_science"},
+        {"@id": "ex:climate_justice"},
+        {"@id": "ex:public_health"}
+      ]
     },
     {
       "@id": "ex:biomedical_engineering",
@@ -363,7 +530,14 @@
       "skos:definition": "Application of engineering principles to medicine.",
       "skos:altLabel": ["BioMedEng", "BME", "Medical Engineering"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:engineering"}
+      "skos:broader": {"@id": "ex:engineering"},
+      "skos:related": [
+        {"@id": "ex:medicine"},
+        {"@id": "ex:biology"},
+        {"@id": "ex:biotechnology"},
+        {"@id": "ex:mechanical_engineering"},
+        {"@id": "ex:electrical_engineering"}
+      ]
     },
     {
       "@id": "ex:pure_mathematics",
@@ -381,7 +555,14 @@
       "skos:definition": "Mathematics used in practical fields like physics and engineering.",
       "skos:altLabel": ["Practical Math", "Math Applications", "Industrial Math"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:mathematics_statistics"}
+      "skos:broader": {"@id": "ex:mathematics_statistics"},
+      "skos:related": [
+         {"@id": "ex:physics"},
+         {"@id": "ex:engineering"},
+         {"@id": "ex:computer_science"},
+         {"@id": "ex:economics"},
+         {"@id": "ex:statistics"}
+      ]
     },
     {
       "@id": "ex:statistics",
@@ -390,7 +571,14 @@
       "skos:definition": "Collection, analysis, interpretation, and presentation of data.",
       "skos:altLabel": ["Stats", "Data Analysis", "Statistical Analysis"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:mathematics_statistics"}
+      "skos:broader": {"@id": "ex:mathematics_statistics"},
+      "skos:related": [
+        {"@id": "ex:data_science"},
+        {"@id": "ex:probability_theory"},
+        {"@id": "ex:economics"},
+        {"@id": "ex:epidemiology"},
+        {"@id": "ex:artificial_intelligence"}
+      ]
     },
     {
       "@id": "ex:probability_theory",
@@ -399,7 +587,11 @@
       "skos:definition": "Mathematical analysis of random phenomena.",
       "skos:altLabel": ["Probability", "Randomness Study", "Stochastics"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:mathematics_statistics"}
+      "skos:broader": {"@id": "ex:mathematics_statistics"},
+       "skos:related": [
+        {"@id": "ex:statistics"},
+        {"@id": "ex:data_science"}
+      ]
     },
     {
       "@id": "ex:data_science",
@@ -408,7 +600,14 @@
       "skos:definition": "Extraction of knowledge from structured and unstructured data.",
       "skos:altLabel": ["Data Analysis", "Big Data", "Data Mining"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:mathematics_statistics"}
+      "skos:broader": {"@id": "ex:mathematics_statistics"},
+       "skos:related": [
+        {"@id": "ex:statistics"},
+        {"@id": "ex:artificial_intelligence"},
+        {"@id": "ex:databases"},
+        {"@id": "ex:computer_science"},
+        {"@id": "ex:digital_marketing"}
+      ]
     },
     {
       "@id": "ex:information_technology",
@@ -417,7 +616,15 @@
       "skos:definition": "Use of computers and telecommunications for data processing.",
       "skos:altLabel": ["IT", "InfoTech", "Computer Systems"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:technology_applications"}
+      "skos:broader": {"@id": "ex:technology_applications"},
+       "skos:related": [
+        {"@id": "ex:computer_science"},
+        {"@id": "ex:computer_networks"},
+        {"@id": "ex:cybersecurity"},
+        {"@id": "ex:databases"},
+        {"@id": "ex:cloud_computing"},
+        {"@id": "ex:digital_marketing"}
+      ]
     },
     {
       "@id": "ex:robotics",
@@ -426,7 +633,14 @@
       "skos:definition": "Design and construction of robots.",
       "skos:altLabel": ["Robot Engineering", "Automation"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:technology_applications"}
+      "skos:broader": {"@id": "ex:technology_applications"},
+      "skos:related": [
+        {"@id": "ex:artificial_intelligence"},
+        {"@id": "ex:mechanical_engineering"},
+        {"@id": "ex:electrical_engineering"},
+        {"@id": "ex:computer_science"},
+        {"@id": "ex:manufacturing"}
+      ]
     },
     {
       "@id": "ex:blockchain",
@@ -435,7 +649,13 @@
       "skos:definition": "Decentralized digital ledger technologies.",
       "skos:altLabel": ["Distributed Ledger Technology", "DLT", "Cryptocurrency Tech"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:technology_applications"}
+      "skos:broader": {"@id": "ex:technology_applications"},
+      "skos:related": [
+        {"@id": "ex:cybersecurity"},
+        {"@id": "ex:computer_networks"},
+        {"@id": "ex:finance_banking"},
+        {"@id": "ex:supply_chain_management"}
+      ]
     },
     {
       "@id": "ex:cloud_computing",
@@ -444,7 +664,13 @@
       "skos:definition": "Delivery of computing services over the internet.",
       "skos:altLabel": ["Cloud Services", "Internet Computing", "Web Services"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:technology_applications"}
+      "skos:broader": {"@id": "ex:technology_applications"},
+       "skos:related": [
+        {"@id": "ex:computer_networks"},
+        {"@id": "ex:information_technology"},
+        {"@id": "ex:cybersecurity"},
+        {"@id": "ex:databases"}
+      ]
     },
     {
       "@id": "ex:internet_of_things",
@@ -453,7 +679,14 @@
       "skos:definition": "Interconnection of everyday devices to the internet.",
       "skos:altLabel": ["IoT", "Connected Devices", "Smart Devices"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:technology_applications"}
+      "skos:broader": {"@id": "ex:technology_applications"},
+       "skos:related": [
+        {"@id": "ex:computer_networks"},
+        {"@id": "ex:cybersecurity"},
+        {"@id": "ex:electrical_engineering"},
+        {"@id": "ex:data_science"},
+        {"@id": "ex:cloud_computing"}
+      ]
     },
     {
       "@id": "ex:painting",
@@ -480,7 +713,10 @@
       "skos:definition": "Capturing images using a camera to create visual art.",
       "skos:altLabel": ["Photo Art", "Image Capture", "Still Imaging"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:visual_arts"}
+      "skos:broader": {"@id": "ex:visual_arts"},
+      "skos:related": [
+         {"@id": "ex:film_production"}
+      ]
     },
     {
       "@id": "ex:design",
@@ -489,7 +725,13 @@
       "skos:definition": "Creative planning and crafting of visual communication or functional objects.",
       "skos:altLabel": ["Visual Design", "Graphic Design", "Industrial Design", "Product Design"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:visual_arts"}
+      "skos:broader": {"@id": "ex:visual_arts"},
+      "skos:related": [
+        {"@id": "ex:human_computer_interaction"},
+        {"@id": "ex:engineering"},
+        {"@id": "ex:marketing_sales"},
+        {"@id": "ex:digital_art"}
+      ]
     },
     {
       "@id": "ex:digital_art",
@@ -498,7 +740,12 @@
       "skos:definition": "Artistic works created or presented using digital technology.",
       "skos:altLabel": ["Computer Art", "New Media Art", "Algorithmic Art"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:visual_arts"}
+      "skos:broader": {"@id": "ex:visual_arts"},
+       "skos:related": [
+        {"@id": "ex:animation"},
+        {"@id": "ex:video_games"},
+        {"@id": "ex:design"}
+      ]
     },
     {
       "@id": "ex:theater",
@@ -507,7 +754,12 @@
       "skos:definition": "Dramatic performance presented live to an audience.",
       "skos:altLabel": ["Theatre", "Stage Performance", "Live Drama"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:performing_arts"}
+      "skos:broader": {"@id": "ex:performing_arts"},
+      "skos:related": [
+        {"@id": "ex:drama"},
+        {"@id": "ex:literature"},
+        {"@id": "ex:music"}
+      ]
     },
     {
       "@id": "ex:dance",
@@ -516,7 +768,11 @@
       "skos:definition": "Art of movement often set to music, expressing ideas or emotions.",
       "skos:altLabel": ["Movement Art", "Choreography", "Ballet", "Modern Dance"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:performing_arts"}
+      "skos:broader": {"@id": "ex:performing_arts"},
+      "skos:related": [
+        {"@id": "ex:music"},
+        {"@id": "ex:theater"}
+      ]
     },
     {
       "@id": "ex:opera",
@@ -525,7 +781,12 @@
       "skos:definition": "A dramatic work combining text and musical score, usually sung.",
       "skos:altLabel": ["Musical Drama", "Sung Theater"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:performing_arts"}
+      "skos:broader": {"@id": "ex:performing_arts"},
+      "skos:related": [
+        {"@id": "ex:classical_music"},
+        {"@id": "ex:theater"},
+        {"@id": "ex:literature"}
+      ]
     },
     {
       "@id": "ex:circus_arts",
@@ -534,7 +795,11 @@
       "skos:definition": "Live performance featuring acrobatics, clowns, and trained animals.",
       "skos:altLabel": ["Circus Performance", "Acrobatics", "Clowning"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:performing_arts"}
+      "skos:broader": {"@id": "ex:performing_arts"},
+      "skos:related": [
+        {"@id": "ex:theater"},
+        {"@id": "ex:dance"}
+      ]
     },
     {
       "@id": "ex:fiction",
@@ -543,7 +808,11 @@
       "skos:definition": "Narrative literary works created from imagination rather than facts.",
       "skos:altLabel": ["Novels", "Short Stories", "Imaginative Writing", "Prose Fiction"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:literature"}
+      "skos:broader": {"@id": "ex:literature"},
+      "skos:related": [
+        {"@id": "ex:screenwriting"},
+        {"@id": "ex:role_playing_games"}
+      ]
     },
     {
       "@id": "ex:poetry",
@@ -552,7 +821,10 @@
       "skos:definition": "Literary work using distinctive style and rhythm to express emotions.",
       "skos:altLabel": ["Verse", "Poems", "Lyrical Writing"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:literature"}
+      "skos:broader": {"@id": "ex:literature"},
+      "skos:related": [
+        {"@id": "ex:music"}
+      ]
     },
     {
       "@id": "ex:nonfiction",
@@ -561,7 +833,12 @@
       "skos:definition": "Prose writing based on facts, real events, and real people.",
       "skos:altLabel": ["Factual Writing", "Informational Text", "Biography", "History Writing"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:literature"}
+      "skos:broader": {"@id": "ex:literature"},
+      "skos:related": [
+        {"@id": "ex:history"},
+        {"@id": "ex:documentary"},
+        {"@id": "ex:essays"}
+      ]
     },
     {
       "@id": "ex:drama",
@@ -570,7 +847,12 @@
       "skos:definition": "Literary composition intended to be performed by actors.",
       "skos:altLabel": ["Plays", "Theatrical Literature", "Stage Writing"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:literature"}
+      "skos:broader": {"@id": "ex:literature"},
+      "skos:related": [
+        {"@id": "ex:theater"},
+        {"@id": "ex:screenwriting"},
+        {"@id": "ex:role_playing_games"}
+      ]
     },
     {
       "@id": "ex:essays",
@@ -579,7 +861,11 @@
       "skos:definition": "Short pieces of writing on particular subjects.",
       "skos:altLabel": ["Short Writings", "Compositions", "Articles"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:literature"}
+      "skos:broader": {"@id": "ex:literature"},
+       "skos:related": [
+        {"@id": "ex:nonfiction"},
+        {"@id": "ex:philosophy_religion"}
+      ]
     },
     {
       "@id": "ex:classical_music",
@@ -588,7 +874,10 @@
       "skos:definition": "Formal musical tradition rooted in Western culture.",
       "skos:altLabel": ["Orchestral Music", "Symphonic Music", "Art Music"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:music"}
+      "skos:broader": {"@id": "ex:music"},
+      "skos:related": [
+        {"@id": "ex:opera"}
+      ]
     },
     {
       "@id": "ex:jazz",
@@ -624,7 +913,10 @@
       "skos:definition": "Traditional music from cultures around the world.",
       "skos:altLabel": ["Global Music", "Folk Music", "Ethnic Music"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:music"}
+      "skos:broader": {"@id": "ex:music"},
+      "skos:related": [
+        {"@id": "ex:cultural_history"}
+      ]
     },
     {
       "@id": "ex:film_production",
@@ -633,7 +925,12 @@
       "skos:definition": "The process of creating motion pictures.",
       "skos:altLabel": ["Movie Making", "Cinematography", "Filmmaking"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:film_television"}
+      "skos:broader": {"@id": "ex:film_television"},
+      "skos:related": [
+        {"@id": "ex:photography"},
+        {"@id": "ex:screenwriting"},
+        {"@id": "ex:project_management"}
+      ]
     },
     {
       "@id": "ex:screenwriting",
@@ -642,7 +939,12 @@
       "skos:definition": "The art and craft of writing scripts for film and television.",
       "skos:altLabel": ["Scriptwriting", "Film Writing", "Teleplay Writing"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:film_television"}
+      "skos:broader": {"@id": "ex:film_television"},
+      "skos:related": [
+        {"@id": "ex:fiction"},
+        {"@id": "ex:drama"},
+        {"@id": "ex:film_production"}
+      ]
     },
     {
       "@id": "ex:animation",
@@ -651,7 +953,12 @@
       "skos:definition": "Creating the illusion of motion through frame-by-frame imagery.",
       "skos:altLabel": ["Animated Films", "Cartoons", "Computer Animation"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:film_television"}
+      "skos:broader": {"@id": "ex:film_television"},
+       "skos:related": [
+        {"@id": "ex:digital_art"},
+        {"@id": "ex:video_games"},
+        {"@id": "ex:visual_arts"}
+      ]
     },
     {
       "@id": "ex:documentary",
@@ -660,7 +967,11 @@
       "skos:definition": "Non-fictional motion picture intended to document reality.",
       "skos:altLabel": ["Docu", "Non-fiction Film", "Reality Film"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:film_television"}
+      "skos:broader": {"@id": "ex:film_television"},
+      "skos:related": [
+        {"@id": "ex:nonfiction"},
+        {"@id": "ex:history"}
+      ]
     },
     {
       "@id": "ex:television_series",
@@ -669,7 +980,10 @@
       "skos:definition": "Serialized programming created for TV broadcast or streaming.",
       "skos:altLabel": ["TV Shows", "Episodic TV", "Streaming Series"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:film_television"}
+      "skos:broader": {"@id": "ex:film_television"},
+       "skos:related": [
+        {"@id": "ex:screenwriting"}
+      ]
     },
     {
       "@id": "ex:video_games",
@@ -678,7 +992,14 @@
       "skos:definition": "Electronic games played using a computer or console.",
       "skos:altLabel": ["Gaming", "Computer Games", "Console Games"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:games"}
+      "skos:broader": {"@id": "ex:games"},
+       "skos:related": [
+        {"@id": "ex:software_engineering"},
+        {"@id": "ex:artificial_intelligence"},
+        {"@id": "ex:digital_art"},
+        {"@id": "ex:animation"},
+        {"@id": "ex:computer_science"}
+      ]
     },
     {
       "@id": "ex:board_games",
@@ -696,7 +1017,11 @@
       "skos:definition": "Games in which players assume roles in a fictional setting.",
       "skos:altLabel": ["RPGs", "Fantasy Games", "Tabletop RPGs"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:games"}
+      "skos:broader": {"@id": "ex:games"},
+       "skos:related": [
+        {"@id": "ex:fiction"},
+        {"@id": "ex:drama"}
+      ]
     },
     {
       "@id": "ex:puzzle_games",
@@ -714,7 +1039,12 @@
       "skos:definition": "Planning and execution of projects to meet specific goals.",
       "skos:altLabel": ["PM", "Project Planning", "Task Management"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:management"}
+      "skos:broader": {"@id": "ex:management"},
+       "skos:related": [
+        {"@id": "ex:software_engineering"},
+        {"@id": "ex:film_production"},
+        {"@id": "ex:operations_management"}
+      ]
     },
     {
       "@id": "ex:strategic_management",
@@ -723,7 +1053,11 @@
       "skos:definition": "Setting objectives and managing resources to achieve long-term goals.",
       "skos:altLabel": ["Business Strategy", "Corp Strategy", "Long-term Planning"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:management"}
+      "skos:broader": {"@id": "ex:management"},
+      "skos:related": [
+        {"@id": "ex:economics"},
+        {"@id": "ex:marketing_sales"}
+      ]
     },
     {
       "@id": "ex:operations_management",
@@ -732,7 +1066,12 @@
       "skos:definition": "Design and control of business operations and production.",
       "skos:altLabel": ["Ops Management", "Production Management", "Business Ops"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:management"}
+      "skos:broader": {"@id": "ex:management"},
+       "skos:related": [
+        {"@id": "ex:supply_chain_management"},
+        {"@id": "ex:manufacturing"},
+        {"@id": "ex:project_management"}
+      ]
     },
     {
       "@id": "ex:human_resources",
@@ -741,7 +1080,11 @@
       "skos:definition": "Management of employee relations and organizational workforce.",
       "skos:altLabel": ["HR", "Personnel Management", "Workforce Management"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:management"}
+      "skos:broader": {"@id": "ex:management"},
+       "skos:related": [
+        {"@id": "ex:psychology"},
+        {"@id": "ex:sociology"}
+      ]
     },
     {
       "@id": "ex:supply_chain_management",
@@ -750,7 +1093,13 @@
       "skos:definition": "Overseeing the flow of goods, services, and information.",
       "skos:altLabel": ["SCM", "Logistics Management", "Distribution Management"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:management"}
+      "skos:broader": {"@id": "ex:management"},
+       "skos:related": [
+        {"@id": "ex:operations_management"},
+        {"@id": "ex:international_trade"},
+        {"@id": "ex:blockchain"},
+        {"@id": "ex:information_technology"}
+      ]
     },
     {
       "@id": "ex:branding",
@@ -768,7 +1117,13 @@
       "skos:definition": "Use of digital channels to promote products or services.",
       "skos:altLabel": ["Online Marketing", "Internet Marketing", "SEO", "SEM"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:marketing_sales"}
+      "skos:broader": {"@id": "ex:marketing_sales"},
+       "skos:related": [
+        {"@id": "ex:information_technology"},
+        {"@id": "ex:data_science"},
+        {"@id": "ex:media_literacy"},
+        {"@id": "ex:statistics"}
+      ]
     },
     {
       "@id": "ex:market_research",
@@ -777,7 +1132,12 @@
       "skos:definition": "Gathering and analyzing data about consumers and markets.",
       "skos:altLabel": ["Consumer Research", "Market Analysis", "Marketing Research"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:marketing_sales"}
+      "skos:broader": {"@id": "ex:marketing_sales"},
+      "skos:related": [
+        {"@id": "ex:statistics"},
+        {"@id": "ex:data_science"},
+        {"@id": "ex:behavioral_economics"}
+      ]
     },
     {
       "@id": "ex:sales_strategy",
@@ -813,7 +1173,11 @@
       "skos:definition": "Exchange of goods and services across national borders.",
       "skos:altLabel": ["Global Trade", "Foreign Trade", "World Trade"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:economics"}
+      "skos:broader": {"@id": "ex:economics"},
+      "skos:related": [
+        {"@id": "ex:international_relations"},
+        {"@id": "ex:supply_chain_management"}
+      ]
     },
     {
       "@id": "ex:behavioral_economics",
@@ -822,7 +1186,11 @@
       "skos:definition": "Analysis of psychological factors in economic decision-making.",
       "skos:altLabel": ["Psychological Economics", "Economic Psychology"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:economics"}
+      "skos:broader": {"@id": "ex:economics"},
+       "skos:related": [
+        {"@id": "ex:psychology"},
+        {"@id": "ex:market_research"}
+      ]
     },
     {
       "@id": "ex:budgeting",
@@ -840,7 +1208,10 @@
       "skos:definition": "Allocating money to assets for future financial return.",
       "skos:altLabel": ["Investment Management", "Asset Allocation", "Stock Market"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:personal_finance"}
+      "skos:broader": {"@id": "ex:personal_finance"},
+      "skos:related": [
+        {"@id": "ex:finance_banking"}
+      ]
     },
     {
       "@id": "ex:retirement_planning",
@@ -858,7 +1229,10 @@
       "skos:definition": "Borrowing money and managing repayment responsibilities.",
       "skos:altLabel": ["Borrowing", "Debt Management", "Mortgages", "Credit Score"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:personal_finance"}
+      "skos:broader": {"@id": "ex:personal_finance"},
+       "skos:related": [
+        {"@id": "ex:finance_banking"}
+      ]
     },
     {
       "@id": "ex:retail",
@@ -867,7 +1241,10 @@
       "skos:definition": "Sale of goods directly to consumers.",
       "skos:altLabel": ["Consumer Sales", "Shopping", "Merchandising"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:industries"}
+      "skos:broader": {"@id": "ex:industries"},
+       "skos:related": [
+        {"@id": "ex:marketing_sales"}
+      ]
     },
     {
       "@id": "ex:manufacturing",
@@ -876,7 +1253,12 @@
       "skos:definition": "Production of goods using labor and machinery.",
       "skos:altLabel": ["Production", "Industrial Production", "Factories"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:industries"}
+      "skos:broader": {"@id": "ex:industries"},
+       "skos:related": [
+        {"@id": "ex:engineering"},
+        {"@id": "ex:operations_management"},
+        {"@id": "ex:robotics"}
+      ]
     },
     {
       "@id": "ex:real_estate",
@@ -885,7 +1267,11 @@
       "skos:definition": "Buying, selling, and managing land and property.",
       "skos:altLabel": ["Property Market", "Land Management", "Real Property"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:industries"}
+      "skos:broader": {"@id": "ex:industries"},
+       "skos:related": [
+        {"@id": "ex:civil_engineering"},
+        {"@id": "ex:finance_banking"}
+      ]
     },
     {
       "@id": "ex:finance_banking",
@@ -894,7 +1280,14 @@
       "skos:definition": "Management of money, credit, and financial services.",
       "skos:altLabel": ["Financial Services", "Banking Industry", "Investment Banking"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:industries"}
+      "skos:broader": {"@id": "ex:industries"},
+       "skos:related": [
+        {"@id": "ex:economics"},
+        {"@id": "ex:personal_finance"},
+        {"@id": "ex:blockchain"},
+        {"@id": "ex:investing"},
+        {"@id": "ex:credit_and_loans"}
+      ]
     },
     {
       "@id": "ex:hospitality",
@@ -903,7 +1296,11 @@
       "skos:definition": "Service-based industry including lodging, food, and tourism.",
       "skos:altLabel": ["Tourism", "Lodging", "Food Service", "Hotels", "Restaurants"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:industries"}
+      "skos:broader": {"@id": "ex:industries"},
+       "skos:related": [
+        {"@id": "ex:management"},
+        {"@id": "ex:marketing_sales"}
+      ]
     },
     {
       "@id": "ex:democracy",
@@ -921,7 +1318,13 @@
       "skos:definition": "Principles guiding government actions and legislation.",
       "skos:altLabel": ["Government Policy", "Legislation", "Policy Analysis"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:politics_government"}
+      "skos:broader": {"@id": "ex:politics_government"},
+      "skos:related": [
+        {"@id": "ex:economics"},
+        {"@id": "ex:social_issues"},
+        {"@id": "ex:health_policy"},
+        {"@id": "ex:environmental_engineering"}
+      ]
     },
     {
       "@id": "ex:international_relations",
@@ -930,7 +1333,12 @@
       "skos:definition": "Interactions between countries and their governments.",
       "skos:altLabel": ["IR", "Foreign Affairs", "Global Politics", "Diplomacy"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:politics_government"}
+      "skos:broader": {"@id": "ex:politics_government"},
+      "skos:related": [
+        {"@id": "ex:international_trade"},
+        {"@id": "ex:history"},
+        {"@id": "ex:migration"}
+      ]
     },
     {
       "@id": "ex:civil_rights",
@@ -939,7 +1347,12 @@
       "skos:definition": "Rights protecting individuals' freedom from infringement.",
       "skos:altLabel": ["Human Rights", "Individual Freedoms", "Civil Liberties"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:politics_government"}
+      "skos:broader": {"@id": "ex:politics_government"},
+       "skos:related": [
+        {"@id": "ex:social_issues"},
+        {"@id": "ex:history"},
+        {"@id": "ex:ethics"}
+      ]
     },
     {
       "@id": "ex:ancient_history",
@@ -966,7 +1379,11 @@
       "skos:definition": "Historical study of armed conflict and warfare.",
       "skos:altLabel": ["War History", "Conflict Studies", "History of Warfare"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:history"}
+      "skos:broader": {"@id": "ex:history"},
+       "skos:related": [
+        {"@id": "ex:politics_government"},
+        {"@id": "ex:international_relations"}
+      ]
     },
     {
       "@id": "ex:cultural_history",
@@ -975,7 +1392,13 @@
       "skos:definition": "Study of cultures, customs, and arts over time.",
       "skos:altLabel": ["Social History", "Arts History", "History of Ideas"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:history"}
+      "skos:broader": {"@id": "ex:history"},
+       "skos:related": [
+        {"@id": "ex:arts_entertainment"},
+        {"@id": "ex:philosophy_religion"},
+        {"@id": "ex:world_music"},
+        {"@id": "ex:sociology"}
+      ]
     },
     {
       "@id": "ex:ethics",
@@ -984,7 +1407,12 @@
       "skos:definition": "The study of moral principles that govern behavior.",
       "skos:altLabel": ["Moral Philosophy", "Values Study", "Morality"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:philosophy_religion"}
+      "skos:broader": {"@id": "ex:philosophy_religion"},
+      "skos:related": [
+        {"@id": "ex:civil_rights"},
+        {"@id": "ex:social_issues"},
+        {"@id": "ex:law"}
+      ]
     },
     {
       "@id": "ex:metaphysics",
@@ -1002,7 +1430,11 @@
       "skos:definition": "Major global religious traditions and beliefs.",
       "skos:altLabel": ["Global Faiths", "Comparative Religion", "Religious Studies"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:philosophy_religion"}
+      "skos:broader": {"@id": "ex:philosophy_religion"},
+      "skos:related": [
+        {"@id": "ex:cultural_history"},
+        {"@id": "ex:ethics"}
+      ]
     },
     {
       "@id": "ex:philosophy_of_science",
@@ -1011,7 +1443,10 @@
       "skos:definition": "Study of assumptions and methods in science.",
       "skos:altLabel": ["Scientific Philosophy", "Epistemology of Science", "Science Theory"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:philosophy_religion"}
+      "skos:broader": {"@id": "ex:philosophy_religion"},
+       "skos:related": [
+        {"@id": "ex:science_technology"}
+      ]
     },
     {
       "@id": "ex:educational_theory",
@@ -1020,7 +1455,10 @@
       "skos:definition": "Concepts and frameworks guiding teaching and learning.",
       "skos:altLabel": ["Pedagogy", "Learning Theories", "Instructional Theory"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:education"}
+      "skos:broader": {"@id": "ex:education"},
+       "skos:related": [
+        {"@id": "ex:psychology"}
+      ]
     },
     {
       "@id": "ex:curriculum_design",
@@ -1038,7 +1476,10 @@
       "skos:definition": "Education delivered via digital platforms.",
       "skos:altLabel": ["E-learning", "Distance Education", "Virtual Learning"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:education"}
+      "skos:broader": {"@id": "ex:education"},
+      "skos:related": [
+        {"@id": "ex:information_technology"}
+      ]
     },
     {
       "@id": "ex:early_childhood_education",
@@ -1047,7 +1488,11 @@
       "skos:definition": "Teaching and development of young children.",
       "skos:altLabel": ["Preschool Education", "ECE", "Kindergarten"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:education"}
+      "skos:broader": {"@id": "ex:education"},
+      "skos:related": [
+        {"@id": "ex:psychology"},
+        {"@id": "ex:pediatrics"}
+      ]
     },
     {
       "@id": "ex:inequality",
@@ -1056,7 +1501,13 @@
       "skos:definition": "Unequal distribution of resources and opportunities.",
       "skos:altLabel": ["Social Disparity", "Economic Gap", "Social Stratification"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:social_issues"}
+      "skos:broader": {"@id": "ex:social_issues"},
+       "skos:related": [
+        {"@id": "ex:economics"},
+        {"@id": "ex:politics_government"},
+        {"@id": "ex:sociology"},
+        {"@id": "ex:civil_rights"}
+      ]
     },
     {
       "@id": "ex:gender_studies",
@@ -1065,7 +1516,12 @@
       "skos:definition": "Exploration of gender identity, roles, and relations.",
       "skos:altLabel": ["Feminist Theory", "Sexuality Studies", "LGBTQ+ Studies"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:social_issues"}
+      "skos:broader": {"@id": "ex:social_issues"},
+       "skos:related": [
+        {"@id": "ex:sociology"},
+        {"@id": "ex:civil_rights"},
+        {"@id": "ex:psychology"}
+      ]
     },
     {
       "@id": "ex:climate_justice",
@@ -1074,7 +1530,14 @@
       "skos:definition": "Environmental issues intersecting with social equity.",
       "skos:altLabel": ["Environmental Equity", "Eco-Justice", "Climate Equity"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:social_issues"}
+      "skos:broader": {"@id": "ex:social_issues"},
+      "skos:related": [
+        {"@id": "ex:environmental_engineering"},
+        {"@id": "ex:ecology"},
+        {"@id": "ex:meteorology"},
+        {"@id": "ex:public_policy"},
+        {"@id": "ex:international_relations"}
+      ]
     },
     {
       "@id": "ex:migration",
@@ -1083,7 +1546,13 @@
       "skos:definition": "Movement of people across borders for various reasons.",
       "skos:altLabel": ["Immigration", "Emigration", "Human Movement", "Refugee Studies"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:social_issues"}
+      "skos:broader": {"@id": "ex:social_issues"},
+      "skos:related": [
+        {"@id": "ex:international_relations"},
+        {"@id": "ex:economics"},
+        {"@id": "ex:public_policy"},
+        {"@id": "ex:sociology"}
+      ]
     },
     {
       "@id": "ex:linguistics",
@@ -1092,7 +1561,13 @@
       "skos:definition": "Scientific study of language structure and use.",
       "skos:altLabel": ["Language Science", "Speech Study", "Phonetics", "Syntax"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:language_communication"}
+      "skos:broader": {"@id": "ex:language_communication"},
+      "skos:related": [
+        {"@id": "ex:artificial_intelligence"},
+        {"@id": "ex:translation"},
+        {"@id": "ex:psychology"},
+        {"@id": "ex:sociology"}
+      ]
     },
     {
       "@id": "ex:translation",
@@ -1101,7 +1576,11 @@
       "skos:definition": "Rendering text or speech from one language to another.",
       "skos:altLabel": ["Interpretation", "Language Conversion", "Localization"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:language_communication"}
+      "skos:broader": {"@id": "ex:language_communication"},
+       "skos:related": [
+        {"@id": "ex:linguistics"},
+        {"@id": "ex:literature"}
+      ]
     },
     {
       "@id": "ex:rhetoric",
@@ -1110,7 +1589,13 @@
       "skos:definition": "The art of effective speaking and writing.",
       "skos:altLabel": ["Persuasion", "Public Speaking", "Argumentation"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:language_communication"}
+      "skos:broader": {"@id": "ex:language_communication"},
+      "skos:related": [
+        {"@id": "ex:politics_government"},
+        {"@id": "ex:philosophy_religion"},
+        {"@id": "ex:marketing_sales"},
+        {"@id": "ex:literature"}
+      ]
     },
     {
       "@id": "ex:media_literacy",
@@ -1119,7 +1604,13 @@
       "skos:definition": "Ability to critically evaluate and interpret media content.",
       "skos:altLabel": ["Media Analysis", "Critical Media Consumption", "Digital Literacy"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:language_communication"}
+      "skos:broader": {"@id": "ex:language_communication"},
+       "skos:related": [
+        {"@id": "ex:digital_marketing"},
+        {"@id": "ex:social_issues"},
+        {"@id": "ex:education"},
+        {"@id": "ex:psychology"}
+      ]
     },
     {
       "@id": "ex:internal_medicine",
@@ -1137,7 +1628,10 @@
       "skos:definition": "Branch of medicine dealing with children and their diseases.",
       "skos:altLabel": ["Child Healthcare", "Pediatric Medicine", "Child Health"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:medicine"}
+      "skos:broader": {"@id": "ex:medicine"},
+      "skos:related": [
+        {"@id": "ex:early_childhood_education"}
+      ]
     },
     {
       "@id": "ex:surgery",
@@ -1146,7 +1640,10 @@
       "skos:definition": "Use of operative techniques to treat injuries or disorders.",
       "skos:altLabel": ["Surgical Procedures", "Operations", "Operative Medicine"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:medicine"}
+      "skos:broader": {"@id": "ex:medicine"},
+      "skos:related": [
+        {"@id": "ex:biomedical_engineering"}
+      ]
     },
     {
       "@id": "ex:diagnostics",
@@ -1155,7 +1652,11 @@
       "skos:definition": "Processes and tools used to determine health conditions.",
       "skos:altLabel": ["Medical Diagnosis", "Health Assessment", "Medical Testing"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:medicine"}
+      "skos:broader": {"@id": "ex:medicine"},
+       "skos:related": [
+        {"@id": "ex:biomedical_engineering"},
+        {"@id": "ex:biotechnology"}
+      ]
     },
     {
       "@id": "ex:balanced_diet",
@@ -1182,7 +1683,13 @@
       "skos:definition": "Study of how food affects health and body function.",
       "skos:altLabel": ["Dietetics", "Food Science", "Nutritional Biology"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:nutrition_diet"}
+      "skos:broader": {"@id": "ex:nutrition_diet"},
+       "skos:related": [
+        {"@id": "ex:chemistry"},
+        {"@id": "ex:biology"},
+        {"@id": "ex:medicine"},
+        {"@id": "ex:public_health"}
+      ]
     },
     {
       "@id": "ex:eating_disorders",
@@ -1191,7 +1698,12 @@
       "skos:definition": "Mental health conditions affecting eating behaviors.",
       "skos:altLabel": ["Anorexia", "Bulimia", "Binge Eating", "Food Behavior Issues"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:mental_health"}
+      "skos:broader": {"@id": "ex:mental_health"},
+      "skos:related": [
+        {"@id": "ex:nutrition_diet"},
+        {"@id": "ex:psychology"},
+        {"@id": "ex:medicine"}
+      ]
     },
     {
       "@id": "ex:aerobic_exercise",
@@ -1227,7 +1739,11 @@
       "skos:definition": "Study of the body's response to physical activity.",
       "skos:altLabel": ["Sports Science", "Kinesiology", "Physical Activity Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:fitness_exercise"}
+      "skos:broader": {"@id": "ex:fitness_exercise"},
+      "skos:related": [
+        {"@id": "ex:biology"},
+        {"@id": "ex:medicine"}
+      ]
     },
     {
       "@id": "ex:anxiety_disorders",
@@ -1254,7 +1770,10 @@
       "skos:definition": "Professional support for mental and emotional issues.",
       "skos:altLabel": ["Psychotherapy", "Mental Health Counseling", "Talk Therapy"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:mental_health"}
+      "skos:broader": {"@id": "ex:mental_health"},
+      "skos:related": [
+        {"@id": "ex:psychology"}
+      ]
     },
     {
       "@id": "ex:mindfulness",
@@ -1263,7 +1782,11 @@
       "skos:definition": "Mental state achieved by focusing on the present moment.",
       "skos:altLabel": ["Meditation", "Present Moment Awareness", "Mindful Practice"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:mental_health"}
+      "skos:broader": {"@id": "ex:mental_health"},
+      "skos:related": [
+        {"@id": "ex:psychology"},
+        {"@id": "ex:philosophy_religion"}
+      ]
     },
     {
       "@id": "ex:epidemiology",
@@ -1272,7 +1795,12 @@
       "skos:definition": "Study of disease distribution and determinants in populations.",
       "skos:altLabel": ["Disease Study", "Population Health", "Public Health Research"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:public_health"}
+      "skos:broader": {"@id": "ex:public_health"},
+      "skos:related": [
+        {"@id": "ex:statistics"},
+        {"@id": "ex:medicine"},
+        {"@id": "ex:health_policy"}
+      ]
     },
     {
       "@id": "ex:health_education",
@@ -1281,7 +1809,10 @@
       "skos:definition": "Efforts to inform and motivate healthy behaviors.",
       "skos:altLabel": ["Wellness Promotion", "Public Health Info", "Health Literacy"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:public_health"}
+      "skos:broader": {"@id": "ex:public_health"},
+       "skos:related": [
+        {"@id": "ex:education"}
+      ]
     },
     {
       "@id": "ex:vaccination",
@@ -1290,7 +1821,13 @@
       "skos:definition": "Use of vaccines to prevent infectious diseases.",
       "skos:altLabel": ["Immunization", "Vaccines", "Preventive Medicine"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:public_health"}
+      "skos:broader": {"@id": "ex:public_health"},
+       "skos:related": [
+        {"@id": "ex:medicine"},
+        {"@id": "ex:biotechnology"},
+        {"@id": "ex:microbiology"},
+        {"@id": "ex:health_policy"}
+      ]
     },
     {
       "@id": "ex:health_policy",
@@ -1299,7 +1836,13 @@
       "skos:definition": "Plans and decisions to achieve health care goals.",
       "skos:altLabel": ["Healthcare Policy", "Public Health Law", "Health Systems Policy"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:public_health"}
+      "skos:broader": {"@id": "ex:public_health"},
+       "skos:related": [
+        {"@id": "ex:public_policy"},
+        {"@id": "ex:economics"},
+        {"@id": "ex:epidemiology"},
+        {"@id": "ex:vaccination"}
+      ]
     },
     {
       "@id": "ex:physical_sciences",
@@ -1337,7 +1880,22 @@
       "skos:definition": "The study of computational systems and computers, including theory and applications.",
       "skos:altLabel": ["CS", "Computing", "Information Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:science_technology"}
+      "skos:broader": {"@id": "ex:science_technology"},
+      "skos:narrower": [
+         {"@id": "ex:algorithms_theory"},
+         {"@id": "ex:programming_languages"},
+         {"@id": "ex:artificial_intelligence"},
+         {"@id": "ex:computer_networks"},
+         {"@id": "ex:software_engineering"},
+         {"@id": "ex:databases"},
+         {"@id": "ex:cybersecurity"},
+         {"@id": "ex:human_computer_interaction"}
+      ],
+      "skos:related": [
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:electrical_engineering"},
+        {"@id": "ex:information_technology"}
+      ]
     },
     {
       "@id": "ex:engineering",
@@ -1346,7 +1904,22 @@
       "skos:definition": "Application of scientific and mathematical principles to design and build structures, machines, and processes.",
       "skos:altLabel": ["Applied Science", "Tech Design", "Problem Solving"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:science_technology"}
+      "skos:broader": {"@id": "ex:science_technology"},
+      "skos:narrower": [
+         {"@id": "ex:mechanical_engineering"},
+         {"@id": "ex:electrical_engineering"},
+         {"@id": "ex:civil_engineering"},
+         {"@id": "ex:chemical_engineering"},
+         {"@id": "ex:aerospace_engineering"},
+         {"@id": "ex:environmental_engineering"},
+         {"@id": "ex:biomedical_engineering"}
+      ],
+      "skos:related": [
+        {"@id": "ex:physics"},
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:design"},
+        {"@id": "ex:manufacturing"}
+      ]
     },
     {
       "@id": "ex:mathematics_statistics",
@@ -1355,7 +1928,20 @@
       "skos:definition": "The study of numbers, quantities, shapes, and data, including pure and applied branches.",
       "skos:altLabel": ["Math & Stats", "Quantitative Analysis", "Mathematical Sciences"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:science_technology"}
+      "skos:broader": {"@id": "ex:science_technology"},
+       "skos:narrower": [
+         {"@id": "ex:pure_mathematics"},
+         {"@id": "ex:applied_mathematics"},
+         {"@id": "ex:statistics"},
+         {"@id": "ex:probability_theory"},
+         {"@id": "ex:data_science"}
+      ],
+       "skos:related": [
+        {"@id": "ex:physics"},
+        {"@id": "ex:computer_science"},
+        {"@id": "ex:engineering"},
+        {"@id": "ex:economics"}
+      ]
     },
     {
       "@id": "ex:technology_applications",
@@ -1364,7 +1950,14 @@
       "skos:definition": "Practical use of scientific knowledge for purposes like IT, robotics, and digital innovation.",
       "skos:altLabel": ["Applied Tech", "Tech Implementation", "Innovation"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:science_technology"}
+      "skos:broader": {"@id": "ex:science_technology"},
+       "skos:narrower": [
+         {"@id": "ex:information_technology"},
+         {"@id": "ex:robotics"},
+         {"@id": "ex:blockchain"},
+         {"@id": "ex:cloud_computing"},
+         {"@id": "ex:internet_of_things"}
+      ]
     },
     {
       "@id": "ex:visual_arts",
@@ -1373,7 +1966,14 @@
       "skos:definition": "Forms of art that are primarily visual in nature, such as painting, sculpture, and photography.",
       "skos:altLabel": ["Fine Arts", "Graphic Arts", "Plastic Arts"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:arts_entertainment"}
+      "skos:broader": {"@id": "ex:arts_entertainment"},
+      "skos:narrower": [
+         {"@id": "ex:painting"},
+         {"@id": "ex:sculpture"},
+         {"@id": "ex:photography"},
+         {"@id": "ex:design"},
+         {"@id": "ex:digital_art"}
+      ]
     },
     {
       "@id": "ex:performing_arts",
@@ -1382,7 +1982,13 @@
       "skos:definition": "Art forms in which artists use their voices, bodies, or objects to convey artistic expression before an audience.",
       "skos:altLabel": ["Performance Art", "Live Arts", "Stage Arts"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:arts_entertainment"}
+      "skos:broader": {"@id": "ex:arts_entertainment"},
+      "skos:narrower": [
+         {"@id": "ex:theater"},
+         {"@id": "ex:dance"},
+         {"@id": "ex:opera"},
+         {"@id": "ex:circus_arts"}
+      ]
     },
     {
       "@id": "ex:literature",
@@ -1391,7 +1997,14 @@
       "skos:definition": "Written and spoken works of artistic or intellectual value, including fiction, poetry, and essays.",
       "skos:altLabel": ["Literary Works", "Written Arts", "Belles-lettres"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:arts_entertainment"}
+      "skos:broader": {"@id": "ex:arts_entertainment"},
+      "skos:narrower": [
+         {"@id": "ex:fiction"},
+         {"@id": "ex:poetry"},
+         {"@id": "ex:nonfiction"},
+         {"@id": "ex:drama"},
+         {"@id": "ex:essays"}
+      ]
     },
     {
       "@id": "ex:music",
@@ -1400,7 +2013,14 @@
       "skos:definition": "The art of arranging sound to create expressive compositions and performances.",
       "skos:altLabel": ["Musical Arts", "Sound Art", "Audio Arts"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:arts_entertainment"}
+      "skos:broader": {"@id": "ex:arts_entertainment"},
+      "skos:narrower": [
+         {"@id": "ex:classical_music"},
+         {"@id": "ex:jazz"},
+         {"@id": "ex:rock_music"},
+         {"@id": "ex:electronic_music"},
+         {"@id": "ex:world_music"}
+      ]
     },
     {
       "@id": "ex:film_television",
@@ -1409,7 +2029,14 @@
       "skos:definition": "The medium and industry of producing visual narratives for entertainment or education.",
       "skos:altLabel": ["Cinema", "TV", "Moving Pictures", "Screen Media"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:arts_entertainment"}
+      "skos:broader": {"@id": "ex:arts_entertainment"},
+      "skos:narrower": [
+         {"@id": "ex:film_production"},
+         {"@id": "ex:screenwriting"},
+         {"@id": "ex:animation"},
+         {"@id": "ex:documentary"},
+         {"@id": "ex:television_series"}
+      ]
     },
     {
       "@id": "ex:games",
@@ -1418,7 +2045,13 @@
       "skos:definition": "Structured forms of play, often for entertainment or competition, including video, board, and role-playing games.",
       "skos:altLabel": ["Gaming", "Play", "Recreation", "Interactive Entertainment"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:arts_entertainment"}
+      "skos:broader": {"@id": "ex:arts_entertainment"},
+      "skos:narrower": [
+         {"@id": "ex:video_games"},
+         {"@id": "ex:board_games"},
+         {"@id": "ex:role_playing_games"},
+         {"@id": "ex:puzzle_games"}
+      ]
     },
     {
       "@id": "ex:management",
@@ -1427,7 +2060,14 @@
       "skos:definition": "Coordinating people and resources to achieve organizational goals effectively and efficiently.",
       "skos:altLabel": ["Business Administration", "Organization Leadership", "Administration"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:business_finance"}
+      "skos:broader": {"@id": "ex:business_finance"},
+      "skos:narrower": [
+         {"@id": "ex:project_management"},
+         {"@id": "ex:strategic_management"},
+         {"@id": "ex:operations_management"},
+         {"@id": "ex:human_resources"},
+         {"@id": "ex:supply_chain_management"}
+      ]
     },
     {
       "@id": "ex:marketing_sales",
@@ -1436,7 +2076,13 @@
       "skos:definition": "Activities involved in promoting and selling products or services, including market research and advertising.",
       "skos:altLabel": ["Marketing & Sales", "Promotion and Selling", "Advertising"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:business_finance"}
+      "skos:broader": {"@id": "ex:business_finance"},
+      "skos:narrower": [
+         {"@id": "ex:branding"},
+         {"@id": "ex:digital_marketing"},
+         {"@id": "ex:market_research"},
+         {"@id": "ex:sales_strategy"}
+      ]
     },
     {
       "@id": "ex:economics",
@@ -1445,7 +2091,18 @@
       "skos:definition": "The study of production, consumption, and transfer of wealth in societies.",
       "skos:altLabel": ["Economic Science", "Wealth Study", "Financial Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:business_finance"}
+      "skos:broader": {"@id": "ex:business_finance"},
+       "skos:narrower": [
+         {"@id": "ex:macroeconomics"},
+         {"@id": "ex:microeconomics"},
+         {"@id": "ex:international_trade"},
+         {"@id": "ex:behavioral_economics"}
+      ],
+       "skos:related": [
+        {"@id": "ex:mathematics_statistics"},
+        {"@id": "ex:politics_government"},
+        {"@id": "ex:social_issues"}
+      ]
     },
     {
       "@id": "ex:personal_finance",
@@ -1454,7 +2111,13 @@
       "skos:definition": "Managing individual or household finances, including budgeting, investing, and saving.",
       "skos:altLabel": ["Individual Finance", "Money Management", "Household Finance"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:business_finance"}
+      "skos:broader": {"@id": "ex:business_finance"},
+      "skos:narrower": [
+         {"@id": "ex:budgeting"},
+         {"@id": "ex:investing"},
+         {"@id": "ex:retirement_planning"},
+         {"@id": "ex:credit_and_loans"}
+      ]
     },
     {
       "@id": "ex:industries",
@@ -1463,7 +2126,14 @@
       "skos:definition": "Specific sectors of the economy engaged in producing goods or services, such as manufacturing or finance.",
       "skos:altLabel": ["Economic Sectors", "Business Fields", "Industry Verticals"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:business_finance"}
+      "skos:broader": {"@id": "ex:business_finance"},
+       "skos:narrower": [
+         {"@id": "ex:retail"},
+         {"@id": "ex:manufacturing"},
+         {"@id": "ex:real_estate"},
+         {"@id": "ex:finance_banking"},
+         {"@id": "ex:hospitality"}
+      ]
     },
     {
       "@id": "ex:politics_government",
@@ -1472,7 +2142,18 @@
       "skos:definition": "Systems of governance and political structures, including policies and public institutions.",
       "skos:altLabel": ["Gov & Politics", "Public Administration", "Political Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:society_culture"}
+      "skos:broader": {"@id": "ex:society_culture"},
+      "skos:narrower": [
+         {"@id": "ex:democracy"},
+         {"@id": "ex:public_policy"},
+         {"@id": "ex:international_relations"},
+         {"@id": "ex:civil_rights"}
+      ],
+      "skos:related": [
+        {"@id": "ex:history"},
+        {"@id": "ex:economics"},
+        {"@id": "ex:law"}
+      ]
     },
     {
       "@id": "ex:history",
@@ -1481,7 +2162,13 @@
       "skos:definition": "The study and interpretation of past events, societies, and civilizations.",
       "skos:altLabel": ["Past Studies", "Historical Studies", "Chronicles"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:society_culture"}
+      "skos:broader": {"@id": "ex:society_culture"},
+      "skos:narrower": [
+         {"@id": "ex:ancient_history"},
+         {"@id": "ex:modern_history"},
+         {"@id": "ex:military_history"},
+         {"@id": "ex:cultural_history"}
+      ]
     },
     {
       "@id": "ex:philosophy_religion",
@@ -1490,7 +2177,13 @@
       "skos:definition": "Study of fundamental questions and spiritual beliefs about existence, values, and meaning.",
       "skos:altLabel": ["Philosophy & Religion", "Belief Systems", "Theology"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:society_culture"}
+      "skos:broader": {"@id": "ex:society_culture"},
+      "skos:narrower": [
+         {"@id": "ex:ethics"},
+         {"@id": "ex:metaphysics"},
+         {"@id": "ex:world_religions"},
+         {"@id": "ex:philosophy_of_science"}
+      ]
     },
     {
       "@id": "ex:education",
@@ -1499,7 +2192,17 @@
       "skos:definition": "Processes and systems involved in teaching and learning across all ages.",
       "skos:altLabel": ["Learning", "Teaching", "Pedagogy", "Academics"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:society_culture"}
+      "skos:broader": {"@id": "ex:society_culture"},
+      "skos:narrower": [
+         {"@id": "ex:educational_theory"},
+         {"@id": "ex:curriculum_design"},
+         {"@id": "ex:online_learning"},
+         {"@id": "ex:early_childhood_education"}
+      ],
+      "skos:related": [
+        {"@id": "ex:psychology"},
+        {"@id": "ex:sociology"}
+      ]
     },
     {
       "@id": "ex:social_issues",
@@ -1508,7 +2211,19 @@
       "skos:definition": "Challenges and concerns affecting society, such as inequality, justice, and human rights.",
       "skos:altLabel": ["Societal Problems", "Community Concerns", "Public Concerns"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:society_culture"}
+      "skos:broader": {"@id": "ex:society_culture"},
+      "skos:narrower": [
+         {"@id": "ex:inequality"},
+         {"@id": "ex:gender_studies"},
+         {"@id": "ex:climate_justice"},
+         {"@id": "ex:migration"}
+      ],
+       "skos:related": [
+        {"@id": "ex:politics_government"},
+        {"@id": "ex:economics"},
+        {"@id": "ex:ethics"},
+        {"@id": "ex:sociology"}
+      ]
     },
     {
       "@id": "ex:language_communication",
@@ -1517,7 +2232,13 @@
       "skos:definition": "The means and study of exchanging information through spoken, written, or visual symbols.",
       "skos:altLabel": ["Lang & Comm", "Communication Studies", "Linguistics"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:society_culture"}
+      "skos:broader": {"@id": "ex:society_culture"},
+      "skos:narrower": [
+         {"@id": "ex:linguistics"},
+         {"@id": "ex:translation"},
+         {"@id": "ex:rhetoric"},
+         {"@id": "ex:media_literacy"}
+      ]
     },
     {
       "@id": "ex:medicine",
@@ -1526,7 +2247,21 @@
       "skos:definition": "The science and practice of diagnosing, treating, and preventing illness and injury.",
       "skos:altLabel": ["Medical Science", "Healthcare", "Clinical Practice"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:health_wellness"}
+      "skos:broader": {"@id": "ex:health_wellness"},
+      "skos:narrower": [
+         {"@id": "ex:internal_medicine"},
+         {"@id": "ex:pediatrics"},
+         {"@id": "ex:surgery"},
+         {"@id": "ex:diagnostics"}
+      ],
+       "skos:related": [
+        {"@id": "ex:biology"},
+        {"@id": "ex:biotechnology"},
+        {"@id": "ex:biomedical_engineering"},
+        {"@id": "ex:public_health"},
+        {"@id": "ex:nutrition_science"},
+        {"@id": "ex:exercise_physiology"}
+      ]
     },
     {
       "@id": "ex:nutrition_diet",
@@ -1535,7 +2270,17 @@
       "skos:definition": "The study and practice of nourishing the body through balanced food intake.",
       "skos:altLabel": ["Dietetics", "Food & Nutrition", "Healthy Eating"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:health_wellness"}
+      "skos:broader": {"@id": "ex:health_wellness"},
+      "skos:narrower": [
+         {"@id": "ex:balanced_diet"},
+         {"@id": "ex:dietary_supplements"},
+         {"@id": "ex:nutrition_science"},
+         {"@id": "ex:eating_disorders"}
+      ],
+       "skos:related": [
+        {"@id": "ex:public_health"},
+        {"@id": "ex:fitness_exercise"}
+      ]
     },
     {
       "@id": "ex:fitness_exercise",
@@ -1544,7 +2289,18 @@
       "skos:definition": "Physical activities that enhance or maintain physical health and performance.",
       "skos:altLabel": ["Physical Activity", "Workout", "Exercise Science"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:health_wellness"}
+      "skos:broader": {"@id": "ex:health_wellness"},
+       "skos:narrower": [
+         {"@id": "ex:aerobic_exercise"},
+         {"@id": "ex:strength_training"},
+         {"@id": "ex:flexibility_training"},
+         {"@id": "ex:exercise_physiology"}
+      ],
+       "skos:related": [
+        {"@id": "ex:nutrition_diet"},
+        {"@id": "ex:medicine"},
+        {"@id": "ex:mental_health"}
+      ]
     },
     {
       "@id": "ex:mental_health",
@@ -1560,7 +2316,11 @@
         {"@id": "ex:depression"},
         {"@id": "ex:therapy_and_counseling"},
         {"@id": "ex:mindfulness"}
-     ]
+     ],
+      "skos:related": [
+        {"@id": "ex:neuroscience"},
+        {"@id": "ex:fitness_exercise"}
+      ]
     },
     {
       "@id": "ex:public_health",
@@ -1569,7 +2329,19 @@
       "skos:definition": "Efforts to protect and improve the health of populations through prevention and education.",
       "skos:altLabel": ["Community Health", "Population Wellness", "Preventive Healthcare"],
       "skos:inScheme": {"@id": "ex:scheme"},
-      "skos:broader": {"@id": "ex:health_wellness"}
+      "skos:broader": {"@id": "ex:health_wellness"},
+       "skos:narrower": [
+         {"@id": "ex:epidemiology"},
+         {"@id": "ex:health_education"},
+         {"@id": "ex:vaccination"},
+         {"@id": "ex:health_policy"}
+      ],
+      "skos:related": [
+        {"@id": "ex:medicine"},
+        {"@id": "ex:nutrition_diet"},
+        {"@id": "ex:environmental_engineering"},
+        {"@id": "ex:sociology"}
+      ]
     }
   ]
 }
