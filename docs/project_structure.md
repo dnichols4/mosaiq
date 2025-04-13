@@ -7,6 +7,7 @@
 | 1.1 | 2025-04-10 | Updated to reflect current codebase |
 | 1.2 | 2025-04-11 | Updated to include platform dialog and file picker components |
 | 1.3 | 2025-04-11 | Updated to include vector storage and serialization components |
+| 1.4 | 2025-04-13 | Updated to include classification services, UI components, and embedding infrastructure |
 
 ## Overview
 
@@ -75,9 +76,19 @@ core/
 ├── src/
 │   ├── services/      # Core services
 │   │   ├── ContentService.ts    # Service for managing content processing
-│   │   └── SettingsService.ts   # Service for application settings
+│   │   ├── SettingsService.ts   # Service for application settings
+│   │   ├── ClassificationService.ts  # Hybrid classification service
+│   │   ├── TaxonomyService.ts   # SKOS taxonomy management
+│   │   ├── TextBasedClassifier.ts  # Term extraction and matching
+│   │   └── embeddings/     # Embedding services
+│   │       ├── IEmbeddingService.ts  # Embedding service interface
+│   │       ├── MiniLMEmbeddingService.ts  # MiniLM model implementation
+│   │       ├── EmbeddingServiceFactory.ts  # Factory for embedding service
+│   │       └── tokenizers/   # Tokenization utilities
 │   ├── utils/         # Utility functions
 │   │   └── serialization.ts     # Data serialization utilities
+│   ├── tests/         # Test files
+│   │   └── TaxonomyService.test.ts  # Tests for taxonomy service
 │   └── index.ts       # Package entry point
 └── package.json
 ```
@@ -92,13 +103,22 @@ This package contains shared UI components that can be used across different int
 common-ui/
 ├── src/               # UI component source code
 │   ├── components/      # React components
+│   │   ├── ContentCard.tsx    # Content item display card
+│   │   ├── ContentViewer.tsx  # Content viewing component
+│   │   ├── ReadingSettingsPanel.tsx  # Reading preferences panel
+│   │   ├── ReadingSettingsPanel.styles.css  # Styles for settings panel
+│   │   ├── SettingsSlider.tsx  # Slider component for settings
+│   │   ├── SettingsSlider.styles.css  # Styles for slider component
+│   │   ├── SettingsSliderPreview.tsx  # Preview component for slider
+│   │   ├── SliderUIDemo.tsx   # Demo component for slider UI
+│   │   ├── SpotlightInput/    # Search input components
+│   │   ├── Icons/             # Icon components
 │   │   ├── dialog/        # Platform dialog components
 │   │   │   ├── DialogContext.tsx   # Context for dialog services
 │   │   │   └── PlatformDialog.tsx   # Platform-independent dialog components
-│   │   ├── file/          # File picker components
-│   │   │   ├── FilePickerContext.tsx   # Context for file picker services
-│   │   │   └── FilePickerButton.tsx    # Buttons for selecting files
-│   │   └── [other components]
+│   │   └── file/          # File picker components
+│   │       ├── FilePickerContext.tsx   # Context for file picker services
+│   │       └── FilePickerButton.tsx    # Buttons for selecting files
 │   └── index.ts         # Package exports
 ├── copyStyles.js      # Helper for copying CSS files
 └── package.json
@@ -185,6 +205,10 @@ The renderer process (`index.tsx`, `App.tsx`) contains:
 Core services in the `@mosaiq/core` package implement the main application logic:
 - ContentService: Manages content processing and transformation
 - SettingsService: Handles application settings and preferences
+- ClassificationService: Provides hybrid content classification using text and vector approaches
+- TaxonomyService: Manages SKOS taxonomy with concept hierarchy navigation
+- TextBasedClassifier: Extracts terms and performs matching with taxonomy concepts
+- EmbeddingService: Generates vector embeddings using MiniLM model
 
 ### Platform Abstraction
 

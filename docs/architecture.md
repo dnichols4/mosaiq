@@ -12,6 +12,7 @@
 | 1.3 | 2025-04-10 | Updated based on review of code base |
 | 1.4 | 2025-04-11 | Updated to include platform dialog and file picker abstractions |
 | 1.5 | 2025-04-11 | Updated to include vector storage and serialization implementations |
+| 1.6 | 2025-04-13 | Updated AI Processing Layer details and current implementation status to include classification and embedding services |
 
 ### 1\. System Overview
 
@@ -56,18 +57,23 @@ The project is organized as a monorepo using npm workspaces with the following p
 
 ##### 2.2.4 AI Processing Layer
 
-*   Concept extraction and analysis
-*   Local embedding generation
-*   Hybrid AI processing (local and optional cloud)
-*   Learning path generation
-*   Phase 2 implementation planned
+*   Concept extraction and analysis through TextBasedClassifier
+*   Local embedding generation via MiniLM model
+*   Hybrid AI processing combining text-based and vector-based classification
+*   Classification confidence scoring and threshold filtering
+*   Term extraction with position-aware weighting
+*   Learning path generation (planned)
+*   Phase 2 implementation completed with classification and embedding services
 
 ##### 2.2.5 Data Management Layer
 
 *   Local content storage
-*   Metadata management
+*   Metadata management with concept classification data structures
 *   Relationship graph storage
 *   Vector database for semantic search - Implemented via IVectorStorage and LocalVectorAdapter
+*   Concept classification storage with confidence scores
+*   Taxonomy service for SKOS concept management
+*   Caching mechanisms for embeddings and taxonomy concepts
 *   Data serialization utilities - Implemented with complex object serialization
 *   Sync mechanism (optional)
 
@@ -111,10 +117,16 @@ The project is organized as a monorepo using npm workspaces with the following p
 
 #### 3.4 AI Processing
 
-*   Local LLM integration (planned)
-*   Optional cloud LLM APIs (planned)
+*   MiniLM embedding model integration via ONNX runtime
+*   Text-based classification with term extraction and frequency analysis
+*   Hybrid classification combining text and vector approaches
 *   Vector embeddings for concept relationships (implemented via IVectorStorage)
 *   Vector operations library for similarity search (implemented with cosine similarity)
+*   Confidence score fusion algorithms for classification
+*   Position-aware term weighting (title/first paragraph/body)
+*   Configurable classification parameters and thresholds
+*   Local LLM integration (planned for future phases)
+*   Optional cloud LLM APIs (planned for future phases)
 
 #### 3.5 Storage
 
@@ -227,9 +239,18 @@ The application is currently in active development with the following implementa
     * `PlatformDialog` components for message, confirmation, and prompt dialogs
     * File picker components for selecting files, directories, and save locations
     * Electron-specific implementations with IPC communication
+*   UI components enhanced with slider interfaces for reading settings:
+    * `SettingsSlider` component for intuitive option selection
+    * Updated reading settings panel with sliders for font size, line height, and content width
+*   AI classification infrastructure implemented:
+    * `TaxonomyService` for SKOS taxonomy management
+    * `ClassificationService` with hybrid classification approach
+    * `TextBasedClassifier` for term extraction and matching
+    * `EmbeddingService` with MiniLM model implementation
+    * Vector similarity search for semantic content classification
 *   PDF and EPUB support planned but not yet implemented
-*   Advanced AI features planned but vector storage foundation implemented
 *   Data graph visualization and relationship management planned but not yet implemented
+*   Phase 1 and 2 of auto-classification implementation completed
 
 #### 8.1 Component Extensibility
 
