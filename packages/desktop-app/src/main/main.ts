@@ -109,7 +109,11 @@ app.whenReady().then(async () => {
   createWindow();
   
   // Register IPC handlers (which will initialize classification)
-  await registerIpcHandlers();
+  if (mainWindow) {
+    await registerIpcHandlers(mainWindow);
+  } else {
+    console.error('Failed to register IPC handlers: mainWindow is null');
+  }
   
   console.log('Application initialized');
 });
