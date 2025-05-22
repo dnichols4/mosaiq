@@ -6,7 +6,7 @@ import {
   IDialogService,
   IFilePickerService
 } from '@mosaiq/platform-abstractions';
-import { TaxonomyService } from '@mosaiq/core';
+import { TaxonomyService, EmbeddingServiceFactory, IEmbeddingService } from '@mosaiq/core';
 import { ElectronStorageAdapter } from './ElectronStorageAdapter';
 import { FileSystemContentAdapter } from './FileSystemContentAdapter';
 import { ElectronContentProcessor } from './ElectronContentProcessor';
@@ -23,6 +23,7 @@ import { app } from 'electron';
 export class AdapterFactory {
   private static taxonomyService: TaxonomyService | null = null;
   private static vectorStorage: IVectorStorage | null = null;
+  private static embeddingService: IEmbeddingService | null = null;
   
   /**
    * Create a metadata storage adapter
@@ -138,5 +139,29 @@ export class AdapterFactory {
       await this.vectorStorage.clearAll();
       this.vectorStorage = null;
     }
+
+    if (this.embeddingService) {
+      await this.embeddingService.dispose();
+      this.embeddingService = null;
+    }
+  }
+
+  /**
+   * Create an embedding service
+   */
+  static async createEmbeddingService(): Promise<IEmbeddingService> {
+    if (!this.embeddingService) {
+      // Determine the model path using Electron's app.getAppPath()
+      // This is the correct place for platform-specific path resolution
+      const modelBasePath = path.join(app.getAppPath(), 'resources', 'models');
+      const miniLmModelPath = path.join(modelBasePath, 'minilm');
+
+      // Get the EmbeddingServiceFactory instance
+      const factory = EmbeddingServiceFactory.getInstance();
+      
+      // Get the MiniLM service, providing the mandatory modelPath
+      this.embeddingService = await factory.getService('minilm', miniLmModelPath);
+    }
+    return this.embeddingService;
   }
 }

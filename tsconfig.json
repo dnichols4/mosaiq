@@ -1,18 +1,19 @@
 {
+  "files": [], // Important: tsc -b with files: [] will build projects in references
+  "references": [
+    { "path": "packages/platform-abstractions" },
+    { "path": "packages/core" },
+    { "path": "packages/common-ui" },
+    { "path": "packages/desktop-app" }
+    // Assuming these are the main TypeScript packages to be built in order.
+    // Other packages might exist but may not be part of this specific build chain
+    // or might not be TypeScript projects.
+  ],
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "outDir": "dist",
-    "strict": true,
-    "jsx": "react",
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["DOM", "ES2020"],
-    "resolveJsonModule": true
-  },
-  "include": ["src/renderer/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts"]
+    // It's good practice to have some common settings here if all projects extend it,
+    // but for a pure solution file, compilerOptions might be minimal or even absent.
+    // For now, I'll keep it empty as individual packages define their own options.
+    // If there was a tsconfig.base.json, packages would extend that, and this
+    // solution tsconfig would just have files and references.
+  }
 }

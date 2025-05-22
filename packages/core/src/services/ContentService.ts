@@ -1,5 +1,10 @@
-import { IContentProcessor, ProcessedContent, IStorageProvider } from '@mosaiq/platform-abstractions';
-import { ConceptClassification } from './TaxonomyService';
+import { IContentProcessor, ProcessedContent, IStorageProvider, ConceptClassification } from '@mosaiq/platform-abstractions';
+// Removed: import { ConceptClassification } from './TaxonomyService';
+
+// TODO: Implement a data migration strategy to move existing content items
+// from the old single-object storage to the new individual-item storage.
+// This service now expects items to be stored with keys like 'contentItem:ID'.
+const METADATA_KEY_PREFIX = 'contentItem:';
 
 export interface ContentItem {
   id: string;
@@ -62,14 +67,8 @@ export class ContentService {
         concepts: []
       };
       
-      // Get existing items or initialize empty object
-      const existingItems = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
-      
-      // Add new item
-      existingItems[id] = contentItem;
-      
-      // Save updated metadata
-      await this.metadataStorage.set('contentItems', existingItems);
+      // Store the individual content item's metadata
+      await this.metadataStorage.set(METADATA_KEY_PREFIX + id, contentItem);
       
       return contentItem;
     } catch (error) {
@@ -84,11 +83,21 @@ export class ContentService {
    */
   async getAllItems(): Promise<ContentItem[]> {
     try {
-      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
-      return Object.values(items);
+      const allKeys = await this.metadataStorage.keys();
+      const itemKeys = allKeys.filter(key => key.startsWith(METADATA_KEY_PREFIX));
+      
+      const items: ContentItem[] = [];
+      for (const key of itemKeys) {
+        const item = await this.metadataStorage.get<ContentItem>(key);
+        if (item) {
+          items.push(item);
+        }
+      }
+      return items;
     } catch (error) {
       console.error('Error getting all content items:', error);
-      throw error;
+      // Consider how to handle partial failures, for now, rethrow or return empty
+      throw error; 
     }
   }
   
@@ -100,8 +109,7 @@ export class ContentService {
   async getItemWithContent(id: string): Promise<ContentItem & { content: string }> {
     try {
       // Get metadata
-      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
-      const item = items[id];
+      const item = await this.metadataStorage.get<ContentItem>(METADATA_KEY_PREFIX + id);
       
       if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
@@ -130,21 +138,26 @@ export class ContentService {
    */
   async deleteItem(id: string): Promise<void> {
     try {
-      // Get existing items
-      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
-      
-      // Check if item exists
-      if (!items[id]) {
-        throw new Error(`Content item with ID ${id} not found`);
+      // Check if item exists before attempting to delete its metadata
+      // This also ensures we don't try to delete content for a non-existent metadata entry.
+      const itemKey = METADATA_KEY_PREFIX + id;
+      const itemExists = await this.metadataStorage.get<ContentItem>(itemKey);
+
+      if (!itemExists) {
+        // Optional: Log a warning or simply return if non-existence is acceptable for delete.
+        // For now, let's maintain an error if trying to delete something not there,
+        // though this behavior could be debated (e.g., delete should be idempotent).
+        console.warn(`Content item with ID ${id} not found for deletion.`);
+        // throw new Error(`Content item with ID ${id} not found for deletion.`); 
+        // Depending on desired strictness, you might throw or just proceed to delete content.
+      } else {
+        // Remove item from metadata
+        await this.metadataStorage.delete(itemKey);
       }
       
-      // Remove item from metadata
-      delete items[id];
-      
-      // Save updated metadata
-      await this.metadataStorage.set('contentItems', items);
-      
-      // Delete content
+      // Delete content (this part remains the same)
+      // Note: Consider if content should be deleted if metadata was not found.
+      // Current logic: will attempt to delete content regardless of metadata presence.
       await this.contentStorage.delete(id);
     } catch (error) {
       console.error(`Error deleting content item with ID ${id}:`, error);
@@ -160,21 +173,17 @@ export class ContentService {
    */
   async updateTags(id: string, tags: string[]): Promise<ContentItem> {
     try {
-      // Get existing items
-      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
+      const itemKey = METADATA_KEY_PREFIX + id;
+      const item = await this.metadataStorage.get<ContentItem>(itemKey);
       
-      // Check if item exists
-      if (!items[id]) {
+      if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
       }
       
-      // Update tags
-      items[id].tags = tags;
+      item.tags = tags;
+      await this.metadataStorage.set(itemKey, item);
       
-      // Save updated metadata
-      await this.metadataStorage.set('contentItems', items);
-      
-      return items[id];
+      return item;
     } catch (error) {
       console.error(`Error updating tags for content item with ID ${id}:`, error);
       throw error;
@@ -189,21 +198,17 @@ export class ContentService {
    */
   async updateThumbnail(id: string, imageUrl: string): Promise<ContentItem> {
     try {
-      // Get existing items
-      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
-      
-      // Check if item exists
-      if (!items[id]) {
+      const itemKey = METADATA_KEY_PREFIX + id;
+      const item = await this.metadataStorage.get<ContentItem>(itemKey);
+
+      if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
       }
-      
-      // Update featured image
-      items[id].featuredImage = imageUrl;
-      
-      // Save updated metadata
-      await this.metadataStorage.set('contentItems', items);
-      
-      return items[id];
+
+      item.featuredImage = imageUrl;
+      await this.metadataStorage.set(itemKey, item);
+
+      return item;
     } catch (error) {
       console.error(`Error updating thumbnail for content item with ID ${id}:`, error);
       throw error;
@@ -218,21 +223,17 @@ export class ContentService {
    */
   async updateConcepts(id: string, concepts: ConceptClassification[]): Promise<ContentItem> {
     try {
-      // Get existing items
-      const items = await this.metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
-      
-      // Check if item exists
-      if (!items[id]) {
+      const itemKey = METADATA_KEY_PREFIX + id;
+      const item = await this.metadataStorage.get<ContentItem>(itemKey);
+
+      if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
       }
+
+      item.concepts = concepts;
+      await this.metadataStorage.set(itemKey, item);
       
-      // Update concepts
-      items[id].concepts = concepts;
-      
-      // Save updated metadata
-      await this.metadataStorage.set('contentItems', items);
-      
-      return items[id];
+      return item;
     } catch (error) {
       console.error(`Error updating concepts for content item with ID ${id}:`, error);
       throw error;

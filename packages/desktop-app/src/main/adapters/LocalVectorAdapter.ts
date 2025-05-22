@@ -78,6 +78,36 @@ export class LocalVectorAdapter implements IVectorStorage {
       return null;
     }
   }
+
+  /**
+   * Retrieve an item (vector embedding) by its ID, conforming to IVectorStorage.
+   * @param id The item's unique identifier
+   * @returns The item data { id, embedding }, or null if not found
+   */
+  async getItem(id: string): Promise<{ id: string; embedding: number[] } | null> {
+    const vectorData = await this.getVector(id);
+    if (vectorData) {
+      return { id, embedding: vectorData.vector };
+    }
+    return null;
+  }
+
+  /**
+   * Remove an item (vector embedding) by its ID, conforming to IVectorStorage.
+   * This method calls the existing deleteVector method.
+   * @param id The item's unique identifier
+   */
+  async removeItem(id: string): Promise<void> {
+    await this.deleteVector(id);
+  }
+
+  /**
+   * Clear all vector embeddings, conforming to IVectorStorage.
+   * This method calls the existing clearAll method.
+   */
+  async clear(): Promise<void> {
+    await this.clearAll();
+  }
   
   /**
    * Delete a vector and its metadata
@@ -110,6 +140,10 @@ export class LocalVectorAdapter implements IVectorStorage {
    * @param threshold Minimum similarity score (0-1) (default: 0.7)
    * @returns Array of matches with similarity scores
    */
+  // TODO: SCALABILITY - This performs a brute-force search.
+  // For a large number of vectors, this will be slow.
+  // Consider implementing an approximate nearest neighbor (ANN) search algorithm
+  // (e.g., using HNSWlib.js, Faiss, or a similar library) for better performance.
   async findSimilar(
     queryVector: number[], 
     limit: number = 10, 
