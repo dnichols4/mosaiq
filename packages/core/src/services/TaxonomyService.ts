@@ -12,6 +12,7 @@ export interface TaxonomyConcept {
   definition: string;
   broader?: string;
   narrower?: string[];
+  related?: string[]; // Add this line
   inScheme: string;
 }
 
@@ -89,7 +90,8 @@ export class TaxonomyService {
           prefLabel,
           definition,
           inScheme,
-          narrower: []
+          narrower: [],
+          related: [] // Initialize related
         };
         
         // Store concept by ID and label
@@ -125,6 +127,15 @@ export class TaxonomyService {
             : [node['skos:narrower']];
           
           concept.narrower = narrower.map((n: any) => this.extractIdFromUri(n['@id']));
+        }
+        
+        // Handle related relationships
+        if (node['skos:related']) {
+          const relatedLinks = Array.isArray(node['skos:related'])
+            ? node['skos:related']
+            : [node['skos:related']];
+          
+          concept.related = relatedLinks.map((r: any) => this.extractIdFromUri(r['@id']));
         }
         
         // Identify top-level concepts

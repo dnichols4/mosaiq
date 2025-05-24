@@ -40,9 +40,74 @@ export class BertTokenizer {
     this.clsTokenId = this.vocab.get(this.clsToken) || 2;
     this.sepTokenId = this.vocab.get(this.sepToken) || 3;
   }
+
+  /**
+   * Internal method to tokenize text into a list of token strings.
+   * Does not add special tokens or truncate.
+   * @param text The text to tokenize.
+   * @returns Array of token strings.
+   */
+  _tokenize(text: string): string[] {
+    const normalizedText = text.trim().toLowerCase();
+    return this.internalBasicTokenize(normalizedText);
+  }
+
+  /**
+   * Converts a list of tokens into their corresponding IDs.
+   * @param tokens Array of token strings.
+   * @returns Array of token IDs.
+   */
+  convertTokensToIds(tokens: string[]): number[] {
+    return tokens.map(token => this.getTokenId(token));
+  }
+
+  /**
+   * Prepares model input from a slice/list of token IDs.
+   * Adds special tokens (CLS, SEP), pads to maxLength, and creates attention mask.
+   * @param tokenIds Slice of token IDs.
+   * @param maxLength The target maximum length for the sequence.
+   * @returns Model-ready input object.
+   */
+  prepareInputFromIds(tokenIds: number[], maxLength: number): {
+    inputIds: number[];
+    attentionMask: number[];
+    tokenTypeIds: number[];
+  } {
+    // Truncate if necessary (account for [CLS] and [SEP])
+    const maxTokensForInput = maxLength - 2;
+    const truncatedTokenIds = tokenIds.length > maxTokensForInput 
+                            ? tokenIds.slice(0, maxTokensForInput) 
+                            : tokenIds;
+
+    // Create full input IDs with special tokens
+    const inputIds = [
+      this.clsTokenId,
+      ...truncatedTokenIds,
+      this.sepTokenId
+    ];
+
+    // Pad to max length
+    const paddingLength = maxLength - inputIds.length;
+    if (paddingLength > 0) {
+      const padding = new Array(paddingLength).fill(this.padTokenId);
+      inputIds.push(...padding);
+    }
+
+    // Create attention mask (1 for real tokens, 0 for padding)
+    const attentionMask = inputIds.map(id => id === this.padTokenId ? 0 : 1);
+
+    // Create token type IDs (all 0s for single segment)
+    const tokenTypeIds = new Array(maxLength).fill(0);
+
+    return {
+      inputIds,
+      attentionMask,
+      tokenTypeIds
+    };
+  }
   
   /**
-   * Tokenize a text for embedding generation
+   * Tokenize a text for embedding generation (legacy, for single, short segments)
    * @param text The text to tokenize
    * @param maxLength Maximum sequence length
    * @returns The tokenized inputs
@@ -52,56 +117,21 @@ export class BertTokenizer {
     attentionMask: number[];
     tokenTypeIds: number[];
   } {
-    // Normalize whitespace and text
-    const normalizedText = text.trim().toLowerCase();
-    
-    // Tokenize text
-    const tokens = this.basicTokenize(normalizedText);
-    
-    // Convert tokens to IDs
-    const tokenIds = tokens.map(token => this.getTokenId(token));
-    
-    // Truncate if necessary
-    const truncatedLength = Math.min(tokenIds.length, maxLength - 2); // Account for [CLS] and [SEP]
-    const truncatedTokenIds = tokenIds.slice(0, truncatedLength);
-    
-    // Create full input IDs with special tokens
-    const inputIds = [
-      this.clsTokenId,
-      ...truncatedTokenIds,
-      this.sepTokenId
-    ];
-    
-    // Pad to max length
-    const paddingLength = maxLength - inputIds.length;
-    if (paddingLength > 0) {
-      const padding = new Array(paddingLength).fill(this.padTokenId);
-      inputIds.push(...padding);
-    }
-    
-    // Create attention mask (1 for real tokens, 0 for padding)
-    const attentionMask = inputIds.map(id => id === this.padTokenId ? 0 : 1);
-    
-    // Create token type IDs (all 0s for single segment)
-    const tokenTypeIds = new Array(maxLength).fill(0);
-    
-    return {
-      inputIds,
-      attentionMask,
-      tokenTypeIds
-    };
+    const tokens = this._tokenize(text);
+    const tokenIds = this.convertTokensToIds(tokens);
+    return this.prepareInputFromIds(tokenIds, maxLength);
   }
   
   /**
-   * Basic tokenization for BERT-like models
-   * Splits text into wordpieces with ## prefixes
+   * Internal basic tokenization for BERT-like models.
+   * Splits text into wordpieces with ## prefixes.
    * 
    * @param text The text to tokenize
    * @returns Array of token strings
    */
-  private basicTokenize(text: string): string[] {
+  private internalBasicTokenize(text: string): string[] {
     // Basic splitting on whitespace and punctuation
-    const words = text.split(/\s+/)
+    const words = text.trim().toLowerCase().split(/\s+/) // Ensure text is normalized here
       .flatMap(word => {
         // Handle punctuation
         return word.split(/([^\w\-]+)/).filter(part => part.length > 0);
