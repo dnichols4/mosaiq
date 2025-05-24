@@ -260,8 +260,8 @@ export class ClassificationService {
       
       // Convert to ConceptClassification objects
       return similarConcepts
-        .filter(match => match.id.startsWith('concept:'))
-        .map(match => ({
+        .filter((match: { id: string; similarity: number; }) => match.id.startsWith('concept:'))
+        .map((match: { id: string; similarity: number; }) => ({
           conceptId: match.id.replace('concept:', ''),
           confidence: match.similarity,
           classifiedAt: new Date().toISOString(),

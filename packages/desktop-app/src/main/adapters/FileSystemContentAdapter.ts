@@ -20,7 +20,7 @@ export class FileSystemContentAdapter implements IStorageProvider {
   /**
    * Get content from a file
    */
-  async get<T>(key: string): Promise<T | null> {
+  async getItem<T>(key: string): Promise<T | null> {
     const filePath = this.getFilePath(key);
     
     try {
@@ -38,7 +38,7 @@ export class FileSystemContentAdapter implements IStorageProvider {
   /**
    * Save content to a file
    */
-  async set<T>(key: string, data: T): Promise<void> {
+  async setItem<T>(key: string, data: T): Promise<void> {
     const filePath = this.getFilePath(key);
     
     try {
@@ -53,7 +53,7 @@ export class FileSystemContentAdapter implements IStorageProvider {
   /**
    * Delete a file
    */
-  async delete(key: string): Promise<void> {
+  async removeItem(key: string): Promise<void> {
     const filePath = this.getFilePath(key);
     
     try {

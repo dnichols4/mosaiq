@@ -3,8 +3,8 @@ import * as path from 'path';
 import { JSDOM } from 'jsdom';
 import { Readability } from '@mozilla/readability';
 import * as cheerio from 'cheerio';
-import { IContentProcessor, ProcessedContent, ContentMetadata } from '@mosaiq/platform-abstractions';
-import { ClassificationService, ConceptClassification, TaxonomyService } from '@mosaiq/core';
+import { IContentProcessor, ProcessedContent, ContentMetadata, ConceptClassification } from '@mosaiq/platform-abstractions';
+import { ClassificationService, TaxonomyService } from '@mosaiq/core';
 import { IVectorStorage } from '@mosaiq/platform-abstractions';
 import { EventEmitter } from 'events';
 

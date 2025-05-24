@@ -14,7 +14,7 @@ export class ElectronStorageAdapter implements IStorageProvider {
   /**
    * Get a value from storage
    */
-  async get<T>(key: string): Promise<T | null> {
+  async getItem<T>(key: string): Promise<T | null> {
     const value = this.store.get(key) as T | undefined;
     return value !== undefined ? value : null;
   }
@@ -22,14 +22,14 @@ export class ElectronStorageAdapter implements IStorageProvider {
   /**
    * Set a value in storage
    */
-  async set<T>(key: string, data: T): Promise<void> {
+  async setItem<T>(key: string, data: T): Promise<void> {
     this.store.set(key, data);
   }
   
   /**
    * Delete a value from storage
    */
-  async delete(key: string): Promise<void> {
+  async removeItem(key: string): Promise<void> {
     this.store.delete(key);
   }
   
