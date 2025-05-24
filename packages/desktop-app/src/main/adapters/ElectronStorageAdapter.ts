@@ -36,7 +36,7 @@ export class ElectronStorageAdapter implements IStorageProvider {
   /**
    * Check if a key exists in storage
    */
-  async containsKey(key: string): Promise<boolean> {
+  async has(key: string): Promise<boolean> {
     return this.store.has(key);
   }
   

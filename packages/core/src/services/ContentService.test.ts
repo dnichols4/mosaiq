@@ -1,6 +1,6 @@
 import { ContentService, ContentItem } from './ContentService';
 import { IContentProcessor, ProcessedContent, IStorageProvider } from '@mosaiq/platform-abstractions';
-import { ConceptClassification } from './TaxonomyService'; // Assuming this might be needed for full ContentItem
+import { ConceptClassification } from '@mosaiq/platform-abstractions';
 
 // Mock dependencies
 // Note: jest.Mocked<T> is a helper type, actual mocking is done via jest.fn() or jest.mock()
@@ -8,19 +8,19 @@ import { ConceptClassification } from './TaxonomyService'; // Assuming this migh
 
 const mockContentProcessor: jest.Mocked<IContentProcessor> = {
   processUrl: jest.fn(),
-  // Assuming no other methods are directly called by ContentService in the tested functions.
-  // If other methods like processHtml, processText, extractConcepts were called, they'd need mocks too.
-  processHtml: jest.fn(), 
-  processText: jest.fn(),
-  extractConcepts: jest.fn(), 
+  processHtml: jest.fn(),
+  processFile: jest.fn(),
+  extractMetadata: jest.fn(),
+  classifyContent: jest.fn(),
+  initializeClassification: jest.fn(),
 };
 
 const mockMetadataStorage: jest.Mocked<IStorageProvider> = {
   get: jest.fn(),
   set: jest.fn(),
   delete: jest.fn(),
+  has: jest.fn(),
   keys: jest.fn(),
-  containsKey: jest.fn(),
   clear: jest.fn(),
 };
 
@@ -28,8 +28,8 @@ const mockContentStorage: jest.Mocked<IStorageProvider> = {
   get: jest.fn(),
   set: jest.fn(),
   delete: jest.fn(),
+  has: jest.fn(),
   keys: jest.fn(),
-  containsKey: jest.fn(),
   clear: jest.fn(),
 };
 
@@ -58,10 +58,9 @@ describe('ContentService', () => {
         excerpt: 'Test excerpt.',
         author: 'Test Author',
         publishDate: new Date().toISOString(), // Example date
-        featuredImage: 'http://example.com/image.jpg',
-        language: 'en', // Example language
-        publication: 'Test Publication', // Example publication
-        readingTimeMinutes: 5, // Example reading time
+        featuredImage: 'http://example.com/image.jpg'
+        //publication: 'Test Publication', // Example publication
+        //readingTimeMinutes: 5, // Example reading time
       };
       mockContentProcessor.processUrl.mockResolvedValue(processedData);
       // Assuming IStorageProvider.set returns Promise<void>
@@ -112,7 +111,7 @@ describe('ContentService', () => {
       const item2: ContentItem = { id: item2Id, url: 'url2', title: 'title2', excerpt: 'e2', dateAdded: 'd2' };
       
       mockMetadataStorage.keys.mockResolvedValue([`${METADATA_KEY_PREFIX}${item1Id}`, `${METADATA_KEY_PREFIX}${item2Id}`, 'otherKey']);
-      mockMetadataStorage.get.mockImplementation(async (key) => {
+      mockMetadataStorage.get.mockImplementation(async (key: string) => {
         if (key === `${METADATA_KEY_PREFIX}${item1Id}`) return item1;
         if (key === `${METADATA_KEY_PREFIX}${item2Id}`) return item2;
         return null;
@@ -143,7 +142,7 @@ describe('ContentService', () => {
     it('should handle null items returned from storage during iteration', async () => {
       const item1Id = 'id1';
       mockMetadataStorage.keys.mockResolvedValue([`${METADATA_KEY_PREFIX}${item1Id}`, `${METADATA_KEY_PREFIX}id2ActuallyNull`]);
-      mockMetadataStorage.get.mockImplementation(async (key) => {
+      mockMetadataStorage.get.mockImplementation(async (key: string) => {
         if (key === `${METADATA_KEY_PREFIX}${item1Id}`) {
             return { id: item1Id, url: 'url1', title: 'title1', excerpt: 'e1', dateAdded: 'd1' };
         }
@@ -273,7 +272,7 @@ describe('ContentService', () => {
   describe('updateConcepts', () => {
     const itemId = 'testId';
     const originalItem: ContentItem = { id: itemId, url: 'u', title: 't', excerpt: 'e', dateAdded: 'd', concepts: [] };
-    const newConcepts: ConceptClassification[] = [{ conceptId: 'c1', score: 0.9, label: 'Concept 1' }];
+    const newConcepts: ConceptClassification[] = [{ conceptId: 'c1', confidence: 0.9, classifiedAt: new Date().toISOString() }];
 
     it('should update concepts for an existing item', async () => {
       mockMetadataStorage.get.mockResolvedValue({...originalItem});

@@ -44,7 +44,7 @@ describe('Serialization Utilities', () => {
       const deserialized = deserialize(serialized);
       
       expect(deserialized instanceof Date).toBe(true);
-      expect(deserialized.getTime()).toBe(date.getTime());
+      expect((deserialized as Date).getTime()).toBe(date.getTime());
     });
     
     test('should handle Map objects', () => {
@@ -58,10 +58,11 @@ describe('Serialization Utilities', () => {
       const deserialized = deserialize(serialized);
       
       expect(deserialized instanceof Map).toBe(true);
-      expect(deserialized.size).toBe(map.size);
-      expect(deserialized.get('key1')).toBe('value1');
-      expect(deserialized.get('key2')).toBe(42);
-      expect(deserialized.get('key3')).toEqual({ nested: true });
+      const deserializedMap = deserialized as Map<any, any>;
+      expect(deserializedMap.size).toBe(map.size);
+      expect(deserializedMap.get('key1')).toBe('value1');
+      expect(deserializedMap.get('key2')).toBe(42);
+      expect(deserializedMap.get('key3')).toEqual({ nested: true });
     });
     
     test('should handle Set objects', () => {
@@ -71,14 +72,14 @@ describe('Serialization Utilities', () => {
       const deserialized = deserialize(serialized);
       
       expect(deserialized instanceof Set).toBe(true);
-      expect(deserialized.size).toBe(set.size);
-      expect(deserialized.has(1)).toBe(true);
-      expect(deserialized.has('two')).toBe(true);
+      const deserializedSet = deserialized as Set<any>;
+      expect(deserializedSet.size).toBe(set.size);
+      expect(deserializedSet.has(1)).toBe(true);
+      expect(deserializedSet.has('two')).toBe(true);
       
       // Objects in sets are compared by reference, so we need to check the values
-      const values = Array.from(deserialized.values());
-      const objValue = values.find(v => typeof v === 'object');
-      expect(objValue).toEqual({ three: true });
+      const values = Array.from(deserializedSet.values());
+      expect(values).toEqual(expect.arrayContaining([1, 'two', { three: true }]));
     });
     
     test('should handle RegExp objects', () => {
@@ -88,8 +89,9 @@ describe('Serialization Utilities', () => {
       const deserialized = deserialize(serialized);
       
       expect(deserialized instanceof RegExp).toBe(true);
-      expect(deserialized.source).toBe(regex.source);
-      expect(deserialized.flags).toBe(regex.flags);
+      const deserializedRegExp = deserialized as RegExp;
+      expect(deserializedRegExp.source).toBe(regex.source);
+      expect(deserializedRegExp.flags).toBe(regex.flags);
     });
   });
   

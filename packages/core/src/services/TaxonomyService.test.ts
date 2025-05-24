@@ -1,4 +1,4 @@
-import { TaxonomyService, TaxonomyConcept } from './TaxonomyService';
+import { TaxonomyService } from './TaxonomyService';
 import path from 'path';
 
 describe('TaxonomyService', () => {

@@ -1,18 +1,20 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2019",
-    "module": "CommonJS",
-    "declaration": true,
     "outDir": "./dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "composite": true,
-    "declarationMap": true,
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "jsx": "react"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "references": [
+    { "path": "../platform-abstractions" }
+  ]
 }

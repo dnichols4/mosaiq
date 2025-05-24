@@ -1,5 +1,6 @@
-import { TaxonomyService, ClassificationService, ConceptClassification } from '..';
+import { TaxonomyService, ClassificationService } from '..';
 import { IVectorStorage } from '@mosaiq/platform-abstractions';
+//import { ConceptClassification } from '@mosaiq/platform-abstractions';
 
 // Mock vector storage implementation for testing
 class MockVectorStorage implements IVectorStorage {
@@ -86,11 +87,9 @@ class MockTaxonomyService extends TaxonomyService {
   constructor() {
     super();
     // Override the regular loading mechanism
-    this.loaded = true;
   }
   
   async loadTaxonomy(): Promise<void> {
-    this.loaded = true;
     return Promise.resolve();
   }
   

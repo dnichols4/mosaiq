@@ -14,7 +14,7 @@ export async function migrateContentToSupportConcepts(
 ): Promise<number> {
   try {
     // Get all content items
-    const items = await metadataStorage.getItem<Record<string, ContentItem>>('contentItems') || {};
+    const items = await metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
     let migratedCount = 0;
     let hasChanges = false;
     
@@ -29,7 +29,7 @@ export async function migrateContentToSupportConcepts(
     
     // Only save if there were changes
     if (hasChanges) {
-      await metadataStorage.setItem('contentItems', items);
+      await metadataStorage.set('contentItems', items);
     }
     
     return migratedCount;
