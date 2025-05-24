@@ -76,9 +76,21 @@ export class ElectronContentProcessor extends EventEmitter implements IContentPr
       
       // Create classification service if needed
       if (!this.classificationService || force) {
+        // Construct the absolute path to the MiniLM model directory
+        const modelPath = path.join(__dirname, '..', '..', 'resources', 'models', 'minilm');
+
+        // Check if the model path exists (optional but good practice)
+        if (!fs.existsSync(modelPath)) {
+          console.error(`MiniLM model path not found: ${modelPath}`);
+          throw new Error(`MiniLM model directory not found at ${modelPath}`);
+        }
+
         this.classificationService = new ClassificationService(
           this.taxonomyService,
-          this.vectorStorage
+          this.vectorStorage,
+          {
+            embeddingModelPath: modelPath,
+          }
         );
       }
       

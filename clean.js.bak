@@ -1,0 +1,50 @@
+const fs = require('fs');
+const path = require('path');
+const glob = require('glob');
+
+function deleteFolderRecursive(pathToDelete) {
+  if (fs.existsSync(pathToDelete)) {
+    fs.readdirSync(pathToDelete).forEach((file) => {
+      const curPath = path.join(pathToDelete, file);
+      if (fs.lstatSync(curPath).isDirectory()) {
+        // Recursive call
+        deleteFolderRecursive(curPath);
+      } else {
+        // Delete file
+        fs.unlinkSync(curPath);
+      }
+    });
+    fs.rmdirSync(pathToDelete);
+    console.log(`Deleted: ${pathToDelete}`);
+  }
+}
+
+// Clean the root dist directory
+console.log('Cleaning root dist directory...');
+deleteFolderRecursive(path.join(__dirname, 'dist'));
+
+// Clean dist directories in packages
+console.log('Cleaning package dist directories...');
+const packagesDir = path.join(__dirname, 'packages');
+const packageDirs = fs.readdirSync(packagesDir).filter(file => 
+  fs.statSync(path.join(packagesDir, file)).isDirectory()
+);
+
+packageDirs.forEach(packageDir => {
+  const distPath = path.join(packagesDir, packageDir, 'dist');
+  deleteFolderRecursive(distPath);
+});
+
+// Clean tsbuildinfo files in packages
+console.log('Cleaning tsbuildinfo files in packages...');
+const tsbuildinfoFiles = glob.sync('packages/**/*.tsbuildinfo');
+tsbuildinfoFiles.forEach(file => {
+    try {
+        fs.unlinkSync(file);
+        console.log(`Deleted: ${file}`);
+    } catch (error) {
+        console.error(`Error deleting ${file}:`, error);
+    }
+});
+
+console.log('Clean complete!');
