@@ -1,6 +1,5 @@
 import { IEmbeddingService } from './IEmbeddingService';
 import * as path from 'path';
-import { app } from 'electron';
 
 /**
  * Embedding service that uses the MiniLM model for generating text embeddings
@@ -18,11 +17,13 @@ export class MiniLMEmbeddingService implements IEmbeddingService {
   
   /**
    * Create a new MiniLM embedding service
-   * @param modelPath Optional custom path to the model directory
+   * @param modelPath Custom path to the model directory
    */
-  constructor(modelPath?: string) {
-    // Default path is in the app's resources directory
-    this.modelPath = modelPath || path.join(app.getAppPath(), 'resources', 'models', 'minilm');
+  constructor(modelPath: string) {
+    if (!modelPath) {
+      throw new Error('MiniLMEmbeddingService: modelPath is required.');
+    }
+    this.modelPath = modelPath;
   }
   
   /**

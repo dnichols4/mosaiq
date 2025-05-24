@@ -3,6 +3,12 @@
   "compilerOptions": {
     "outDir": "./dist/main",
     "sourceMap": true
+    // composite: true will be inherited from the base tsconfig.json
   },
-  "include": ["src/main/**/*"]
+  "include": ["src/main/**/*"],
+  "references": [
+    { "path": "../common-ui" },
+    { "path": "../core" },
+    { "path": "../platform-abstractions" }
+  ]
 }

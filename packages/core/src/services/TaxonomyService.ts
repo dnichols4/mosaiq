@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { deserialize, serialize } from '../utils/serialization';
+import { ConceptClassification } from '@mosaiq/platform-abstractions'; // Added import
 
 /**
  * Interface representing a taxonomy concept in the SKOS schema
@@ -14,15 +15,7 @@ export interface TaxonomyConcept {
   inScheme: string;
 }
 
-/**
- * Interface for concept classification with confidence scoring
- */
-export interface ConceptClassification {
-  conceptId: string;       // SKOS concept identifier from taxonomy
-  confidence: number;      // Value between 0-1 indicating confidence
-  classifiedAt: string;    // ISO timestamp
-  userVerified: boolean;   // Whether a user has verified this classification
-}
+// Removed local definition of ConceptClassification as it's now imported
 
 /**
  * Service responsible for loading and managing the knowledge taxonomy

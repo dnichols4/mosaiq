@@ -69,7 +69,7 @@ export class FileSystemContentAdapter implements IStorageProvider {
   /**
    * Check if a file exists
    */
-  async has(key: string): Promise<boolean> {
+  async containsKey(key: string): Promise<boolean> {
     const filePath = this.getFilePath(key);
     return fs.existsSync(filePath);
   }

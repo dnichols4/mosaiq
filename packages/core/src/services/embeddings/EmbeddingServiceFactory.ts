@@ -33,6 +33,11 @@ export class EmbeddingServiceFactory {
    * @returns The embedding service instance
    */
   async getService(type: 'minilm' | string, modelPath?: string): Promise<IEmbeddingService> {
+    // For 'minilm', modelPath is now mandatory
+    if (type.toLowerCase() === 'minilm' && !modelPath) {
+      throw new Error('EmbeddingServiceFactory: modelPath is required for MiniLM service.');
+    }
+
     // Check if service already exists
     if (this.services.has(type)) {
       return this.services.get(type)!;
@@ -43,16 +48,23 @@ export class EmbeddingServiceFactory {
     
     switch (type.toLowerCase()) {
       case 'minilm':
-        service = new MiniLMEmbeddingService(modelPath);
+        // modelPath is guaranteed by the check above
+        service = new MiniLMEmbeddingService(modelPath!); 
         break;
         
       // Future model types can be added here
       // case 'mpnet':
-      //   service = new MPNetEmbeddingService(modelPath);
+      //   // if (type.toLowerCase() === 'mpnet' && !modelPath) { // Example for other types
+      //   //   throw new Error('EmbeddingServiceFactory: modelPath is required for MPNet service.');
+      //   // }
+      //   // service = new MPNetEmbeddingService(modelPath!);
       //   break;
         
       default:
-        // Default to MiniLM
+        // Default to MiniLM, ensure modelPath is checked if this is the effective default path
+        if (!modelPath) { // Check if default also implies minilm and needs a path
+          throw new Error('EmbeddingServiceFactory: modelPath is required for the default MiniLM service.');
+        }
         service = new MiniLMEmbeddingService(modelPath);
     }
     
