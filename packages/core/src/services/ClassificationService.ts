@@ -1,6 +1,6 @@
-import { TaxonomyService, TaxonomyConcept, ConceptClassification } from './TaxonomyService';
+import { TaxonomyService, TaxonomyConcept } from './TaxonomyService'; // ConceptClassification removed
 import { TextBasedClassifier } from './TextBasedClassifier';
-import { IVectorStorage } from '@mosaiq/platform-abstractions';
+import { IVectorStorage, ConceptClassification } from '@mosaiq/platform-abstractions'; // ConceptClassification added
 import { EmbeddingServiceFactory } from './embeddings/EmbeddingServiceFactory';
 import { IEmbeddingService } from './embeddings/IEmbeddingService';
 
@@ -32,8 +32,8 @@ const DEFAULT_OPTIONS: ClassificationOptions = {
   confidenceThreshold: 0.6,
   maxConcepts: 5,
   embeddingModelType: 'minilm',
-  textWeight: 0.6,
-  vectorWeight: 0.4,
+  textWeight: 0.5, // Adjusted
+  vectorWeight: 0.5, // Adjusted
   cacheEmbeddings: true,
   batchSize: 10
 };
@@ -191,15 +191,33 @@ export class ClassificationService {
     
     // Run both classification approaches
     const textResults = await this.textClassifier.classifyContent(title, text, {
-      maxConcepts: mergedOptions.maxConcepts * 2, // Get more initial suggestions for hybrid fusion
-      confidenceThreshold: mergedOptions.confidenceThreshold * 0.8 // Lower threshold for initial suggestions
+      maxConcepts: mergedOptions.maxConcepts * 2, // Get more initial suggestions
+      confidenceThreshold: 1.0 // Placeholder for raw score threshold for TextBasedClassifier
     });
+
+    // Normalize textResults confidence scores
+    let normalizedTextResults = textResults;
+    if (textResults.length > 0) {
+      const maxTextScore = Math.max(...textResults.map(r => r.confidence));
+      if (maxTextScore > 0) {
+        normalizedTextResults = textResults.map(r => ({
+          ...r,
+          confidence: r.confidence / maxTextScore
+        }));
+      } else {
+        // Handle case where all scores are 0 or negative
+        normalizedTextResults = textResults.map(r => ({
+          ...r,
+          confidence: 0 // Ensure confidence is 0 if maxTextScore is 0 or less
+        }));
+      }
+    }
     
     const vectorResults = await this.classifyWithVectors(title, text, mergedOptions);
     
     // Fuse the results
     const fusedResults = this.fuseResults(
-      textResults, 
+      normalizedTextResults, // Pass normalized results
       vectorResults, 
       mergedOptions.textWeight, 
       mergedOptions.vectorWeight,

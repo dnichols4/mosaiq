@@ -83,36 +83,96 @@ export class MiniLMEmbeddingService implements IEmbeddingService {
    */
   async generateEmbedding(text: string): Promise<number[]> {
     this.ensureReady();
-    
+    const overlapSize = 32;
+    const chunkSize = this.maxSequenceLength; // This is the effective length with CLS/SEP for the model
+
     try {
-      // Tokenize the input text
-      const tokenized = this.tokenizer.tokenize(text, this.maxSequenceLength);
-      
-      // Create input tensors
-      const inputIds = new this.ort.Tensor('int64', tokenized.inputIds, [1, tokenized.inputIds.length]);
-      const attentionMask = new this.ort.Tensor('int64', tokenized.attentionMask, [1, tokenized.attentionMask.length]);
-      const tokenTypeIds = new this.ort.Tensor('int64', tokenized.tokenTypeIds, [1, tokenized.tokenTypeIds.length]);
-      
-      // Run inference
-      const feeds = {
-        'input_ids': inputIds,
-        'attention_mask': attentionMask,
-        'token_type_ids': tokenTypeIds
-      };
-      
-      const results = await this.session.run(feeds);
-      
-      // Extract and process the embedding
-      // MiniLM uses mean pooling of the last hidden state
-      const lastHiddenState = results['last_hidden_state'].data;
-      const embedding = this.meanPooling(
-        lastHiddenState, 
-        tokenized.attentionMask, 
-        tokenized.inputIds.length, 
-        this.dimension
-      );
-      
-      return embedding;
+      const tokens = this.tokenizer._tokenize(text);
+      const allTokenIds = this.tokenizer.convertTokensToIds(tokens);
+
+      // Max tokens the model can take excluding CLS and SEP
+      const maxContentTokens = chunkSize - 2; 
+
+      if (allTokenIds.length <= maxContentTokens) {
+        // Text is short enough, process as a single chunk
+        const modelInput = this.tokenizer.prepareInputFromIds(allTokenIds, chunkSize);
+        
+        const inputIdsTensor = new this.ort.Tensor('int64', modelInput.inputIds, [1, modelInput.inputIds.length]);
+        const attentionMaskTensor = new this.ort.Tensor('int64', modelInput.attentionMask, [1, modelInput.attentionMask.length]);
+        const tokenTypeIdsTensor = new this.ort.Tensor('int64', modelInput.tokenTypeIds, [1, modelInput.tokenTypeIds.length]);
+        
+        const feeds = {
+          'input_ids': inputIdsTensor,
+          'attention_mask': attentionMaskTensor,
+          'token_type_ids': tokenTypeIdsTensor
+        };
+        
+        const results = await this.session.run(feeds);
+        const lastHiddenState = results['last_hidden_state'].data;
+        
+        return this.meanPooling(
+          lastHiddenState, 
+          modelInput.attentionMask, 
+          chunkSize, // Use fixed chunk size (maxSequenceLength) for pooling
+          this.dimension
+        );
+      } else {
+        // Text is long, implement chunking
+        const chunkEmbeddings: number[][] = [];
+        
+        for (let i = 0; i < allTokenIds.length; i += (maxContentTokens - overlapSize)) {
+          const chunkContentTokenIds = allTokenIds.slice(i, i + maxContentTokens);
+          
+          if (chunkContentTokenIds.length === 0) continue; // Should not happen if loop condition is correct
+
+          const modelInput = this.tokenizer.prepareInputFromIds(chunkContentTokenIds, chunkSize);
+          
+          const inputIdsTensor = new this.ort.Tensor('int64', modelInput.inputIds, [1, modelInput.inputIds.length]);
+          const attentionMaskTensor = new this.ort.Tensor('int64', modelInput.attentionMask, [1, modelInput.attentionMask.length]);
+          const tokenTypeIdsTensor = new this.ort.Tensor('int64', modelInput.tokenTypeIds, [1, modelInput.tokenTypeIds.length]);
+
+          const feeds = {
+            'input_ids': inputIdsTensor,
+            'attention_mask': attentionMaskTensor,
+            'token_type_ids': tokenTypeIdsTensor
+          };
+          
+          const results = await this.session.run(feeds);
+          const lastHiddenState = results['last_hidden_state'].data;
+          
+          const chunkEmbedding = this.meanPooling(
+            lastHiddenState, 
+            modelInput.attentionMask, 
+            chunkSize, // Use fixed chunk size (maxSequenceLength) for pooling
+            this.dimension
+          );
+          chunkEmbeddings.push(chunkEmbedding);
+
+          // Break if this chunk processed all remaining tokens
+          if ((i + maxContentTokens) >= allTokenIds.length) {
+            break;
+          }
+        }
+
+        if (chunkEmbeddings.length === 0) {
+          // This case should ideally not be reached if allTokenIds.length > maxContentTokens
+          // But as a fallback, return zero vector or handle error
+          console.warn("No chunk embeddings generated for a long text. This might indicate an issue.");
+          return new Array(this.dimension).fill(0);
+        }
+
+        // Average the embeddings from all chunks
+        const finalEmbedding = new Array(this.dimension).fill(0);
+        for (const emb of chunkEmbeddings) {
+          for (let j = 0; j < this.dimension; j++) {
+            finalEmbedding[j] += emb[j];
+          }
+        }
+        for (let j = 0; j < this.dimension; j++) {
+          finalEmbedding[j] /= chunkEmbeddings.length;
+        }
+        return finalEmbedding;
+      }
     } catch (error) {
       console.error('Error generating embedding:', error);
       throw error;

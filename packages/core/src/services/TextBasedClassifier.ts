@@ -1,4 +1,5 @@
-import { TaxonomyService, TaxonomyConcept, ConceptClassification } from './TaxonomyService';
+import { TaxonomyService, TaxonomyConcept } from './TaxonomyService'; // ConceptClassification removed
+import { ConceptClassification } from '@mosaiq/platform-abstractions'; // ConceptClassification added
 
 /**
  * Represents a term extracted from content with frequency and position information
@@ -81,7 +82,7 @@ export class TextBasedClassifier {
     const extractedTerms = this.extractTerms(title, paragraphs);
     
     // Match terms against concepts
-    const conceptMatches = await this.matchTermsToConcepts(extractedTerms, positionWeights);
+    const conceptMatches = await this.matchTermsToConcepts(extractedTerms, positionWeights, confidenceThreshold);
     
     // Calculate confidence scores
     const classifications = this.calculateConfidence(conceptMatches, confidenceThreshold, maxConcepts);
@@ -185,7 +186,8 @@ export class TextBasedClassifier {
    */
   private async matchTermsToConcepts(
     terms: ExtractedTerm[],
-    weights: PositionWeights
+    weights: PositionWeights,
+    confidenceThreshold: number // Added confidenceThreshold
   ): Promise<ConceptMatch[]> {
     const concepts = this.taxonomyService.getAllConcepts();
     const conceptMatches: ConceptMatch[] = [];
@@ -196,6 +198,25 @@ export class TextBasedClassifier {
       
       if (matchResult.score > 0) {
         conceptMatches.push(matchResult);
+      }
+    }
+    
+    // Apply bonus for related concepts
+    const relatedScoreBonusFactor = 0.1; // 10% bonus
+    const relatedScoreThresholdFactor = 0.5; // Related concept's score must be at least 50% of the main confidence threshold
+    const relatedConceptsThreshold = confidenceThreshold * relatedScoreThresholdFactor;
+
+    for (const match of conceptMatches) {
+      if (match.concept.related && match.concept.related.length > 0) {
+        for (const relatedConceptId of match.concept.related) {
+          // Find the related concept's match in the current list of matches
+          const relatedMatch = conceptMatches.find(cm => cm.concept.id === relatedConceptId);
+          
+          if (relatedMatch && relatedMatch.score > relatedConceptsThreshold) {
+            // Apply a bonus to the current match's score based on the related match's score
+            match.score += (relatedMatch.score * relatedScoreBonusFactor);
+          }
+        }
       }
     }
     
@@ -264,22 +285,6 @@ export class TextBasedClassifier {
           term: term.term,
           weight: matchingScore
         });
-      }
-    }
-    
-    // Consider taxonomy relationships
-    // Bonus if parent concept also has a match
-    const parentConcept = this.taxonomyService.getParentConcept(concept.id);
-    if (parentConcept) {
-      // Find if parent concept has a match
-      const parentMatches = matchedTerms.filter(match => 
-        normalizedLabel.includes(parentConcept.prefLabel.toLowerCase()) ||
-        parentConcept.prefLabel.toLowerCase().includes(normalizedLabel)
-      );
-      
-      if (parentMatches.length > 0) {
-        // Apply a modest bonus for hierarchical consistency
-        score *= 1.2;
       }
     }
     
@@ -364,26 +369,23 @@ export class TextBasedClassifier {
     maxConcepts: number
   ): ConceptClassification[] {
     // If no matches, return empty array
+    // If no matches, return empty array
     if (matches.length === 0) {
       return [];
     }
-    
-    // Normalize scores to 0-1 range
-    const maxScore = Math.max(...matches.map(match => match.score));
-    const normalizedMatches = matches.map(match => ({
-      ...match,
-      confidence: match.score / maxScore
-    }));
-    
-    // Filter by threshold and limit to max concepts
-    const filteredMatches = normalizedMatches
-      .filter(match => match.confidence >= threshold)
+
+    // Sort matches by raw score first
+    const sortedMatches = matches.sort((a, b) => b.score - a.score);
+
+    // Filter by threshold (now applying to raw scores) and limit to max concepts
+    const filteredMatches = sortedMatches
+      .filter(match => match.score >= threshold) 
       .slice(0, maxConcepts);
-    
-    // Convert to ConceptClassification objects
+
+    // Convert to ConceptClassification objects, using raw score as confidence
     return filteredMatches.map(match => ({
       conceptId: match.concept.id,
-      confidence: match.confidence,
+      confidence: match.score, // Use raw score as confidence
       classifiedAt: new Date().toISOString(),
       userVerified: false
     }));

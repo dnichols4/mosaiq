@@ -16,3 +16,6 @@ export * from './content/IContentProcessor';
 
 // Export platform detection utilities
 export * from './utils/platformDetection';
+
+// Export custom types
+export * from './types/ConceptClassification';
