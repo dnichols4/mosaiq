@@ -8,6 +8,7 @@
 | 1.2 | 2025-04-11 | Updated to include platform dialog and file picker components |
 | 1.3 | 2025-04-11 | Updated to include vector storage and serialization components |
 | 1.4 | 2025-04-13 | Updated to include classification services, UI components, and embedding infrastructure |
+| 1.5 | 2025-04-13 | Updated to include integrated classification pipeline with content processing |
 
 ## Overview
 
@@ -75,9 +76,9 @@ The core package contains the business logic for the application, independent of
 core/
 ├── src/
 │   ├── services/      # Core services
-│   │   ├── ContentService.ts    # Service for managing content processing
+│   │   ├── ContentService.ts    # Service for managing content processing with auto-classification
 │   │   ├── SettingsService.ts   # Service for application settings
-│   │   ├── ClassificationService.ts  # Hybrid classification service
+│   │   ├── ClassificationService.ts  # Hybrid classification service with configurable parameters
 │   │   ├── TaxonomyService.ts   # SKOS taxonomy management
 │   │   ├── TextBasedClassifier.ts  # Term extraction and matching
 │   │   └── embeddings/     # Embedding services
@@ -145,7 +146,7 @@ desktop-app/
 │   │   │   │   └── ElectronDialogService.ts    # Electron-specific dialog service
 │   │   │   └── file/                         # File picker implementation
 │   │   │       └── ElectronFilePickerService.ts # Electron-specific file picker service
-│   │   ├── ipc.ts     # IPC handler registration and routing
+│   │   ├── ipc.ts     # IPC handler registration and routing for all services
 │   │   ├── main.ts    # Main process entry point and window management
 │   │   └── preload.ts # Preload script for exposing APIs to renderer
 │   └── renderer/      # Frontend React application
@@ -203,12 +204,13 @@ The renderer process (`index.tsx`, `App.tsx`) contains:
 ### Core Services
 
 Core services in the `@mosaiq/core` package implement the main application logic:
-- ContentService: Manages content processing and transformation
+- ContentService: Manages content processing, transformation, and automatic classification
 - SettingsService: Handles application settings and preferences
 - ClassificationService: Provides hybrid content classification using text and vector approaches
 - TaxonomyService: Manages SKOS taxonomy with concept hierarchy navigation
 - TextBasedClassifier: Extracts terms and performs matching with taxonomy concepts
 - EmbeddingService: Generates vector embeddings using MiniLM model
+- Classification event system: Provides progress reporting and status updates
 
 ### Platform Abstraction
 

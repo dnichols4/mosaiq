@@ -1,20 +1,39 @@
 import { ipcMain } from 'electron';
 import { ContentService, SettingsService, TaxonomyService } from '@mosaiq/core';
 import { AdapterFactory } from './adapters/AdapterFactory';
-import { ElectronContentProcessor } from './adapters/ElectronContentProcessor';
+import { ElectronContentProcessor, ClassificationProgressEvent } from './adapters/ElectronContentProcessor';
+import { BrowserWindow } from 'electron';
 
 /**
  * Register IPC handlers for communication between main and renderer processes
  */
-export async function registerIpcHandlers() {
+export async function registerIpcHandlers(mainWindow: BrowserWindow) {
   // Create services with adapters
-  const contentProcessor = await AdapterFactory.createContentProcessor(true) as ElectronContentProcessor;
+  const contentProcessor = await AdapterFactory.createContentProcessor(true);
+  
+  // Type assertion to get access to additional methods
+  const processorWithEvents = contentProcessor as unknown as ElectronContentProcessor;
   
   const contentService = new ContentService(
     contentProcessor,
     AdapterFactory.createMetadataStorage(),
-    AdapterFactory.createContentStorage()
+    AdapterFactory.createContentStorage(),
+    true // Enable automatic classification by default
   );
+  
+  // Forward classification progress events from content processor to renderer
+  processorWithEvents.on('classification-progress', (event: ClassificationProgressEvent) => {
+    if (mainWindow && !mainWindow.isDestroyed()) {
+      mainWindow.webContents.send('classification-processor-progress', event);
+    }
+  });
+  
+  // Forward classification progress events from content service to renderer
+  contentService.on('classification-progress', (event) => {
+    if (mainWindow && !mainWindow.isDestroyed()) {
+      mainWindow.webContents.send('classification-service-progress', event);
+    }
+  });
   
   const settingsService = new SettingsService(
     AdapterFactory.createSettingsStorage()
@@ -88,11 +107,111 @@ export async function registerIpcHandlers() {
     }
   });
   
-  ipcMain.handle('classify-content', async (_, title: string, text: string) => {
+  ipcMain.handle('classify-content', async (_, title: string, text: string, options?: any) => {
     try {
-      return await contentProcessor.classifyContent(title, text);
+      return await contentProcessor.classifyContent(title, text, options);
     } catch (error) {
       console.error('Error classifying content:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('classify-content-item', async (_, id: string, options?: { force?: boolean }) => {
+    try {
+      return await contentService.classifyContentItem(id, options);
+    } catch (error) {
+      console.error(`Error classifying content item with ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('batch-reclassify', async (_, ids: string[], options?: { force?: boolean }) => {
+    try {
+      return await contentService.batchReclassify(ids, options);
+    } catch (error) {
+      console.error('Error batch reclassifying content items:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('cancel-classification', async (_, id: string) => {
+    try {
+      return contentService.cancelClassification(id);
+    } catch (error) {
+      console.error(`Error canceling classification for item with ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('get-classification-status', async (_, id: string) => {
+    try {
+      return contentService.getClassificationStatus(id);
+    } catch (error) {
+      console.error(`Error getting classification status for item with ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('is-classifying', async (_, id: string) => {
+    try {
+      return contentService.isClassifying(id);
+    } catch (error) {
+      console.error(`Error checking if item with ID ${id} is being classified:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('extract-metadata', async (_, id: string, options?: any) => {
+    try {
+      return await contentService.extractMetadata(id);
+    } catch (error) {
+      console.error(`Error extracting metadata for item with ID ${id}:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('set-auto-classification', async (_, enabled: boolean) => {
+    try {
+      contentService.setAutoClassification(enabled);
+      return enabled;
+    } catch (error) {
+      console.error(`Error setting auto-classification to ${enabled}:`, error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('is-auto-classification-enabled', async () => {
+    try {
+      return contentService.isAutoClassificationEnabled();
+    } catch (error) {
+      console.error('Error checking if auto-classification is enabled:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('is-classification-available', async () => {
+    try {
+      return processorWithEvents.isClassificationAvailable();
+    } catch (error) {
+      console.error('Error checking if classification is available:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('get-classification-service-status', async () => {
+    try {
+      return processorWithEvents.getClassificationStatus();
+    } catch (error) {
+      console.error('Error getting classification service status:', error);
+      throw error;
+    }
+  });
+  
+  ipcMain.handle('initialize-classification', async (_, force: boolean = false) => {
+    try {
+      return await processorWithEvents.initializeClassification(force);
+    } catch (error) {
+      console.error('Error initializing classification:', error);
       throw error;
     }
   });

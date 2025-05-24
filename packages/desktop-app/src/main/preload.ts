@@ -15,7 +15,32 @@ contextBridge.exposeInMainWorld('electronAPI', {
   
   // Classification-related methods
   updateConcepts: (id: string, concepts: any[]) => ipcRenderer.invoke('update-concepts', id, concepts),
-  classifyContent: (title: string, text: string) => ipcRenderer.invoke('classify-content', title, text),
+  classifyContent: (title: string, text: string, options?: any) => ipcRenderer.invoke('classify-content', title, text, options),
+  classifyContentItem: (id: string, options?: { force?: boolean }) => ipcRenderer.invoke('classify-content-item', id, options),
+  batchReclassify: (ids: string[], options?: { force?: boolean }) => ipcRenderer.invoke('batch-reclassify', ids, options),
+  cancelClassification: (id: string) => ipcRenderer.invoke('cancel-classification', id),
+  getClassificationStatus: (id: string) => ipcRenderer.invoke('get-classification-status', id),
+  isClassifying: (id: string) => ipcRenderer.invoke('is-classifying', id),
+  extractMetadata: (id: string, options?: any) => ipcRenderer.invoke('extract-metadata', id, options),
+  setAutoClassification: (enabled: boolean) => ipcRenderer.invoke('set-auto-classification', enabled),
+  isAutoClassificationEnabled: () => ipcRenderer.invoke('is-auto-classification-enabled'),
+  isClassificationAvailable: () => ipcRenderer.invoke('is-classification-available'),
+  getClassificationServiceStatus: () => ipcRenderer.invoke('get-classification-service-status'),
+  initializeClassification: (force?: boolean) => ipcRenderer.invoke('initialize-classification', force),
+  
+  // Event listeners
+  onClassificationProcessorProgress: (callback: (event: any) => void) => {
+    ipcRenderer.on('classification-processor-progress', (_event, data) => callback(data));
+    return () => {
+      ipcRenderer.removeAllListeners('classification-processor-progress');
+    };
+  },
+  onClassificationServiceProgress: (callback: (event: any) => void) => {
+    ipcRenderer.on('classification-service-progress', (_event, data) => callback(data));
+    return () => {
+      ipcRenderer.removeAllListeners('classification-service-progress');
+    };
+  },
   
   // Taxonomy-related methods
   getTaxonomyConcepts: () => ipcRenderer.invoke('get-taxonomy-concepts'),

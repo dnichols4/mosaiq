@@ -1,6 +1,6 @@
 # Knowledge & Learning Management Application
 
-## Architecture Document v1.4
+## Architecture Document v1.5
 
 ### Revision History
 
@@ -13,6 +13,7 @@
 | 1.4 | 2025-04-11 | Updated to include platform dialog and file picker abstractions |
 | 1.5 | 2025-04-11 | Updated to include vector storage and serialization implementations |
 | 1.6 | 2025-04-13 | Updated AI Processing Layer details and current implementation status to include classification and embedding services |
+| 1.7 | 2025-04-13 | Updated to include classification integration with content processing pipeline |
 
 ### 1\. System Overview
 
@@ -62,8 +63,12 @@ The project is organized as a monorepo using npm workspaces with the following p
 *   Hybrid AI processing combining text-based and vector-based classification
 *   Classification confidence scoring and threshold filtering
 *   Term extraction with position-aware weighting
+*   Automatic classification during content import and save operations
+*   Background classification processing with progress reporting
+*   Batch reclassification capabilities for multiple content items
+*   Classification cancellation and status reporting
 *   Learning path generation (planned)
-*   Phase 2 implementation completed with classification and embedding services
+*   Phase 3 implementation completed with integrated classification pipeline
 
 ##### 2.2.5 Data Management Layer
 
@@ -250,7 +255,7 @@ The application is currently in active development with the following implementa
     * Vector similarity search for semantic content classification
 *   PDF and EPUB support planned but not yet implemented
 *   Data graph visualization and relationship management planned but not yet implemented
-*   Phase 1 and 2 of auto-classification implementation completed
+*   Phase 1, 2, and 3 of auto-classification implementation completed
 
 #### 8.1 Component Extensibility
 

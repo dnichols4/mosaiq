@@ -28,9 +28,41 @@ export interface IContentProcessor {
   /**
    * Extract metadata from processed content
    * @param content The content to extract metadata from
+   * @param options Optional extraction options
    * @returns The extracted metadata
    */
-  extractMetadata(content: ProcessedContent): Promise<ContentMetadata>;
+  extractMetadata(
+    content: ProcessedContent,
+    options?: {
+      includeClassification?: boolean,
+      classificationOptions?: any,
+      signal?: AbortSignal
+    }
+  ): Promise<ContentMetadata>;
+  
+  /**
+   * Classify content using available classification services
+   * @param title Content title
+   * @param text Content text
+   * @param options Optional classification options
+   * @returns Concept classifications
+   */
+  classifyContent(
+    title: string,
+    text: string,
+    options?: {
+      confidenceThreshold?: number,
+      maxConcepts?: number,
+      signal?: AbortSignal
+    }
+  ): Promise<ConceptClassification[]>;
+  
+  /**
+   * Initialize classification services
+   * @param force Force reinitialization
+   * @returns True if initialization succeeded
+   */
+  initializeClassification(force?: boolean): Promise<boolean>;
 }
 
 /**
