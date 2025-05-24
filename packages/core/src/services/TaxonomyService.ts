@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { deserialize, serialize } from '../utils/serialization';
-import { ConceptClassification } from '@mosaiq/platform-abstractions'; // Added import
+// Removed import { ConceptClassification } from '@mosaiq/platform-abstractions';
 
 /**
  * Interface representing a taxonomy concept in the SKOS schema
@@ -16,7 +16,8 @@ export interface TaxonomyConcept {
   inScheme: string;
 }
 
-// Removed local definition of ConceptClassification as it's now imported
+// Local definition of ConceptClassification should not exist here.
+// It is defined and exported from @mosaiq/platform-abstractions.
 
 /**
  * Service responsible for loading and managing the knowledge taxonomy

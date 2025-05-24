@@ -1,6 +1,6 @@
-import { TaxonomyService, TaxonomyConcept, ConceptClassification } from './TaxonomyService';
+import { TaxonomyService, TaxonomyConcept } from './TaxonomyService'; // ConceptClassification removed
 import { TextBasedClassifier } from './TextBasedClassifier';
-import { IVectorStorage } from '@mosaiq/platform-abstractions';
+import { IVectorStorage, ConceptClassification } from '@mosaiq/platform-abstractions'; // ConceptClassification added
 import { EmbeddingServiceFactory } from './embeddings/EmbeddingServiceFactory';
 import { IEmbeddingService } from './embeddings/IEmbeddingService';
 

@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events'; // Added
 import { IContentProcessor, ProcessedContent, IStorageProvider, ConceptClassification } from '@mosaiq/platform-abstractions';
 // Removed: import { ConceptClassification } from './TaxonomyService';
 
@@ -27,6 +28,22 @@ export interface ClassificationProgressEvent {
   progress: number; // 0-100
   status: 'pending' | 'processing' | 'completed' | 'error';
   error?: string;
+}
+
+export interface ContentMetadata {
+  id?: string; // Changed
+  title?: string;
+  url?: string;
+  savedAt?: string; // Changed
+  updatedAt?: string; // Changed
+  summary?: string;
+  source?: string;
+  status?: 'unread' | 'read' | 'archived';
+  concepts?: ConceptClassification[]; // Uses the centralized type
+  readingProgress?: number; // 0-1
+  estimatedReadingTime?: number; // in minutes
+  contentHash?: string;
+  // Add any other relevant metadata fields you are aware of for this application
 }
 
 /**
@@ -74,7 +91,7 @@ export class ContentService extends EventEmitter {
       const id = this.generateId();
       
       // Store the content
-      await this.contentStorage.set(id, processedContent.content);
+      await this.contentStorage.setItem(id, processedContent.content);
       
       // Create and store metadata
       const contentItem: ContentItem = {
@@ -91,7 +108,7 @@ export class ContentService extends EventEmitter {
       };
       
       // Store the individual content item's metadata
-      await this.metadataStorage.set(METADATA_KEY_PREFIX + id, contentItem);
+      await this.metadataStorage.setItem(METADATA_KEY_PREFIX + id, contentItem);
       
       // Trigger automatic classification if enabled
       if (this.autoClassifyContent) {
@@ -118,7 +135,7 @@ export class ContentService extends EventEmitter {
       
       const items: ContentItem[] = [];
       for (const key of itemKeys) {
-        const item = await this.metadataStorage.get<ContentItem>(key);
+        const item = await this.metadataStorage.getItem<ContentItem>(key);
         if (item) {
           items.push(item);
         }
@@ -139,14 +156,14 @@ export class ContentService extends EventEmitter {
   async getItemWithContent(id: string): Promise<ContentItem & { content: string }> {
     try {
       // Get metadata
-      const item = await this.metadataStorage.get<ContentItem>(METADATA_KEY_PREFIX + id);
+      const item = await this.metadataStorage.getItem<ContentItem>(METADATA_KEY_PREFIX + id);
       
       if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
       }
       
       // Get content
-      const content = await this.contentStorage.get<string>(id);
+      const content = await this.contentStorage.getItem<string>(id);
       
       if (!content) {
         throw new Error(`Content for item with ID ${id} not found`);
@@ -171,7 +188,7 @@ export class ContentService extends EventEmitter {
       // Check if item exists before attempting to delete its metadata
       // This also ensures we don't try to delete content for a non-existent metadata entry.
       const itemKey = METADATA_KEY_PREFIX + id;
-      const itemExists = await this.metadataStorage.get<ContentItem>(itemKey);
+      const itemExists = await this.metadataStorage.getItem<ContentItem>(itemKey);
 
       if (!itemExists) {
         // Optional: Log a warning or simply return if non-existence is acceptable for delete.
@@ -182,13 +199,13 @@ export class ContentService extends EventEmitter {
         // Depending on desired strictness, you might throw or just proceed to delete content.
       } else {
         // Remove item from metadata
-        await this.metadataStorage.delete(itemKey);
+        await this.metadataStorage.removeItem(itemKey);
       }
       
       // Delete content (this part remains the same)
       // Note: Consider if content should be deleted if metadata was not found.
       // Current logic: will attempt to delete content regardless of metadata presence.
-      await this.contentStorage.delete(id);
+      await this.contentStorage.removeItem(id);
     } catch (error) {
       console.error(`Error deleting content item with ID ${id}:`, error);
       throw error;
@@ -204,14 +221,14 @@ export class ContentService extends EventEmitter {
   async updateTags(id: string, tags: string[]): Promise<ContentItem> {
     try {
       const itemKey = METADATA_KEY_PREFIX + id;
-      const item = await this.metadataStorage.get<ContentItem>(itemKey);
+      const item = await this.metadataStorage.getItem<ContentItem>(itemKey);
       
       if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
       }
       
       item.tags = tags;
-      await this.metadataStorage.set(itemKey, item);
+      await this.metadataStorage.setItem(itemKey, item);
       
       return item;
     } catch (error) {
@@ -229,14 +246,14 @@ export class ContentService extends EventEmitter {
   async updateThumbnail(id: string, imageUrl: string): Promise<ContentItem> {
     try {
       const itemKey = METADATA_KEY_PREFIX + id;
-      const item = await this.metadataStorage.get<ContentItem>(itemKey);
+      const item = await this.metadataStorage.getItem<ContentItem>(itemKey);
 
       if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
       }
 
       item.featuredImage = imageUrl;
-      await this.metadataStorage.set(itemKey, item);
+      await this.metadataStorage.setItem(itemKey, item);
 
       return item;
     } catch (error) {
@@ -254,14 +271,14 @@ export class ContentService extends EventEmitter {
   async updateConcepts(id: string, concepts: ConceptClassification[]): Promise<ContentItem> {
     try {
       const itemKey = METADATA_KEY_PREFIX + id;
-      const item = await this.metadataStorage.get<ContentItem>(itemKey);
+      const item = await this.metadataStorage.getItem<ContentItem>(itemKey);
 
       if (!item) {
         throw new Error(`Content item with ID ${id} not found`);
       }
 
       item.concepts = concepts;
-      await this.metadataStorage.set(itemKey, item);
+      await this.metadataStorage.setItem(itemKey, item);
       
       return item;
     } catch (error) {

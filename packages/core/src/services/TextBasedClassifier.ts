@@ -1,4 +1,5 @@
-import { TaxonomyService, TaxonomyConcept, ConceptClassification } from './TaxonomyService';
+import { TaxonomyService, TaxonomyConcept } from './TaxonomyService'; // ConceptClassification removed
+import { ConceptClassification } from '@mosaiq/platform-abstractions'; // ConceptClassification added
 
 /**
  * Represents a term extracted from content with frequency and position information

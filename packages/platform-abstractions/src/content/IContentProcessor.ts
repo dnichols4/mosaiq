@@ -1,3 +1,5 @@
+import { ConceptClassification } from '../types/ConceptClassification'; // Added import
+
 /**
  * Interface for content processing operations
  * Abstracts content manipulation and extraction logic
@@ -100,30 +102,7 @@ export interface ProcessedContent {
   content: string;
 }
 
-/**
- * Interface for concept classification with confidence scoring
- */
-export interface ConceptClassification {
-  /**
-   * SKOS concept identifier from taxonomy
-   */
-  conceptId: string;
-  
-  /**
-   * Value between 0-1 indicating confidence
-   */
-  confidence: number;
-  
-  /**
-   * ISO timestamp of when the classification was made
-   */
-  classifiedAt: string;
-  
-  /**
-   * Whether a user has verified this classification
-   */
-  userVerified: boolean;
-}
+// Removed local ConceptClassification definition. It's now imported.
 
 /**
  * Interface representing content metadata

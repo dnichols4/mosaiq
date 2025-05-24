@@ -1,6 +1,6 @@
 import { ContentItem } from '../services/ContentService';
-import { ConceptClassification } from '../services/TaxonomyService';
-import { IStorageProvider } from '@mosaiq/platform-abstractions';
+// ConceptClassification will be imported from @mosaiq/platform-abstractions
+import { IStorageProvider, ConceptClassification } from '@mosaiq/platform-abstractions';
 
 /**
  * Migrates content items to support concept classifications
@@ -14,7 +14,7 @@ export async function migrateContentToSupportConcepts(
 ): Promise<number> {
   try {
     // Get all content items
-    const items = await metadataStorage.get<Record<string, ContentItem>>('contentItems') || {};
+    const items = await metadataStorage.getItem<Record<string, ContentItem>>('contentItems') || {};
     let migratedCount = 0;
     let hasChanges = false;
     
@@ -29,7 +29,7 @@ export async function migrateContentToSupportConcepts(
     
     // Only save if there were changes
     if (hasChanges) {
-      await metadataStorage.set('contentItems', items);
+      await metadataStorage.setItem('contentItems', items);
     }
     
     return migratedCount;
