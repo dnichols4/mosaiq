@@ -14,7 +14,7 @@ dist/
 *.tsbuildinfo
 
 # Storage (user data)
-storage/
+/storage/
 
 # Logs
 logs
