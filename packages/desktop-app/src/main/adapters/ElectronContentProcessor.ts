@@ -496,6 +496,32 @@ export class ElectronContentProcessor extends EventEmitter implements IContentPr
   }
   
   /**
+   * Clean HTML content for classification
+   * Removes HTML tags and extracts meaningful text
+   */
+  private cleanTextForClassification(htmlContent: string): string {
+    // Remove HTML tags
+    let cleanText = htmlContent.replace(/<[^>]*>/g, ' ');
+    
+    // Remove multiple spaces and normalize whitespace
+    cleanText = cleanText.replace(/\s+/g, ' ').trim();
+    
+    // Remove URLs
+    cleanText = cleanText.replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g, '');
+    
+    // Remove email addresses
+    cleanText = cleanText.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '');
+    
+    // Remove excessive punctuation and special characters
+    cleanText = cleanText.replace(/[^\w\s.,!?;:-]/g, ' ');
+    
+    // Remove multiple spaces again
+    cleanText = cleanText.replace(/\s+/g, ' ').trim();
+    
+    return cleanText;
+  }
+
+  /**
    * Manually classify content
    * @param title Content title
    * @param text Content text
@@ -556,7 +582,16 @@ export class ElectronContentProcessor extends EventEmitter implements IContentPr
         throw new Error('Classification operation was aborted');
       }
       
-      const concepts = await this.classificationService.classifyContent(title, text, classificationOptions);
+      // Clean the text content for better classification
+      const cleanTitle = title.trim();
+      const cleanText = this.cleanTextForClassification(text);
+      
+      console.log(`[Classification Debug] Original text length: ${text.length}`);
+      console.log(`[Classification Debug] Clean text length: ${cleanText.length}`);
+      console.log(`[Classification Debug] Clean text preview: "${cleanText.substring(0, 200)}..."`);
+      
+      // Perform classification with cleaned content
+      const concepts = await this.classificationService.classifyContent(cleanTitle, cleanText, classificationOptions);
       
       // Emit progress completion event
       this.emit('classification-progress', {

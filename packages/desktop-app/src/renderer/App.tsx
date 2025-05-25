@@ -11,51 +11,7 @@ import { ElectronFilePickerService } from './services/ElectronFilePickerService'
 import ClassificationDebugger from './components/ClassificationDebugger';
 import './styles/main.css';
 
-// Declare the electron API type
-declare global {
-  interface Window {
-    electronAPI: {
-      // Content-related methods
-      saveUrl: (url: string) => Promise<any>;
-      getAllItems: () => Promise<any[]>;
-      getItemWithContent: (id: string) => Promise<any>;
-      deleteItem: (id: string) => Promise<void>;
-      updateTags: (id: string, tags: string[]) => Promise<any>;
-      updateThumbnail: (id: string, imageUrl: string) => Promise<any>;
-      
-      // Classification-related methods
-      updateConcepts: (id: string, concepts: ConceptClassification[]) => Promise<any>;
-      classifyContent: (title: string, text: string) => Promise<ConceptClassification[]>;
-      
-      // Taxonomy-related methods
-      getTaxonomyConcepts: () => Promise<any[]>;
-      getTaxonomyConcept: (conceptId: string) => Promise<any>;
-      searchTaxonomyConcepts: (query: string) => Promise<any[]>;
-      getChildConcepts: (conceptId: string) => Promise<any[]>;
-      
-      // Settings-related methods
-      getReadingSettings: () => Promise<ReadingSettings>;
-      updateReadingSettings: (settings: Partial<ReadingSettings>) => Promise<ReadingSettings>;
-      getAllSettings: () => Promise<any>;
-      updateGeneralSettings: (settings: any) => Promise<any>;
-      resetSettings: () => Promise<any>;
-      
-      // Platform capabilities
-      getPlatformCapabilities: () => Promise<IPlatformCapabilities>;
-      
-      // Dialog-related methods
-      showMessageDialog: (options: any) => Promise<number>;
-      showConfirmDialog: (options: any) => Promise<boolean>;
-      showPromptDialog: (options: any) => Promise<string | null>;
-      
-      // File picker methods
-      openFilePicker: (options: any) => Promise<string | null>;
-      openMultipleFilePicker: (options: any) => Promise<string[]>;
-      openDirectoryPicker: (options: any) => Promise<string | null>;
-      saveFilePicker: (options: any) => Promise<string | null>;
-    };
-  }
-}
+// electronAPI types are now defined in global.d.ts
 
 export const App: React.FC = () => {
   const [platformCapabilities, setPlatformCapabilities] = useState<IPlatformCapabilities | null>(null);
