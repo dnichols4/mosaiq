@@ -8,6 +8,7 @@ resources/taxonomy/lib/
 
 # Production build
 dist/
+*.tsbuildinfo
 
 # Storage (user data)
 storage/
