@@ -84,7 +84,7 @@ export class LocalVectorAdapter implements IVectorStorage {
    * @param id The item's unique identifier
    * @returns The item data { id, embedding }, or null if not found
    */
-  async getItem(id: string): Promise<{ id: string; embedding: number[] } | null> {
+  async get(id: string): Promise<{ id: string; embedding: number[] } | null> {
     const vectorData = await this.getVector(id);
     if (vectorData) {
       return { id, embedding: vectorData.vector };
@@ -97,7 +97,7 @@ export class LocalVectorAdapter implements IVectorStorage {
    * This method calls the existing deleteVector method.
    * @param id The item's unique identifier
    */
-  async removeItem(id: string): Promise<void> {
+  async delete(id: string): Promise<void> {
     await this.deleteVector(id);
   }
 

@@ -2,10 +2,19 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist/main",
-    "sourceMap": true
-    // composite: true will be inherited from the base tsconfig.json
+    "rootDir": "./src/main",
+    "sourceMap": true,
+    "composite": true
   },
-  "include": ["src/main/**/*"],
+  "include": [
+    "src/main/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
   "references": [
     { "path": "../common-ui" },
     { "path": "../core" },

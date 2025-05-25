@@ -63,7 +63,7 @@ export class SettingsService {
    */
   async getSettings(): Promise<AppSettings> {
     try {
-      const settings = await this.settingsStorage.getItem<AppSettings>(this.SETTINGS_KEY);
+      const settings = await this.settingsStorage.get<AppSettings>(this.SETTINGS_KEY);
       // If no settings are found, return default settings
       if (!settings) {
         return DEFAULT_APP_SETTINGS;
@@ -111,7 +111,7 @@ export class SettingsService {
       };
       
       // Save updated settings
-      await this.settingsStorage.setItem(this.SETTINGS_KEY, {
+      await this.settingsStorage.set(this.SETTINGS_KEY, {
         ...settings,
         reading: updatedReadingSettings
       });
@@ -139,7 +139,7 @@ export class SettingsService {
       };
       
       // Save updated settings
-      await this.settingsStorage.setItem(this.SETTINGS_KEY, {
+      await this.settingsStorage.set(this.SETTINGS_KEY, {
         ...settings,
         general: updatedGeneralSettings
       });
@@ -157,7 +157,7 @@ export class SettingsService {
    */
   async resetSettings(): Promise<AppSettings> {
     try {
-      await this.settingsStorage.setItem(this.SETTINGS_KEY, DEFAULT_APP_SETTINGS);
+      await this.settingsStorage.set(this.SETTINGS_KEY, DEFAULT_APP_SETTINGS);
       return DEFAULT_APP_SETTINGS;
     } catch (error) {
       console.error('Error resetting settings:', error);

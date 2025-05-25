@@ -3,8 +3,8 @@ import * as path from 'path';
 import { JSDOM } from 'jsdom';
 import { Readability } from '@mozilla/readability';
 import * as cheerio from 'cheerio';
-import { IContentProcessor, ProcessedContent, ContentMetadata } from '@mosaiq/platform-abstractions';
-import { ClassificationService, ConceptClassification, TaxonomyService } from '@mosaiq/core';
+import { IContentProcessor, ProcessedContent, ContentMetadata, ConceptClassification } from '@mosaiq/platform-abstractions';
+import { ClassificationService, TaxonomyService } from '@mosaiq/core';
 import { IVectorStorage } from '@mosaiq/platform-abstractions';
 import { EventEmitter } from 'events';
 
@@ -76,9 +76,21 @@ export class ElectronContentProcessor extends EventEmitter implements IContentPr
       
       // Create classification service if needed
       if (!this.classificationService || force) {
+        // Construct the absolute path to the MiniLM model directory
+        const modelPath = path.join(__dirname, '..', '..', 'resources', 'models', 'minilm');
+
+        // Check if the model path exists (optional but good practice)
+        if (!fs.existsSync(modelPath)) {
+          console.error(`MiniLM model path not found: ${modelPath}`);
+          throw new Error(`MiniLM model directory not found at ${modelPath}`);
+        }
+
         this.classificationService = new ClassificationService(
           this.taxonomyService,
-          this.vectorStorage
+          this.vectorStorage,
+          {
+            embeddingModelPath: modelPath,
+          }
         );
       }
       
