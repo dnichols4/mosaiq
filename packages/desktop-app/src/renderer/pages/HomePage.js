@@ -201,18 +201,7 @@ const HomePage = ({ platformCapabilities }) => {
         viewMode === 'grid' ? (react_1.default.createElement(GridView_1.GridView, { items: filteredItems, onItemClick: handleItemClick, onDeleteItem: (id, e) => handleItemDelete(id, e), formatDate: formatDate, getSourceIcon: getSourceIcon })) : (react_1.default.createElement(ListView_1.ListView, { items: filteredItems, onItemClick: handleItemClick, onDeleteItem: (id, e) => handleItemDelete(id, e), formatDate: formatDate, formatTime: formatTime, getSourceIcon: getSourceIcon })),
         filteredItems.length === 0 && (react_1.default.createElement("div", { className: "empty-state" },
             react_1.default.createElement("p", null, searchTerm ? 'No articles match your search.' : 'No content saved yet.'),
-            !searchTerm && (react_1.default.createElement("p", null, "Click the + button to add content from a URL.")))),
-        react_1.default.createElement("div", { className: "platform-examples-section" },
-            react_1.default.createElement("h2", null, "Platform UI Examples"),
-            react_1.default.createElement("p", null, "This section demonstrates the platform dialog and file picker abstractions."),
-            react_1.default.createElement(PlatformDialogExample_1.PlatformDialogExample, null)),
-        react_1.default.createElement("style", null, `
-        .platform-examples-section {
-          margin-top: 40px;
-          padding: 20px;
-          border-top: 1px solid #ccc;
-        }
-      `)));
+            !searchTerm && (react_1.default.createElement("p", null, "Click the + button to add content from a URL."))))));
 };
 exports.HomePage = HomePage;
 //# sourceMappingURL=HomePage.js.map
