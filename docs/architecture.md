@@ -46,7 +46,7 @@ The project is organized as a monorepo using npm workspaces with the following p
 
 *   Business logic for application flow
 *   State management and data flow control
-*   Event handling and component communication
+*   Event handling and component communication (e.g., `ContentService` uses `EventEmitter` for progress updates during content processing)
 
 ##### 2.2.3 Content Processing Layer
 
@@ -109,7 +109,7 @@ The project is organized as a monorepo using npm workspaces with the following p
 
 *   TypeScript for type safety
 *   State management with Zustand
-*   Event bus for component communication
+*   Event bus for component communication (e.g., `EventEmitter` in `ContentService`)
 *   Electron IPC for main-renderer process communication
 
 #### 3.3 Content Processing
@@ -130,6 +130,14 @@ The project is organized as a monorepo using npm workspaces with the following p
 *   Confidence score fusion algorithms for classification
 *   Position-aware term weighting (title/first paragraph/body)
 *   Configurable classification parameters and thresholds
+    *   Default options for `ClassificationService`:
+        *   `confidenceThreshold`: 0.3
+        *   `maxConcepts`: 5
+        *   `embeddingModelType`: 'minilm'
+        *   `textWeight`: 0.5
+        *   `vectorWeight`: 0.5
+        *   `cacheEmbeddings`: true
+        *   `batchSize`: 10
 *   Local LLM integration (planned for future phases)
 *   Optional cloud LLM APIs (planned for future phases)
 
@@ -138,7 +146,7 @@ The project is organized as a monorepo using npm workspaces with the following p
 *   Filesystem-based content storage (.md files) - Implemented via FileSystemContentAdapter
 *   Electron Store for application settings and metadata - Implemented via ElectronStorageAdapter
 *   Local database for metadata and relationships (planned)
-*   Vector storage for embeddings - Implemented via LocalVectorAdapter
+*   Vector storage for embeddings - Implemented via LocalVectorAdapter (stores data in `.vec` and `metadata.json` files)
 *   Data serialization with type preservation - Implemented
 *   Encrypted storage utilities (planned)
 
