@@ -10,6 +10,7 @@
     "clean": "node scripts/clean.js",
     "start": "npm run start -w packages/desktop-app",
     "dev": "npm run dev -w packages/desktop-app",
+    "clean-build": "npm run clean && npm run build",
     "build": "npm run build -w packages/platform-abstractions && npm run build -w packages/core && npm run build -w packages/common-ui && npm run build -w packages/desktop-app",
     "test": "npm run test --workspaces"
   },

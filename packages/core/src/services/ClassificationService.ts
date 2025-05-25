@@ -29,7 +29,7 @@ export interface ClassificationOptions {
  * Default configuration for the classification service
  */
 const DEFAULT_OPTIONS: ClassificationOptions = {
-  confidenceThreshold: 0.6,
+  confidenceThreshold: 0.3, // Lowered from 0.6 to 0.3 for better matching
   maxConcepts: 5,
   embeddingModelType: 'minilm',
   textWeight: 0.5, // Adjusted

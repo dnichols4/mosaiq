@@ -1,10 +1,12 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist/main",
     "rootDir": "./src/main",
     "sourceMap": true,
-    "composite": true
+    "composite": true,
+    "module": "CommonJS",
+    "target": "ES2020"
   },
   "include": [
     "src/main/**/*.ts"
@@ -16,8 +18,8 @@
     "**/*.test.tsx"
   ],
   "references": [
-    { "path": "../common-ui" },
+    { "path": "../platform-abstractions" },
     { "path": "../core" },
-    { "path": "../platform-abstractions" }
+    { "path": "../common-ui" }
   ]
 }
