@@ -2,6 +2,12 @@
 
 Mosaiq is a cross-platform desktop application for personal knowledge management focused on content consumption, annotation, and concept relationship discovery.
 
+## Run
+- Clone repo
+- `npm install`
+- `npm run build`
+- `npm start` or `npm run dev`
+
 ## Project Architecture
 
 The project has been restructured into a monorepo with the following packages:

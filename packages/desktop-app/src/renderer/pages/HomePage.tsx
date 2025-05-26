@@ -16,7 +16,7 @@ export const HomePage: React.FC<HomePageProps> = ({ platformCapabilities }) => {
   const [filteredItems, setFilteredItems] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOnline, setIsOnline] = useState(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchTerm, setSearchTerm] = useState('');
   const [spotlightMode, setSpotlightMode] = useState<'search' | 'url' | null>(null);
   const navigate = useNavigate();
