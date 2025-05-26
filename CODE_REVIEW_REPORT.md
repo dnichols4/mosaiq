@@ -1,10 +1,10 @@
 # Design & Code Review Report: Knowledge & Learning Management Application
 
-## 1. Overall Summary & Impression
+## 1\. Overall Summary & Impression
 
 The Knowledge & Learning Management application is a well-architected and sophisticated piece of software. It demonstrates a strong commitment to modern development practices, including a modular monorepo structure, extensive use of TypeScript, a clear separation of concerns, and a robust local-first approach to data and AI processing. The project is ambitious, incorporating complex features like local AI-driven content classification and a platform abstraction layer for future flexibility. The codebase is generally clean, readable, and shows evidence of thoughtful design. While there are areas for improvement, the foundations are very solid.
 
-## 2. Key Strengths
+## 2\. Key Strengths
 
 *   **Architecture & Modularity:**
     *   Excellent monorepo structure (`packages/*`) with clear separation of concerns between UI (`common-ui`), core logic (`core`), desktop integration (`desktop-app`), and platform services (`platform-abstractions`).
@@ -30,17 +30,17 @@ The Knowledge & Learning Management application is a well-architected and sophis
 *   **Testing (Foundations):**
     *   Presence of unit tests for core services and utilities using Jest is a positive sign of testing culture.
 
-## 3. Areas for Improvement & Recommendations
+## 3\. Areas for Improvement & Recommendations
 
 ### 3.1. Critical Priority
 
-*   **Performance of Vector Search (`LocalVectorAdapter.findSimilar`):**
+*   **Performance of Vector Search (**`**LocalVectorAdapter.findSimilar**`**):**
     *   **Issue:** The current brute-force cosine similarity search will not scale with a growing number of documents/concepts. This is the most significant technical bottleneck.
     *   **Recommendation:** Implement an Approximate Nearest Neighbor (ANN) search library (e.g., HNSWlib.js, Faiss compiled to WASM, or a dedicated local vector DB). This is crucial for maintaining performance as the knowledge base grows. (Noted in a TODO in the code).
 
 ### 3.2. High Priority
 
-*   **Content Security Policy (CSP) Hardening (`main.ts`):**
+*   **Content Security Policy (CSP) Hardening (**`**main.ts**`**):**
     *   **Issue:** The CSP includes `'unsafe-inline'` and `'unsafe-eval'` for `script-src`, and `'unsafe-inline'` for `style-src`. `img-src https:` is very broad.
     *   **Recommendation:**
         *   Investigate removing `'unsafe-eval'` for production builds.
@@ -49,10 +49,10 @@ The Knowledge & Learning Management application is a well-architected and sophis
 *   **User-Facing Error Handling (UI):**
     *   **Issue:** Errors from asynchronous operations are often only logged to the console in the UI layer.
     *   **Recommendation:** Implement a more robust and user-friendly error display mechanism (e.g., toast notifications, error dialogs).
-*   **Webpack Configuration (`packages/desktop-app/webpack.config.js`):**
+*   **Webpack Configuration (**`**packages/desktop-app/webpack.config.js**`**):**
     *   **Issue:** Single Webpack config seems geared for development. Main/preload process bundling strategy is unclear.
     *   **Recommendation:** Create separate Webpack configurations for development and production. Clarify/implement Webpack bundling for main and preload scripts.
-*   **Build Script `ensureNodeModules` (`scripts/build.js`):**
+*   **Build Script** `**ensureNodeModules**` **(**`**scripts/build.js**`**):**
     *   **Issue:** Manual symlinking of workspace dependencies is error-prone.
     *   **Recommendation:** Remove `ensureNodeModules()`. Rely on the package manager's workspace functionality.
 
@@ -64,33 +64,33 @@ The Knowledge & Learning Management application is a well-architected and sophis
 *   **Resource Path Standardization (Main Process):**
     *   **Issue:** Inconsistent methods for constructing resource paths (`__dirname` vs. `app.getAppPath()`).
     *   **Recommendation:** Consistently use `app.getAppPath()` for resolving resource paths in the main process.
-*   **`ElectronDialogService.showPromptDialog` Implementation:**
+*   `**ElectronDialogService.showPromptDialog**` **Implementation:**
     *   **Issue:** Currently a placeholder.
     *   **Recommendation:** Implement a proper custom prompt window if required.
-*   **Testing Enhancements (`packages/core`):**
+*   **Testing Enhancements (**`**packages/core**`**):**
     *   **Recommendation:** Improve determinism in `ClassificationService.test.ts` mocks. Add dedicated tests for `TextBasedClassifier.ts`. Expand `ContentService.test.ts` for classification methods/events.
-*   **Performance of Batch Embeddings (`MiniLMEmbeddingService.generateEmbeddings`):**
+*   **Performance of Batch Embeddings (**`**MiniLMEmbeddingService.generateEmbeddings**`**):**
     *   **Issue:** Processes texts sequentially.
     *   **Recommendation:** Investigate true batch processing with ONNX runtime.
-*   **Styling Consistency & Refinement (`packages/common-ui`):**
+*   **Styling Consistency & Refinement (**`**packages/common-ui**`**):**
     *   **Issue:** Mix of CSS files and extensive inline styles in some components.
     *   **Recommendation:** Refactor more static inline styles into CSS files.
 
 ### 3.4. Low Priority / General Housekeeping
 
 *   **Redundant Build Scripts:** Consolidate build script entry points.
-*   **Heuristics in `TextBasedClassifier`:** Document thoroughly; consider making them more configurable or data-driven.
-*   **`ContentService.generateId()`:** Switch to UUIDs if cross-instance syncing is envisioned.
-*   **`ContentService` HTML to Text for Classification:** Ensure cleaned, readable HTML is used, or improve the stripping process.
+*   **Heuristics in** `**TextBasedClassifier**`**:** Document thoroughly; consider making them more configurable or data-driven.
+*   `**ContentService.generateId()**`**:** Switch to UUIDs if cross-instance syncing is envisioned.
+*   `**ContentService**` **HTML to Text for Classification:** Ensure cleaned, readable HTML is used, or improve the stripping process.
 *   **Accessibility (ARIA for Clickable Divs):** Ensure clickable non-button/anchor elements have appropriate ARIA roles and `tabIndex`.
 *   **Electron Packaging Review:** Conduct a review of Electron Forge/Builder configuration.
 *   **Dependency Audit:** Perform routine audits.
 
-## 4. Conclusion
+## 4\. Conclusion
 
 This application is built on a strong architectural foundation with many well-implemented features. The development team has shown a clear understanding of modern software engineering principles. Addressing the critical performance issue with vector search and continuing to refine security and UI error handling will significantly enhance the application's robustness and user experience. The existing modularity and code quality provide an excellent base for future development and feature expansion.
 
-## 5. System Architecture Diagram
+## 5\. System Architecture Diagram
 
 ```mermaid
 graph TD
@@ -135,17 +135,17 @@ graph TD
     class CoreServices,PlatformAbstractions coreLogic;
     class CommonUI uiElements;
     class ElectronStore,FileSystem_Content,VectorDB,Models,TaxonomyFile dataStores;
-end
 ```
 
 This diagram shows:
-- The main packages: `packages/desktop-app` (split into Main and Renderer for clarity), `packages/common-ui`, `packages/core`, and `packages/platform-abstractions`.
-- Key data stores and resources like Electron Store, File System, Vector DB, ML Models, and the Taxonomy File.
-- High-level interactions, such as IPC communication, UI component usage, core logic utilization, and data access.
+
+*   The main packages: `packages/desktop-app` (split into Main and Renderer for clarity), `packages/common-ui`, `packages/core`, and `packages/platform-abstractions`.
+*   Key data stores and resources like Electron Store, File System, Vector DB, ML Models, and the Taxonomy File.
+*   High-level interactions, such as IPC communication, UI component usage, core logic utilization, and data access.
 
 This should provide a good visual overview of the system components.
 
-## 6. Key Sequence Diagrams
+## 6\. Key Sequence Diagrams
 
 ### 6.1. Content Saving & Initial Classification Flow
 
