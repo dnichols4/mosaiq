@@ -141,7 +141,7 @@ desktop-app/
 │   │   │   ├── ElectronPlatformCapabilities.ts # Platform capabilities implementation
 │   │   │   ├── ElectronStorageAdapter.ts     # Storage adapter using Electron Store
 │   │   │   ├── FileSystemContentAdapter.ts   # Storage adapter using filesystem
-│   │   │   ├── LocalVectorAdapter.ts         # Vector storage adapter implementation
+│   │   │   ├── LocalVectorAdapter.ts         # Vector storage adapter (stores data in .vec files and a metadata.json)
 │   │   │   ├── dialog/                       # Dialog implementation
 │   │   │   │   └── ElectronDialogService.ts    # Electron-specific dialog service
 │   │   │   └── file/                         # File picker implementation
